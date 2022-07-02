@@ -6,7 +6,7 @@ SITE Course Year: **2022**
 
 Cohort: **Course Hero**
 
-Team Member Names:**Insert Team Member Names**
+Team Member Names: **Shehab Mohsen, Jose Folgar, Mariam Conde**
 
 Mentors Names: **Pavlo Burko, Lisa Felten, Saurabh Soob**
 
