@@ -8,7 +8,7 @@ Cohort: **Course Hero**
 
 Team Member Names: **Shehab Mohsen, Jose Folgar, Mariam Conde**
 
-Mentors Names: **Pavlo Burko, Lisa Felten, Saurabh Soob**
+Mentors Names: **Pavlo Burko, Lisa Felten, Saurabh Sood**
 
 Project Code Repository Links
 
