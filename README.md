@@ -2,13 +2,13 @@
 
 # SITE Capstone Project
 
-SITE Course Year: **20__**
+SITE Course Year: **2022**
 
-Cohort: **Add Company Sponsor Name**
+Cohort: **Course Hero**
 
 Team Member Names:**Insert Team Member Names**
 
-Mentors Names: **Insert Professional Mentor Names**
+Mentors Names: **Pavlo Burko, Lisa Felten, Saurabh Soob**
 
 Project Code Repository Links
 
@@ -18,6 +18,7 @@ Project Code Repository Links
 ## Project Overview
 
 Add a quick summary of what your project theme and objectives are. 
+This project is a pomodoro timer website which aims to aid students in studying by encouraging them to remain focused and on task. 
 
 Deployment Website: **Add Link to Deployed Project**
 
