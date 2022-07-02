@@ -1,6 +1,6 @@
 # Project Proposal
 
-Pod Members: **Add Pod Members Names**
+Pod Members: Jose Folgar, Mariam Conde, Shehab Mohsen
 
 ## Problem Statement
 
