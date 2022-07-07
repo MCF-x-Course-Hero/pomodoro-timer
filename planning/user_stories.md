@@ -23,8 +23,6 @@ Hello, my name is John Smith and I am a  college student from San Francisco, Cal
 ### Working Professional
 My name is Will Smith and I live in  NY. I work as a product manager for a software engineering company. Despite being 40 years old, I’m well acquainted with modern software technology. I use my computer regularly on the job to plan out meetings, delegate tasks, and ensure that everyone contributes to the team. This pomodoro timer that I hear has been in the works is something that I would access through my computer. There are plenty of reasons for integrating this pomodoro timer into my workflow. The first thing I do in the morning is to check my emails and respond to them should they need it. If I can do that within 20 minutes without overthinking how to respond, then I can get an early head start on my day. Another way I plan to use this pomodoro timer is to manage meetings by making sure that I cover all of my agenda within a timely, and concise manner. However, an obstacle that I can see surfacing within this app is the lack of the option to take notes related to a task or a list item that needs to be addressed even after the timer runs out. 
 
-- Someone working on chores
-
 ## User Stories
 
 Include at least 10 user stories.
