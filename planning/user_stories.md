@@ -8,7 +8,7 @@ Insert your groups problem statement and target audience.
 
 ## User Roles
 
-User : Someone who gets distracted easily while trying to be productive
+Someone who gets distracted easily while trying to be productive
 
 ## User Personas
 
