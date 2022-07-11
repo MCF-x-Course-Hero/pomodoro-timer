@@ -4,7 +4,8 @@ Pod Members: Shehab Mohsen, Mariam Conde, Jose Folgar
 
 ## Problem Statement
 
-Insert your groups problem statement and target audience.
+For many students the hardest part of studying has always been focus.  Especially for several hours, holding your focus can be incredibly difficult. In order to solve this problem our team has decided to utilize the Pomodoro technique into our application. Our website will be designed to help students stay motivated in doing their work by providing a timer with breaks in between. 
+
 
 ## User Roles
 
