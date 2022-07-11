@@ -28,7 +28,8 @@ My name is Will Smith and I live in  NY. I work as a product manager for a softw
 8. As someone who gets anxiety from exams, I want the option to play relaxing music, so that I can remain calm while studying.  
 9. As a Student, I want to stop/pause/restart the timer, in case a minor inconvenience occurs. 
 10. As a student, I want the option to set break timer, to refresh my brain and body in order to prevent burn out
-11. 
+
+
 ## Pages/Screens
 
 List all the pages and screens in the app. Include wireframes for at least 3 of them.
