@@ -13,7 +13,7 @@ Someone who gets distracted easily while trying to be productive
 
 ## User Personas
 
-Include at least  personas per User Role
+Include at least 2 personas per User Role
 
 ### College Student
 Hello, my name is John Smith and I am a  college student from San Francisco, California. I am  21 years old and currently a senior at San Francisco State University pursuing a degree in Software Engineering. I spend most of my time playing video games, studying with friends, and completing classwork on my laptop. Because of this, I am a night owl and often forget to get the day’s task done, and have trouble completing my tasks instead of procrastinating, sleeping earlier, and finding more time to study by myself. What I am looking for in a pomodoro timer is a feature that allows me to customize to dark mode which would allow me to be able to work during the night more productively. Additionally, having some kind of planner on the app allows me to be reminded of what task needs to be prioritized towards completion. Some potential pain points regarding the pomodoro timer is that I find it difficult to stick to a schedule.I am afraid that I may lack motivation throughout the work session. Because of this, adding some kind of reward when finishing a task within the allotted time will boost my productivity. But if I didn’t complete the task within time, then displaying an inspirational quote will help me in maintaining my drive to study and do better.
