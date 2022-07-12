@@ -37,7 +37,7 @@ Include at least 10 user stories.
 8. As someone who gets anxiety from exams, I want the option to play relaxing music, so that I can remain calm while studying.  
 9. As a Student, I want to stop/pause/restart the timer, in case a minor inconvenience occurs. 
 10. As a student, I want the option to set break timer, to refresh my brain and body in order to prevent burn out
-
+11. As a user, I want the option to control my personal infomration, so that I can keep my privacy safe.
 ## Wireframe
 
 https://www.figma.com/file/ogb51CcZvfzL2oEglhR29x/Pomodoro-Timer?node-id=0%3A1 
