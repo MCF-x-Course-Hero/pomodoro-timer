@@ -27,7 +27,9 @@ My name is Will Smith and I live in  NY. I work as a product manager for a softw
 7. As someone who works in the evening, I want the option for a dark mode theme, so that my eyes are kept from being strained due to prolonged screen time.
 8. As someone who gets anxiety from exams, I want the option to play relaxing music, so that I can remain calm while studying.  
 9. As a Student, I want to stop/pause/restart the timer, in case a minor inconvenience occurs. 
-10. As a student, I want the option to set break timer, to refresh my brain and body in order to prevent burn out
+10. As a student, I want the option to set break timer, to refresh my brain and body in order to prevent burn out.
+11. As someone who values their privacy, I want the option to control my personal information, so that I can keep my privacy safe.
+12. As a productive person, I want the option to save my user settings, so I don't have to reconfigure them every time I login again.
 
 
 ## Pages/Screens
