@@ -32,12 +32,15 @@ Include at least 10 user stories.
 3. As a working professional, I want to be able to choose between a short timed and long timed session, so that I can accommodate tasks of various sizes effectively.
 4. As a college student, I want to hear a notification sound when the timer hits 00:00 - denoting that the session has ended.
 5. As a student, I want to add a task to do during the study time block, so that I can keep track of what still needs to be done.
-6. As an Office worker, I want the ability to check the remaining time left, in order to gauge work done per minute.
+6. As an office worker, I want the ability to check the remaining time left, in order to gauge work done per minute.
 7. As someone who works in the evening, I want the option for a dark mode theme, so that my eyes are kept from being strained due to prolonged screen time.
 8. As someone who gets anxiety from exams, I want the option to play relaxing music, so that I can remain calm while studying.  
-9. As a Student, I want to stop/pause/restart the timer, in case a minor inconvenience occurs. 
+9. As a student, I want to stop/pause/restart the timer, in case a minor inconvenience occurs. 
 10. As a student, I want the option to set break timer, to refresh my brain and body in order to prevent burn out
-11. As a user, I want the option to control my personal information, so that I can keep my privacy safe.
+11. As someone who values their privacy, I want the option to control my personal information, so that I can keep my privacy safe.
+12. As a productive person, I want the option to save my user settings, so I don't have to reconfigure them every time I login again
+
 ## Wireframe
 
-https://www.figma.com/file/ogb51CcZvfzL2oEglhR29x/Pomodoro-Timer?node-id=0%3A1 
+https://www.figma.com/file/Rji5HyMzRZqRbZ6YNl5Vsy/PomoZone-Wireframe?node-id=0%3A1
+
