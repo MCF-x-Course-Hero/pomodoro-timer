@@ -1,11 +1,10 @@
 # Project Plan
 
-Pod Members: **Add Pod Members Names**
+Pod Members: Mariam Conde, Shehab Mohsen, Jose Folgar
 
 ## Problem Statement and Description
 
 For many students the hardest part of studying has always been focus.  Especially for several hours, holding your focus can be incredibly difficult. In order to solve this problem our team has decided to utilize the Pomodoro technique into our application. Our website will be designed to help students stay motivated in doing their work by providing a timer with breaks in between. 
-
 
 ## User Roles and Personas
 
@@ -31,17 +30,16 @@ My name is Will Smith and I live in  NY. I work as a product manager for a softw
 11. As someone who values their privacy, I want the option to control my personal information, so that I can keep my privacy safe.
 12. As a productive person, I want the option to save my user settings, so I don't have to reconfigure them every time I login again.
 
-
 ## Pages/Screens
 
 List all the pages and screens in the app. Include wireframes for at least 3 of them.
 
 ## Data Model
 
-Describe your app's data model using diagrams or tables
+![image](https://user-images.githubusercontent.com/71222862/179085514-f8958845-a94b-4642-9584-e8e179dd74b6.png)
 
 ## Endpoints
 
-List the API endpoints you will need to implement.
+![image](https://user-images.githubusercontent.com/71222862/179085374-ef8dc647-cdf8-4f7e-9d67-378e4885face.png)
 
 ***Don't forget to set up your Issues, Milestones, and Project Board!***
