@@ -32,7 +32,15 @@ My name is Will Smith and I live in  NY. I work as a product manager for a softw
 
 ## Pages/Screens
 
-List all the pages and screens in the app. Include wireframes for at least 3 of them.
+![image](https://user-images.githubusercontent.com/71222862/179308780-8cdd71f5-ce0c-48c2-b46b-45ac37bb4125.png)
+
+![image](https://user-images.githubusercontent.com/71222862/179308839-5130fff4-a4b2-49e7-a7db-b65878860060.png)
+
+![image](https://user-images.githubusercontent.com/71222862/179308928-53c364cd-5a42-4496-8aff-d96227ce8fbc.png)
+
+![image](https://user-images.githubusercontent.com/71222862/179309001-1e90c6fb-e732-4ce2-a3a6-33bb5aad7271.png)
+
+![image](https://user-images.githubusercontent.com/71222862/179309087-235dbf62-2395-4060-819d-15c8f4d3a5fd.png)
 
 ## Data Model
 
