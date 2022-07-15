@@ -43,5 +43,4 @@ List all the pages and screens in the app. Include wireframes for at least 3 of 
 ![image](https://user-images.githubusercontent.com/72282608/179272690-7ca1b638-3797-4073-9557-aeaa2c3e169d.png)
 
 
-
 ***Don't forget to set up your Issues, Milestones, and Project Board!***
