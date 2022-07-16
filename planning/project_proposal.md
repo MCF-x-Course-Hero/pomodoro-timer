@@ -43,6 +43,10 @@ The project is expected to have:
   - A research fact or two on the benefit of pomodoro.
   - How to use the pomodoro technique.
 
+6. Task/Session History:
+  - display tasks marked as complete/incomplete by the user
+  - display work/break session history by the user seperated by days.
+ 
 ## Related Work
 
 What similar apps and websites? How will your project stand out from these other websites?
