@@ -18,16 +18,17 @@ The project is expected to have:
   - Study timer.
   - Break timer.
   - Display countdown.
-  - Notification time (2-5 minutes before time runs out).
   - Optional Long break for consecutive/long study sessions.
-  - Option to toggle auto start (between study and break time).
   - Restart button.
+  - Alert the user when a session is over.
 
 2. Quality of Life Features:
   - Dark mode.
   - Selection of themes/color schemes (3-4 options).
   - Set the amount of time.
   - End of timer notification. 
+  - Option to toggle auto start (between study and break time).
+  - - Notification time (2-5 minutes before time runs out).
 
 3. Sound effects:
   - Clicking buttons
