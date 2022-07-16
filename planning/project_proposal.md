@@ -28,7 +28,7 @@ The project is expected to have:
   - Set the amount of time.
   - End of timer notification. 
   - Option to toggle auto start (between study and break time).
-  - - Notification time (2-5 minutes before time runs out).
+  - Notification time (2-5 minutes before time runs out).
 
 3. Sound effects:
   - Clicking buttons
