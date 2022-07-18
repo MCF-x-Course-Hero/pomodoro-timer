@@ -1,11 +1,11 @@
-import { useState } from 'react'
+import * as React from "react";
+import Timer from "../Timer/Timer";
 import './App.css'
 
 function App() {
-
   return (
     <div className="App">
-      <p>I am a timer</p>
+      <Timer />
     </div>
   )
 }
