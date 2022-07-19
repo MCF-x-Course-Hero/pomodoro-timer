@@ -27,9 +27,8 @@ function longBreak() {
     return time;
 }
 
-export default function Timer() {
-    //session declares what session the user is in, expiryTimestamp tells the timer how long the timer should run for
-    const [session, setSession] = React.useState("pomozone");
+export default function Timer({ session, setSession }) {
+    //expiryTimestamp tells the timer how long the timer should run for
     let expiryTimestamp;
     
     //function initially sets timer based on what session is set
@@ -87,16 +86,16 @@ export default function Timer() {
                     <div className="time">
                         <span>{minutes}</span><span>:{(seconds < 10) ? '0' + seconds : seconds}</span>
                     </div>
-                    <h2>{session}</h2>
                 </div>
+                <h2>{session.replace("-", " ")}</h2>
                 <div className="buttons">
-                    <button onClick={restartTimer}>
+                    <button className={`${session}`} onClick={restartTimer}>
                         <img src={resetIcon} alt="restart timer"></img>
                     </button>
-                    <button onClick={isRunning ? pause : resume}>
+                    <button className={`${session}`} onClick={isRunning ? pause : resume}>
                         <img src={isRunning ? pauseIcon : startIcon} alt={isRunning ? "pause timer": "start timer"}></img>
                     </button>
-                    <button onClick={forwardTimer}>
+                    <button className={`${session}`} onClick={forwardTimer}>
                         <img src={forwardIcon} alt="move to next session"></img>
                     </button>
                 </div>

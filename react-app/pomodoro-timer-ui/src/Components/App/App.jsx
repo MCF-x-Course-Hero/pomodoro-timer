@@ -3,9 +3,10 @@ import Timer from "../Timer/Timer";
 import './App.css'
 
 function App() {
+  const [session, setSession] = React.useState("pomozone");
   return (
-    <div className="app">
-      <Timer />
+    <div className={`app${session}`}>
+      <Timer session={session} setSession={setSession}/>
     </div>
   )
 }
