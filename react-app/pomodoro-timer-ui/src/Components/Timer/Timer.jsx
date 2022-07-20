@@ -47,9 +47,12 @@ export default function Timer({ session, setSession }) {
         hours,
         isRunning,
         pause,
+        start,
         resume,
         restart,
     } = useTimer({ expiryTimestamp, autoStart: false, onExpire: () => console.warn('onExpire called') });
+
+    //shehab needs minutes, seconds, hours
 
     //move the timer forward a session. sets the new session, and resets the timer and expiryTimestamp
     function forwardTimer() {
