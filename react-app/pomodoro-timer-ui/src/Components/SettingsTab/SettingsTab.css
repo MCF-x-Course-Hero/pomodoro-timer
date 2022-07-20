@@ -1,0 +1,205 @@
+.settings-tab {
+    display: flex;
+    flex-direction: column;
+}
+
+.settings-tab h2 {
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.settings-tab .set-time {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.settings-tab .set-time .time-names {
+    display: flex;
+    justify-content: flex-start;
+    text-align: start;
+    width: 60%;
+}
+
+.settings-tab .set-time .time-names ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: center;
+    list-style: none;
+    padding: 0px;
+    width: 100%;
+}
+
+.settings-tab .set-time .time-names li {
+    margin: 10px 0px 5px 5px;
+    font-size: 16px;
+}
+
+.settings-tab .set-time .time-forms {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+}
+
+.settings-tab .set-time .time-forms ul {
+    list-style: none;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.settings-tab .set-time .time-forms li {
+    margin: 8px 5px 8px 5px;
+}
+
+.settings-tab .color-themes {
+    display: flex;
+    flex-direction: column;
+}
+
+.settings-tab .color-themes h4 {
+    margin: 0px 0px 5px 10px;
+}
+
+.settings-tab .color-themes .color-palette {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 5px;
+    margin: 0px 5px 0px 5px;
+    border: solid 1px black;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.settings-tab .color-themes .color-palette .dot0 {
+    display: inline-grid;
+    height: 25px;
+    width: 25px;
+    background-color: #FF7F7F;
+    border-radius: 50%;
+    border: solid 1px black;
+  }
+
+.settings-tab .color-themes .color-palette .dot1 {
+    display: inline-grid;
+    height: 25px;
+    width: 25px;
+    background-color: #F0BE63;
+    border-radius: 50%;
+    border: solid 1px black;
+}
+
+.settings-tab .color-themes .color-palette .dot2 {
+    display: inline-grid;
+    height: 25px;
+    width: 25px;
+    background-color: #FFFF00;
+    border-radius: 50%;
+    border: solid 1px black;
+}
+
+.settings-tab .color-themes .color-palette .dot3 {
+    display: inline-grid;
+    height: 25px;
+    width: 25px;
+    background-color: #90EE90;
+    border-radius: 50%;
+    border: solid 1px black;
+}
+
+.settings-tab .color-themes .color-palette .dot4 {
+    display: inline-grid;
+    height: 25px;
+    width: 25px;
+    background-color: #7FD3D3;
+    border-radius: 50%;
+    border: solid 1px black;
+}
+
+.settings-tab .color-themes .color-palette .dot5 {
+    display: inline-grid;
+    height: 25px;
+    width: 25px;
+    background-color: #800080;
+    border-radius: 50%;
+    border: solid 1px black;
+}
+
+.settings-tab .color-themes .color-palette .dot6 {
+    display: inline-grid;
+    height: 25px;
+    width: 25px;
+    background-color: #FFC0CB;
+    border-radius: 50%;
+    border: solid 1px black;
+}
+
+.settings-tab .color-themes .color-palette .dot7 {
+    display: inline-grid;
+    height: 25px;
+    width: 25px;
+    background-color: #31B5DF;
+    border-radius: 50%;
+    border: solid 1px black;
+}
+
+.settings-tab .color-themes .color-palette .dot8 {
+    display: inline-grid;
+    height: 25px;
+    width: 25px;
+    background-color: #E6E6FA;
+    border-radius: 50%;
+    border: solid 1px black;
+}
+
+.settings-tab .color-themes .color-palette .dot9 {
+    display: inline-grid;
+    height: 25px;
+    width: 25px;
+    background-color: #EEEEEE;
+    border-radius: 50%;
+    border: solid 1px black;
+}
+
+.settings-tab .slider-area .slider-names ul {
+    list-style: none;
+    padding: 5px;
+    margin: 0px;
+}
+
+.settings-tab .slider-area {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.settings-tab .slider-area .sliders {
+    width: 40%;
+}
+
+.settings-tab .slider-area .slider-names {
+    padding: 0px;
+    margin: 0px;
+    width: 60%;
+}
+
+.settings-tab .slider-area .sliders ul {
+    padding: 5px;
+    height: 100%;
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    align-items:center;
+}
+
+.settings-tab .slider-area .slider-names li {
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+}

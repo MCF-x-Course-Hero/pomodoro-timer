@@ -1,10 +1,7 @@
 .bottom-sidebar {
     display: flex;
-    height: 50%;
+    height: 100%;
     flex-direction: row;
-    justify-self: flex-end;
-    margin-bottom: auto;
-    margin-top: auto;
 }
 
 .bottom-sidebar .bottom-buttons {
@@ -32,6 +29,7 @@
     background: #F1F1F1;
     border: 1px solid black;
     border-radius: 10px;
+    
 }
 
 .bottom-sidebar .list-sidebar {

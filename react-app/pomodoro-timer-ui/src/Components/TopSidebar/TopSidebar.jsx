@@ -1,5 +1,7 @@
 import * as React from "react";
 import { useSidebarContext } from "../../contexts/SidebarContext";
+import SettingsTab from "../SettingsTab/SettingsTab";
+import ProfileTab from "../ProfileTab/ProfileTab";
 import settingsIcon from "../../Assets/settings.svg";
 import userIcon from "../../Assets/user.svg";
 import "./TopSidebar.css";
@@ -18,13 +20,13 @@ export default function TopSidebar() {
             </div>
             {sidebarStates.profileOpen ? (
                 <div className="profile-sidebar">
-                    <p>Ta-Da! Profile</p>
+                    <ProfileTab />
                 </div>
             ) : null}
 
             {sidebarStates.settingsOpen ? (
                 <div className="settings-sidebar">
-                    <p>Ta-Da! Settings</p>
+                    <SettingsTab />
                 </div>
             ) : null}
         </div>
