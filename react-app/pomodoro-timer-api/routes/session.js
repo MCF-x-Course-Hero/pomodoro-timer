@@ -3,7 +3,7 @@ const router = express.Router();
 const Session = require("../models/session");
 
 router.get("/", async (req, res, next) => {
-  return res.status(200).json({ hi: "hello" });
+  return res.status(200).json({ session: "working" });
 });
 
 router.get("/history", async (req, res, next) => {

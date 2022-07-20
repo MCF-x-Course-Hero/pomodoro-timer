@@ -4,6 +4,7 @@ const morgan = require("morgan")
 const authRoutes = require("./routes/auth")
 const sessionRoutes = require("./routes/session")
 const security = require("./middleware/security");
+const taskRoutes = require("./routes/task");
 
 const { NotFoundError } = require("./utils/errors")
 
@@ -17,6 +18,8 @@ app.use(morgan("tiny"))
 
 app.use("/auth", authRoutes)
 app.use("/session", sessionRoutes)
+app.use("/task", taskRoutes)
+
 app.use(security.extractUserFromJwt);
 
 
