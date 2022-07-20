@@ -1,8 +1,6 @@
 import * as React from "react";
 import Timer from "../Timer/Timer";
-import TopSidebar from "../TopSidebar/TopSidebar";
-import BottomSidebar from "../BottomSidebar/BottomSidebar";
-import { SidebarContextProvider } from "../../contexts/SidebarContext";
+import SidebarContainer from "../Sidebar/Sidebar";
 import './App.css'
 
 export default function App() {
@@ -10,12 +8,7 @@ export default function App() {
   return (
     <div className={`app-${session}`}>
       <Timer session={session} setSession={setSession}/>
-      <SidebarContextProvider>
-        <div className="sidebar">
-          <TopSidebar />
-          <BottomSidebar />
-        </div>
-      </SidebarContextProvider>
+      <SidebarContainer />
     </div>
   )
 }

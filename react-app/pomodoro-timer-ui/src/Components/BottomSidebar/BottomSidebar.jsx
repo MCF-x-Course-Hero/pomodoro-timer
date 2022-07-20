@@ -1,4 +1,4 @@
-import * as React from "React";
+import * as React from "react";
 import { useSidebarContext } from "../../contexts/SidebarContext";
 import historyIcon from "../../Assets/history.svg";
 import listIcon from "../../Assets/list.svg";
