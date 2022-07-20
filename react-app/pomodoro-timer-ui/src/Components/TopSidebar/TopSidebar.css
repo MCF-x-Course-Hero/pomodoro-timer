@@ -1,0 +1,44 @@
+.top-sidebar {
+    display: flex;
+    flex-direction: row;
+    height: 50%;
+    justify-self: flex-end;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.top-sidebar .top-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.top-sidebar .top-buttons button {
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border: none;
+    height: 60px;
+    width: 60px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.top-sidebar .profile-sidebar {
+    width: 200px;
+    height: 300px;
+    margin-top: auto;
+    background: #F1F1F1;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.top-sidebar .settings-sidebar {
+    width: 200px;
+    height: 300px;
+    margin-top: auto;
+    background: #F1F1F1;
+    border: 1px solid black;
+    border-radius: 10px;
+}

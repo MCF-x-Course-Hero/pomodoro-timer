@@ -12,8 +12,8 @@ Mentors Names: **Pavlo Burko, Lisa Felten, Saurabh Sood**
 
 Project Code Repository Links
 
-* [Frontend Repo Link]()
-* [Backend Repo Link]()
+* [Frontend Repo Link](https://github.com/MCF-x-Course-Hero/pomodoro-timer/tree/main/react-app/pomodoro-timer-ui)
+* [Backend Repo Link](https://github.com/MCF-x-Course-Hero/pomodoro-timer/tree/main/react-app/pomodoro-timer-api)
 
 ## Project Overview
 

@@ -1,0 +1,88 @@
+.timer {
+    display: flex;
+    align-self: center;
+    margin: auto;
+}
+
+.timer .content {
+    display: flex;
+    flex-direction: column;
+}
+
+.timer .content .timer-area {
+    display: flex;
+    flex-direction: column;
+    width: 330px;
+    height: 330px;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.timer .content .timer-area .time {
+    display: flex;
+    flex-direction: row;
+    color: white;
+    font-family: 'Roboto Condensed';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 100px;
+    line-height: 117px;
+    align-items: center;
+    text-align: center;
+}
+
+.timer .content h2 {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    color: white;
+    text-align: center;
+    margin: 0px 0px 25px 0px;
+}
+
+.timer .content .buttons {
+    display: flex;
+    flex-direction: row;
+}
+
+.timer .content .buttons .pomozone {
+    background: #615184;
+    border-radius: 15px;
+    width: 90px;
+    height: 60px;
+    margin: 20px 16px 0px 16px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.timer .content .buttons .short-break{
+    background: #497593;
+    border-radius: 15px;
+    width: 90px;
+    height: 60px;
+    margin: 20px 16px 0px 16px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.timer .content .buttons .long-break {
+    background: #788bff;
+    border-radius: 15px;
+    width: 90px;
+    height: 60px;
+    margin: 20px 16px 0px 16px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
