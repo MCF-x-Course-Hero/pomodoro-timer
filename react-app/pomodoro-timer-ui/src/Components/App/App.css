@@ -1,0 +1,32 @@
+.app-pomozone {
+    display: flex;
+    flex-direction: row;
+    max-width: 100vw;
+    max-height: 100vh;
+    height: 100vh;
+    width: 100vw;
+    background: #8270A9;
+    margin: 0px;
+}
+
+.app-short-break {
+    display: flex;
+    flex-direction: row;
+    max-width: 100vw;
+    max-height: 100vh;
+    height: 100vh;
+    width: 100vw;
+    background: #6096BA;
+    margin: 0px;
+}
+
+.app-long-break {
+    display: flex;
+    flex-direction: row;
+    max-width: 100vw;
+    max-height: 100vh;
+    height: 100vh;
+    width: 100vw;
+    background: #9bb1ff;
+    margin: 0px;
+}
