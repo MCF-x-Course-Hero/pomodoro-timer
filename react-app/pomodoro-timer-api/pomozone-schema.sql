@@ -12,9 +12,7 @@ CREATE TABLE userSessions (
     FOREIGN KEY     (user_id) REFERENCES users(id) ON DELETE CASCADE,
     second          INT NOT NULL, 
     minute          INT NOT NULL,
-    hour            INT NOT NULL,
-    starting        date NOT NULL,
-    ending          date NOT NULL,
+    hour            INT,
     session_type    TEXT NOT NULL,
     created_at      TIMESTAMP NOT NULL DEFAULT NOW()
 );
