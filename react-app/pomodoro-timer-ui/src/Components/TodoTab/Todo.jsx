@@ -1,4 +1,5 @@
 import React from "react";
+import "./TodoTab.css"
 
 export default function ({ todo, toggleComplete, removeTodo }) {
 
@@ -16,6 +17,7 @@ export default function ({ todo, toggleComplete, removeTodo }) {
     <div style={{ display: "flex" }}>
       <input type="checkbox" onClick={handleCheckBoxClick} />
       <li
+        className="todo-object"
         style={{
           color: "black",
           textDecoration: todo.is_completed ? "line-through" : null,
