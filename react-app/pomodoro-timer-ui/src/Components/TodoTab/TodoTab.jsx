@@ -31,12 +31,33 @@ export default function TodoTab() {
     }, [todoList])
 
 
+  /* Toggle complete does the following when the checkbox button is clicked:
+  - maps through todoList, when it finds the todo with the id that matches the parameter,
+    a new object will be returned with the is_completed attribute marked as the oppposite of what it used to be.
+  - Otherwise if the id does not match, simply return the todo object as it is not the one we want to mark/unmark
+  - all of this is done inside the setTodoList since we want to update the todoList in order to render it with a todo marked off.
+  */ 
+ 
+  function toggleComplete(id) {
+    setTodoList(
+      todoList.map((element)=>{
+        if (id = element.id){
+          return {
+            ...element,
+            is_completed: !element.is_completed
+          }
+        }
+        return element
+      })
+    )
+  }
+
     return (
     <div className="list-tab">
       <p>I am the list tab!</p>
 
       <TodoForm addTodo={addTodo} todoList= {todoList} setTodoList ={setTodoList}/>
-      <TodoList todoList={todoList}/>
+      <TodoList todoList={todoList} toggleComplete = {toggleComplete}/>
     </div>
   );
 }
