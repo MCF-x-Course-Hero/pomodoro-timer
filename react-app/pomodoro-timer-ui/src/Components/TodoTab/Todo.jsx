@@ -2,10 +2,15 @@ import React from "react";
 
 export default function ({ todo }) {
   return (
-    <React.Fragment>
+    <div style = {{display:"flex"}}>
       <input type="checkbox" />
-      <li>{todo.task}</li>
+      <li
+        style={{
+            color:"black",
+            textDecoration:todo.completed ? "line-through": null
+        }}
+      >{todo.task}</li>
       <button>x</button>
-    </React.Fragment>
+    </div>
   );
 }
