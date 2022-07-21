@@ -15,27 +15,32 @@
     margin-bottom: auto;
 }
 
+
 .bottom-sidebar .bottom-buttons button {
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
     margin-top: 15px;
     margin-bottom: 15px;
     border: none;
-    height: 60px;
-    width: 60px;
+    height: 70px;
+    width: 70px;
+    box-shadow: 3px 5px #615184;
+    border-left: solid 3px #615184;
+    border-top: solid 3px #615184;
 }
 
 .bottom-sidebar .history-sidebar {
-    width: 200px;
+    width: 470px;
     height: 300px;
     margin-top: auto;
     background: #F1F1F1;
     border: 1px solid black;
     border-radius: 10px;
+    transition: ease-in;
 }
 
 .bottom-sidebar .list-sidebar {
-    width: 200px;
+    width: 470px;
     height: 300px;
     margin-top: auto;
     background: #F1F1F1;

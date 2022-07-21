@@ -3,6 +3,8 @@ import { useSidebarContext } from "../../contexts/SidebarContext";
 import historyIcon from "../../Assets/history.svg";
 import listIcon from "../../Assets/list.svg";
 import "./BottomSidebar.css";
+import HistoryTab from "../HistoryTab/HistoryTab"
+import TodoTab from "../TodoTab/TodoTab";
 
 export default function BottomSidebar() {
     const { sidebarStates, sidebarFunctions } = useSidebarContext();
@@ -18,14 +20,16 @@ export default function BottomSidebar() {
             </div>
             {sidebarStates.historyOpen ? (
                 <div className="history-sidebar">
-                    <p>Ta-Da! History</p>
+                    <HistoryTab/>
                 </div>
             ) : null}
             {sidebarStates.listOpen ? (
                 <div className="list-sidebar">
-                    <p>Ta-Da! List</p>
+                    <TodoTab/>
                 </div>
             ) : null}
         </div>
     )
 }
+
+
