@@ -3,8 +3,9 @@ import { useSidebarContext } from "../../contexts/SidebarContext";
 import settingsIcon from "../../Assets/settings.svg";
 import userIcon from "../../Assets/user.svg";
 import "./TopSidebar.css";
-import ProfileTab from "../ProfileTab/ProfileTab";
-// import SettingsTab from "../SettingsTab/SettingsTab";
+// import ProfileTab from "../ProfileTab/ProfileTab";
+import LoginForm from "../LoginForm/LoginForm";
+// import Register from "../Register/Registration";
 
 export default function TopSidebar() {
     const { sidebarStates, sidebarFunctions } = useSidebarContext();
@@ -20,7 +21,8 @@ export default function TopSidebar() {
             </div>
             {sidebarStates.profileOpen ? (
                 <div className="profile-sidebar">
-                    <ProfileTab/>
+                    <LoginForm/>
+                    {/* <Register/> */}
                 </div>
             ) : null}
 
@@ -32,3 +34,4 @@ export default function TopSidebar() {
         </div>
     )
 }
+
