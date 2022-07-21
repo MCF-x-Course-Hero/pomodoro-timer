@@ -76,94 +76,53 @@
     padding: 5px;
 }
 
-.settings-tab .color-themes .color-palette .dot0 {
+.settings-tab .color-themes .color-palette .dot {
     display: inline-grid;
     height: 25px;
     width: 25px;
-    background-color: #FF7F7F;
     border-radius: 50%;
     border: solid 1px black;
+    cursor: pointer;
+}
+
+.settings-tab .color-themes .color-palette .red {
+    background-color: #F17A7A;
   }
 
-.settings-tab .color-themes .color-palette .dot1 {
-    display: inline-grid;
-    height: 25px;
-    width: 25px;
+.settings-tab .color-themes .color-palette .orange {
     background-color: #F0BE63;
-    border-radius: 50%;
-    border: solid 1px black;
 }
 
-.settings-tab .color-themes .color-palette .dot2 {
-    display: inline-grid;
-    height: 25px;
-    width: 25px;
-    background-color: #FFFF00;
-    border-radius: 50%;
-    border: solid 1px black;
+.settings-tab .color-themes .color-palette .light-green {
+    background-color: #84a59d;
 }
 
-.settings-tab .color-themes .color-palette .dot3 {
-    display: inline-grid;
-    height: 25px;
-    width: 25px;
-    background-color: #90EE90;
-    border-radius: 50%;
-    border: solid 1px black;
+.settings-tab .color-themes .color-palette .green {
+    background-color: #588157;
 }
 
-.settings-tab .color-themes .color-palette .dot4 {
-    display: inline-grid;
-    height: 25px;
-    width: 25px;
+.settings-tab .color-themes .color-palette .teal {
     background-color: #7FD3D3;
-    border-radius: 50%;
-    border: solid 1px black;
 }
 
-.settings-tab .color-themes .color-palette .dot5 {
-    display: inline-grid;
-    height: 25px;
-    width: 25px;
-    background-color: #800080;
-    border-radius: 50%;
-    border: solid 1px black;
+.settings-tab .color-themes .color-palette .pdefault {
+    background-color: #8270A9;
 }
 
-.settings-tab .color-themes .color-palette .dot6 {
-    display: inline-grid;
-    height: 25px;
-    width: 25px;
-    background-color: #FFC0CB;
-    border-radius: 50%;
-    border: solid 1px black;
+.settings-tab .color-themes .color-palette .pink {
+    background-color: #e27396;
 }
 
-.settings-tab .color-themes .color-palette .dot7 {
-    display: inline-grid;
-    height: 25px;
-    width: 25px;
+.settings-tab .color-themes .color-palette .turquoise {
     background-color: #31B5DF;
-    border-radius: 50%;
-    border: solid 1px black;
 }
 
-.settings-tab .color-themes .color-palette .dot8 {
-    display: inline-grid;
-    height: 25px;
-    width: 25px;
-    background-color: #E6E6FA;
-    border-radius: 50%;
-    border: solid 1px black;
+.settings-tab .color-themes .color-palette .sbdefault {
+    background-color: #6096BA;
 }
 
-.settings-tab .color-themes .color-palette .dot9 {
-    display: inline-grid;
-    height: 25px;
-    width: 25px;
-    background-color: #EEEEEE;
-    border-radius: 50%;
-    border: solid 1px black;
+.settings-tab .color-themes .color-palette .lbdefault {
+    background-color: #9bb1ff;
 }
 
 .settings-tab .slider-area .slider-names ul {

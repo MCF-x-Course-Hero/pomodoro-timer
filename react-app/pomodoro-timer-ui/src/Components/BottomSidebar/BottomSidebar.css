@@ -15,6 +15,7 @@
 .bottom-sidebar .bottom-buttons button {
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
+    cursor: pointer;
     margin-top: 15px;
     margin-bottom: 15px;
     border: none;

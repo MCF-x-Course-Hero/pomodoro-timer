@@ -1,32 +1,132 @@
-.app-pomozone {
+/* Pomozone Themes */
+
+.app {
     display: flex;
     flex-direction: row;
     max-width: 100vw;
     max-height: 100vh;
     height: 100vh;
     width: 100vw;
+    margin: 0px;
+}
+
+.pomozone-pdefault{
     background: #8270A9;
-    margin: 0px;
 }
 
-.app-short-break {
-    display: flex;
-    flex-direction: row;
-    max-width: 100vw;
-    max-height: 100vh;
-    height: 100vh;
-    width: 100vw;
+.pomozone-red{
+    background: #FF7F7F;
+}
+
+.pomozone-orange{
+    background: #F0BE63;
+}
+
+.pomozone-light-green{
+    background: #84a59d;
+}
+.pomozone-green{
+    background: #588157;
+}
+
+.pomozone-teal{
+    background: #7FD3D3;
+}
+
+.pomozone-pink{
+    background: #e27396;
+}
+
+.pomozone-turquoise{
+    background: #31B5DF;
+}
+
+.pomozone-sbdefault{
     background: #6096BA;
-    margin: 0px;
 }
 
-.app-long-break {
-    display: flex;
-    flex-direction: row;
-    max-width: 100vw;
-    max-height: 100vh;
-    height: 100vh;
-    width: 100vw;
+.pomozone-lbdefault{
     background: #9bb1ff;
-    margin: 0px;
+}
+
+/* Short Break Themes */
+
+.short-break-sbdefault {
+    background: #6096BA;
+}
+
+.short-break-red{
+    background: #FF7F7F;
+}
+
+.short-break-orange{
+    background: #F0BE63;
+}
+
+.short-break-light-green{
+    background: #84a59d;
+}
+.short-break-green{
+    background: #588157;
+}
+
+.short-break-teal{
+    background: #7FD3D3;
+}
+
+.short-break-pink{
+    background: #e27396;
+}
+
+.short-break-turquoise{
+    background: #31B5DF;
+}
+
+.short-break-pdefault{
+    background: #8270A9;
+}
+
+.short-break-lbdefault{
+    background: #9bb1ff;
+}
+
+
+/* Long Break Themes */
+
+.long-break-lbdefault {
+    background: #9bb1ff;
+}
+
+.long-break-red{
+    background: #FF7F7F;
+}
+
+.long-break-orange{
+    background: #F0BE63;
+}
+
+.long-break-light-green{
+    background: #84a59d;
+}
+.long-break-green{
+    background: #588157;
+}
+.long-break-teal{
+    background: #7FD3D3;
+}
+
+.long-break-pink{
+    background: #e27396;
+}
+
+.long-break-turquoise{
+    background: #31B5DF;
+}
+
+.long-break-sbdefault{
+    background: #6096BA;
+}
+
+.long-break-pdefault{
+    background: #8270A9;
 }

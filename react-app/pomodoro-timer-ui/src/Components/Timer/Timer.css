@@ -49,40 +49,141 @@
     flex-direction: row;
 }
 
-.timer .content .buttons .pomozone {
+.timer .content .buttons button {
+    border-radius: 15px;
+    width: 90px;
+    height: 60px;
+    margin: 20px 16px 0px 16px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* Pomozone Button Themes */
+
+.timer .content .buttons .pomozone-pdefault {
     background: #615184;
-    border-radius: 15px;
-    width: 90px;
-    height: 60px;
-    margin: 20px 16px 0px 16px;
-    border: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
+.timer .content .buttons .pomozone-red{
+    background: #D36A6A;
+}
 
+.timer .content .buttons .pomozone-orange{
+    background: #D6A753;
+}
 
-.timer .content .buttons .short-break{
+.timer .content .buttons .pomozone-light-green{
+    background: #728F88;
+}
+
+.timer .content .buttons .pomozone-green{
+    background: #436142;
+}
+
+.timer .content .buttons .pomozone-teal{
+    background: #6EB8B8;
+}
+
+.timer .content .buttons .pomozone-pink{
+    background: #BD617E;
+}
+
+.timer .content .buttons .pomozone-turquoise{
+    background: #299BBF;
+}
+
+.timer .content .buttons .pomozone-sbdefault{
     background: #497593;
-    border-radius: 15px;
-    width: 90px;
-    height: 60px;
-    margin: 20px 16px 0px 16px;
-    border: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
-.timer .content .buttons .long-break {
+.timer .content .buttons .pomozone-lbdefault{
     background: #788bff;
-    border-radius: 15px;
-    width: 90px;
-    height: 60px;
-    margin: 20px 16px 0px 16px;
-    border: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+}
+
+/* Short Break Themes */
+
+.timer .content .buttons .short-break-sbdefault {
+    background: #497593;
+}
+
+.timer .content .buttons .short-break-red{
+    background: #D36A6A;
+}
+
+.timer .content .buttons .short-break-orange{
+    background: #D6A753;
+}
+
+.timer .content .buttons .short-break-light-green{
+    background: #728F88;
+}
+
+.timer .content .buttons .short-break-green{
+    background: #436142;
+}
+
+.timer .content .buttons .short-break-teal{
+    background: #6EB8B8;
+}
+
+.timer .content .buttons .short-break-pink{
+    background: #BD617E;
+}
+
+.timer .content .buttons .short-break-turquoise{
+    background: #299BBF;
+}
+
+.timer .content .buttons .short-break-pdefault{
+    background: #615184;
+}
+
+.timer .content .buttons .short-break-lbdefault{
+    background: #788bff;
+}
+
+
+/* Long Break Themes */
+
+.timer .content .buttons .long-break-lbdefault {
+    background: #788bff;
+}
+
+.timer .content .buttons .long-break-red{
+    background: #D36A6A;
+}
+
+.timer .content .buttons .long-break-orange{
+    background: #D6A753;
+}
+
+.timer .content .buttons .long-break-light-green{
+    background: #728F88;
+}
+
+.timer .content .buttons .long-break-green{
+    background: #436142;
+}
+
+.timer .content .buttons .long-break-teal{
+    background: #6EB8B8;
+}
+
+.timer .content .buttons .long-break-pink{
+    background: #BD617E;
+}
+
+.timer .content .buttons .long-break-turquoise{
+    background: #299BBF;
+}
+
+.timer .content .buttons .long-break-sbdefault{
+    background: #497593;
+}
+
+.timer .content .buttons .long-break-pdefault{
+    background: #615184;
 }

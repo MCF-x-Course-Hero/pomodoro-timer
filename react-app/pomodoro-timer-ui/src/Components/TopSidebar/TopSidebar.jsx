@@ -23,7 +23,6 @@ export default function TopSidebar() {
                     <ProfileTab />
                 </div>
             ) : null}
-
             {sidebarStates.settingsOpen ? (
                 <div className="settings-sidebar">
                     <SettingsTab />

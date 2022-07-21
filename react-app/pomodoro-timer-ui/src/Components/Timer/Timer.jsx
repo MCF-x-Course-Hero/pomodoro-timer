@@ -4,40 +4,27 @@ import resetIcon from "../../Assets/restart.svg";
 import pauseIcon from "../../Assets/pause.svg";
 import forwardIcon from "../../Assets/forward.svg";
 import startIcon from "../../Assets/play.svg";
+import { useSettingsContext } from "../../contexts/SettingsContext";
 import "./Timer.css";
 
-//sets the correct amount of time for pomodoro timer
-function pomodoro() {
-    const time = new Date();
-    time.setSeconds(time.getSeconds() + 1500);
-    return time;
-}
-
-//sets the correct amount of time for short break timer
-function shortBreak() {
-    const time = new Date();
-    time.setSeconds(time.getSeconds() + 300);
-    return time;
-}
-
-//sets the correct amount of time for long break timer
-function longBreak() {
-    const time = new Date();
-    time.setSeconds(time.getSeconds() + 900);
-    return time;
-}
-
-export default function Timer({ session, setSession }) {
+export default function Timer() {
+    const { settingsStates, settingsSetStates } = useSettingsContext();
+    const pomozone = "pomozone";
+    const shortBreak = "short-break";
+    const longBreak = "long-break"
     //expiryTimestamp tells the timer how long the timer should run for
-    let expiryTimestamp;
-    
-    //function initially sets timer based on what session is set
-    if(session === "pomozone") {
-        expiryTimestamp = pomodoro();
-    } else if(session === "short-break") {
-        expiryTimestamp = shortBreak();
-    } else {
-        expiryTimestamp = longBreak();
+    let expiryTimestamp = setTime(settingsStates.session);
+
+    function setTime(s) {
+        const time = new Date();
+        if(s === pomozone) {
+            time.setSeconds(time.getSeconds() + 1500);
+        } else if(s === shortBreak) {
+            time.setSeconds(time.getSeconds() + 300);
+        } else if(s === longBreak) {
+            time.setSeconds(time.getSeconds() + 900);
+        }
+        return time;
     }
 
     //timer
@@ -55,30 +42,20 @@ export default function Timer({ session, setSession }) {
     //shehab needs minutes, seconds, hours
 
     //move the timer forward a session. sets the new session, and resets the timer and expiryTimestamp
-    function forwardTimer() {
-        if(session === "pomozone") {
-            setSession("short-break");
-            expiryTimestamp = shortBreak();
-        } else if(session === "short-break") {
-            setSession("long-break");
-            expiryTimestamp = longBreak();
+    function updateTimer(reset) {
+        if(settingsStates.session === pomozone) {
+            reset ? null : settingsSetStates.setSession(shortBreak);
+            expiryTimestamp = reset ? setTime(pomozone) : setTime(shortBreak);
+            reset ? null : settingsSetStates.setTheme(settingsStates.shortBreakTheme);
+        } else if(settingsStates.session === shortBreak) {
+            reset ? null : settingsSetStates.setSession(longBreak);
+            expiryTimestamp = reset ? setTime(shortBreak) : setTime(longBreak);
+            reset ? null : settingsSetStates.setTheme(settingsStates.longBreakTheme);
         } else {
-            setSession("pomozone");
-            expiryTimestamp = pomodoro();
+            reset ? null : settingsSetStates.setSession(pomozone);
+            expiryTimestamp = reset ? setTime(longBreak) : setTime(pomozone);
+            reset ? null : settingsSetStates.setTheme(settingsStates.pomozoneTheme);
         }
-        restart(expiryTimestamp, false);
-    }
-
-    //restarts the timer based on the current session
-    function restartTimer() {
-        if(session === "pomozone") {
-            expiryTimestamp = pomodoro();
-        } else if(session === "short-break") {
-            expiryTimestamp = shortBreak();
-        } else {
-            expiryTimestamp = longBreak();
-        }
-
         restart(expiryTimestamp, false);
     }
 
@@ -90,15 +67,15 @@ export default function Timer({ session, setSession }) {
                         <span>{minutes}</span><span>:{(seconds < 10) ? '0' + seconds : seconds}</span>
                     </div>
                 </div>
-                <h2>{session.replace("-", " ")}</h2>
+                <h2>{settingsStates.session.replace("-", " ")}</h2>
                 <div className="buttons">
-                    <button className={`${session}`} onClick={restartTimer}>
+                    <button className={`${settingsStates.session}-${settingsStates.theme}`} onClick={() => {updateTimer(true)}}>
                         <img src={resetIcon} alt="restart timer"></img>
                     </button>
-                    <button className={`${session}`} onClick={isRunning ? pause : resume}>
+                    <button className={`${settingsStates.session}-${settingsStates.theme}`} onClick={isRunning ? pause : resume}>
                         <img src={isRunning ? pauseIcon : startIcon} alt={isRunning ? "pause timer": "start timer"}></img>
                     </button>
-                    <button className={`${session}`} onClick={forwardTimer}>
+                    <button className={`${settingsStates.session}-${settingsStates.theme}`} onClick={() => {updateTimer(false)}}>
                         <img src={forwardIcon} alt="move to next session"></img>
                     </button>
                 </div>

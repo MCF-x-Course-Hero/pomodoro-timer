@@ -12,7 +12,7 @@ export const SidebarContextProvider = ({ children }) => {
     const [historyOpen, setHistoryOpen] = React.useState(false);
     const [listOpen, setListOpen] = React.useState(false);
     const sidebarStates = { profileOpen, settingsOpen, historyOpen, listOpen };
-    //const sidebarSetStates = { setProfileOpen, setSettingsOpen, setHistoryOpen, setListOpen };
+    //const sidebarSetStates = { setProfileOpen, setSettingsOpen, setHistoryOpen, setListOpen, setTheme };
     const sidebarFunctions = { clickHistory, clickList, clickProfile, clickSettings };
 
     function clickProfile() {
