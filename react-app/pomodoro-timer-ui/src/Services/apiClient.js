@@ -1,5 +1,6 @@
 import axios from "axios";
 
+
 class ApiClient {
     constructor(remoteHostUrl) {
         this.remoteHostUrl = remoteHostUrl;
@@ -13,7 +14,7 @@ class ApiClient {
     }
 
     async request({ endpoint, method = "GET", data = {} }) {
-        const url = `${this.remoteHostUrl}/${endpoint}`;
+        const url = `http://localhost:3001/${endpoint}`;
 
         const headers = {
             "Content-Type": "application/json",
@@ -50,4 +51,4 @@ class ApiClient {
     // }
 }
 
-export default new ApiClient();
+export default new ApiClient('http://localhost:3001');
