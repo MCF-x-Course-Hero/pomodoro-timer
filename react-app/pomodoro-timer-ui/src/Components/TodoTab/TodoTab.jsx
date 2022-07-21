@@ -37,7 +37,6 @@ export default function TodoTab() {
   - Otherwise if the id does not match, simply return the todo object as it is not the one we want to mark/unmark
   - all of this is done inside the setTodoList since we want to update the todoList in order to render it with a todo marked off.
   */ 
- 
   function toggleComplete(id) {
     setTodoList(
       todoList.map((element)=>{
@@ -51,13 +50,18 @@ export default function TodoTab() {
       })
     )
   }
+  
+  function removeTodo(id){
+    // filter method will return all todos except for the one matches with the id given to update 
+    setTodoList(todoList.filter(element => element.id !== id))
+  }
 
     return (
     <div className="list-tab">
       <p>I am the list tab!</p>
 
       <TodoForm addTodo={addTodo} todoList= {todoList} setTodoList ={setTodoList}/>
-      <TodoList todoList={todoList} toggleComplete = {toggleComplete}/>
+      <TodoList todoList={todoList} toggleComplete = {toggleComplete} removeTodo = {removeTodo}/>
     </div>
   );
 }
