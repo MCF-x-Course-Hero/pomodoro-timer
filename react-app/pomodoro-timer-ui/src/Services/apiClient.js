@@ -1,20 +1,17 @@
-import axios from "axios";
-
+ import axios from "axios";
 
 class ApiClient {
     constructor(remoteHostUrl) {
         this.remoteHostUrl = remoteHostUrl;
         this.token = null;
-        this.tokenName = "token";
     }
 
-    async setToken(token) {
+    setToken(token) {
         this.token = token;
-        localStorage.setItem(this.tokenName, token);
     }
 
     async request({ endpoint, method = "GET", data = {} }) {
-        const url = `http://localhost:3001/${endpoint}`;
+        const url = `${this.remoteHostUrl}/${endpoint}`;
 
         const headers = {
             "Content-Type": "application/json",
@@ -29,17 +26,16 @@ class ApiClient {
             return { data: res.data, error: null };
         } catch (error) {
             console.error({ errorResponse: error.response });
-            const message = error?.response?.data?.error?.message;
+            const message = error.response.data.error.message;
             return { data: null, error: message || String(error) };
         }
     }
-
     async login(credentials) {
         //send an http request to the auth/login endpoint
         return await this.request({ endpoint: `auth/login`, method: `POST`, data: credentials });
     }
 
-    async register(credentials) {
+    async signup(credentials) {
         //send an http request to the auth/register endpoint
         return await this.request({ endpoint: `auth/register`, method: `POST`, data: credentials });
     }
@@ -51,4 +47,4 @@ class ApiClient {
     // }
 }
 
-export default new ApiClient('http://localhost:3001');
+export default new ApiClient( "http://localhost:3001");
