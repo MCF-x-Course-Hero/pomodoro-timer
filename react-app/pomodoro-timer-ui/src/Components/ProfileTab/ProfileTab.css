@@ -1,11 +1,7 @@
 .profile-tab {
     position: absolute;
     width: 326px;
-    height: 372px;
-    left: 1654px;
-    top: 115px;
-
-    background: #F1F1F1;
+    height: 300px;
     border: 1px solid #000000;
     border-radius: 10px;
 }

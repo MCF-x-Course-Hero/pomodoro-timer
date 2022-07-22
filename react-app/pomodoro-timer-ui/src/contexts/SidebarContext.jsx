@@ -19,28 +19,28 @@ export const SidebarContextProvider = ({ children }) => {
         setHistoryOpen(false);
         setListOpen(false);
         setSettingsOpen(false);
-        profileOpen ? setProfileOpen(false) : setProfileOpen(true);
+        setProfileOpen(!profileOpen);
     }
 
     function clickSettings() {
         setProfileOpen(false);
         setHistoryOpen(false);
         setListOpen(false);
-        settingsOpen ? setSettingsOpen(false) : setSettingsOpen(true);
+        setSettingsOpen(!settingsOpen);
     }
 
     function clickList() {
         setProfileOpen(false);
         setHistoryOpen(false);
         setSettingsOpen(false);
-        listOpen ? setListOpen(false) : setListOpen(true);
+        setListOpen(!listOpen);
     }
 
     function clickHistory() {
         setProfileOpen(false);
         setListOpen(false);
         setSettingsOpen(false);
-        historyOpen ? setHistoryOpen(false) : setHistoryOpen(true);
+        setHistoryOpen(!historyOpen);
     }
 
     return(

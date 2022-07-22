@@ -49,6 +49,10 @@
     background: #9bb1ff;
 }
 
+.pomozone-dark-mode {
+    background: #2E293A;
+}
+
 /* Short Break Themes */
 
 .short-break-sbdefault {
@@ -90,6 +94,10 @@
     background: #9bb1ff;
 }
 
+.short-break-dark-mode {
+    background: #2E293A;
+}
+
 
 /* Long Break Themes */
 
@@ -129,4 +137,8 @@
 
 .long-break-pdefault{
     background: #8270A9;
+}
+
+.long-break-dark-mode {
+    background: #2E293A;
 }

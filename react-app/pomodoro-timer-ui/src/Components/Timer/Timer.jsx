@@ -1,9 +1,15 @@
 import * as React from "react";
 import { useTimer } from "react-timer-hook";
 import resetIcon from "../../Assets/restart.svg";
+import darkReset from "../../Assets/dark-restart.svg";
+import darkPause from "../../assets/dark-pause.svg";
+import darkPlay from "../../assets/dark-play.svg";
 import pauseIcon from "../../Assets/pause.svg";
 import forwardIcon from "../../Assets/forward.svg";
+import darkForward from "../../assets/dark-forward.svg";
 import startIcon from "../../Assets/play.svg";
+import useSound from "use-sound";
+import softNotif from "../../assets/soft-notif.mp3";
 import { useSettingsContext } from "../../contexts/SettingsContext";
 import "./Timer.css";
 
@@ -14,13 +20,18 @@ export default function Timer() {
     const longBreak = "long-break"
     //expiryTimestamp tells the timer how long the timer should run for
     let expiryTimestamp = setTime(settingsStates.session);
+    const [playActive] = useSound(softNotif, {volume: 2 });
+
+    function toggleSound() {
+        settingsStates.notifToggle ? playActive() : console.log("Session Finished");
+    }
 
     function setTime(s) {
         const time = new Date();
         if(s === pomozone) {
             time.setSeconds(time.getSeconds() + 1500);
         } else if(s === shortBreak) {
-            time.setSeconds(time.getSeconds() + 300);
+            time.setSeconds(time.getSeconds() + 10);
         } else if(s === longBreak) {
             time.setSeconds(time.getSeconds() + 900);
         }
@@ -28,16 +39,8 @@ export default function Timer() {
     }
 
     //timer
-    const {
-        seconds,
-        minutes,
-        hours,
-        isRunning,
-        pause,
-        start,
-        resume,
-        restart,
-    } = useTimer({ expiryTimestamp, autoStart: false, onExpire: () => console.warn('onExpire called') });
+    const { seconds, minutes, hours, isRunning, pause, start, resume, restart
+    } = useTimer({ expiryTimestamp, autoStart: false, onExpire: toggleSound });
 
     //shehab needs minutes, seconds, hours
 
@@ -63,20 +66,22 @@ export default function Timer() {
         <div className="timer">
             <div className="content">
                 <div className="timer-area">
-                    <div className="time">
+                    <div className={`time-${settingsStates.darkToggle ? "dark" : "reg"}`}>
                         <span>{minutes}</span><span>:{(seconds < 10) ? '0' + seconds : seconds}</span>
                     </div>
                 </div>
-                <h2>{settingsStates.session.replace("-", " ")}</h2>
+                <h2 className={`session-${settingsStates.darkToggle ? "dark" : "reg"}`}>
+                    {settingsStates.session.replace("-", " ")}
+                </h2>
                 <div className="buttons">
                     <button className={`${settingsStates.session}-${settingsStates.theme}`} onClick={() => {updateTimer(true)}}>
-                        <img src={resetIcon} alt="restart timer"></img>
+                        <img src={settingsStates.darkToggle ? darkReset : resetIcon} alt="restart timer"></img>
                     </button>
                     <button className={`${settingsStates.session}-${settingsStates.theme}`} onClick={isRunning ? pause : resume}>
-                        <img src={isRunning ? pauseIcon : startIcon} alt={isRunning ? "pause timer": "start timer"}></img>
+                        <img src={isRunning ? (settingsStates.darkToggle ? darkPause : pauseIcon) : (settingsStates.darkToggle ? darkPlay : startIcon) } alt={isRunning ? "pause timer": "start timer"}></img>
                     </button>
                     <button className={`${settingsStates.session}-${settingsStates.theme}`} onClick={() => {updateTimer(false)}}>
-                        <img src={forwardIcon} alt="move to next session"></img>
+                        <img src={settingsStates.darkToggle ? darkForward : forwardIcon} alt="move to next session"></img>
                     </button>
                 </div>
             </div>

@@ -20,10 +20,9 @@
     width: 100%;
 }
 
-.timer .content .timer-area .time {
+.timer .content .timer-area .time-reg {
     display: flex;
     flex-direction: row;
-    color: white;
     font-family: 'Roboto Condensed';
     font-style: normal;
     font-weight: 400;
@@ -31,9 +30,23 @@
     line-height: 117px;
     align-items: center;
     text-align: center;
+    color: white;
 }
 
-.timer .content h2 {
+.timer .content .timer-area .time-dark {
+    display: flex;
+    flex-direction: row;
+    font-family: 'Roboto Condensed';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 100px;
+    line-height: 117px;
+    align-items: center;
+    text-align: center;
+    color: #A9AAC5;
+}
+
+.timer .content .session-reg {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
@@ -42,6 +55,17 @@
     color: white;
     text-align: center;
     margin: 0px 0px 25px 0px;
+}
+
+.timer .content .session-dark {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+    margin: 0px 0px 25px 0px;
+    color: #A9AAC5;
 }
 
 .timer .content .buttons {
@@ -103,6 +127,10 @@
     background: #788bff;
 }
 
+.timer .content .buttons .pomozone-dark-mode {
+    background: #A9AAC5;
+}
+
 /* Short Break Themes */
 
 .timer .content .buttons .short-break-sbdefault {
@@ -145,6 +173,9 @@
     background: #788bff;
 }
 
+.timer .content .buttons .short-break-dark-mode {
+    background: #A9AAC5;
+}
 
 /* Long Break Themes */
 
@@ -186,4 +217,8 @@
 
 .timer .content .buttons .long-break-pdefault{
     background: #615184;
+}
+
+.timer .content .buttons .long-break-dark-mode {
+    background: #A9AAC5;
 }

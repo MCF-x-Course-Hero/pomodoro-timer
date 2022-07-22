@@ -23,6 +23,18 @@
     width: 60px;
 }
 
+.bottom-sidebar .bottom-buttons .dark {
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    cursor: pointer;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border: none;
+    height: 60px;
+    width: 60px;
+    background: #5C5771;
+}
+
 .bottom-sidebar .history-sidebar {
     width: 200px;
     height: 300px;
@@ -30,7 +42,24 @@
     background: #F1F1F1;
     border: 1px solid black;
     border-radius: 10px;
-    
+}
+
+.bottom-sidebar .dark-history {
+    width: 200px;
+    height: 300px;
+    margin-top: auto;
+    border: 1px solid black;
+    border-radius: 10px;
+    background: #5C5771;
+}
+
+.bottom-sidebar .dark-list {
+    width: 200px;
+    height: 300px;
+    margin-top: auto;
+    border: 1px solid black;
+    border-radius: 10px;
+    background: #5C5771;
 }
 
 .bottom-sidebar .list-sidebar {

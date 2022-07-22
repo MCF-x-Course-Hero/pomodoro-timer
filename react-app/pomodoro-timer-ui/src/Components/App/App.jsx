@@ -12,6 +12,7 @@ export default function AppContainer() {
 )}
 
 function App() {
+  console.clear();
   const { settingsStates } = useSettingsContext();
   return (
       <div className={`app ${settingsStates.session}-${settingsStates.theme}`}>
