@@ -110,7 +110,7 @@ const handleSubmit = async (e) => {
           />
           {error?.password && (<span className="error">{error.password}</span>)}
         </div>
-        <button className="btn" disabled={isLoading} onClick={()=>{setLogin(false); setRegister(true)}}>
+        <button className="btn" disabled={isLoading} onClick={()=>{setLogin(true); setRegister(false)}}>
           {" "}
           {isLoading ? "Loading..." : "Login"}
         </button>
