@@ -15,58 +15,75 @@ import "./Timer.css";
 
 export default function Timer() {
     const { settingsStates, settingsSetStates } = useSettingsContext();
+    let pomozoneTime = (settingsStates.timeForm.focusTime * 60);
+    let shortBreakTime = (settingsStates.timeForm.shortBreakTime * 60);
+    let longBreakTime = (settingsStates.timeForm.longBreakTime * 60);
+    const [loops, setLoops] = React.useState(0);
     const pomozone = "pomozone";
     const shortBreak = "short-break";
     const longBreak = "long-break";
-    const pomozoneTime = settingsStates.timeForm.focusTime;
-    const shortBreakTime = settingsStates.timeForm.shortBreakTime;
-    const longBreakTime = settingsStates.timeForm.longBreakTime;
-    let loops = 0;
+
+    React.useEffect(() => {
+        if(settingsStates.session === pomozone) {
+            pomozoneTime = (settingsStates.timeForm.focusTime * 60);
+            updateTimer(true);
+        } else if(settingsStates.session === shortBreak) {
+            shortBreakTime = (settingsStates.timeForm.shortBreakTime * 60);
+            updateTimer(true);
+        } else if(settingsStates.session === longBreak) {
+            longBreakTime = (settingsStates.timeForm.longBreakTime * 60);
+            updateTimer(true);
+        }
+    }, [settingsStates.timeForm])
 
     //expiryTimestamp tells the timer how long the timer should run for
     let expiryTimestamp = setTime(settingsStates.session);
     const [playActive] = useSound(softNotif, {volume: 2 });
 
     function finishCountdown() {
-        settingsStates.notifToggle ? playActive() : console.log("Session Finished");
+        settingsStates.notifToggle ? playActive() : null;
         settingsSetStates.setIsExploding(true);
         setTimeout(() => {
             settingsSetStates.setIsExploding(false);
-        }, 6000);
-        if(loops > 3 && settingsStates.session == "short-break") {
-            settingsSetStates.setSession("long-break");
-            restart({ expiryTimestamp: setTime(longBreak), autoStart: true });
-        } else if (settingsStates.session == "short-break") {
-            loops++;
-            settingsSetStates.setSession("pomozone");
-            restart({ expiryTimestamp: setTime(pomozone), autoStart: true });
-        } else if(settingsStates.session === "long-break") {
-            loops = 0;
-            settingsSetStates.setSession("pomozone");
-            restart({ expiryTimestamp: setTime(pomozone), autoStart: true });
-        } else if(settingsStates.session == "pomozone") {
-            settingsSetStates.setSession("short-break");
-            restart({ expiryTimestamp: setTime(shortBreak), autoStart: true });
-        }
+            if(loops == 3 && settingsStates.session == "pomozone") {
+                settingsSetStates.setTheme(settingsStates.longBreakTheme);
+                settingsSetStates.setSession("long-break");
+                expiryTimestamp = setTime(longBreak);
+            } else if (settingsStates.session == "short-break") {
+                settingsSetStates.setTheme(settingsStates.pomozoneTheme);
+                settingsSetStates.setSession("pomozone");
+                expiryTimestamp = setTime(pomozone);
+                setLoops(loops + 1);
+                console.log(loops);
+            } else if(settingsStates.session === "long-break") {
+                settingsSetStates.setTheme(settingsStates.pomozoneTheme);
+                settingsSetStates.setSession("pomozone");
+                expiryTimestamp = setTime(pomozone);
+                setLoops(0);
+            } else if(settingsStates.session == "pomozone") {
+                settingsSetStates.setTheme(settingsStates.shortBreakTheme);
+                settingsSetStates.setSession("short-break");
+                expiryTimestamp = setTime(shortBreak);
+            }
+            restart(expiryTimestamp, true);
+        }, 5000);
     }
 
     function setTime(s) {
         const time = new Date();
         if(s === pomozone) {
-            time.setSeconds(time.getSeconds() + 15);
+            time.setSeconds(time.getSeconds() + pomozoneTime);
         } else if(s === shortBreak) {
-            time.setSeconds(time.getSeconds() + 5);
+            time.setSeconds(time.getSeconds() + shortBreakTime);
         } else if(s === longBreak) {
-            time.setSeconds(time.getSeconds() + 10);
+            time.setSeconds(time.getSeconds() + longBreakTime);
         }
         return time;
     }
 
     //timer
-    const { seconds, minutes, hours, isRunning, pause, start, resume, restart
+    const { seconds, minutes, hours, days, isRunning, pause, start, resume, restart
     } = useTimer({ expiryTimestamp, autoStart: false, onExpire: finishCountdown });
-
-    //shehab needs minutes, seconds, hours
 
     //move the timer forward a session. sets the new session, and resets the timer and expiryTimestamp
     function updateTimer(reset) {
@@ -92,7 +109,10 @@ export default function Timer() {
             <div className="content">
                 <div className="timer-area">
                     <div className={`time-${settingsStates.darkToggle ? "dark" : "reg"}`}>
-                        <span>{minutes}</span><span>:{(seconds < 10) ? '0' + seconds : seconds}</span>
+                        {/* {days ? (<span>{days}:</span>) : null} */}
+                        {hours ? (<span>{hours}:</span>) : null }
+                        <span>{(minutes < 10 && hours) ? '0' + minutes : minutes}</span>
+                        <span>:{(seconds < 10) ? '0' + seconds : seconds}</span>
                     </div>
                 </div>
                 <h2 className={`session-${settingsStates.darkToggle ? "dark" : "reg"}`}>

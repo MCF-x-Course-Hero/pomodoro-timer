@@ -45,56 +45,63 @@ export default function SettingsTab() {
             <h2>Settings</h2>
             <div className="set-time">
                 <div className="time-forms">
-                    <div className="input-field">
+                    <div className="input-names">
                         <label>Focus Time</label>
-                        <input
-                            className="form-input"
-                            type="number"
-                            name="focusTime"
-                            placeholder="1"
-                            value={settingsStates.timeForm.focusTime}
-                            onChange={handleOnInputChange}
-                            onKeyDown={ (evt) => {
-                                evt.key === 'e' && evt.preventDefault();
-                                evt.key === '-' && evt.preventDefault();
-                                evt.key === '.' && evt.preventDefault();
-                            }}
-                            min="0"
-                        />
-                    </div>
-                    <div className="input-field">
                         <label>Short Break Time</label>
-                        <input
-                            className="form-input"
-                            type="number"
-                            name="shortBreakTime"
-                            placeholder="80"
-                            value={settingsStates.timeForm.shortBreakTime}
-                            onChange={handleOnInputChange}
-                            onKeyDown={ (evt) => {
-                                evt.key === 'e' && evt.preventDefault();
-                                evt.key === '-' && evt.preventDefault();
-                                evt.key === '.' && evt.preventDefault();
-                            }}
-                            min="0"
-                        />
-                    </div>
-                    <div className="input-field">
                         <label>Long Break Time</label>
-                        <input
-                            className="form-input"
-                            type="number"
-                            name="longBreakTime"
-                            placeholder="25"
-                            value={settingsStates.timeForm.longBreakTime}
-                            onChange={handleOnInputChange}
-                            onKeyDown={ (evt) => {
-                                evt.key === 'e' && evt.preventDefault();
-                                evt.key === '-' && evt.preventDefault();
-                                evt.key === '.' && evt.preventDefault();
-                            }}
-                            min="0"
-                        />
+                    </div>
+                    <div className="inputs">
+                        <div className="input-field">
+                            <input
+                                className={`form-input ${settingsStates.darkToggle ? "dark" : null}`}
+                                type="number"
+                                name="focusTime"
+                                placeholder="1"
+                                value={settingsStates.timeForm.focusTime}
+                                onChange={handleOnInputChange}
+                                onKeyDown={ (evt) => {
+                                    evt.key === 'e' && evt.preventDefault();
+                                    evt.key === '-' && evt.preventDefault();
+                                    evt.key === '.' && evt.preventDefault();
+                                }}
+                                min="0"
+                            />
+                            <label>min.</label>
+                        </div>
+                        <div className="input-field">
+                            <input
+                                className={`form-input ${settingsStates.darkToggle ? "dark" : null}`}
+                                type="number"
+                                name="shortBreakTime"
+                                placeholder="80"
+                                value={settingsStates.timeForm.shortBreakTime}
+                                onChange={handleOnInputChange}
+                                onKeyDown={ (evt) => {
+                                    evt.key === 'e' && evt.preventDefault();
+                                    evt.key === '-' && evt.preventDefault();
+                                    evt.key === '.' && evt.preventDefault();
+                                }}
+                                min="0"
+                            />
+                            <label>min.</label>
+                        </div>
+                        <div className="input-field">
+                            <input
+                                className={`form-input ${settingsStates.darkToggle ? "dark" : null}`}
+                                type="number"
+                                name="longBreakTime"
+                                placeholder="25"
+                                value={settingsStates.timeForm.longBreakTime}
+                                onChange={handleOnInputChange}
+                                onKeyDown={ (evt) => {
+                                    evt.key === 'e' && evt.preventDefault();
+                                    evt.key === '-' && evt.preventDefault();
+                                    evt.key === '.' && evt.preventDefault();
+                                }}
+                                min="0"
+                            />
+                            <label>min.</label>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -117,7 +124,7 @@ export default function SettingsTab() {
                 <div className="slider-names">
                     <ul>
                         <li>Dark Mode</li>
-                        <li>Display Notifications</li>
+                        <li>Sound Notifications</li>
                     </ul>
                 </div>
                 <div className="sliders">

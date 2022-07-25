@@ -15,7 +15,6 @@ export default function AppContainer() {
 
 function App() {
   const {width, height} = useWindowSize();
-  console.clear();
   const { settingsStates } = useSettingsContext();
   return (
       <div className={`app ${settingsStates.session}-${settingsStates.theme}`}>

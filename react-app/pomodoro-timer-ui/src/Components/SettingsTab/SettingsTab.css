@@ -23,17 +23,52 @@
 
 .settings-tab .set-time .time-forms {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: flex-start;
-    margin-left: 20px;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
+    margin-top: 15px;
     width: 100%;
+}
+
+.settings-tab .set-time .time-forms .input-names {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 100%;
+  margin-left: 10px;
+  justify-content: space-evenly;
+}
+
+.settings-tab .set-time .time-forms .inputs {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
 }
 
 .settings-tab .set-time .time-forms .input-field {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  margin: 5px 0px 5px 0px;
+}
+
+.settings-tab .set-time .time-forms .input-field .form-input {
+  width: 50px;
+  border-radius: 10px;
+  margin-left: 30px;
+}
+
+.settings-tab .set-time .time-forms .input-field label {
+  margin-left: 5px;
+  margin-right: 12px;
+  margin-top: 2px;
+}
+
+.settings-tab .set-time .time-forms .input-field .dark {
+  width: 50px;
+  border-radius: 10px;
+  margin-left: 30px;
+  background: #2E293A;
 }
 
 .settings-tab .color-themes {
