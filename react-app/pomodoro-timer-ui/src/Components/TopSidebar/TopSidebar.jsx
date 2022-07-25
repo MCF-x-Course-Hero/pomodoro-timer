@@ -10,6 +10,7 @@ import LoginForm from "../LoginForm/LoginForm";
 // import Register from "../Register/Registration";
 
 
+
 export default function TopSidebar() {
     const { sidebarStates, sidebarFunctions } = useSidebarContext();
     const [login, setLogin] = React.useState(false)
@@ -26,8 +27,15 @@ export default function TopSidebar() {
             </div>
             {sidebarStates.profileOpen ? (
                 <div className="profile-sidebar">
-                    {login?<LoginForm/>: null}
-                    {register?<RegisterForm/>: null}
+                    {login?<LoginForm
+                    setLogin={setLogin}
+                    setRegister={setRegister}
+                    />: null}
+                    {register?<RegisterForm 
+                    
+                    setLogin={setLogin}
+                    setRegister={setRegister}
+                    />: null }
                     {/* <LoginForm/>
                     <Register/> */}
                     {/* <RegisterForm/> */}

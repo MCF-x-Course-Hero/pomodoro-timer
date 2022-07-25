@@ -4,7 +4,7 @@ import { useAuthContext } from "../../contexts/auth";
 import ApiClient from "../../services/apiClient"
 // import "./LoginForm.css";
 
-export default function LoginForm() {
+export default function LoginForm({setLogin, setRegister}) {
 
 const [isLoading, setIsLoading] = useState(false);
 const { error, setError, loginUser } = useAuthContext();
@@ -17,14 +17,11 @@ const [form, setForm] = useState({
     password: "",
   });
 
-  useEffect(() => {
-    setErrMsg('');
-}, [user])
+//   useEffect(() => {
+//     setErrMsg('');
+// }, [user])
 
 
-  useEffect(() => {
-    userRef.current.focus();
-}, [])
 
 const handleSubmit = async (e) => {
     e.preventDefault();
@@ -34,16 +31,16 @@ const handleSubmit = async (e) => {
 }
 
   const handleOnInputChange = (event) => {
-    if (event.target.name === "email") {
-      if (
-        (event.target.value.indexOf("@") === -1 && event.target.value !== "") ||
-        event.target.value.indexOf("@") === 0
-      ) {
-        setError((e) => ({ ...e, email: "Please enter a valid email" }));
-      } else {
-        setError((e) => ({ ...e, email: null }));
-      }
-    }
+  //   if (event.target.name === "email") {
+  //     if (
+  //       (event.target.value.indexOf("@") === -1 && event.target.value !== "") ||
+  //       event.target.value.indexOf("@") === 0
+  //     ) {
+  //       setError((e) => ({ ...e, email: "Please enter a valid email" }));
+  //     } else {
+  //       setError((e) => ({ ...e, email: null }));
+  //     }
+  //   }
 
     if (event.target.name === "password") {
       if (event.target.value !== "") {
@@ -95,8 +92,8 @@ const handleSubmit = async (e) => {
           <input
             type="text"
             id="username"
-            ref={useRef}
             onChange={(e) => setUser(e.target.value)}
+            placeholder="username"
             value={user}
             required
           />
@@ -113,14 +110,15 @@ const handleSubmit = async (e) => {
           />
           {error?.password && (<span className="error">{error.password}</span>)}
         </div>
-        <button className="btn" disabled={isLoading} onClick={handleOnSubmit}>
+        <button className="btn" disabled={isLoading} onClick={()=>{setLogin(false); setRegister(true)}}>
           {" "}
           {isLoading ? "Loading..." : "Login"}
         </button>
       </div>
       <div className="footer">
         <p>
-          Don't have an account? Sign up
+          Don't have an account?
+        <button onClick={()=>{setLogin(false); setRegister(true)}}>Sign up here!</button>
         </p>
       </div>
     </div>

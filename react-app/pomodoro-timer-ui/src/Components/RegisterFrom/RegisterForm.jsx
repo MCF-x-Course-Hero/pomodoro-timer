@@ -3,7 +3,7 @@ import { useAuthContext } from "../../contexts/auth";
 import apiClient from "./../../Services/apiClient"
 import "./RegisterForm.css";
 
-export default function RegisterForm() {
+export default function RegisterForm({setLogin, setRegister}) {
   const [isLoading, setIsLoading] = useState(false);
   const { error, setError, signupUser } = useAuthContext();
   const [form, setForm] = useState({
@@ -113,7 +113,7 @@ export default function RegisterForm() {
             className="form-input"
             type="username"
             name="username"
-            placeholder="your_username"
+            placeholder="username"
             value={form.username}
             onChange={handleOnInputChange}
           />
@@ -127,7 +127,7 @@ export default function RegisterForm() {
             className="form-input"
             type="password"
             name="password"
-            placeholder="Enter a secure password"
+            placeholder="password"
             value={form.password}
             onChange={handleOnInputChange}
           />
@@ -139,7 +139,7 @@ export default function RegisterForm() {
             className="form-input"
             type="password"
             name="passwordConfirm"
-            placeholder="Confirm your password"
+            placeholder="confirm password"
             value={form.passwordConfirm}
             onChange={handleOnInputChange}
           />
@@ -155,8 +155,8 @@ export default function RegisterForm() {
         <p>
           Already have an account? 
           <span className="line">
-                {/*put router link here*/}
-                <a href="#">Login Here!</a>
+                {}
+                <button onClick={()=>{setLogin(true); setRegister(false)}}>Login here!</button>
             </span>
         </p>
       </div>
