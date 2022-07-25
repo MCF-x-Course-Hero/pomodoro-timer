@@ -5,11 +5,7 @@ import './App.css'
 
 
 export default function App() {
-<<<<<<< HEAD
-  // console.clear()
-=======
   console.clear()
->>>>>>> main
   const [session, setSession] = React.useState("pomozone");
   return (
     <div className={`app-${session}`}>
