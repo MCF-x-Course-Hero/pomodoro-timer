@@ -108,7 +108,7 @@ export default function RegisterForm({setLogin, setRegister}) {
       {error?.form && (<span className="error">{error.form}</span>)}
       <div className="form">
         <div className="input-field">
-          <label>Username</label>
+          {/* <label>Username</label> */}
           <input
             className="form-input"
             type="username"
@@ -122,7 +122,7 @@ export default function RegisterForm({setLogin, setRegister}) {
         <div className="split-input-field">
         </div>
         <div className="input-field">
-          <label>Password</label>
+          {/* <label>Password</label> */}
           <input
             className="form-input"
             type="password"
@@ -134,7 +134,7 @@ export default function RegisterForm({setLogin, setRegister}) {
           {error.password && <span className="error">{error.password}</span>}
         </div>
         <div className="input-field">
-          <label>Confirm Password</label>
+          {/* <label>Confirm Password</label> */}
           <input
             className="form-input"
             type="password"
@@ -148,14 +148,13 @@ export default function RegisterForm({setLogin, setRegister}) {
           )}
         </div>
         <button className="submit-registration" onClick={handleOnSubmit}>
-          {isLoading ? "Loading..." : "Register"}
+          {isLoading ? "Loading..." : "Registered"}
         </button>
       </div>
       <div className="footer">
         <p>
           Already have an account? 
           <span className="line">
-                {}
                 <button onClick={()=>{setLogin(true); setRegister(false)}}>Login here!</button>
             </span>
         </p>

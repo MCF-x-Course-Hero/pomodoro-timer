@@ -39,7 +39,7 @@ export default function TopSidebar() {
                     {/* <LoginForm/>
                     <Register/> */}
                     {/* <RegisterForm/> */}
-                    {/* <ProfileTab/> */}
+                    <ProfileTab/>
                 </div>
             ) : null}
 

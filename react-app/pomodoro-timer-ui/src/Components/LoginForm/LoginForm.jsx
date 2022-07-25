@@ -26,21 +26,16 @@ const [form, setForm] = useState({
 const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(user);
-    setUser('');
+    setUser();
     setSuccess(true);
 }
 
   const handleOnInputChange = (event) => {
-  //   if (event.target.name === "email") {
-  //     if (
-  //       (event.target.value.indexOf("@") === -1 && event.target.value !== "") ||
-  //       event.target.value.indexOf("@") === 0
-  //     ) {
-  //       setError((e) => ({ ...e, email: "Please enter a valid email" }));
-  //     } else {
-  //       setError((e) => ({ ...e, email: null }));
-  //     }
-  //   }
+    if (event.target.name === "username") {
+      if (event.target.value !== "") {
+        setError((e) => ({ ...e, username: null }));
+      }
+    }
 
     if (event.target.name === "password") {
       if (event.target.value !== "") {
@@ -52,6 +47,7 @@ const handleSubmit = async (e) => {
   };
 
   const handleOnSubmit = async (event) => {
+
     event.preventDefault();
     setIsLoading(true);
     setError((e) => ({ ...e, form: null }));
@@ -66,13 +62,17 @@ const handleSubmit = async (e) => {
       setError((e) => ({ ...e, password: "Please enter a password" }));
       setIsLoading(false);
       return;
+
     }
+
 
     const { data, error } = await ApiClient.login(form);
     if (error) {
       setError((e) => ({ ...e, form: error }));
       setIsLoading(false);
     } else if (data?.user) {
+      setLogin(true); 
+      setRegister(false)
       loginUser(data.user);
       console.log(data.user);
       ApiClient.setToken(data.token);
@@ -88,14 +88,14 @@ const handleSubmit = async (e) => {
       {error?.form && (<span className="error">{error.form}</span>)}
       <div className="form">
         <div className="input-field">
-          <label>Username</label>
+          {/* <label>Username</label> */}
           <input
             type="text"
             id="username"
-            onChange={(e) => setUser(e.target.value)}
             placeholder="username"
-            value={user}
+            value={form.username}
             required
+            onChange={handleOnInputChange}
           />
           {error?.username && (<span className="error">{error.username}</span>)}
         </div>
@@ -110,7 +110,7 @@ const handleSubmit = async (e) => {
           />
           {error?.password && (<span className="error">{error.password}</span>)}
         </div>
-        <button className="btn" disabled={isLoading} onClick={()=>{setLogin(true); setRegister(false)}}>
+        <button className="btn" disabled={isLoading} onClick={handleOnSubmit}>
           {" "}
           {isLoading ? "Loading..." : "Login"}
         </button>
