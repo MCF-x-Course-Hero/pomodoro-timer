@@ -14,8 +14,13 @@ export const SettingsContextProvider = ({children}) => {
     const [longBreakTheme, setLongBreakTheme] = React.useState("lbdefault");
     const [notifToggle, setNotifToggle] = React.useState(false);
     const [darkToggle, setDarkToggle] = React.useState(false);
-    const settingsStates = { session, theme, pomozoneTheme, shortBreakTheme, longBreakTheme, notifToggle, darkToggle };
-    const settingsSetStates = { setSession, setTheme, setPomozoneTheme, setShortBreakTheme, setLongBreakTheme, setNotifToggle, setDarkToggle };
+    const [isExploding, setIsExploding] = React.useState(false);
+    const [pomozoneTime, setPomozoneTime] = React.useState(1500);
+    const [shortBreakTime, setShortBreakTime] = React.useState(500);
+    const [longBreakTime, setLongBreakTime] = React.useState(900);
+    const [timeForm, setTimeForm] = React.useState({ focusTime: 25, shortBreakTime: 5, longBreakTime: 15 })
+    const settingsStates = { session, theme, pomozoneTheme, shortBreakTheme, longBreakTheme, notifToggle, darkToggle, isExploding, pomozoneTime, shortBreakTime, longBreakTime, timeForm };
+    const settingsSetStates = { setSession, setTheme, setPomozoneTheme, setShortBreakTheme, setLongBreakTheme, setNotifToggle, setDarkToggle, setIsExploding, setPomozoneTime, setShortBreakTime, setLongBreakTime, setTimeForm };
     const settingsFunctions = { darkModeToggle }
 
     function darkModeToggle() {

@@ -2,6 +2,7 @@
     display: flex;
     align-self: center;
     margin: auto;
+    overflow: visible;
 }
 
 .timer .content {
@@ -18,6 +19,7 @@
     align-content: center;
     justify-content: center;
     width: 100%;
+    overflow: visible;
 }
 
 .timer .content .timer-area .time-reg {

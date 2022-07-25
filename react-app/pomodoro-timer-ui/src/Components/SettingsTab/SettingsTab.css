@@ -21,46 +21,19 @@
     width: 100%;
 }
 
-.settings-tab .set-time .time-names {
-    display: flex;
-    justify-content: flex-start;
-    text-align: start;
-    width: 60%;
-}
-
-.settings-tab .set-time .time-names ul {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    text-align: center;
-    list-style: none;
-    padding: 0px;
-    width: 100%;
-}
-
-.settings-tab .set-time .time-names li {
-    margin: 10px 0px 5px 5px;
-    font-size: 16px;
-}
-
 .settings-tab .set-time .time-forms {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    width: 40%;
+    align-items: flex-start;
+    margin-left: 20px;
+    margin-bottom: 5px;
+    width: 100%;
 }
 
-.settings-tab .set-time .time-forms ul {
-    list-style: none;
-    padding: 0px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-}
-
-.settings-tab .set-time .time-forms li {
-    margin: 8px 5px 8px 5px;
+.settings-tab .set-time .time-forms .input-field {
+  display: flex;
+  flex-direction: column;
 }
 
 .settings-tab .color-themes {

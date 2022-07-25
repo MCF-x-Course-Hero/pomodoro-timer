@@ -8,44 +8,69 @@ import pauseIcon from "../../Assets/pause.svg";
 import forwardIcon from "../../Assets/forward.svg";
 import darkForward from "../../assets/dark-forward.svg";
 import startIcon from "../../Assets/play.svg";
-import useSound from "use-sound";
 import softNotif from "../../assets/soft-notif.mp3";
 import { useSettingsContext } from "../../contexts/SettingsContext";
+import useSound from "use-sound";
 import "./Timer.css";
 
 export default function Timer() {
     const { settingsStates, settingsSetStates } = useSettingsContext();
     const pomozone = "pomozone";
     const shortBreak = "short-break";
-    const longBreak = "long-break"
+    const longBreak = "long-break";
+    const pomozoneTime = settingsStates.timeForm.focusTime;
+    const shortBreakTime = settingsStates.timeForm.shortBreakTime;
+    const longBreakTime = settingsStates.timeForm.longBreakTime;
+    let loops = 0;
+
     //expiryTimestamp tells the timer how long the timer should run for
     let expiryTimestamp = setTime(settingsStates.session);
     const [playActive] = useSound(softNotif, {volume: 2 });
 
-    function toggleSound() {
+    function finishCountdown() {
         settingsStates.notifToggle ? playActive() : console.log("Session Finished");
+        settingsSetStates.setIsExploding(true);
+        setTimeout(() => {
+            settingsSetStates.setIsExploding(false);
+        }, 6000);
+        if(loops > 3 && settingsStates.session == "short-break") {
+            settingsSetStates.setSession("long-break");
+            restart({ expiryTimestamp: setTime(longBreak), autoStart: true });
+        } else if (settingsStates.session == "short-break") {
+            loops++;
+            settingsSetStates.setSession("pomozone");
+            restart({ expiryTimestamp: setTime(pomozone), autoStart: true });
+        } else if(settingsStates.session === "long-break") {
+            loops = 0;
+            settingsSetStates.setSession("pomozone");
+            restart({ expiryTimestamp: setTime(pomozone), autoStart: true });
+        } else if(settingsStates.session == "pomozone") {
+            settingsSetStates.setSession("short-break");
+            restart({ expiryTimestamp: setTime(shortBreak), autoStart: true });
+        }
     }
 
     function setTime(s) {
         const time = new Date();
         if(s === pomozone) {
-            time.setSeconds(time.getSeconds() + 1500);
+            time.setSeconds(time.getSeconds() + 15);
         } else if(s === shortBreak) {
-            time.setSeconds(time.getSeconds() + 10);
+            time.setSeconds(time.getSeconds() + 5);
         } else if(s === longBreak) {
-            time.setSeconds(time.getSeconds() + 900);
+            time.setSeconds(time.getSeconds() + 10);
         }
         return time;
     }
 
     //timer
     const { seconds, minutes, hours, isRunning, pause, start, resume, restart
-    } = useTimer({ expiryTimestamp, autoStart: false, onExpire: toggleSound });
+    } = useTimer({ expiryTimestamp, autoStart: false, onExpire: finishCountdown });
 
     //shehab needs minutes, seconds, hours
 
     //move the timer forward a session. sets the new session, and resets the timer and expiryTimestamp
     function updateTimer(reset) {
+        settingsSetStates.setIsExploding(false);
         if(settingsStates.session === pomozone) {
             reset ? null : settingsSetStates.setSession(shortBreak);
             expiryTimestamp = reset ? setTime(pomozone) : setTime(shortBreak);
