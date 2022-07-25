@@ -33,15 +33,22 @@ export default function TodoForm() {
   }
   return (
     <div>
-      <form className="todo-form" onSubmit={handleOnSubmitTask}>
+      <form className="todo-form"  onSubmit={handleOnSubmitTask}>
         <TextField
+        variant="standard"
+        color="secondary"
         label="Task"
+        size="small"
           name="task"
           type="text"
           value={todo.task}
           onChange={handleTaskInputChange}
-        />
-        <Button type="submit">submit</Button>
+          sx={{
+            color:"black"
+          }}
+        >
+        </TextField>
+        <Button color="secondary" size="medium" type="submit">submit</Button>
       </form>
     </div>
   );

@@ -5,11 +5,16 @@ import useWindowSize from "react-use/lib/useWindowSize";
 import Confetti from "react-confetti";
 import { SettingsContextProvider, useSettingsContext } from "../../contexts/SettingsContext";
 import './App.css'
+import PinnedTodo from "../PinnedTodo/PinnedTodo";
+import { TodoContextProvider } from "../../contexts/TodoContext";
+import "./App.css";
 
 export default function AppContainer() {
   return(
   <SettingsContextProvider>
+  <TodoContextProvider>
     <App />
+  </TodoContextProvider>
   </SettingsContextProvider>
 )}
 
@@ -24,6 +29,7 @@ function App() {
           height={height}
           tweenDuration={5000}
         /> : null }
+        <PinnedTodo />
         <Timer />
         <SidebarContainer />
       </div>
