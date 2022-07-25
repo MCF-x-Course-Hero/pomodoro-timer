@@ -33,6 +33,12 @@
     padding: 0;
 }
 
+.pin-btn{
+    cursor:pointer
+}
+
+
+
 li {
     text-align:initial
 }

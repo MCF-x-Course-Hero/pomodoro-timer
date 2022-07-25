@@ -3,7 +3,8 @@ import { createContext, useContext } from "react"
 import { useState, useEffect } from "react"
 export const TodoContext = createContext()
 
-const LOCAL_STORAGE_KEY = "react-todo-list"
+const TODOS_LOCAL_STORAGE_KEY = "react-todo-list"
+const PINNED_TODO_LOCAL_STORAGE_KEY = "pinned-todo"
 
 export function useTodoContext(){
     return useContext(TodoContext)
@@ -19,9 +20,13 @@ export const TodoContextProvider = ({children}) =>{
     // stores list of objects containing info about each Todo created
     const [todoList, setTodoList] = useState([])
     const [isLoading, setIsLoading] = useState(true)
-
-    const todoVariables = {todo, todoList}
-    const todoFunctions = {setTodo, setTodoList, addTodo, removeTodo, toggleComplete}
+    const [pinnedTodo, setPinnedTodo] = useState({
+      id: "",
+      task: "",
+      is_completed: false,
+  }) 
+    const todoVariables = {todo, todoList, pinnedTodo}
+    const todoFunctions = {setTodo, setTodoList, addTodo, removeTodo, toggleComplete, setPinnedTodo}
     
     function addTodo(todo){
         setTodoList([todo, ...todoList])
@@ -58,17 +63,25 @@ export const TodoContextProvider = ({children}) =>{
     - if any todos are stored in local storage, set the todolist state to them and render the todos
   */
     useEffect(()=>{
-        const storageTodos = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY))
+        const storageTodos = JSON.parse(localStorage.getItem(TODOS_LOCAL_STORAGE_KEY))
         if (storageTodos) setTodoList(storageTodos)
+        const storagePinnedTodo = JSON.parse(localStorage.getItem(PINNED_TODO_LOCAL_STORAGE_KEY))
+        if (storagePinnedTodo)  setPinnedTodo(storagePinnedTodo)
         setIsLoading(false)
+
       },[])
   
     /*- this will execute everytime a new todo is added to the list. 
       - what it does is save an updated list of todos in local storage everytime a new todo is created.
       - This will help in saving tasks despite reloading.*/
       useEffect(()=>{
-        if (!isLoading) localStorage.setItem(LOCAL_STORAGE_KEY,JSON.stringify(todoList))
+        if (!isLoading) localStorage.setItem(TODOS_LOCAL_STORAGE_KEY,JSON.stringify(todoList))
       }, [todoList])
+
+      useEffect(()=>{
+        if (!isLoading) localStorage.setItem(PINNED_TODO_LOCAL_STORAGE_KEY,JSON.stringify(pinnedTodo))
+    },[pinnedTodo])
+
 
   return (
     <TodoContext.Provider value = {{todoVariables, todoFunctions}}>

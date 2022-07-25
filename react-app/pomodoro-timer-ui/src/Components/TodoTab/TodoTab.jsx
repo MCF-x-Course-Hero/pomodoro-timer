@@ -16,16 +16,6 @@ export default function TodoTab() {
   const { todoFunctions } = useTodoContext();
   const setTodoList = todoFunctions.setTodoList
 
-  /*- This will execute everytime this component is mounted
-    - if any todos are stored in local storage, set the todolist state to them and render the todos
-  */
-    // useEffect(()=>{
-    //   console.log(1)
-    //   const storageTodos = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY))
-    //   if (storageTodos) setTodoList(storageTodos)
-
-    // },[])
-
     return (
     <div className="todo-tab">
       <h3>Your Tasks </h3>
