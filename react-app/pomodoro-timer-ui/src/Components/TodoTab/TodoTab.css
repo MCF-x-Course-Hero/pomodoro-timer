@@ -33,3 +33,9 @@
 li {
     text-align:initial
 }
+
+
+.todo-left-side{
+    display: flex;
+    flex-direction: row;
+}
