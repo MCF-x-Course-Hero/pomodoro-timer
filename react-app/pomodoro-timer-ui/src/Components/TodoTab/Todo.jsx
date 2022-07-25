@@ -42,23 +42,21 @@ export default function ({ todo, toggleComplete, removeTodo }) {
             <line x1="14.5" y1="4" x2="20" y2="9.5" />
           </svg>
         </div>
-      {/* <Checkbox
+      <Checkbox
         checked={todo.is_completed}
         type="checkbox"
         onClick={handleCheckBoxClick}
-      /> */}
-      <input type="checkbox"/>
-
-        </div>
+      />
       <Typography
         variant="body1"
-        className="todo-text"
         style={{
           textDecoration: todo.is_completed ? "line-through" : null,
         }}
       >
         {todo.task}
       </Typography>
+        </div>
+    
       
         <div className="close-btn">
           <IconButton onClick={handleRemoveButton}>

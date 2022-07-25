@@ -28,7 +28,7 @@ export default function TodoTab() {
 
     return (
     <div className="todo-tab">
-      <Typography variant = "p1" style={{padding:12}}>I am the list tab!</Typography>
+      <h3>Your Tasks </h3>
       <TodoForm/>
       <TodoList/>
     </div>
