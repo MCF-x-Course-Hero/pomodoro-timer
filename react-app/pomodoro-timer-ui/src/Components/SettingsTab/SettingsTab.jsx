@@ -39,7 +39,6 @@ export default function SettingsTab() {
             }
         }
     }
-
     return(
         <div className={`settings-tab ${settingsStates.darkToggle ? "dark" : null}`}>
             <h2>Settings</h2>

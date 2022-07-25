@@ -1,16 +1,19 @@
 import * as React from "react";
 import { useSidebarContext } from "../../contexts/SidebarContext";
+import { useSettingsContext } from "../../contexts/SettingsContext";
 import darkSettings from "../../assets/dark-settings.svg";
 import darkProfile from "../../assets/dark-profile.svg";
+import RegisterForm from "../RegisterFrom/RegisterForm";
+import LoginForm from "../LoginForm/LoginForm";
 import SettingsTab from "../SettingsTab/SettingsTab";
-import ProfileTab from "../ProfileTab/ProfileTab";
 import settingsIcon from "../../Assets/settings.svg";
 import userIcon from "../../Assets/user.svg";
 import "./TopSidebar.css";
-import { useSettingsContext } from "../../contexts/SettingsContext";
 
 export default function TopSidebar() {
     const { sidebarStates, sidebarFunctions } = useSidebarContext();
+    const [login, setLogin] = React.useState(false)
+    const [register, setRegister ] = React.useState(true)
     const { settingsStates } = useSettingsContext();
     return (
         <div className="top-sidebar">
@@ -24,7 +27,15 @@ export default function TopSidebar() {
             </div>
             {sidebarStates.profileOpen ? (
                 <div className={`profile-sidebar-${settingsStates.darkToggle ? "dark" : ""}`}>
-                    <ProfileTab />
+                    {login?<LoginForm
+                    setLogin={setLogin}
+                    setRegister={setRegister}
+                    />: null}
+                    {register?<RegisterForm 
+                    
+                    setLogin={setLogin}
+                    setRegister={setRegister}
+                    />: null }
                 </div>
             ) : null}
             {sidebarStates.settingsOpen ? (
@@ -35,3 +46,4 @@ export default function TopSidebar() {
         </div>
     )
 }
+

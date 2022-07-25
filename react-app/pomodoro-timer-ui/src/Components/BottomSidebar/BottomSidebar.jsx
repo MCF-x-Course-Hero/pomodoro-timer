@@ -1,9 +1,12 @@
 import * as React from "react";
 import { useSidebarContext } from "../../contexts/SidebarContext";
+import { TodoContextProvider } from "../../contexts/TodoContext";
 import darkHistory from "../../assets/dark-history.svg";
 import darkList from "../../assets/dark-list.svg";
 import historyIcon from "../../Assets/history.svg";
 import listIcon from "../../Assets/list.svg";
+import HistoryTab from "../HistoryTab/HistoryTab";
+import TodoTab from "../TodoTab/TodoTab";
 import "./BottomSidebar.css";
 import { useSettingsContext } from "../../contexts/SettingsContext";
 
@@ -22,14 +25,16 @@ export default function BottomSidebar() {
             </div>
             {sidebarStates.historyOpen ? (
                 <div className={`${settingsStates.darkToggle ? "dark-history" : "history-sidebar"}`}>
-                    <p>Ta-Da! History</p>
+                    <HistoryTab />
                 </div>
             ) : null}
             {sidebarStates.listOpen ? (
                 <div className={`${settingsStates.darkToggle ? "dark-list" : "list-sidebar"}`}>
-                    <p>Ta-Da! List</p>
+                  <TodoContextProvider>
+                    <TodoTab />
+                  </TodoContextProvider>
                 </div>
             ) : null}
         </div>
-    )
+  );
 }

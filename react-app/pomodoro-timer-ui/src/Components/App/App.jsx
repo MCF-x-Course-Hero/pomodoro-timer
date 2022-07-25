@@ -16,6 +16,8 @@ export default function AppContainer() {
 function App() {
   const {width, height} = useWindowSize();
   const { settingsStates } = useSettingsContext();
+
+export default function App() {
   return (
       <div className={`app ${settingsStates.session}-${settingsStates.theme}`}>
         {settingsStates.isExploding ? <Confetti
