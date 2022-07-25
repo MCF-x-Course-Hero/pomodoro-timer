@@ -1,10 +1,7 @@
 .bottom-sidebar {
     display: flex;
-    height: 50%;
+    height: 100%;
     flex-direction: row;
-    justify-self: flex-end;
-    margin-bottom: auto;
-    margin-top: auto;
 }
 
 .bottom-sidebar .bottom-buttons {
@@ -19,6 +16,7 @@
 .bottom-sidebar .bottom-buttons button {
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
+    cursor: pointer;
     margin-top: 15px;
     margin-bottom: 15px;
     border: none;
@@ -29,6 +27,18 @@
     border-top: solid 3px #615184;
 }
 
+.bottom-sidebar .bottom-buttons .dark {
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    cursor: pointer;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border: none;
+    height: 60px;
+    width: 60px;
+    background: #5C5771;
+}
+
 .bottom-sidebar .history-sidebar {
     width: 470px;
     height: 300px;
@@ -37,6 +47,24 @@
     border: 1px solid black;
     border-radius: 10px;
     transition: ease-in;
+}
+
+.bottom-sidebar .dark-history {
+    width: 200px;
+    height: 300px;
+    margin-top: auto;
+    border: 1px solid black;
+    border-radius: 10px;
+    background: #5C5771;
+}
+
+.bottom-sidebar .dark-list {
+    width: 200px;
+    height: 300px;
+    margin-top: auto;
+    border: 1px solid black;
+    border-radius: 10px;
+    background: #5C5771;
 }
 
 .bottom-sidebar .list-sidebar {
