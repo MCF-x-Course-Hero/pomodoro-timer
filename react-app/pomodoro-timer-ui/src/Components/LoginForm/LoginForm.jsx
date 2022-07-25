@@ -1,34 +1,17 @@
 import React, { useContext } from "react";
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useAuthContext } from "../../contexts/auth";
 import ApiClient from "../../services/apiClient"
-// import "./LoginForm.css";
+import "./LoginForm.css";
 
 export default function LoginForm({setLogin, setRegister}) {
 
 const [isLoading, setIsLoading] = useState(false);
 const { error, setError, loginUser } = useAuthContext();
-const userRef = useRef();
-const [errMsg, setErrMsg] = useState('');
-const [success, setSuccess] = useState(false);
-const [user, setUser] = useState('');
 const [form, setForm] = useState({
     username: "",
     password: "",
   });
-
-//   useEffect(() => {
-//     setErrMsg('');
-// }, [user])
-
-
-
-const handleSubmit = async (e) => {
-    e.preventDefault();
-    console.log(user);
-    setUser();
-    setSuccess(true);
-}
 
   const handleOnInputChange = (event) => {
     if (event.target.name === "username") {
@@ -45,6 +28,7 @@ const handleSubmit = async (e) => {
 
     setForm((f) => ({ ...f, [event.target.name]: event.target.value }));
   };
+  console.log("form", form)
 
   const handleOnSubmit = async (event) => {
 
@@ -52,8 +36,8 @@ const handleSubmit = async (e) => {
     setIsLoading(true);
     setError((e) => ({ ...e, form: null }));
 
-    if (form.email === "") {
-      setError((e) => ({ ...e, email: "Please enter an username" }));
+    if (form.username === "") {
+      setError((e) => ({ ...e, username: "Please enter an username" }));
       setIsLoading(false);
       return;
     }
@@ -64,8 +48,6 @@ const handleSubmit = async (e) => {
       return;
 
     }
-
-
     const { data, error } = await ApiClient.login(form);
     if (error) {
       setError((e) => ({ ...e, form: error }));
@@ -88,11 +70,12 @@ const handleSubmit = async (e) => {
       {error?.form && (<span className="error">{error.form}</span>)}
       <div className="form">
         <div className="input-field">
-          {/* <label>Username</label> */}
           <input
-            type="text"
-            id="username"
+            className="form-input"
+            type="username"
+            name="username"
             placeholder="username"
+            id="username"
             value={form.username}
             required
             onChange={handleOnInputChange}
