@@ -7,15 +7,18 @@ import { SettingsContextProvider, useSettingsContext } from "../../contexts/Sett
 import './App.css'
 import PinnedTodo from "../PinnedTodo/PinnedTodo";
 import { TodoContextProvider } from "../../contexts/TodoContext";
+import { AuthContextProvider } from "../../contexts/AuthContext";
 import "./App.css";
 
 export default function AppContainer() {
   return(
-  <SettingsContextProvider>
-  <TodoContextProvider>
-    <App />
-  </TodoContextProvider>
-  </SettingsContextProvider>
+  <AuthContextProvider>
+    <SettingsContextProvider>
+      <TodoContextProvider>
+        <App />
+      </TodoContextProvider>
+    </SettingsContextProvider>
+  </AuthContextProvider>
 )}
 
 function App() {

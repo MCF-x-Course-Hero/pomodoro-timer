@@ -40,19 +40,18 @@
 }
 
 .top-sidebar .profile-sidebar- {
-    width: 200px;
-    height: 300px;
-    margin-top: auto;
+    margin-top: 50px;
+    width: 250px;
+    height: 350px;
     background: #F1F1F1;
     border: 1px solid black;
     border-radius: 10px;
-    
 }
 
 .top-sidebar .profile-sidebar-dark {
-    width: 200px;
-    height: 300px;
-    margin-top: auto;
+    margin-top: 50px;
+    width: 250px;
+    height: 350px;
     border: 1px solid black;
     border-radius: 10px;
     background: #5C5771;

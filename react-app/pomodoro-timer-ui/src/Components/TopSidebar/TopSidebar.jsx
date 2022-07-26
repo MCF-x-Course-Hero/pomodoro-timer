@@ -1,9 +1,11 @@
 import * as React from "react";
 import { useSidebarContext } from "../../contexts/SidebarContext";
 import { useSettingsContext } from "../../contexts/SettingsContext";
+import { useAuthContext } from "../../contexts/AuthContext";
 import darkSettings from "../../assets/dark-settings.svg";
 import darkProfile from "../../assets/dark-profile.svg";
-import RegisterForm from "../RegisterFrom/RegisterForm";
+import ProfileTab from "../ProfileTab/ProfileTab";
+import RegisterForm from "../RegisterForm/RegisterForm";
 import LoginForm from "../LoginForm/LoginForm";
 import SettingsTab from "../SettingsTab/SettingsTab";
 import settingsIcon from "../../Assets/settings.svg";
@@ -12,9 +14,8 @@ import "./TopSidebar.css";
 
 export default function TopSidebar() {
     const { sidebarStates, sidebarFunctions } = useSidebarContext();
-    const [login, setLogin] = React.useState(false)
-    const [register, setRegister ] = React.useState(true)
     const { settingsStates } = useSettingsContext();
+    const { authStates } = useAuthContext();
     return (
         <div className="top-sidebar">
             <div className="top-buttons">
@@ -27,15 +28,9 @@ export default function TopSidebar() {
             </div>
             {sidebarStates.profileOpen ? (
                 <div className={`profile-sidebar-${settingsStates.darkToggle ? "dark" : ""}`}>
-                    {login?<LoginForm
-                    setLogin={setLogin}
-                    setRegister={setRegister}
-                    />: null}
-                    {register?<RegisterForm 
-                    
-                    setLogin={setLogin}
-                    setRegister={setRegister}
-                    />: null }
+                    { (!authStates.loggedIn && authStates.login) ? <LoginForm /> : null}
+                    { (!authStates.loggedIn && authStates.register) ? <RegisterForm  /> : null }
+                    { (!authStates.login && !authStates.register) ? <ProfileTab /> : null }
                 </div>
             ) : null}
             {sidebarStates.settingsOpen ? (
