@@ -8,42 +8,37 @@ router.get("/", async (req, res, next)=>{
     return res.status(200).json({auth:"working"})
 })
 
-
 router.post("/login", async (req, res, next) => {
     try {
         console.log(req.body)
         const user = await User.login(req.body);
         const token = createUserJwt(user);
-        return res.status(201).json({user})
+        return res.status(201).json({user, token})
     } catch (err) {
         next(err);
     }
 })
-
 
 router.post("/register", async (req, res, next) => {
     try {
         const user = await User.register(req.body);
         const token = createUserJwt(user);
-        return res.status(201).json({user})
+        return res.status(201).json({user, token})
     } catch (err) {
         next(err);
     }
 })
 
-// TODO: finish delete user endpoint
-// router.delete("/delete/:username", (req, res) => {
-//     console.log(req.params.username)
-//     User.findOneAndDelete({ username: req.params.username}, (err, result) => {
-        
-//         if(err) return res.status(500).json({ msg: err});
-//         const msg = {
-//             msg: "user deleted",
-//             username: req.params.username,
-//         };
-//         return res.json(msg);
-//     });
-// });
+router.delete('/::username', async function (req, res, next) {
+    console.log(req.params.username)
+      try {
+        await User.remove(req.params.username);
+        return res.json({ Deleted: req.params.username });
+      } catch (err) {
+        return next(err);
+      }
+    }
+  );
 
 
 module.exports = router

@@ -1,4 +1,4 @@
-const { BadRequestError, UnauthorizedError } = require("../utils/errors");
+const { BadRequestError, UnauthorizedError, NotFoundError } = require("../utils/errors");
 const db = require("../db");
 
 // In order to hash passwords
@@ -89,6 +89,20 @@ class User {
       throw new BadRequestError(`duplicate username: ${credentials.username}`);
     }
   }
+
+  static async remove(username) {
+    /** Delete given user from database; returns undefined. */
+    let result = await db.query(
+      `DELETE
+          FROM users
+          WHERE username = $1
+          RETURNING username`,
+      [username]
+    );
+    const user = result.rows[0];
+    if (!username) throw new NotFoundError(`No user: ${username}`);
+  }
+
 }
 
 module.exports = User;
