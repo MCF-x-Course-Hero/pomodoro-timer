@@ -8,8 +8,7 @@ class ApiClient {
 
     setToken(token) {
         this.token = token;
-    }
-
+    }j
     async request({ endpoint, method = "GET", data = {} }) {
         const url = `${this.remoteHostUrl}/${endpoint}`;
 
@@ -45,6 +44,14 @@ class ApiClient {
     //     console.log("api Client fetching token");
     //     return await this.request({ endpoint: `auth/me`, method: `GET` });
     // }
+
+    async addSession(sessionInfo) {
+        return await this.request({endpoint:`session/add`, method:`POST`, data:credentials})
+    }
+
+    async getSessions() {
+        return await this.request({endpoint:`session/history`, method:`GET`})
+    }
 }
 
 export default new ApiClient( "http://localhost:3001");

@@ -8,8 +8,9 @@ router.get("/", async (req, res, next) => {
 
 router.get("/history", async (req, res, next) => {
   try {
-      const history = await Session.getSessionsForUser({ username: "test" });
-      return res.status(200).json(history);
+      const sessionsHistory = await Session.getSessionsForUser({ username: "test" });
+      console.log("session history", sessionsHistory)
+      return res.status(200).json({sessionsHistory:sessionsHistory});
   } catch (error) {
     next(error);
   }
