@@ -1,4 +1,8 @@
-const { BadRequestError, UnauthorizedError } = require("../utils/errors");
+const {
+  BadRequestError,
+  UnauthorizedError,
+  NotFoundError,
+} = require("../utils/errors");
 const db = require("../db");
 
 // In order to hash passwords
@@ -6,7 +10,6 @@ const bcrypt = require("bcrypt");
 const { BCRYPT_WORK_FACTOR } = require("../config");
 
 class User {
-    
   static makePublicUser(user) {
     //formats user information into an object
     return {
@@ -27,7 +30,7 @@ class User {
     const user = await User.fetchUserByUsername(credentials.username);
 
     if (user) {
-        const isValid = await bcrypt.compare(credentials.password, user.password);
+      const isValid = await bcrypt.compare(credentials.password, user.password);
       if (isValid) {
         return User.makePublicUser(user);
       }
@@ -53,7 +56,7 @@ class User {
             password
         )
         VALUES ($1, $2)
-        RETURNING id, created_at ;
+        RETURNING username, id, created_at ;
     `,
       [credentials.username, hashedPassword]
     );
@@ -88,6 +91,19 @@ class User {
     if (existingUser) {
       throw new BadRequestError(`duplicate username: ${credentials.username}`);
     }
+  }
+
+  static async remove(username) {
+    /** Delete given user from database; returns undefined. */
+    let result = await db.query(
+      `DELETE
+          FROM users
+          WHERE username = $1
+          RETURNING username`,
+      [username]
+    );
+    const user = result.rows[0];
+    if (!username) throw new NotFoundError(`No user: ${username}`);
   }
 }
 
