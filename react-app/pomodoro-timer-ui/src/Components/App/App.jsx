@@ -1,25 +1,30 @@
 import * as React from "react";
-import Timer from "../Timer/Timer";
-import SidebarContainer from "../Sidebar/Sidebar";
-import useWindowSize from "react-use/lib/useWindowSize";
-import Confetti from "react-confetti";
 import { SettingsContextProvider, useSettingsContext } from "../../contexts/SettingsContext";
+import { AuthContextProvider, useAuthContext } from "../../contexts/AuthContext";
 import { TodoContextProvider } from "../../contexts/TodoContext";
-import './App.css'
-
+import DeleteModal from "../../Components/DeleteModal/DeleteModal";
+import useWindowSize from "react-use/lib/useWindowSize";
+import SidebarContainer from "../Sidebar/Sidebar";
+import PinnedTodo from "../PinnedTodo/PinnedTodo";
+import Confetti from "react-confetti";
+import Timer from "../Timer/Timer";
+import './App.css';
 
 export default function AppContainer() {
   return(
-  <SettingsContextProvider>
-  <TodoContextProvider>
-    <App />
-  </TodoContextProvider>
-  </SettingsContextProvider>
+  <AuthContextProvider>
+    <SettingsContextProvider>
+      <TodoContextProvider>
+        <App />
+      </TodoContextProvider>
+    </SettingsContextProvider>
+  </AuthContextProvider>
 )}
 
 function App() {
   const {width, height} = useWindowSize();
   const { settingsStates } = useSettingsContext();
+  const { authStates } = useAuthContext();
 
   return (
       <div className={`app ${settingsStates.session}-${settingsStates.theme}`}>
@@ -30,6 +35,7 @@ function App() {
         /> : null }
         <Timer />
         <SidebarContainer />
+        {authStates.deleteUser ? <DeleteModal /> : null }
       </div>
   )
 }
