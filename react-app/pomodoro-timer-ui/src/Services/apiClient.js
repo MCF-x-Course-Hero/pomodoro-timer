@@ -11,7 +11,6 @@ class ApiClient {
         this.token = token;
         localStorage.setItem(this.tokenName, token);
     }
-
     async request({ endpoint, method = "GET", data = {} }) {
         const url = `${this.remoteHostUrl}/${endpoint}`;
 
@@ -40,6 +39,14 @@ class ApiClient {
     async signup(credentials) {
         //send an http request to the auth/register endpoint
         return await this.request({ endpoint: `auth/register`, method: `POST`, data: credentials });
+    }
+
+    async addSession(sessionInfo) {
+        return await this.request({endpoint:`session/add`, method:`POST`, data:credentials})
+    }
+
+    async getSessions() {
+        return await this.request({endpoint:`session/history`, method:`GET`})
     }
 
     async deleteUser(credentials) {

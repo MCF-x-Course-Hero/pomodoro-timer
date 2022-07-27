@@ -12,6 +12,7 @@ import softNotif from "../../assets/soft-notif.mp3";
 import { useSettingsContext } from "../../contexts/SettingsContext";
 import useSound from "use-sound";
 import "./Timer.css";
+import PinnedTodo from "../PinnedTodo/PinnedTodo";
 
 export default function Timer() {
     const { settingsStates, settingsSetStates } = useSettingsContext();
@@ -107,6 +108,9 @@ export default function Timer() {
     return (
         <div className="timer">
             <div className="content">
+                <PinnedTodo />
+                
+            
                 <div className="timer-area">
                     <div className={`time-${settingsStates.darkToggle ? "dark" : "reg"}`}>
                         {/* {days ? (<span>{days}:</span>) : null} */}
@@ -114,7 +118,6 @@ export default function Timer() {
                         <span>{(minutes < 10 && hours) ? '0' + minutes : minutes}</span>
                         <span>:{(seconds < 10) ? '0' + seconds : seconds}</span>
                     </div>
-                </div>
                 <h2 className={`session-${settingsStates.darkToggle ? "dark" : "reg"}`}>
                     {settingsStates.session.replace("-", " ")}
                 </h2>
@@ -128,6 +131,7 @@ export default function Timer() {
                     <button className={`${settingsStates.session}-${settingsStates.theme}`} onClick={() => {updateTimer(false)}}>
                         <img src={settingsStates.darkToggle ? darkForward : forwardIcon} alt="move to next session"></img>
                     </button>
+                </div>
                 </div>
             </div>
         </div>

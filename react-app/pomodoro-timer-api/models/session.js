@@ -4,7 +4,6 @@ const db = require("../db");
 
 class Session{
 
-
     static async getSessionsForUser(userInfo){
         
         // getting user id

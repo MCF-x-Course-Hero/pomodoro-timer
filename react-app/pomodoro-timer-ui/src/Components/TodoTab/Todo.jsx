@@ -1,7 +1,7 @@
 import React from "react";
 import "./TodoTab.css";
 import { useTodoContext } from "../../contexts/TodoContext";
-
+import { useState } from "react";
 import {
   Checkbox,
   IconButton,
@@ -12,11 +12,14 @@ import {
 
 export default function ({ todo, toggleComplete, removeTodo }) {
   const { todoVariables, todoFunctions } = useTodoContext();
-  const todoList = todoVariables.todoList
+  const todoList = todoVariables.todoList;
   // const toggleComplete = todoFunctions.toggleComplete;
   // const removeTodo = todoFunctions.removeTodo;
-  const setPinnedTodo = todoFunctions.setPinnedTodo
-  const pinnedTodo = todoVariables.pinnedTodo
+  const setPinnedTodo = todoFunctions.setPinnedTodo;
+  const pinnedTodo = todoVariables.pinnedTodo;
+
+
+  const [isActivePin, SetIsActivePin] = useState(false)
 
   // this handler will evoke toggle complete whenever the respective todo's checkbox is clicked
   function handleCheckBoxClick() {
@@ -27,17 +30,35 @@ export default function ({ todo, toggleComplete, removeTodo }) {
     removeTodo(todo.id);
   }
 
-  function handlePinButton(){
+  function handlePinButton() {
+    // setShowPin(!showPin)
     setPinnedTodo(todo)
+    // if (!isActivePin){
+    //   console.log("hello")
+    //   setPinnedTodo(todo);
+    //   document.getElementById(`${todo.id}`).style.fill="black"
+    //   SetIsActivePin(true)
+    // }
+    // if (todo.id == pinnedTodo.id && isActivePin) {
+    //   // setShowPin(false)
+    //   document.getElementById(`${todo.id}`).style.fill="none"
+    //   setPinnedTodo({});
+    // }
+    // else if (todo.id != pinnedTodo.id && isActivePin){
+    //   document.getElementById(`${todo.id}`).style.fill="black"
+    //   document.getElementById(`${pinnedTodo.id}`).style.fill="none"
+    //   setPinnedTodo(todo);
+    // }
   }
 
   return (
     <List style={{ display: "flex" }}>
       <div className="todo-left-side">
         <div className="pin-btn">
-          <svg onClick={handlePinButton}
+          <svg
+            id={`${todo.id}`}
+            onClick={handlePinButton}
             xmlns="http://www.w3.org/2000/svg"
-            className="icon icon-tabler icon-tabler-pin"
             width="28"
             height="28"
             viewBox="0 0 24 24"

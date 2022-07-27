@@ -34,10 +34,14 @@
 }
 
 .pin-btn{
-    cursor:pointer
+    cursor:pointer;
+    fill: black;
 }
 
-
+.pins{
+    cursor:pointer;
+    fill: black;
+}
 
 li {
     text-align:initial
