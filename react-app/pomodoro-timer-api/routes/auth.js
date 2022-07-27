@@ -10,7 +10,6 @@ router.get("/", async (req, res, next) => {
 
 router.post("/login", async (req, res, next) => {
   try {
-    console.log(req.body);
     const user = await User.login(req.body);
     const token = createUserJwt(user);
     return res.status(201).json({ user, token });
@@ -30,12 +29,22 @@ router.post("/register", async (req, res, next) => {
 });
 
 router.delete("/::username", async function (req, res, next) {
-  console.log(req.params.username);
   try {
     await User.remove(req.params.username);
     return res.json({ Deleted: req.params.username });
   } catch (err) {
     return next(err);
+  }
+});
+
+router.get("/me", security.requireAuthenticatedUser, async (req, res, next) => {
+  try {
+      const { username } = res.locals.user;
+      const user = await User.fetchUserByUsername(username);
+      const publicUser = await User.makePublicUser(user);
+      return res.status(200).json({ user: publicUser });
+  } catch (error) {
+      next(error);
   }
 });
 
