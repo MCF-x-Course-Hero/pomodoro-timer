@@ -9,15 +9,17 @@ import listIcon from "../../Assets/list.svg";
 import HistoryTab from "../HistoryTab/HistoryTab";
 import TodoTab from "../TodoTab/TodoTab";
 import "./BottomSidebar.css";
+
 import { useSettingsContext } from "../../contexts/SettingsContext";
 
 export default function BottomSidebar() {
   const { sidebarStates, sidebarFunctions } = useSidebarContext();
   const { settingsStates } = useSettingsContext();
   return (
-    <div className="bottom-sidebar">
-      <div className="bottom-buttons">
-        <button
+    <SlideX shouldAnimate={sidebarStates.listOpen}>
+      <div className="bottom-sidebar">
+        <div className="bottom-buttons">
+          <button
           className={`${settingsStates.darkToggle ? "dark" : null}`}
           onClick={sidebarFunctions.clickHistory}
         >
@@ -26,17 +28,17 @@ export default function BottomSidebar() {
             alt="history tab"
           ></img>
         </button>
-        <button
-          className={`${settingsStates.darkToggle ? "dark" : null}`}
-          onClick={sidebarFunctions.clickList}
-        >
-          <img
-            src={settingsStates.darkToggle ? darkList : listIcon}
-            alt="list tab"
-          ></img>
-        </button>
-      </div>
-      {sidebarStates.historyOpen ? (
+          <button
+            className={`${settingsStates.darkToggle ? "dark" : null}`}
+            onClick={sidebarFunctions.clickList}
+          >
+            <img
+              src={settingsStates.darkToggle ? darkList : listIcon}
+              alt="list tab"
+            ></img>
+          </button>
+        </div>
+        {sidebarStates.historyOpen ? (
         <div
           className={`${
             settingsStates.darkToggle ? "dark-history" : "history-sidebar"
@@ -47,17 +49,22 @@ export default function BottomSidebar() {
           </SessionContextProvidor>
         </div>
       ) : null}
-      {sidebarStates.listOpen ? (
-        <div
-          className={`${
-            settingsStates.darkToggle ? "dark-list" : "list-sidebar"
-          }`}
-        >
-          <TodoContextProvider>
+        {sidebarStates.listOpen ? (
+          <div
+            className={`${
+              settingsStates.darkToggle ? "dark-list" : "list-sidebar"
+            }`}
+          >
             <TodoTab />
-          </TodoContextProvider>
-        </div>
-      ) : null}
-    </div>
+          </div>
+        ) : null}
+      </div>
+    </SlideX>
   );
+}
+
+export function SlideX({ children, shouldAnimate }) {
+
+  return <div className={!shouldAnimate? "slide-x":"slide-x animate"}>{children}</div>;
+
 }

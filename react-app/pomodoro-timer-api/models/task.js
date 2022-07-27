@@ -11,18 +11,15 @@ class Task{
     static async getPendingTasks(){
     /* gets list of tasks that the user has not completed */
     }
-
+    
+    static async getCompletedTasks(){
+        /*  this function will get completed tasks from the database
+        to display in task history */
+    }
     
     static async updateTask(){
     /* this function will update the following task attributes: 
-       is_completed, the task itself (name of the task). */
-
-        
-    }
-    
-    static async getCompletedTasks(){
-    /*  this function will get completed tasks from the database
-        to display in task history */
+       is_completed, the task itself (name of the task). */   
     }
 }
 

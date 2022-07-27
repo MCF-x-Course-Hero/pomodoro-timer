@@ -10,6 +10,8 @@
     align-items: flex-start;
     margin-top: auto;
     margin-bottom: auto;
+
+    margin-left: -100%;
 }
 
 
@@ -74,4 +76,24 @@
     background: #F1F1F1;
     border: 1px solid black;
     border-radius: 10px;
+}
+
+
+.slide-x {
+    flex: 1;
+    transform: translateX(100%); 
+}
+
+.slide-x.animate {
+    animation: slideX 1s ease-in 1;
+}
+
+/* transition */
+@keyframes slideX {
+    0%{
+       transform: translateX(100%); 
+    }    
+    100%{
+        transform: translateX(0%);
+    }
 }
