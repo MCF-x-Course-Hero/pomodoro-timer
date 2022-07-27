@@ -1,4 +1,4 @@
-.login-form {
+.register-form {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -6,27 +6,27 @@
     height: 100%;
 }
 
-.login-form h2 {
+.register-form h2 {
     text-align: center;
     width: 100%;
     color: #8270A9;
     margin: 0px;
 }
 
-.login-form .form {
-    height: 40%;
+.register-form .form {
+    height: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    margin-bottom: 10px 0px 10px 0px;
+    margin-bottom: 10px;
 }
 
 ::placeholder {
     padding-left: 5px;
 }
 
-.login-form .form .input-field i {
+.register-form .form .input-field i {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -37,20 +37,19 @@
     border-bottom-left-radius: 10px;
 }
 
-.login-form .btn {
+.register-form .submit-registration {
     width: 210px;
     align-self: center;
     color: white;
     background:#8270A9;
     border: none;
-    height: 10%;
+    height: 30px;
     margin-bottom: 10px;
     cursor: pointer;
     border-radius: 10px;
-    font-size: 16px;
 }
 
-.login-form .form .input-field {
+.register-form .form .input-field {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -58,16 +57,16 @@
     border-radius: 10px;
 }
 
-.login-form .form .input-field .form-input {
+.register-form .form .input-field .form-input {
     height: 30px;
     border: none;
     width: 180px;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
+
 }
 
-.login-form .footer {
-    margin-top: 10px;
+.register-form .footer {
     width: 210px;
     height: 20%;
     padding-top: 3px;
@@ -76,14 +75,14 @@
     text-align: center;
 }
 
-.login-form .footer p {
+.register-form .footer p {
     margin-top: 3px;
-    font-weight: bold;
     cursor: pointer;
     border: none;
+    font-weight: bold;
 }
 
-.login-form .error {
+.register-form .error {
     margin: 2px;
     padding-left: 5px;
     color: red;

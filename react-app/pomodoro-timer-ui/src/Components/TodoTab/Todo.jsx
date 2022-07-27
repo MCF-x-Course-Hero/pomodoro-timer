@@ -29,7 +29,6 @@ export default function ({ todo, toggleComplete, removeTodo }) {
 
   function handlePinButton(){
     setPinnedTodo(todo)
-    console.log(pinnedTodo)
   }
 
   return (

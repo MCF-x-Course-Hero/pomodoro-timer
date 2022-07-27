@@ -15,8 +15,6 @@ export default function PinnedTodo(){
     
 
     const todoList = todoVariables.todoList
-    console.log("pinned todo", activeTodo)
-    console.log("simple todoList", todoList)
 
     return (
         <p>{pinnedTodo.task? activeTodo.task:"no pin"}</p>

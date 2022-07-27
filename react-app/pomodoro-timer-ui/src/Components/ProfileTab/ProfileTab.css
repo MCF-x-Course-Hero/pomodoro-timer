@@ -1,7 +1,69 @@
-/* .profile-tab {
+.profile-tab {
     position: absolute;
-    width: 326px;
-    height: 300px;
-    border: 1px solid #000000;
+    width: 250px;
+    height: 350px;
+}
+
+.profile-tab h1 {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+    height: 20%;
+    margin: 0px 0px 0px 0px;
+}
+
+.profile-tab .member-since {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 20%;
+}
+
+.profile-tab .member-since h2 {
+    font-size: 18px;
+    margin: 0px;
+    margin-bottom: 5px;
+}
+
+.profile-tab .member-since h4 {
+    margin: 0px;
+}
+
+.profile-tab .work-time {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0px 10px 0px 10px;
+    height: 20%;
+}
+
+.profile-tab .work-time h2 {
+    font-size: 18px;
+    margin: 0px 0px 5px 0px;
+}
+
+.profile-tab .work-time h4 {
+    margin: 0px;
+}
+
+.profile-tab .buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 33%;
+}
+
+.profile-tab button {
+    width: 210px;
+    align-self: center;
+    color: white;
+    background:#8270A9;
+    border: none;
+    height: 33%;
+    cursor: pointer;
     border-radius: 10px;
-} */
+    font-size: 16px;
+}
