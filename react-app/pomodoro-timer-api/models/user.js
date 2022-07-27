@@ -56,8 +56,10 @@ class User {
             password
         )
         VALUES ($1, $2)
-        RETURNING username, id, created_at ;
+        RETURNING username, id, to_char(created_at, 'MM/DD/YYYY') AS "created_at"
     `,
+
+
       [credentials.username, hashedPassword]
     );
 
