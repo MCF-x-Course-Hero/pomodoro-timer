@@ -4,10 +4,8 @@ import "./HistoryTab.css";
 import Session from "./Session";
 import { useSessionContext } from "../../contexts/SessionContext";
 export default function HistoryTab() {
-    console.clear()
     const {sessionVariables, sessionFunctions} = useSessionContext()
     const sessionsList = sessionVariables.sessionsList
-    console.log("%c historytab sessionslist","background-color:pink; color:navy; font-size:14px",sessionsList)
 
     const setSessionsList = sessionFunctions.setSessionsList
     const isLoading = sessionVariables.isLoading
