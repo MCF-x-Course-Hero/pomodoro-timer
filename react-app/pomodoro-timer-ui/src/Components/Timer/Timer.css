@@ -72,7 +72,7 @@
 
 .timer .content .buttons {
     display: flex;
-    flex-direction: row;
+    flex-direction: row;    
 }
 
 .timer .content .buttons button {

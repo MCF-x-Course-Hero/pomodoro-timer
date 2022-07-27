@@ -20,11 +20,7 @@ export const TodoContextProvider = ({ children }) => {
   // stores list of objects containing info about each Todo created
   const [todoList, setTodoList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [pinnedTodo, setPinnedTodo] = useState({
-    id: "",
-    task: "",
-    is_completed: false,
-  });
+  const [pinnedTodo, setPinnedTodo] = useState({});
 
   function addTodo(todo) {
     setTodoList([todo, ...todoList]);
