@@ -30,7 +30,7 @@ export default function TopSidebar() {
                 <div className={`profile-sidebar-${settingsStates.darkToggle ? "dark" : ""}`}>
                     { (!authStates.loggedIn && authStates.login) ? <LoginForm /> : null}
                     { (!authStates.loggedIn && authStates.register) ? <RegisterForm  /> : null }
-                    { (!authStates.login && !authStates.register) ? <ProfileTab /> : null }
+                    { (!authStates.login && !authStates.register && authStates.loggedIn) ? <ProfileTab /> : null }
                 </div>
             ) : null}
             {sidebarStates.settingsOpen ? (

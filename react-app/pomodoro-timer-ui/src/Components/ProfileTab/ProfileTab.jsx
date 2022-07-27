@@ -3,7 +3,7 @@ import { useAuthContext } from "../../contexts/AuthContext";
 import "./ProfileTab.css";
 
 export default function ProfileTab() {
-    const { authFunctions, authStates } = useAuthContext();
+    const { authFunctions, authSetStates, authStates } = useAuthContext();
     return(
         <div className="profile-tab">
             <h1>{authStates.user.username}</h1>
@@ -17,7 +17,7 @@ export default function ProfileTab() {
             </div>
             <div className="buttons">
                 <button onClick={authFunctions.logoutUser}>Logout</button>
-                <button>Delete Account</button>
+                <button onClick={() => authSetStates.setDeleteUser(true)}>Delete Account</button>
             </div>
         </div>
     )

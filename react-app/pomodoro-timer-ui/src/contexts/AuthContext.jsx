@@ -11,12 +11,13 @@ export const AuthContextProvider = ({ children }) => {
   const [user, setUser] = React.useState({});
   const [initialized, setInitialized] = React.useState(false);
   const [isProcessing, setIsProcessing] = React.useState(false);
+  const [deleteUser, setDeleteUser] = React.useState(false);
   const [loggedIn, setLoggedIn] = React.useState(false);
   const [login, setLogin] = React.useState(true)
   const [register, setRegister ] = React.useState(false)
   const [error, setError] = React.useState({});
-  const authStates = { user, initialized, isProcessing, loggedIn, error, login, register };
-  const authSetStates = { setUser, setInitialized, setIsProcessing, setLoggedIn, setError, setLogin, setRegister };
+  const authStates = { user, initialized, isProcessing, loggedIn, error, login, register, deleteUser };
+  const authSetStates = { setUser, setInitialized, setIsProcessing, setLoggedIn, setError, setLogin, setRegister, setDeleteUser };
   const authFunctions = { loginUser, signupUser, fetchUserFromToken, logoutUser };
   
   function loginUser(person) {
@@ -38,17 +39,19 @@ export const AuthContextProvider = ({ children }) => {
   function logoutUser() {
     setLoggedIn(false);
     setLogin(true);
-    ApiClient.setToken(null);
-    localStorage.setItem(this.tokenName, "");
-
+    ApiClient.setToken("null");
+    localStorage.setItem("pomozone_token", "null");
     setUser({});
   }
 
   React.useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (token) {
+    const token = localStorage.getItem("pomozone_token");
+    if (token !== "null") {
       ApiClient.setToken(token);
       fetchUserFromToken();
+      setLoggedIn(true);
+      setLogin(false);
+      setRegister(false);
     }
   }, []);
 
