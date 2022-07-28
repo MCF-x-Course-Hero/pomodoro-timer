@@ -25,7 +25,7 @@ export const TodoContextProvider = ({ children }) => {
     task: "",
     is_completed: false,
   });
-  const [isActivePin, SetIsActivePin] = useState(false)
+  const [isActivePin, setIsActivePin] = useState(false)
 
   function addTodo(todo) {
     setTodoList([todo, ...todoList]);
@@ -71,7 +71,7 @@ export const TodoContextProvider = ({ children }) => {
     
     if (storagePinnedTodo.task) {
       setPinnedTodo(storagePinnedTodo);
-      SetIsActivePin(true)
+      setIsActivePin(true)
     }
     setIsLoading(false);
   }, []);
@@ -94,7 +94,7 @@ export const TodoContextProvider = ({ children }) => {
   }, [pinnedTodo]);
 
   const todoVariables = { todo, todoList, pinnedTodo, isActivePin };
-  const todoFunctions = {setTodo, setTodoList, addTodo, removeTodo, toggleComplete, setPinnedTodo, SetIsActivePin};
+  const todoFunctions = {setTodo, setTodoList, addTodo, removeTodo, toggleComplete, setPinnedTodo, setIsActivePin};
   
   return (
     <TodoContext.Provider value={{ todoVariables, todoFunctions }}>

@@ -29,7 +29,7 @@ function App() {
           height={height}
           tweenDuration={5000}
         /> : null }
-        {/* <PinnedTodo /> */}
+        
         <Timer />
         <SidebarContainer />
       </div>

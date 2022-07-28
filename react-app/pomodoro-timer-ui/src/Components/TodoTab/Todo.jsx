@@ -20,7 +20,7 @@ export default function ({ todo, toggleComplete, removeTodo }) {
   const setPinnedTodo = todoFunctions.setPinnedTodo;
   const pinnedTodo = todoVariables.pinnedTodo;
   const isActivePin = todoVariables.isActivePin
-  const SetIsActivePin = todoFunctions.SetIsActivePin
+  const setIsActivePin = todoFunctions.setIsActivePin
 
   
 
@@ -40,7 +40,7 @@ export default function ({ todo, toggleComplete, removeTodo }) {
     if (!isActivePin){
       setPinnedTodo(todo);
       document.getElementById(`${todo.id}`).style.fill="black"
-      SetIsActivePin(true)
+      setIsActivePin(true)
     }
     else if (todo.id != pinnedTodo.id && isActivePin){
       document.getElementById(`${todo.id}`).style.fill="black"
@@ -54,7 +54,7 @@ export default function ({ todo, toggleComplete, removeTodo }) {
         task: "",
         is_completed: false,
       });
-      SetIsActivePin(false)
+      setIsActivePin(false)
     }
   }
 
