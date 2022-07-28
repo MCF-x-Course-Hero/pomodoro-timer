@@ -1,12 +1,23 @@
-.pinned-task {
+.pinned-task-content {
   margin: 0%;
   padding: 0%;
   display: flex;
   justify-content: center;
+  align-items: center;
   background-color: #f1f1f1;
-  padding: 10px;
   max-width: 100vw;
   border-radius:20px;
   box-shadow: 2px 4px 8px black;
   border: solid 3px #615184;
+}
+
+.pinned-task {
+  margin: 0%;
+  padding: 2%;
+  font-size: 22px;
+}
+
+.pinned-task-content .pin{
+  /* margin-left: auto; */
+  margin-right: 2%;
 }

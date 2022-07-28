@@ -3,6 +3,7 @@
     align-self: center;
     margin: auto;
     overflow: visible;
+    flex-direction: column;
 }
 
 .timer .content {

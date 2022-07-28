@@ -6,7 +6,8 @@ import Confetti from "react-confetti";
 import { SettingsContextProvider, useSettingsContext } from "../../contexts/SettingsContext";
 import { TodoContextProvider } from "../../contexts/TodoContext";
 import './App.css'
-
+import PinnedTodo from "../PinnedTodo/PinnedTodo";
+import "../PinnedTodo/PinnedTodo.css"
 
 export default function AppContainer() {
   return(
@@ -28,6 +29,7 @@ function App() {
           height={height}
           tweenDuration={5000}
         /> : null }
+        {/* <PinnedTodo /> */}
         <Timer />
         <SidebarContainer />
       </div>
