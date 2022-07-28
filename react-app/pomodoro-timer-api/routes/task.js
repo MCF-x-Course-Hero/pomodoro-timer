@@ -14,14 +14,16 @@ router.get("/completed-tasks", async (req, res, next) => {
   }
 });
 
-router.post("/add", async (req, res, next) => {
+router.post("/addtask", async (req, res, next) => {
   try {
-    
-    return res.status(200).json({shehab:"mohsen"});
-  } catch (error) {
-    next(error);
+    const user = await Task.addTask(req.body);
+    return res.status(201).json({ user });
+  } catch (err) {
+    next(err);
   }
 });
+
+
 
 
 module.exports = router;
