@@ -10,11 +10,10 @@ import {Button, TextField} from "@mui/material"
 
 
 export default function TodoForm() {
-  console.clear()
   const {todoVariables, todoFunctions}  = useTodoContext()
   const todo = todoVariables.todo
   const todoList = todoVariables.todoList
-  const setTodo = todoFunctions.setTodo
+  const setTodo = todoVariables.setTodo
   const addTodo = todoFunctions.addTodo
 
   // updates task form based on input entered
