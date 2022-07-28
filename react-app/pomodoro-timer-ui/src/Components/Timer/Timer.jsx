@@ -107,8 +107,8 @@ export default function Timer() {
 
     return (
         <div className="timer">
+            <PinnedTodo />
             <div className="content">
-                <PinnedTodo />
                 
             
                 <div className="timer-area">

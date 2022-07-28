@@ -20,7 +20,12 @@ export const TodoContextProvider = ({ children }) => {
   // stores list of objects containing info about each Todo created
   const [todoList, setTodoList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [pinnedTodo, setPinnedTodo] = useState({});
+  const [pinnedTodo, setPinnedTodo] = useState({
+    id: "",
+    task: "",
+    is_completed: false,
+  });
+  const [isActivePin, setIsActivePin] = useState(false)
 
   function addTodo(todo) {
     setTodoList([todo, ...todoList]);
@@ -59,10 +64,15 @@ export const TodoContextProvider = ({ children }) => {
       localStorage.getItem(TODOS_LOCAL_STORAGE_KEY)
     );
     if (storageTodos) setTodoList(storageTodos);
+    
     const storagePinnedTodo = JSON.parse(
       localStorage.getItem(PINNED_TODO_LOCAL_STORAGE_KEY)
     );
-    if (storagePinnedTodo) setPinnedTodo(storagePinnedTodo);
+    
+    if (storagePinnedTodo.task) {
+      setPinnedTodo(storagePinnedTodo);
+      setIsActivePin(true)
+    }
     setIsLoading(false);
   }, []);
 
@@ -76,14 +86,15 @@ export const TodoContextProvider = ({ children }) => {
 
   useEffect(() => {
     if (!isLoading)
+    // document.getElementById(`${pinnedTodo.id}`).style.fill="black"
       localStorage.setItem(
         PINNED_TODO_LOCAL_STORAGE_KEY,
         JSON.stringify(pinnedTodo)
       );
   }, [pinnedTodo]);
 
-  const todoVariables = { todo, todoList, pinnedTodo };
-  const todoFunctions = {setTodo, setTodoList, addTodo, removeTodo, toggleComplete, setPinnedTodo};
+  const todoVariables = { todo, todoList, pinnedTodo, isActivePin };
+  const todoFunctions = {setTodo, setTodoList, addTodo, removeTodo, toggleComplete, setPinnedTodo, setIsActivePin};
   
   return (
     <TodoContext.Provider value={{ todoVariables, todoFunctions }}>

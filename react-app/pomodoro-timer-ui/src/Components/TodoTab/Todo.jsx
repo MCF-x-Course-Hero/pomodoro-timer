@@ -1,7 +1,7 @@
 import React from "react";
 import "./TodoTab.css";
 import { useTodoContext } from "../../contexts/TodoContext";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Checkbox,
   IconButton,
@@ -10,6 +10,8 @@ import {
   Typography,
 } from "@mui/material";
 
+
+
 export default function ({ todo, toggleComplete, removeTodo }) {
   const { todoVariables, todoFunctions } = useTodoContext();
   const todoList = todoVariables.todoList;
@@ -17,9 +19,10 @@ export default function ({ todo, toggleComplete, removeTodo }) {
   // const removeTodo = todoFunctions.removeTodo;
   const setPinnedTodo = todoFunctions.setPinnedTodo;
   const pinnedTodo = todoVariables.pinnedTodo;
+  const isActivePin = todoVariables.isActivePin
+  const setIsActivePin = todoFunctions.setIsActivePin
 
-
-  const [isActivePin, SetIsActivePin] = useState(false)
+  
 
   // this handler will evoke toggle complete whenever the respective todo's checkbox is clicked
   function handleCheckBoxClick() {
@@ -31,25 +34,28 @@ export default function ({ todo, toggleComplete, removeTodo }) {
   }
 
   function handlePinButton() {
-    // setShowPin(!showPin)
-    setPinnedTodo(todo)
-    // if (!isActivePin){
-    //   console.log("hello")
-    //   setPinnedTodo(todo);
-    //   document.getElementById(`${todo.id}`).style.fill="black"
-    //   SetIsActivePin(true)
-    // }
-    // if (todo.id == pinnedTodo.id && isActivePin) {
-    //   // setShowPin(false)
-    //   document.getElementById(`${todo.id}`).style.fill="none"
-    //   setPinnedTodo({});
-    // }
-    // else if (todo.id != pinnedTodo.id && isActivePin){
-    //   document.getElementById(`${todo.id}`).style.fill="black"
-    //   document.getElementById(`${pinnedTodo.id}`).style.fill="none"
-    //   setPinnedTodo(todo);
-    // }
+  
+    if (!isActivePin){
+      setPinnedTodo(todo);
+      document.getElementById(`${todo.id}`).style.fill="black"
+      setIsActivePin(true)
+    }
+    else if (todo.id != pinnedTodo.id && isActivePin){
+      document.getElementById(`${todo.id}`).style.fill="black"
+      document.getElementById(`${pinnedTodo.id}`).style.fill="none"
+      setPinnedTodo(todo);
+    }
+    else if (todo.id == pinnedTodo.id && isActivePin) {
+      document.getElementById(`${todo.id}`).style.fill="none"
+      setPinnedTodo({
+        id: "",
+        task: "",
+        is_completed: false,
+      });
+      setIsActivePin(false)
+    }
   }
+
 
   return (
     <List style={{ display: "flex" }}>
@@ -64,7 +70,7 @@ export default function ({ todo, toggleComplete, removeTodo }) {
             viewBox="0 0 24 24"
             strokeWidth="1.5"
             stroke="#000000"
-            fill="none"
+            fill={(todo.id == pinnedTodo.id)? "black":"none"}
             strokeLinecap="round"
             strokeLinejoin="round"
           >
