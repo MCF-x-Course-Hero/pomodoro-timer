@@ -21,7 +21,6 @@ const extractUserFromJwt = (req, res, next) => {
         if (token) {
             res.locals.user = jwt.verify(token, SECRET_KEY);
         }
-
         return next();
     } catch (error) {
         return next(error);

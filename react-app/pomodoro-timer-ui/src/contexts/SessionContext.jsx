@@ -37,8 +37,6 @@ export const SessionContextProvidor = ({ children }) => {
     }
   }, []);
 
-  console.log("render sessionsList", sessionsList);
-
   const sessionVariables = { session, sessionsList, isLoading, error };
   const sessionFunctions = {
     setSession,
