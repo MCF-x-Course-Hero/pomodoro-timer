@@ -20,7 +20,11 @@ export const TodoContextProvider = ({ children }) => {
   // stores list of objects containing info about each Todo created
   const [todoList, setTodoList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [pinnedTodo, setPinnedTodo] = useState({});
+  const [pinnedTodo, setPinnedTodo] = useState({
+    id: "",
+    task: "",
+    is_completed: false,
+  });
   const [isActivePin, SetIsActivePin] = useState(false)
 
   function addTodo(todo) {
@@ -65,8 +69,9 @@ export const TodoContextProvider = ({ children }) => {
       localStorage.getItem(PINNED_TODO_LOCAL_STORAGE_KEY)
     );
     
-    if (storagePinnedTodo) {
+    if (storagePinnedTodo.task) {
       setPinnedTodo(storagePinnedTodo);
+      SetIsActivePin(true)
     }
     setIsLoading(false);
   }, []);

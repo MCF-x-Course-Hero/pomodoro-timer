@@ -13,7 +13,7 @@ export default function TodoForm() {
   const {todoVariables, todoFunctions}  = useTodoContext()
   const todo = todoVariables.todo
   const todoList = todoVariables.todoList
-  const setTodo = todoVariables.setTodo
+  const setTodo = todoFunctions.setTodo
   const addTodo = todoFunctions.addTodo
 
   // updates task form based on input entered
@@ -32,7 +32,7 @@ export default function TodoForm() {
   }
   return (
     <div>
-      <form className="todo-form"  onSubmit={handleOnSubmitTask}>
+      <form className="todo-form" onSubmit={handleOnSubmitTask}>
         <TextField
         variant="standard"
         color="secondary"
@@ -47,7 +47,7 @@ export default function TodoForm() {
           }}
         >
         </TextField>
-        <Button color="secondary" size="medium" type="submit">submit</Button>
+        <Button color="secondary" size="medium" type="submit" >submit</Button>
       </form>
     </div>
   );

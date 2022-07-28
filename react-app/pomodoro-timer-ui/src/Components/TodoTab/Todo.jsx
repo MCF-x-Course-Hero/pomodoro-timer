@@ -49,7 +49,11 @@ export default function ({ todo, toggleComplete, removeTodo }) {
     }
     else if (todo.id == pinnedTodo.id && isActivePin) {
       document.getElementById(`${todo.id}`).style.fill="none"
-      setPinnedTodo({});
+      setPinnedTodo({
+        id: "",
+        task: "",
+        is_completed: false,
+      });
       SetIsActivePin(false)
     }
   }
