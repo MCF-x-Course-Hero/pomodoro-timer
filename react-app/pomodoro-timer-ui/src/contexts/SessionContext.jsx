@@ -1,31 +1,31 @@
 import * as React from "react";
-import { createContext, useContext } from "react";
-import { useState, useEffect } from "react";
-export const SessionContext = createContext({sessionVariables:{}, sessionFunctions:{}});
 import apiClient from "../Services/apiClient";
 
+const SessionContext = React.createContext();
+
 export function useSessionContext() {
-  return useContext(SessionContext);
+  return React.useContext(SessionContext);
 }
 
-export const SessionContextProvidor = ({ children }) => {
-  const [session, setSession] = useState({
+export const SessionContextProvider = ({ children }) => {
+  const [sessionsList, setSessionsList] = React.useState([]);
+  const [isLoading, setIsLoading] = React.useState(true);
+  const [error, setError] = React.useState();
+  const [session, setSession] = React.useState({
     second: 0,
     minute: 0,
     hour: 0,
     session_type: "",
   });
+  const sessionStates = { session, sessionsList, isLoading, error };
+  const sessionSetStates = { setSession, setSessionsList, setIsLoading, setError }
+  const sessionFunctions = {};
 
-  const [sessionsList, setSessionsList] = useState([]);
-  const [error, setError] = useState();
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
+  React.useEffect(() => {
     const fetchSessions = async () => {
       const { data, error } = await apiClient.getSessions();
-
       if (data) {
-        setSessionsList((sessionsList) => [...data.sessionsHistory]);
+        setSessionsList((s) => [...data.sessionsHistory]);
       }
 
       if (error) setError(error);
@@ -37,16 +37,8 @@ export const SessionContextProvidor = ({ children }) => {
     }
   }, []);
 
-  const sessionVariables = { session, sessionsList, isLoading, error };
-  const sessionFunctions = {
-    setSession,
-    setSessionsList,
-    setIsLoading,
-    setError,
-  };
-
   return (
-    <SessionContext.Provider value={{ sessionVariables, sessionFunctions }}>
+    <SessionContext.Provider value={{ sessionStates, sessionSetStates }}>
       {children}
     </SessionContext.Provider>
   );

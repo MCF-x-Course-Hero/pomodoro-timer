@@ -87,10 +87,7 @@ export default function RegisterForm() {
       authSetStates.setError((e) => ({ ...e, form: error }));
       setIsLoading(false);
     } else if (data?.user) {
-      authSetStates.setRegister(false);
-      authSetStates.setLogin(false);
-      authFunctions.signupUser(data.user);
-      apiClient.setToken(data.token);
+      authFunctions.loginUser(data.user, data.token);
       setIsLoading(false);
     }
   };

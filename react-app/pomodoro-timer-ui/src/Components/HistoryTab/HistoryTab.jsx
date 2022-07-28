@@ -1,29 +1,17 @@
-
 import * as React from "react";
+import SessionHistory from "../SessionHistory/SessionHistory";
+import CompletedTasks from "../CompletedTasks/CompletedTasks";
 import "./HistoryTab.css";
-import Session from "./Session";
-import { useSessionContext } from "../../contexts/SessionContext";
+
 export default function HistoryTab() {
-    const {sessionVariables, sessionFunctions} = useSessionContext()
-    const sessionsList = sessionVariables.sessionsList
-
-    const setSessionsList = sessionFunctions.setSessionsList
-    const isLoading = sessionVariables.isLoading
-    const setIsLoading = sessionFunctions.setIsLoading
-    const error = sessionVariables.error
-    const setError = sessionFunctions.setError
-
+    const [tasks, setTasks] = React.useState(false);
     return(
         <div className="history-tab">
-            <p>I am the history tab!</p>
-
-            <div className="sessions-container">
-            {sessionsList.map((element)=>{
-                return <Session key={element.id} session={element}/>
-            })}
+            <div className="buttons">
+                <button onClick={tasks ? () => setTasks(false) : null}>Session History</button>
+                <button onClick={tasks ? null : () => setTasks(true)}>Tasks Completed</button>
             </div>
+            {tasks ? <CompletedTasks /> : <SessionHistory />}
         </div>
-
-
     )
 }

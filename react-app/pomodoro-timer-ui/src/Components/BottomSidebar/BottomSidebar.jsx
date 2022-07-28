@@ -1,7 +1,9 @@
 import * as React from "react";
+import { SessionContextProvider } from "../../contexts/SessionContext";
 import { useSidebarContext } from "../../contexts/SidebarContext";
 import { TodoContextProvider } from "../../contexts/TodoContext";
-import { SessionContextProvidor } from "../../contexts/SessionContext";
+import { useAuthContext } from "../../contexts/AuthContext";
+import NotAuthHistory from "../NotAuthHistory/NotAuthHistory";
 import darkHistory from "../../assets/dark-history.svg";
 import darkList from "../../assets/dark-list.svg";
 import historyIcon from "../../Assets/history.svg";
@@ -14,6 +16,7 @@ import { useSettingsContext } from "../../contexts/SettingsContext";
 
 export default function BottomSidebar() {
   const { sidebarStates, sidebarFunctions } = useSidebarContext();
+  const { authStates } = useAuthContext();
   const { settingsStates } = useSettingsContext();
   return (
       <div className="bottom-sidebar">
@@ -38,14 +41,8 @@ export default function BottomSidebar() {
           </button>
         </div>
         {sidebarStates.historyOpen ? (
-        <div
-          className={`${
-            settingsStates.darkToggle ? "dark-history" : "history-sidebar"
-          }`}
-        >
-          <SessionContextProvidor>
-            <HistoryTab />
-          </SessionContextProvidor>
+        <div className={`${ settingsStates.darkToggle ? "dark-history" : "history-sidebar" }`} >
+          { authStates.loggedIn ? (<HistoryTab />) : (<NotAuthHistory />) }
         </div>
       ) : null}
         {sidebarStates.listOpen ? (

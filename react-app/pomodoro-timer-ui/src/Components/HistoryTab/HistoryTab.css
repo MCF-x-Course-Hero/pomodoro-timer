@@ -1,0 +1,15 @@
+.history-tab .buttons {
+    padding: 10px;
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    backdrop-filter: blur(5px);
+}
+
+.history-tab .buttons button {
+    cursor: pointer;
+    border-radius: 10px;
+    height: 100%;
+    width: 40%;
+}

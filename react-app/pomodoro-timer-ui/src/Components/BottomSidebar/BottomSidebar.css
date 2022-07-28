@@ -28,6 +28,7 @@
 }
 
 .bottom-sidebar .bottom-buttons .dark {
+    overflow-y: scroll;
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
     cursor: pointer;
@@ -46,6 +47,7 @@
     background: #F1F1F1;
     border: 1px solid black;
     border-radius: 10px;
+    overflow-y: scroll;
 }
 
 .bottom-sidebar .dark-history {

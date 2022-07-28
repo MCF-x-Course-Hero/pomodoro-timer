@@ -1,0 +1,52 @@
+.not-auth-history {
+    width: 100%;
+    height: 100%;
+}
+
+.not-auth-history .buttons {
+    padding: 10px;
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.not-auth-history .buttons button {
+    border-radius: 10px;
+    height: 100%;
+    width: 40%;
+}
+
+.history-modal-background {
+    width: 100%;
+    height: 80%;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.history-modal-background .history-modal-container {
+    width: 50%;
+    height: 50%;
+    border-radius: 12px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.history-modal-background .history-modal-container p {
+    text-align: center;
+}
+
+.history-modal-background .history-modal-container button {
+    width: 50%;
+    height: 30%;
+    border-radius: 10px;
+    align-self: center;
+    cursor: pointer;
+    background: #8270A9;
+    color: white;
+    border: none;
+}
