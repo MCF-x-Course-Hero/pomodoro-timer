@@ -23,9 +23,9 @@ class Task{
         const tasks = result.rows[0]
         return tasks
     }
-    static async listPendingTask(){
+    static async listPendingTask(userInfo){
     /* gets list of tasks that the user has not completed */
-    // const result = await db.query(`SELECT * FROM userTasks WHERE is_completed = $1;`, [userInfo.id]);
+    const result = await db.query(`SELECT * FROM userTasks WHERE is_completed = $1;`, [userInfo.id]);
     }
  
 
@@ -42,8 +42,13 @@ class Task{
         to display in task history */
 
     }
-}
 
+    static async removeTask(){
+        /* this function will delete task if the user decides to */
+
+    }
+
+}
 
 module.exports = Task
 
