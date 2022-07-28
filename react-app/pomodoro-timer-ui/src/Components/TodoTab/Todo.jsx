@@ -32,8 +32,6 @@ export default function ({ todo, toggleComplete, removeTodo }) {
   function handleRemoveButton() {
     removeTodo(todo.id);
   }
-  
-  console.log("isActive",isActivePin)
 
   function handlePinButton() {
   
