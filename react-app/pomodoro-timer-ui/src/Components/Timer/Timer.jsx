@@ -51,36 +51,33 @@ export default function Timer() {
         settingsSetStates.setIsExploding(true);
         setTimeout( async () => {
             settingsSetStates.setIsExploding(false);
-            if(loops == 3 && settingsStates.session == pomozone) {
-                settingsSetStates.setTheme(settingsStates.longBreakTheme);
-                settingsSetStates.setSession(longBreak);
-                expiryTimestamp = setTime(longBreak);
-            } else if (settingsStates.session == shortBreak) {
+            if (settingsStates.session == shortBreak) {
                 settingsSetStates.setTheme(settingsStates.pomozoneTheme);
                 settingsSetStates.setSession(pomozone);
                 expiryTimestamp = setTime(pomozone);
                 setLoops(loops + 1);
             } else if(settingsStates.session === longBreak) {
-                if(authStates.loggedIn) {
-                    const { data, error } = await apiClient.addSession({session_type: "PomoZone", duration: totalTime });
-                    if (error) {
-                        authSetStates.setError((e) => ({ ...e, form: error }));
-                    } else if (data?.session) {
-                        console.log("we did it boys");
-                    }
-                }
                 settingsSetStates.setTheme(settingsStates.pomozoneTheme);
                 settingsSetStates.setSession(pomozone);
                 expiryTimestamp = setTime(pomozone);
                 setLoops(0);
             } else if(settingsStates.session == pomozone) {
-                settingsSetStates.setTheme(settingsStates.shortBreakTheme);
-                settingsSetStates.setSession(shortBreak);
-                expiryTimestamp = setTime(shortBreak);
+                if(authStates.loggedIn) {
+                    const { data, error } = await apiClient.addSession({session_type: "PomoZone", duration: pomozoneTime });
+                    if (error) {
+                        authSetStates.setError((e) => ({ ...e, form: error }));
+                    }
+                }
+                if(loops == 3) {
+                    settingsSetStates.setTheme(settingsStates.longBreakTheme);
+                    settingsSetStates.setSession(longBreak);
+                    expiryTimestamp = setTime(longBreak);
+                } else {
+                    settingsSetStates.setTheme(settingsStates.shortBreakTheme);
+                    settingsSetStates.setSession(shortBreak);
+                    expiryTimestamp = setTime(shortBreak);
+                }
             }
-            console.log(pomozoneTime, "p");
-            console.log(shortBreakTime, "s");
-            console.log(longBreakTime, "l");
             restart(expiryTimestamp, true);
         }, 2000);
     }
@@ -89,7 +86,6 @@ export default function Timer() {
         const time = new Date();
         if(s === pomozone) {
             time.setSeconds(time.getSeconds() + 3);
-            console.log("settings current time to" + pomozoneTime);
         } else if(s === shortBreak) {
             time.setSeconds(time.getSeconds() + 3);
         } else if(s === longBreak) {

@@ -9,14 +9,11 @@ CREATE TABLE users (
 CREATE TABLE userSessions (
     id              SERIAL PRIMARY KEY,
     user_id         INT NOT NULL,
-    FOREIGN KEY     (user_id) REFERENCES users(id) ON DELETE CASCADE,
-    second          INT NOT NULL, 
-    minute          INT NOT NULL,
-    hour            INT,
+    duration        INT NOT NULL,
     session_type    TEXT NOT NULL,
-    created_at      TIMESTAMP NOT NULL DEFAULT NOW()
+    created_at      TIMESTAMP NOT NULL DEFAULT NOW(),
+    FOREIGN KEY     (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
-
 
 CREATE TABLE userTasks (
     id              SERIAL PRIMARY KEY,

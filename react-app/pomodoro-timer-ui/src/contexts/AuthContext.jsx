@@ -12,7 +12,7 @@ export const AuthContextProvider = ({ children }) => {
   const [initialized, setInitialized] = React.useState(false);
   const [isProcessing, setIsProcessing] = React.useState(false);
   const [deleteUser, setDeleteUser] = React.useState(false);
-  const [sessionsList, setSessionsList] = React.useState([]);
+  const [sessionsList, setSessionsList] = React.useState({});
   const [loggedIn, setLoggedIn] = React.useState(false);
   const [login, setLogin] = React.useState(true)
   const [register, setRegister ] = React.useState(false)

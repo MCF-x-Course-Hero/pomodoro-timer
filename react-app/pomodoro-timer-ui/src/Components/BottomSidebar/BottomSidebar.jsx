@@ -1,5 +1,4 @@
 import * as React from "react";
-import { SessionContextProvider } from "../../contexts/SessionContext";
 import { useSidebarContext } from "../../contexts/SidebarContext";
 import { TodoContextProvider } from "../../contexts/TodoContext";
 import { useAuthContext } from "../../contexts/AuthContext";

@@ -50,6 +50,10 @@ class ApiClient {
         return await this.request({ endpoint:`session/::${credentials}`, method:`GET` })
     }
 
+    async getTotalTime(credentials) {
+        return await this.request({ endpoint:  `session/sum`, method: `GET`, data: credentials })
+    }
+
     async deleteUser(credentials) {
         //deletes user from sql database
         return await this.request({ endpoint: `auth/::${credentials}`, method: `DELETE` })

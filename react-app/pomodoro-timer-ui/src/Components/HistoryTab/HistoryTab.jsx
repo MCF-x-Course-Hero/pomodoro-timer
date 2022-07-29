@@ -8,7 +8,7 @@ export default function HistoryTab() {
     return(
         <div className="history-tab">
             <div className="buttons">
-                <button onClick={tasks ? () => setTasks(false) : null}>Session History</button>
+                <button className="history" onClick={tasks ? () => setTasks(false) : null}>Session History</button>
                 <button onClick={tasks ? null : () => setTasks(true)}>Tasks Completed</button>
             </div>
             {tasks ? <CompletedTasks /> : <SessionHistory />}

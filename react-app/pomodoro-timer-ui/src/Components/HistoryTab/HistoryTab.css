@@ -1,15 +1,23 @@
 .history-tab .buttons {
     padding: 10px;
-    height: 10%;
+    height: 30%;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    backdrop-filter: blur(5px);
 }
 
 .history-tab .buttons button {
     cursor: pointer;
-    border-radius: 10px;
-    height: 100%;
+    border-radius: 20px;
+    border: 0.5px solid black;
+    height: 30px;
     width: 40%;
+}
+
+.history-tab .buttons .history {
+    border: none;
+    font-weight: bold;
+    background: #8270A9;
+    color: white;
+    box-shadow:black;
 }

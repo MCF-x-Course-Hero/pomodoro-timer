@@ -1,0 +1,22 @@
+.session {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    height: 10%;
+    margin: 10px;
+}
+
+.session .type {
+    width: 50%;
+    height: 100%;
+    margin: 0px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.session .duration {
+    width: 50%;
+    height: 100%;
+    margin: 0px;
+    font-size: 18px;
+}
