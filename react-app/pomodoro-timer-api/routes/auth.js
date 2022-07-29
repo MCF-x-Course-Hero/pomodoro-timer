@@ -39,15 +39,15 @@ router.delete("/::username", async function (req, res, next) {
   }
 });
 
-// router.get("/me", security.requireAuthenticatedUser, async (req, res, next) => {
-//   try {
-//       const { username } = res.locals.user;
-//       const user = await User.fetchUserByUsername(username);
-//       const publicUser = await User.makePublicUser(user);
-//       return res.status(200).json({ user: publicUser });
-//   } catch (error) {
-//       next(error);
-//   }
-// });
+router.get("/me", security.requireAuthenticatedUser, async (req, res, next) => {
+  try {
+      const { username } = res.locals.user;
+      const user = await User.fetchUserByUsername(username);
+      const publicUser = await User.makePublicUser(user);
+      return res.status(200).json({ user: publicUser });
+  } catch (error) {
+      next(error);
+  }
+});
 
 module.exports = router;

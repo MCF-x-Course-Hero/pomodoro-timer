@@ -23,9 +23,26 @@ class Task{
         const tasks = result.rows[0]
         return tasks
     }
+
+    static async fetchUserByUsername(username) {
+        if (!username) {
+          throw new BadRequestError("No username provided");
+        }
+        const query = `SELECT * FROM users WHERE username = $1`;
+        const result = await db.query(query, [username.toLowerCase()]);
+        const user = result.rows[0];
+        return user;
+      }
+
     static async listPendingTask(userInfo){
     /* gets list of tasks that the user has not completed */
-    const result = await db.query(`SELECT * FROM userTasks WHERE is_completed = $1;`, [userInfo.id]);
+    console.log("info", userInfo)
+        const user = await this.fetchUserByUsername(userInfo.username)
+        if (!user) throw new NotFoundError(`no user by ${userInfo.username} found`)
+        const query = `SELECT * FROM userTasks WHERE is_completed = true AND user_id=${user.id};`
+        const result = await db.query(query)
+        console.log("result", result)
+        return result.rows
     }
  
 
@@ -37,17 +54,29 @@ class Task{
 
     }
     
-    static async listCompletedTask(){
+    static async getCompletedTask(userInfo){
     /*  this function will get completed tasks from the database
         to display in task history */
-
+        console.log("info", userInfo)
+        const user = await this.fetchUserByUsername(userInfo.username)
+        if (!user) throw new NotFoundError(`no user by ${userInfo.username} found`)
+        const query = `SELECT * FROM userTasks WHERE is_completed = true AND user_id=${user.id};`
+        const result = await db.query(query)
+        console.log("result", result)
+        return result.rows
     }
 
     static async removeTask(){
         /* this function will delete task if the user decides to */
-
-    }
-
+        let result = await db.query(
+            `DELETE
+                FROM userTasks
+                WHERE tasks = $1`,
+            [task]
+          );
+          const task = result.rows[0];
+          if (!task) throw new NotFoundError(`Task is not found: ${task}`);
+        }
 }
 
 module.exports = Task
