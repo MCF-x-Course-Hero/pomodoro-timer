@@ -23,7 +23,9 @@ export default function SessionHistory() {
 
     return(
         <div className="session-history">
-            { retrieved ? (userSessions.data.map((date, idx) => {
+            { retrieved ? userSessions.data.length === 0 ? 
+                <h4 className="no-sessions">You don't have any session history yet!</h4>
+            : ((userSessions.data.map((date, idx) => {
                 return (<div className="date" key={idx}>
                     <h3>{date.date}</h3>
                     <div className="toulidine-blue">
@@ -32,7 +34,7 @@ export default function SessionHistory() {
                         })}
                     </div>
                 </div>)
-            })) : null }
+            }))) : null }
         </div>
     )
 }

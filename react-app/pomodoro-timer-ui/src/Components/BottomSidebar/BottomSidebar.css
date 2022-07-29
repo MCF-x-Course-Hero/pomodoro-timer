@@ -45,7 +45,8 @@
     margin-top: auto;
     background: #f1f1f1;
     border: 1px solid black;
-    border-radius: 10px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
     overflow-y: auto;
 }
 
@@ -54,7 +55,8 @@
     height: 400px;
     margin-top: auto;
     border: 1px solid black;
-    border-radius: 10px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
     background: #5C5771;
     overflow-y: auto;
 }
@@ -64,7 +66,8 @@
     height: 300px;
     margin-top: auto;
     border: 1px solid black;
-    border-radius: 10px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
     background: #5C5771;
 }
 
@@ -74,5 +77,6 @@
     margin-top: auto;
     background: #F1F1F1;
     border: 1px solid black;
-    border-radius: 10px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
 }

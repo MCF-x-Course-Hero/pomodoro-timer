@@ -6,7 +6,7 @@
     justify-content: space-evenly;
 }
 
-.history-tab .buttons button {
+.history-tab .buttons .closed {
     cursor: pointer;
     border-radius: 20px;
     border: 0.5px solid black;
@@ -14,10 +14,12 @@
     width: 40%;
 }
 
-.history-tab .buttons .history {
+.history-tab .buttons .current {
+    border-radius: 20px;
     border: none;
     font-weight: bold;
     background: #8270A9;
     color: white;
-    box-shadow:black;
+    height: 30px;
+    width: 40%;
 }

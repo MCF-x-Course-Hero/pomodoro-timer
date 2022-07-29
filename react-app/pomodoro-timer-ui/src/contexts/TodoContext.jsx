@@ -69,7 +69,7 @@ export const TodoContextProvider = ({ children }) => {
       localStorage.getItem(PINNED_TODO_LOCAL_STORAGE_KEY)
     );
     
-    if (storagePinnedTodo.task) {
+    if (storagePinnedTodo?.task) {
       setPinnedTodo(storagePinnedTodo);
       setIsActivePin(true)
     }
