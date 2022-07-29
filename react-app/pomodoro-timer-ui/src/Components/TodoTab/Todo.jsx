@@ -10,8 +10,6 @@ import {
   Typography,
 } from "@mui/material";
 
-
-
 export default function ({ todo, toggleComplete, removeTodo }) {
   const { todoVariables, todoFunctions } = useTodoContext();
   const todoList = todoVariables.todoList;
@@ -21,8 +19,6 @@ export default function ({ todo, toggleComplete, removeTodo }) {
   const pinnedTodo = todoVariables.pinnedTodo;
   const isActivePin = todoVariables.isActivePin
   const setIsActivePin = todoFunctions.setIsActivePin
-
-  
 
   // this handler will evoke toggle complete whenever the respective todo's checkbox is clicked
   function handleCheckBoxClick() {
@@ -42,7 +38,6 @@ export default function ({ todo, toggleComplete, removeTodo }) {
   }
 
   function handlePinButton() {
-  
     if (!isActivePin){
       setPinnedTodo(todo);
       document.getElementById(`${todo.id}`).style.fill="black"
@@ -63,7 +58,6 @@ export default function ({ todo, toggleComplete, removeTodo }) {
       setIsActivePin(false)
     }
   }
-
 
   return (
     <List style={{ display: "flex" }}>

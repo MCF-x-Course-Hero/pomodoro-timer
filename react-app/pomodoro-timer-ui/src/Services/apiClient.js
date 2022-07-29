@@ -11,6 +11,7 @@ class ApiClient {
         this.token = token;
         localStorage.setItem(this.tokenName, token);
     }
+
     async request({ endpoint, method = "GET", data = {} }) {
         const url = `${this.remoteHostUrl}/${endpoint}`;
 
@@ -42,15 +43,19 @@ class ApiClient {
     }
 
     async addSession(sessionInfo) {
-        return await this.request({endpoint:`session/add`, method:`POST`, data:credentials})
+        return await this.request({ endpoint:`session/`, method:`POST`, data: sessionInfo })
     }
 
-    async getSessions() {
-        return await this.request({endpoint:`session/history`, method:`GET`})
+    async getSessions(credentials) {
+        return await this.request({ endpoint:`session/::${credentials}`, method:`GET` })
+    }
+
+    async getTotalTime() {
+        return await this.request({ endpoint:  `session/sum`, method: `GET` })
     }
 
     async deleteUser(credentials) {
-        //deletes user from sql table
+        //deletes user from sql database
         return await this.request({ endpoint: `auth/::${credentials}`, method: `DELETE` })
     }
 
