@@ -9,7 +9,7 @@ export default function ProfileTab() {
     React.useEffect(() => {
         const fetchTotal = async () => {
             const {data, error} = await apiClient.getTotalTime(authStates.user.username);
-            if(data) setTotalTime(data);
+            if(data) setTotalTime(data.total);
             if(error) authSetStates.setError(error);
         };
         fetchTotal();

@@ -30,6 +30,7 @@ export const AuthContextProvider = ({ children }) => {
   }
 
   async function fetchUserFromToken() {
+
     const { data, error } = await apiClient.fetchUserFromToken();
     if (data) setUser({ ...data.user });
     if (error) setError(error);
@@ -48,7 +49,9 @@ export const AuthContextProvider = ({ children }) => {
     if (token !== "null") {
       apiClient.setToken(token);
       fetchUserFromToken();
-      loginUser();
+      setLoggedIn(true);
+      setLogin(false);
+      setRegister(false);
     }
   }, []);
 

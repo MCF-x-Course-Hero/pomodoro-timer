@@ -13,13 +13,9 @@ export default function PinnedTodo(){
         setActiveTodo(pinnedTodo)
     },[pinnedTodo])
     
-
-    const todoList = todoVariables.todoList
-
     return (
-
         <div className={pinnedTodo.task? "pinned-task":""}>
-        {pinnedTodo.task? activeTodo.task:"no pin"}
+            { pinnedTodo.task ? activeTodo.task : null }
         </div>
     )
 }

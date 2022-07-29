@@ -30,10 +30,10 @@ router.get("/::username", async (req, res, next) => {
 
 router.get("/sum", security.requireAuthenticatedUser, async (req, res, next) => {
   try {
-    console.log(req.body);
-    const user = await User.fetchUserByUsername(req.body);
+    const { username } = res.locals.user;
+    const user = await User.fetchUserByUsername(username);
     const total = await Session.getTotal(user);
-    return res.status(304).json({ total });
+    return res.status(200).json({ total: total.duration });
   } catch (error) {
     next(error);
   }

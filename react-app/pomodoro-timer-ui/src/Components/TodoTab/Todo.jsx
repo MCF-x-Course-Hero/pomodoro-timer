@@ -34,7 +34,6 @@ export default function ({ todo, toggleComplete, removeTodo }) {
     // setShowPin(!showPin)
     setPinnedTodo(todo)
     // if (!isActivePin){
-    //   console.log("hello")
     //   setPinnedTodo(todo);
     //   document.getElementById(`${todo.id}`).style.fill="black"
     //   SetIsActivePin(true)

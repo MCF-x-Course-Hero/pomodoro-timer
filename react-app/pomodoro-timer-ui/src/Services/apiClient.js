@@ -24,7 +24,6 @@ class ApiClient {
         }
 
         try {
-            console.log(data);
             const res = await axios({ url, method, data, headers });
             return { data: res.data, error: null };
         } catch (error) {
@@ -51,9 +50,8 @@ class ApiClient {
         return await this.request({ endpoint:`session/::${credentials}`, method:`GET` })
     }
 
-    async getTotalTime(credentials) {
-        console.log(credentials);
-        return await this.request({ endpoint:  `session/sum`, method: `GET`, data: credentials })
+    async getTotalTime() {
+        return await this.request({ endpoint:  `session/sum`, method: `GET` })
     }
 
     async deleteUser(credentials) {

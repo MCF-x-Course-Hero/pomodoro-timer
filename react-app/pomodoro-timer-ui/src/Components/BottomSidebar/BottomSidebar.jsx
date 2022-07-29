@@ -21,7 +21,7 @@ export default function BottomSidebar() {
       <div className="bottom-sidebar">
         <div className="bottom-buttons">
           <button
-          className={`${settingsStates.darkToggle ? "dark" : null}`}
+          className={`${settingsStates.darkToggle ? "dark" : "light"}`}
           onClick={sidebarFunctions.clickHistory}
         >
           <img
@@ -30,7 +30,7 @@ export default function BottomSidebar() {
           ></img>
         </button>
           <button
-            className={`${settingsStates.darkToggle ? "dark" : null}`}
+            className={`${settingsStates.darkToggle ? "dark" : "light"}`}
             onClick={sidebarFunctions.clickList}
           >
             <img
