@@ -39,7 +39,7 @@ class Task{
     console.log("info", userInfo)
         const user = await this.fetchUserByUsername(userInfo.username)
         if (!user) throw new NotFoundError(`no user by ${userInfo.username} found`)
-        const query = `SELECT * FROM userTasks WHERE is_completed = true AND user_id=${user.id};`
+        const query = `SELECT * FROM userTasks WHERE is_completed = false AND user_id=${user.id}`;
         const result = await db.query(query)
         console.log("result", result)
         return result.rows
@@ -60,7 +60,7 @@ class Task{
         console.log("info", userInfo)
         const user = await this.fetchUserByUsername(userInfo.username)
         if (!user) throw new NotFoundError(`no user by ${userInfo.username} found`)
-        const query = `SELECT * FROM userTasks WHERE is_completed = true AND user_id=${user.id};`
+        const query = `SELECT * FROM userTasks WHERE is_completed = true AND user_id=${user.id}`;
         const result = await db.query(query)
         console.log("result", result)
         return result.rows

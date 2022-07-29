@@ -26,7 +26,7 @@ router.get("/complete", security.requireAuthenticatedUser, async (req, res, next
   try {
     const {username} = res.locals.user
     const user = await User.fetchUserByUsername(username);
-    const taskList = await Task.getCompletedTask(req.body, user);
+    const taskList = await Task.getCompletedTask(user);
     return res.status(200).json(taskList);
 } catch (error) {
   next(error);
@@ -38,8 +38,8 @@ router.get("/pending", security.requireAuthenticatedUser, async (req, res, next)
   try {
     const {username} = res.locals.user
     const user = await User.fetchUserByUsername(username);
-    const taskList = await Task.listPendingTask(req.body, user);
-    return res.status(200).json(user);
+    const taskList = await Task.listPendingTask(user);
+    return res.status(200).json(taskList);
 } catch (error) {
   next(error);
 }
