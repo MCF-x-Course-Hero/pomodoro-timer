@@ -22,7 +22,7 @@ router.get("/::username", async (req, res, next) => {
         const dateSessions = sessionHistory.filter((row) => getFormattedDate(row.created_at) === date);
         data.push({ session: dateSessions, date: date });
       })
-      return res.status(304).json({ data });
+      return res.status(201).json({ data });
   } catch (error) {
     next(error);
   }
