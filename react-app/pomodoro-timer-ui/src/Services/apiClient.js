@@ -63,6 +63,11 @@ class ApiClient {
         //use request method to send http request from auth/me endpoint
         return await this.request({ endpoint: `auth/me`, method: `GET` });
     }
+
+    async getCompletedTasks() {
+        // http request to get completed tasks from task/complete endpoint
+        return await this.request({endpoint:'task/me', method: 'GET'})
+    }
 }
 
 export default new ApiClient( "http://localhost:3001");

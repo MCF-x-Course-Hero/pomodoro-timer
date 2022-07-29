@@ -51,6 +51,7 @@ class User {
   }
 
   static async fetchUserByUsername(username) {
+    console.log("fetching username...", username)
     if (!username) {
       throw new BadRequestError("No username provided");
     }
