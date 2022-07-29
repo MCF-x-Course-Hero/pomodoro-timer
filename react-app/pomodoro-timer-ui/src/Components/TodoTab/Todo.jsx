@@ -31,6 +31,14 @@ export default function ({ todo, toggleComplete, removeTodo }) {
 
   function handleRemoveButton() {
     removeTodo(todo.id);
+    if (todo.id == pinnedTodo.id) {
+    setPinnedTodo({
+      id: "",
+      task: "",
+      is_completed: false,
+    });
+    setIsActivePin(false)
+  }
   }
 
   function handlePinButton() {
