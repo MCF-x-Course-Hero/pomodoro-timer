@@ -2,6 +2,7 @@ import * as React from "react";
 import { createContext, useContext } from "react";
 import { useState, useEffect } from "react";
 export const TodoContext = createContext();
+import apiClient from "../Services/apiClient";
 
 const TODOS_LOCAL_STORAGE_KEY = "react-todo-list";
 const PINNED_TODO_LOCAL_STORAGE_KEY = "pinned-todo";
@@ -22,13 +23,16 @@ export const TodoContextProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [pinnedTodo, setPinnedTodo] = useState({});
 
-  function addTodo(todo) {
+  async function addTodo(todo) {
     setTodoList([todo, ...todoList]);
+    await apiClient.addTask(todo);
+
   }
 
-  function removeTodo(id) {
+  async function removeTodo(todo) {
     // filter method will return all todos except for the one matches with the id given to update
-    setTodoList(todoList.filter((element) => element.id !== id));
+    setTodoList(todoList.filter((element) => element.id !== todo.id));
+    await apiClient.removeTask(todo.id)
   }
 
   /* Toggle complete does the following when the checkbox button is clicked:

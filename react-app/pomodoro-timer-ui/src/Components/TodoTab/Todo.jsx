@@ -26,7 +26,7 @@ export default function ({ todo, toggleComplete, removeTodo }) {
   }
 
   function handleRemoveButton() {
-    removeTodo(todo.id);
+    removeTodo(todo);
 
     if (todo.id == pinnedTodo.id) {
       /* if the task removed happens to also be pinned, 

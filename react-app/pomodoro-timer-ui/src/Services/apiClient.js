@@ -32,6 +32,8 @@ class ApiClient {
             return { data: null, error: message || String(error) };
         }
     }
+
+// USER ENDPOINTS
     async login(credentials) {
         //send an http request to the auth/login endpoint
         return await this.request({ endpoint: `auth/login`, method: `POST`, data: credentials });
@@ -41,15 +43,7 @@ class ApiClient {
         //send an http request to the auth/register endpoint
         return await this.request({ endpoint: `auth/register`, method: `POST`, data: credentials });
     }
-
-    async addSession(sessionInfo) {
-        return await this.request({ endpoint:`session/`, method:`POST`, data: sessionInfo })
-    }
-
-    async getSessions(credentials) {
-        return await this.request({ endpoint:`session/::${credentials}`, method:`GET` })
-    }
-
+    
     async deleteUser(credentials) {
         //deletes user from sql database
         return await this.request({ endpoint: `auth/::${credentials}`, method: `DELETE` })
@@ -60,6 +54,18 @@ class ApiClient {
         return await this.request({ endpoint: `auth/me`, method: `GET` });
     }
 
+// SESSION ENDPOINTS
+    async addSession(sessionInfo) {
+        return await this.request({ endpoint:`session/`, method:`POST`, data: sessionInfo })
+    }
+
+    async getSessions(credentials) {
+        return await this.request({ endpoint:`session/::${credentials}`, method:`GET` })
+    }
+
+
+
+// TASKS ENDPOINTS
     async getCompletedTasks() {
         // http request to get completed tasks from task/complete endpoint
         return await this.request({endpoint:'task/complete', method: 'GET'})
@@ -67,6 +73,16 @@ class ApiClient {
     async getPendingTasks() {
         // http request to get completed tasks from task/complete endpoint
         return await this.request({endpoint:'task/pending', method: 'GET'})
+    }
+
+    async addTask(todo){
+        // http request to add a task to the database.
+        return await this.request({endpoint:"task/", method:"POST", data: todo})
+    }
+
+    async removeTask(taskId){
+        // deletes a task from the database by providing its id
+        return await this.request({endpoint:`task/${taskId}`, method:"DELETE"})
     }
 }
 

@@ -5,6 +5,8 @@ const User = require("../models/user")
 const security = require("../middleware/security")
 const { getFormattedDate } = require("../utils/date");
 
+
+
 router.get("/", async (req, res, next) => {
   return res.status(200).json({ task: "working" });
 });
@@ -69,11 +71,12 @@ router.post("/update", async (req, res, next) => {
 });
 
 // delete task
-router.delete("/::task", async function (req, res, next) {
-  console.log(req.params.task);
+router.delete("/:taskId", security.requireAuthenticatedUser, async function (req, res, next) {
+  console.log("deleting",req.params.taskId);
+  const taskId = req.params.taskId
   try {
-    await Task.removeTask(req.params.task);
-    return res.json({ Deleted: req.params.task });
+    await Task.removeTask(taskId);
+    return res.json({ Deleted: task });
   } catch (err) {
     return next(err);
   }

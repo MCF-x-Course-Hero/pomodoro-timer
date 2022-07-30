@@ -56,7 +56,6 @@ class Session{
 
       static async fetchUserByUsername(username) {
         // this function fetches user information when provided with a username
-        console.log("username",username)
         if (!username) {
           throw new BadRequestError("No username provided");
         }

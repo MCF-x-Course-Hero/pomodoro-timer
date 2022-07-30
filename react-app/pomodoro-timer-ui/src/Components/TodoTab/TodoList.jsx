@@ -9,6 +9,7 @@ export default function TodoList() {
   const { authStates, authSetStates } = useAuthContext();
   const { todoVariables, todoFunctions } = useTodoContext();
   const todoList = todoVariables.todoList;
+  const setTodoList = todoFunctions.setTodoList
   const toggleComplete = todoFunctions.toggleComplete;
   const removeTodo = todoFunctions.removeTodo;
 
@@ -16,7 +17,7 @@ export default function TodoList() {
   useEffect(() => {
     async function getPendingTasks() {
       const { data, error } = await apiClient.getPendingTasks();
-      if (data) setPendingTodos(data);
+      if (data) setTodoList(data);
       if (error) setError(error);
     }
     if (authStates.loggedIn) getPendingTasks();
