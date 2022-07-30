@@ -30,7 +30,7 @@ export default function SessionHistory() {
                     <h3>{date.date}</h3>
                     <div className="toulidine-blue">
                         {date.session.map((element, idx) => {
-                            return (<Session key={idx} session={element}/>)
+                            return (<Session key={idx} id={idx} session={element}/>)
                         })}
                     </div>
                 </div>)
