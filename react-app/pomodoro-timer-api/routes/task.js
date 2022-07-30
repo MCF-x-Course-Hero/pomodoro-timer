@@ -45,16 +45,6 @@ router.get("/pending", security.requireAuthenticatedUser, async (req, res, next)
 }
 });
 
-//  (post with name or put with no name) for updating task
-router.post("/update", async (req, res, next) => {
-  try {
-    return res.status(200).json({hello:123});
-  } catch (error) {
-    next(error);
-  }
-});
-
-
 // delete task
 router.delete("/::task", async function (req, res, next) {
   console.log(req.params.task);

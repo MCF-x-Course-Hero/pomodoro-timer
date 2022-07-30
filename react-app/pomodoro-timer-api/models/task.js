@@ -45,12 +45,6 @@ class Task{
         console.log("result", result)
         return result.rows
     }
-
-    static async updateTask(){
-    /* this function will update the following task attributes: 
-       is_completed, the task itself (name of the task). 
-       post or put */
-    }
     
     static async getCompletedTask(userInfo){
     /*  this function will get completed tasks from the database
