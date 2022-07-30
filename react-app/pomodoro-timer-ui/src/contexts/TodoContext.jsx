@@ -1,6 +1,8 @@
 import * as React from "react";
 import { createContext, useContext } from "react";
 import { useState, useEffect } from "react";
+import { useAuthContext } from "./AuthContext";
+
 export const TodoContext = createContext();
 import apiClient from "../Services/apiClient";
 
@@ -23,21 +25,22 @@ export const TodoContextProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [pinnedTodo, setPinnedTodo] = useState({});
 
+  const { authStates } = useAuthContext();
   async function addTodo(todo) {
-
-    // storing response data in order to update todo with id
-    const responseData = await apiClient.addTask(todo);
-    // updating todo with the id that was given to it from the backend
-    todo = {...todo, id:responseData.data.task.id}
+    if (authStates.loggedIn) {
+      // storing response data in order to update todo with id
+      const responseData = await apiClient.addTask(todo);
+      // updating todo with the id that was given to it from the backend
+      todo = { ...todo, id: responseData.data.task.id };
+    }
     // updating todoList
     setTodoList([todo, ...todoList]);
   }
 
   async function removeTodo(todo) {
-    
     // filter method will return all todos except for the one matches with the id given to update
     setTodoList(todoList.filter((element) => element.id !== todo.id)); //deleting from frontend
-    await apiClient.removeTask(todo.id) //deleting from backend
+    await apiClient.removeTask(todo.id); //deleting from backend
   }
 
   /* Toggle complete does the following when the checkbox button is clicked:
@@ -92,8 +95,15 @@ export const TodoContextProvider = ({ children }) => {
   }, [pinnedTodo]);
 
   const todoVariables = { todo, todoList, pinnedTodo };
-  const todoFunctions = {setTodo, setTodoList, addTodo, removeTodo, toggleComplete, setPinnedTodo};
-  
+  const todoFunctions = {
+    setTodo,
+    setTodoList,
+    addTodo,
+    removeTodo,
+    toggleComplete,
+    setPinnedTodo,
+  };
+
   return (
     <TodoContext.Provider value={{ todoVariables, todoFunctions }}>
       {children}
