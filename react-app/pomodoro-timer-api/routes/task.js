@@ -76,7 +76,7 @@ router.delete("/:taskId", security.requireAuthenticatedUser, async function (req
   const taskId = req.params.taskId
   try {
     await Task.removeTask(taskId);
-    return res.json({ Deleted: task });
+    return res.json({ Deleted: taskId });
   } catch (err) {
     return next(err);
   }

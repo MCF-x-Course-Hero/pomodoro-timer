@@ -23,7 +23,6 @@ export default function TodoList() {
     if (authStates.loggedIn) getPendingTasks();
   }, []);
 
-  console.log("pending todos", pendingTodos);
 
   return (
     <List>

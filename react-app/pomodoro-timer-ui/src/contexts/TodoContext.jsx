@@ -24,15 +24,20 @@ export const TodoContextProvider = ({ children }) => {
   const [pinnedTodo, setPinnedTodo] = useState({});
 
   async function addTodo(todo) {
-    setTodoList([todo, ...todoList]);
-    await apiClient.addTask(todo);
 
+    // storing response data in order to update todo with id
+    const responseData = await apiClient.addTask(todo);
+    // updating todo with the id that was given to it from the backend
+    todo = {...todo, id:responseData.data.task.id}
+    // updating todoList
+    setTodoList([todo, ...todoList]);
   }
 
   async function removeTodo(todo) {
+    
     // filter method will return all todos except for the one matches with the id given to update
-    setTodoList(todoList.filter((element) => element.id !== todo.id));
-    await apiClient.removeTask(todo.id)
+    setTodoList(todoList.filter((element) => element.id !== todo.id)); //deleting from frontend
+    await apiClient.removeTask(todo.id) //deleting from backend
   }
 
   /* Toggle complete does the following when the checkbox button is clicked:

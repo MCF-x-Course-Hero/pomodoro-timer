@@ -10,7 +10,6 @@ import {Button, TextField} from "@mui/material"
 
 
 export default function TodoForm() {
-  console.clear()
   const {todoVariables, todoFunctions}  = useTodoContext()
   const todo = todoVariables.todo
   const todoList = todoVariables.todoList
@@ -25,6 +24,7 @@ export default function TodoForm() {
   function handleOnSubmitTask(event) {
     event.preventDefault();
     if (todo.task.trim()) {
+      console.log("adding todo...")
       // uuidv4 gives each task a unique id for us to identify it when marking as complete/removing from the todoList state
       addTodo({ ...todo, id:uuidv4() });
       // resetting task input
