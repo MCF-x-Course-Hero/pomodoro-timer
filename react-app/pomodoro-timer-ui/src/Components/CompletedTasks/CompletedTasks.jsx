@@ -13,7 +13,7 @@ export default function CompletedTasks() {
   useEffect(() => {
     async function getCompletedTasks() {
       const { data, error } = await apiClient.getCompletedTasks();
-      if (data) setCompletedTodos(data);
+      if (data) setCompletedTodos(data.data);
       if (error) setError(error);
     }
     getCompletedTasks();
@@ -22,20 +22,34 @@ export default function CompletedTasks() {
   return (
     <div>
       <p>I am completed Tasks</p>
-      {/* {completedTodos.length > 0
+      {completedTodos.length > 0
         ? completedTodos.map((element, index) => {
-            return <Todo todo={element} key={index} />;
+            return (
+              <TodosPerDay
+                key={index}
+                todos={element.tasks}
+                date={element.date}
+              />
+            );
           })
-        : ""} */}
+        : <h4> You have not marked any tasks as complete. </h4>}
     </div>
   );
 }
 
-export function Todo({todo}) {
-
+export function TodosPerDay({ todos, date }) {
   return (
-    <div className="todo-row">
-      <span>{todo.task}</span>
+    <div className="date">
+      <h3>{date}</h3>
+      <div className="toulidine-blue">
+        {todos.map((element, index) => {
+          return (
+            <div key={index} className="task">
+              <p className="task-name"> {element.task}</p>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }
