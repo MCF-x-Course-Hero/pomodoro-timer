@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useAuthContext } from "../../contexts/AuthContext";
-import ApiClient from "../../services/apiClient"
+import apiClient from "../../services/apiClient"
 import "./LoginForm.css";
 
 export default function LoginForm() {
@@ -41,16 +41,12 @@ export default function LoginForm() {
       return;
     }
 
-    const { data, error } = await ApiClient.login(form);
+    const { data, error } = await apiClient.login(form);
     if (error) {
       authSetStates.setError((e) => ({ ...e, form: error }));
       setIsLoading(false);
-    } else if (data?.user) {
-      authSetStates.setLoggedIn(true); 
-      authSetStates.setRegister(false);
-      authSetStates.setLogin(false);
-      authFunctions.loginUser(data.user);
-      ApiClient.setToken(data.token);
+    } else if (data?.user) { 
+      authFunctions.loginUser(data.user, data.token);
       setIsLoading(false);
     }
   };

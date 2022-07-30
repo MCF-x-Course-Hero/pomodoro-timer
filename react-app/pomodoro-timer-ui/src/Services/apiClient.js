@@ -1,13 +1,15 @@
- import axios from "axios";
+import axios from "axios";
 
 class ApiClient {
     constructor(remoteHostUrl) {
         this.remoteHostUrl = remoteHostUrl;
-        this.token = null;
+        this.token = "null";
+        this.tokenName = "pomozone_token";
     }
 
     setToken(token) {
         this.token = token;
+        localStorage.setItem(this.tokenName, token);
     }
 
     async request({ endpoint, method = "GET", data = {} }) {
@@ -17,8 +19,8 @@ class ApiClient {
             "Content-Type": "application/json",
         };
 
-        if (this.token) {
-            headers["Authorization"] = `Bearer ${this.token}`;
+        if (this.token !== "null") {
+            headers[`Authorization`] = `Bearer ${this.token}`;
         }
 
         try {
@@ -40,11 +42,27 @@ class ApiClient {
         return await this.request({ endpoint: `auth/register`, method: `POST`, data: credentials });
     }
 
-    // async fetchUserFromToken() {
-    //     //use request method to send http request from auth/me endpoint
-    //     console.log("api Client fetching token");
-    //     return await this.request({ endpoint: `auth/me`, method: `GET` });
-    // }
+    async addSession(sessionInfo) {
+        return await this.request({ endpoint:`session/`, method:`POST`, data: sessionInfo })
+    }
+
+    async getSessions(credentials) {
+        return await this.request({ endpoint:`session/::${credentials}`, method:`GET` })
+    }
+
+    async getTotalTime() {
+        return await this.request({ endpoint:  `session/sum`, method: `GET` })
+    }
+
+    async deleteUser(credentials) {
+        //deletes user from sql database
+        return await this.request({ endpoint: `auth/::${credentials}`, method: `DELETE` })
+    }
+
+    async fetchUserFromToken() {
+        //use request method to send http request from auth/me endpoint
+        return await this.request({ endpoint: `auth/me`, method: `GET` });
+    }
 }
 
 export default new ApiClient( "http://localhost:3001");

@@ -19,10 +19,10 @@ export default function TopSidebar() {
     return (
         <div className="top-sidebar">
             <div className="top-buttons">
-                <button className={`${settingsStates.darkToggle ? "dark" : null}`} onClick={sidebarFunctions.clickProfile}>
+                <button className={`${settingsStates.darkToggle ? "dark" : "light"}`} onClick={sidebarFunctions.clickProfile}>
                     <img src={settingsStates.darkToggle ? darkProfile : userIcon} alt="profile tab"></img>
                 </button>
-                <button className={`${settingsStates.darkToggle ? "dark" : null}`} onClick={sidebarFunctions.clickSettings}>
+                <button className={`${settingsStates.darkToggle ? "dark" : "light"}`} onClick={sidebarFunctions.clickSettings}>
                     <img src={settingsStates.darkToggle ? darkSettings : settingsIcon} alt="settings tab"></img>
                 </button>
             </div>
@@ -30,7 +30,7 @@ export default function TopSidebar() {
                 <div className={`profile-sidebar-${settingsStates.darkToggle ? "dark" : ""}`}>
                     { (!authStates.loggedIn && authStates.login) ? <LoginForm /> : null}
                     { (!authStates.loggedIn && authStates.register) ? <RegisterForm  /> : null }
-                    { (!authStates.login && !authStates.register) ? <ProfileTab /> : null }
+                    { (!authStates.login && !authStates.register && authStates.loggedIn) ? <ProfileTab /> : null }
                 </div>
             ) : null}
             {sidebarStates.settingsOpen ? (

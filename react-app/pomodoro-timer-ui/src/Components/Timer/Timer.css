@@ -1,8 +1,11 @@
 .timer {
     display: flex;
-    align-self: center;
+    /* align-self: center; this line was originally by jose*/
+    /* align-items was added by shehab */
+    align-items: center; 
     margin: auto;
     overflow: visible;
+    flex-direction: column;
 }
 
 .timer .content {
@@ -72,7 +75,7 @@
 
 .timer .content .buttons {
     display: flex;
-    flex-direction: row;
+    flex-direction: row;    
 }
 
 .timer .content .buttons button {

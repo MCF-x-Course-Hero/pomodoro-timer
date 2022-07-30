@@ -1,5 +1,6 @@
 import * as React from "react";
 import { useTimer } from "react-timer-hook";
+import apiClient from "../../Services/apiClient";
 import resetIcon from "../../Assets/restart.svg";
 import darkReset from "../../Assets/dark-restart.svg";
 import darkPause from "../../assets/dark-pause.svg";
@@ -10,14 +11,18 @@ import darkForward from "../../assets/dark-forward.svg";
 import startIcon from "../../Assets/play.svg";
 import softNotif from "../../assets/soft-notif.mp3";
 import { useSettingsContext } from "../../contexts/SettingsContext";
+import { useAuthContext } from "../../contexts/AuthContext";
 import useSound from "use-sound";
 import "./Timer.css";
+import PinnedTodo from "../PinnedTodo/PinnedTodo";
 
 export default function Timer() {
     const { settingsStates, settingsSetStates } = useSettingsContext();
+    const { authStates, authSetStates } = useAuthContext();
     let pomozoneTime = (settingsStates.timeForm.focusTime * 60);
     let shortBreakTime = (settingsStates.timeForm.shortBreakTime * 60);
     let longBreakTime = (settingsStates.timeForm.longBreakTime * 60);
+    let totalTime = (pomozoneTime * 4) + (shortBreakTime * 3) + (longBreakTime);
     const [loops, setLoops] = React.useState(0);
     const pomozone = "pomozone";
     const shortBreak = "short-break";
@@ -34,6 +39,7 @@ export default function Timer() {
             longBreakTime = (settingsStates.timeForm.longBreakTime * 60);
             updateTimer(true);
         }
+        totalTime = (pomozoneTime * 4) + (shortBreakTime * 3) + (longBreakTime);
     }, [settingsStates.timeForm])
 
     //expiryTimestamp tells the timer how long the timer should run for
@@ -43,40 +49,47 @@ export default function Timer() {
     function finishCountdown() {
         settingsStates.notifToggle ? playActive() : null;
         settingsSetStates.setIsExploding(true);
-        setTimeout(() => {
+        setTimeout( async () => {
             settingsSetStates.setIsExploding(false);
-            if(loops == 3 && settingsStates.session == "pomozone") {
-                settingsSetStates.setTheme(settingsStates.longBreakTheme);
-                settingsSetStates.setSession("long-break");
-                expiryTimestamp = setTime(longBreak);
-            } else if (settingsStates.session == "short-break") {
+            if (settingsStates.session == shortBreak) {
                 settingsSetStates.setTheme(settingsStates.pomozoneTheme);
-                settingsSetStates.setSession("pomozone");
+                settingsSetStates.setSession(pomozone);
                 expiryTimestamp = setTime(pomozone);
                 setLoops(loops + 1);
-                console.log(loops);
-            } else if(settingsStates.session === "long-break") {
+            } else if(settingsStates.session === longBreak) {
                 settingsSetStates.setTheme(settingsStates.pomozoneTheme);
-                settingsSetStates.setSession("pomozone");
+                settingsSetStates.setSession(pomozone);
                 expiryTimestamp = setTime(pomozone);
                 setLoops(0);
-            } else if(settingsStates.session == "pomozone") {
-                settingsSetStates.setTheme(settingsStates.shortBreakTheme);
-                settingsSetStates.setSession("short-break");
-                expiryTimestamp = setTime(shortBreak);
+            } else if(settingsStates.session == pomozone) {
+                if(authStates.loggedIn) {
+                    const { data, error } = await apiClient.addSession({session_type: "PomoZone", duration: pomozoneTime });
+                    if (error) {
+                        authSetStates.setError((e) => ({ ...e, form: error }));
+                    }
+                }
+                if(loops == 3) {
+                    settingsSetStates.setTheme(settingsStates.longBreakTheme);
+                    settingsSetStates.setSession(longBreak);
+                    expiryTimestamp = setTime(longBreak);
+                } else {
+                    settingsSetStates.setTheme(settingsStates.shortBreakTheme);
+                    settingsSetStates.setSession(shortBreak);
+                    expiryTimestamp = setTime(shortBreak);
+                }
             }
             restart(expiryTimestamp, true);
-        }, 5000);
+        }, 2000);
     }
 
     function setTime(s) {
         const time = new Date();
         if(s === pomozone) {
-            time.setSeconds(time.getSeconds() + pomozoneTime);
+            time.setSeconds(time.getSeconds() + 3);
         } else if(s === shortBreak) {
-            time.setSeconds(time.getSeconds() + shortBreakTime);
+            time.setSeconds(time.getSeconds() + 3);
         } else if(s === longBreak) {
-            time.setSeconds(time.getSeconds() + longBreakTime);
+            time.setSeconds(time.getSeconds() + 3);
         }
         return time;
     }
@@ -106,6 +119,7 @@ export default function Timer() {
 
     return (
         <div className="timer">
+            <PinnedTodo />
             <div className="content">
                 <div className="timer-area">
                     <div className={`time-${settingsStates.darkToggle ? "dark" : "reg"}`}>
@@ -114,7 +128,6 @@ export default function Timer() {
                         <span>{(minutes < 10 && hours) ? '0' + minutes : minutes}</span>
                         <span>:{(seconds < 10) ? '0' + seconds : seconds}</span>
                     </div>
-                </div>
                 <h2 className={`session-${settingsStates.darkToggle ? "dark" : "reg"}`}>
                     {settingsStates.session.replace("-", " ")}
                 </h2>
@@ -128,6 +141,7 @@ export default function Timer() {
                     <button className={`${settingsStates.session}-${settingsStates.theme}`} onClick={() => {updateTimer(false)}}>
                         <img src={settingsStates.darkToggle ? darkForward : forwardIcon} alt="move to next session"></img>
                     </button>
+                </div>
                 </div>
             </div>
         </div>
