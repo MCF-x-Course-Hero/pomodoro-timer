@@ -64,6 +64,10 @@ class ApiClient {
         // http request to get completed tasks from task/complete endpoint
         return await this.request({endpoint:'task/complete', method: 'GET'})
     }
+    async getPendingTasks() {
+        // http request to get completed tasks from task/complete endpoint
+        return await this.request({endpoint:'task/pending', method: 'GET'})
+    }
 }
 
 export default new ApiClient( "http://localhost:3001");
