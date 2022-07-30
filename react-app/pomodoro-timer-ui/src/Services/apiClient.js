@@ -50,10 +50,6 @@ class ApiClient {
         return await this.request({ endpoint:`session/::${credentials}`, method:`GET` })
     }
 
-    async getTotalTime(credentials) {
-        return await this.request({ endpoint:  `session/sum`, method: `GET`, data: credentials })
-    }
-
     async deleteUser(credentials) {
         //deletes user from sql database
         return await this.request({ endpoint: `auth/::${credentials}`, method: `DELETE` })
@@ -66,7 +62,7 @@ class ApiClient {
 
     async getCompletedTasks() {
         // http request to get completed tasks from task/complete endpoint
-        return await this.request({endpoint:'task/me', method: 'GET'})
+        return await this.request({endpoint:'task/complete', method: 'GET'})
     }
 }
 

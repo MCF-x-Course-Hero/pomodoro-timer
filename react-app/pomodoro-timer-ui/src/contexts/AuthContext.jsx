@@ -48,7 +48,9 @@ export const AuthContextProvider = ({ children }) => {
     if (token !== "null") {
       apiClient.setToken(token);
       fetchUserFromToken();
-      loginUser();
+      setLoggedIn(true)
+      setLogin(false)
+      setRegister(false)
     }
   }, []);
 

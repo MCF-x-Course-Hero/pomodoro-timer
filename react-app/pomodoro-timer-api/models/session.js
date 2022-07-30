@@ -56,6 +56,7 @@ class Session{
 
       static async fetchUserByUsername(username) {
         // this function fetches user information when provided with a username
+        console.log("username",username)
         if (!username) {
           throw new BadRequestError("No username provided");
         }
@@ -64,6 +65,7 @@ class Session{
         const user = result.rows[0];
         return user;
       }
+
 }
 
 module.exports = Session

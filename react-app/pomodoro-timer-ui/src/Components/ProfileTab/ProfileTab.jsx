@@ -6,14 +6,6 @@ import "./ProfileTab.css";
 export default function ProfileTab() {
     const { authFunctions, authSetStates, authStates } = useAuthContext();
     const [totalTime, setTotalTime] = React.useState(0);
-    React.useEffect(() => {
-        const fetchTotal = async () => {
-            const {data, error} = await apiClient.getTotalTime(authStates.user.username);
-            if(data) setTotalTime(data);
-            if(error) authSetStates.setError(error);
-        };
-        fetchTotal();
-    }, []);
     return(
         <div className="profile-tab">
             <h1>{authStates.user.username}</h1>
