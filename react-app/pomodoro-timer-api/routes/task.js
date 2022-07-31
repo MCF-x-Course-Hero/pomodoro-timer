@@ -64,7 +64,6 @@ router.get("/pending", security.requireAuthenticatedUser, async (req, res, next)
 //  (post with name or put with no name) for updating task
 router.post("/update", async (req, res, next) => {
   try {
-    console.log(res.locals.user)
     const {username} = res.locals.user
     const task = await User.fetchUserByUsername(username);
     const user = await Task.createTask(req.body, task);
@@ -76,7 +75,6 @@ router.post("/update", async (req, res, next) => {
 
 // delete task
 router.delete("/:taskId", security.requireAuthenticatedUser, async function (req, res, next) {
-  console.log("deleting",req.params.taskId);
   const taskId = req.params.taskId
   try {
     await Task.removeTask(taskId);
