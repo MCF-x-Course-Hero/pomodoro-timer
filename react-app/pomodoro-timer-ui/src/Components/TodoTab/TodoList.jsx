@@ -22,8 +22,6 @@ export default function TodoList() {
     }
     if (authStates.loggedIn) getPendingTasks();
   }, []);
-
-
   return (
     <List>
       {pendingTodos.length > 0

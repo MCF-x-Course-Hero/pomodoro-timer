@@ -5,6 +5,10 @@
     flex-direction: column;
 }
 
+.session-history .no-sessions {
+    text-align: center;
+}
+
 .session-history .date {
     display: flex;
     flex-direction: column;

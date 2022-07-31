@@ -13,7 +13,7 @@
     margin-bottom: auto;
 }
 
-.top-sidebar .top-buttons button {
+.top-sidebar .top-buttons .light {
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
     border: none;
@@ -22,17 +22,17 @@
     margin-top: 15px;
     margin-bottom: 15px;
     cursor: pointer;
-    box-shadow: 3px 5px #615184;
+    /* box-shadow: 3px 5px #615184;
     border-left: solid 3px #615184;
-    border-top: solid 3px #615184;
+    border-top: solid 3px #615184; */
 }
 
 .top-sidebar .top-buttons .dark {
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
     border: none;
-    height: 60px;
-    width: 60px;
+    height: 70px;
+    width: 70px;
     margin-top: 15px;
     margin-bottom: 15px;
     cursor: pointer;
@@ -45,7 +45,8 @@
     height: 350px;
     background: #F1F1F1;
     border: 1px solid black;
-    border-radius: 10px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
 }
 
 .top-sidebar .profile-sidebar-dark {
@@ -53,7 +54,8 @@
     width: 250px;
     height: 350px;
     border: 1px solid black;
-    border-radius: 10px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
     background: #5C5771;
 }
 
@@ -63,7 +65,8 @@
     margin-top: 50px;
     background: #F1F1F1;
     border: 1px solid black;
-    border-radius: 10px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
 }
 
 .top-sidebar .settings-sidebar-dark {
@@ -71,6 +74,7 @@
     height: 350px;
     margin-top: 50px;
     border: 1px solid black;
-    border-radius: 10px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
     background: #5C5771;
 }

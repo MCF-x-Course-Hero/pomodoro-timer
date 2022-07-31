@@ -4,17 +4,17 @@
     height: 100%;
     margin-left:5%;
     flex-direction: column;
-    align-items: left;
+    align-items: center;
     /* justify-content: center; */
+
 }
-
-
-
 
 .todo-form{
     display: flex;
     flex-direction: row;
     align-items: center;
+    align-self: flex-start;
+    width: 100%;
 }
 
 .todo-left-side{
@@ -47,3 +47,13 @@ li {
     text-align:initial
 }
 
+.css-h4y409-MuiList-root {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    padding-top: 8px;
+    width: 100%;
+    padding-bottom: 8px;
+    /* align-items: flex-start; */
+}

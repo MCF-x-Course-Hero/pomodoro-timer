@@ -79,17 +79,17 @@ export default function Timer() {
                 }
             }
             restart(expiryTimestamp, true);
-        }, 2000);
+        }, 3000);
     }
 
     function setTime(s) {
         const time = new Date();
         if(s === pomozone) {
-            time.setSeconds(time.getSeconds() + 3);
+            time.setSeconds(time.getSeconds() + 6);
         } else if(s === shortBreak) {
             time.setSeconds(time.getSeconds() + 3);
         } else if(s === longBreak) {
-            time.setSeconds(time.getSeconds() + 3);
+            time.setSeconds(time.getSeconds() + longBreakTime);
         }
         return time;
     }
@@ -119,8 +119,8 @@ export default function Timer() {
 
     return (
         <div className="timer">
+            <PinnedTodo />
             <div className="content">
-                <PinnedTodo />
                 <div className="timer-area">
                     <div className={`time-${settingsStates.darkToggle ? "dark" : "reg"}`}>
                         {/* {days ? (<span>{days}:</span>) : null} */}

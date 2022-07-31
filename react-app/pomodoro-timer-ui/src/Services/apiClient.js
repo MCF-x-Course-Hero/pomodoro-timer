@@ -62,8 +62,10 @@ class ApiClient {
     async getSessions(credentials) {
         return await this.request({ endpoint:`session/::${credentials}`, method:`GET` })
     }
-
-
+    
+    async getTotalTime() {
+        return await this.request({ endpoint:  `session/sum`, method: `GET` })
+    }
 
 // TASKS ENDPOINTS
     async getCompletedTasks() {
@@ -73,8 +75,7 @@ class ApiClient {
     async getPendingTasks() {
         // http request to get completed tasks from task/complete endpoint
         return await this.request({endpoint:'task/pending', method: 'GET'})
-    }
-
+   
     async addTask(todo){
         // http request to add a task to the database.
         return await this.request({endpoint:"task/", method:"POST", data: todo})

@@ -20,6 +20,7 @@ export default function ({ todo, toggleComplete, removeTodo }) {
   const isActivePin = todoVariables.isActivePin;
   const setIsActivePin = todoFunctions.setIsActivePin;
 
+
   // this handler will evoke toggle complete whenever the respective todo's checkbox is clicked
   function handleCheckBoxClick() {
     toggleComplete(todo.id);
@@ -27,7 +28,6 @@ export default function ({ todo, toggleComplete, removeTodo }) {
 
   function handleRemoveButton() {
     removeTodo(todo);
-
     if (todo.id == pinnedTodo.id) {
       /* if the task removed happens to also be pinned, 
       then isActivePin and pinnedTodo states must also be reset.*/
@@ -39,7 +39,6 @@ export default function ({ todo, toggleComplete, removeTodo }) {
       setIsActivePin(false);
     }
   }
-
   function handlePinButton() {
     // isActivePin is a boolean value that denotes if there's a todo pinned.
 
@@ -80,7 +79,7 @@ export default function ({ todo, toggleComplete, removeTodo }) {
             viewBox="0 0 24 24"
             strokeWidth="1.5"
             stroke="#000000"
-            fill={todo.id == pinnedTodo.id ? "black" : "none"}
+            fill={(todo.id == pinnedTodo.id)? "black":"none"}
             strokeLinecap="round"
             strokeLinejoin="round"
           >

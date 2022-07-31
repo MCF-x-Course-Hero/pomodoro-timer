@@ -2,12 +2,12 @@ const {NotFoundError, BadRequestError} = require("../utils/errors")
 const db = require("../db")
 
 class Task{
+
     static async createTask(taskInfo, userInfo){
         /* this function will be responsible for adding a task for the first time*/
         const requiredFields = [ "task" ]
         requiredFields.forEach(field => {
             if (!taskInfo.hasOwnProperty(field)){
-
                 throw new BadRequestError(`Missing ${field} in request body.`)
             }
         })
@@ -43,12 +43,10 @@ class Task{
         return result.rows
     }
  
-
     static async updateTask(){
     /* this function will update the following task attributes: 
        is_completed, the task itself (name of the task). 
        post or put*/
-
     }
     
     static async getCompletedTask(userInfo){

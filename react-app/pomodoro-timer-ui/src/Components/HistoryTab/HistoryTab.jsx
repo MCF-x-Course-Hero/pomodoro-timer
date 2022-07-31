@@ -9,8 +9,8 @@ export default function HistoryTab() {
     return(
         <div className="history-tab">
             <div className="buttons">
-                <button className="history" onClick={tasks ? () => setTasks(false) : null}>Session History</button>
-                <button onClick={tasks ? null : () => setTasks(true)}>Tasks Completed</button>
+                <button className={`${tasks ? "closed" : "current"}`} onClick={tasks ? () => setTasks(false) : null}>Session History</button>
+                <button className={`${tasks ? "current" : "closed"}`} onClick={tasks ? null : () => setTasks(true)}>Tasks Completed</button>
             </div>
             {/* <TodoHistoryContextProvider> */}
             {tasks ? <CompletedTasks /> : <SessionHistory />}

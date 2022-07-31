@@ -33,7 +33,7 @@ export default function TodoForm() {
   }
   return (
     <div>
-      <form className="todo-form"  onSubmit={handleOnSubmitTask}>
+      <form className="todo-form" onSubmit={handleOnSubmitTask}>
         <TextField
         variant="standard"
         color="secondary"
@@ -48,7 +48,7 @@ export default function TodoForm() {
           }}
         >
         </TextField>
-        <Button color="secondary" size="medium" type="submit">submit</Button>
+        <Button color="secondary" size="medium" type="submit" >submit</Button>
       </form>
     </div>
   );
