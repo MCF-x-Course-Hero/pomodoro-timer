@@ -5,10 +5,11 @@ import { TodoContextProvider } from "../../contexts/TodoContext";
 import './App.css'
 import DeleteModal from "../../Components/DeleteModal/DeleteModal";
 import useWindowSize from "react-use/lib/useWindowSize";
-import SidebarContainer from "../Sidebar/Sidebar";
 import Confetti from "react-confetti";
 import Timer from "../Timer/Timer";
 import './App.css';
+import SidebarContainer from "../Sidebar/Sidebar"; //old sidebar
+import Sidebar from "../Sidebar/Sidebar"; //new sidebar
 
 export default function AppContainer() {
   return(
@@ -34,8 +35,8 @@ function App() {
           tweenDuration={5000}
         /> : null }
         
+        <Sidebar />
         <Timer />
-        <SidebarContainer />
         {authStates.deleteUser ? <DeleteModal /> : null }
       </div>
   )
