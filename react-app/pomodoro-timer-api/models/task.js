@@ -2,13 +2,12 @@ const {NotFoundError, BadRequestError} = require("../utils/errors")
 const db = require("../db")
 
 class Task{
-    
+
     static async createTask(taskInfo, userInfo){
         /* this function will be responsible for adding a task for the first time*/
         const requiredFields = [ "task" ]
         requiredFields.forEach(field => {
             if (!taskInfo.hasOwnProperty(field)){
-
                 throw new BadRequestError(`Missing ${field} in request body.`)
             }
         })
@@ -37,37 +36,39 @@ class Task{
 
     static async listPendingTask(userInfo){
     /* gets list of tasks that the user has not completed */
-    console.log("info", userInfo)
         const user = await this.fetchUserByUsername(userInfo.username)
         if (!user) throw new NotFoundError(`no user by ${userInfo.username} found`)
-        const query = `SELECT * FROM userTasks WHERE is_completed = false AND user_id=${user.id}`;
+        const query = `SELECT * FROM userTasks WHERE is_completed = false AND user_id=${user.id};`
         const result = await db.query(query)
-        console.log("result", result)
         return result.rows
+    }
+ 
+    static async updateTask(){
+    /* this function will update the following task attributes: 
+       is_completed, the task itself (name of the task). 
+       post or put*/
     }
     
     static async getCompletedTask(userInfo){
     /*  this function will get completed tasks from the database
         to display in task history */
-        console.log("info", userInfo)
         const user = await this.fetchUserByUsername(userInfo.username)
         if (!user) throw new NotFoundError(`no user by ${userInfo.username} found`)
-        const query = `SELECT * FROM userTasks WHERE is_completed = true AND user_id=${user.id}`
+        const query = `SELECT * FROM userTasks WHERE is_completed = true AND user_id=${user.id};`
         const result = await db.query(query)
-        console.log("result", result)
         return result.rows
     }
 
-    static async removeTask(){
+    static async removeTask(taskId){
         /* this function will delete task if the user decides to */
         let result = await db.query(
             `DELETE
                 FROM userTasks
-                WHERE tasks = $1`,
-            [task]
+                WHERE id = $1`,
+            [taskId]
           );
-          const task = result.rows[0];
-          if (!task) throw new NotFoundError(`Task is not found: ${task}`);
+          const deletedTask = result.rows[0];
+          if (!taskId) throw new NotFoundError(`Task with id ${taskId} is not found`);
         }
 }
 

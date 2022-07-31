@@ -17,8 +17,9 @@ export default function ({ todo, toggleComplete, removeTodo }) {
   // const removeTodo = todoFunctions.removeTodo;
   const setPinnedTodo = todoFunctions.setPinnedTodo;
   const pinnedTodo = todoVariables.pinnedTodo;
-  const isActivePin = todoVariables.isActivePin
-  const setIsActivePin = todoFunctions.setIsActivePin
+  const isActivePin = todoVariables.isActivePin;
+  const setIsActivePin = todoFunctions.setIsActivePin;
+
 
   // this handler will evoke toggle complete whenever the respective todo's checkbox is clicked
   function handleCheckBoxClick() {
@@ -26,36 +27,42 @@ export default function ({ todo, toggleComplete, removeTodo }) {
   }
 
   function handleRemoveButton() {
-    removeTodo(todo.id);
+    removeTodo(todo);
     if (todo.id == pinnedTodo.id) {
-    setPinnedTodo({
-      id: "",
-      task: "",
-      is_completed: false,
-    });
-    setIsActivePin(false)
-  }
-  }
-
-  function handlePinButton() {
-    if (!isActivePin){
-      setPinnedTodo(todo);
-      document.getElementById(`${todo.id}`).style.fill="black"
-      setIsActivePin(true)
-    }
-    else if (todo.id != pinnedTodo.id && isActivePin){
-      document.getElementById(`${todo.id}`).style.fill="black"
-      document.getElementById(`${pinnedTodo.id}`).style.fill="none"
-      setPinnedTodo(todo);
-    }
-    else if (todo.id == pinnedTodo.id && isActivePin) {
-      document.getElementById(`${todo.id}`).style.fill="none"
+      /* if the task removed happens to also be pinned, 
+      then isActivePin and pinnedTodo states must also be reset.*/
       setPinnedTodo({
         id: "",
         task: "",
         is_completed: false,
       });
-      setIsActivePin(false)
+      setIsActivePin(false);
+    }
+  }
+  function handlePinButton() {
+    // isActivePin is a boolean value that denotes if there's a todo pinned.
+
+    if (!isActivePin) {
+      //when there's no pinned todo at the moment
+      setPinnedTodo(todo);
+      document.getElementById(`${todo.id}`).style.fill = "black";
+      setIsActivePin(true);
+    } else if (todo.id != pinnedTodo.id && isActivePin) {
+      /* when there's a pinned todo,
+      but the user chooses to change the pin todo to something different */
+      document.getElementById(`${todo.id}`).style.fill = "black";
+      document.getElementById(`${pinnedTodo.id}`).style.fill = "none";
+      setPinnedTodo(todo);
+    } else if (todo.id == pinnedTodo.id && isActivePin) {
+      /* when the user chooses to unpin the current todo without replacing it 
+      with a new pinned todo*/
+      document.getElementById(`${todo.id}`).style.fill = "none";
+      setPinnedTodo({
+        id: "",
+        task: "",
+        is_completed: false,
+      });
+      setIsActivePin(false);
     }
   }
 

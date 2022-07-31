@@ -8,18 +8,6 @@ export default function SessionHistory() {
     const { authStates, authSetStates } = useAuthContext();
     const [userSessions, setUserSessions] = React.useState({});
     const [retrieved, setRetrieved] = React.useState(false);
-    React.useEffect( () => {
-        setRetrieved(false);
-        const fetchSessions = async () => {
-          const { data, error } = await apiClient.getSessions(authStates.user.username);
-          if (data) {
-            setUserSessions({ ...data });
-            setTimeout(() => setRetrieved(true), 10);
-          }
-          if (error) authSetStates.setError(error);
-        };
-        fetchSessions();
-    }, []);
 
     return(
         <div className="session-history">
