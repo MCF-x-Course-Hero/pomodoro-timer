@@ -1,0 +1,39 @@
+.side-nav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 0;
+    Left: 0;
+    top: 0;
+    background-color: #712F3E;
+    background-color: #88D4CC;
+    background-color: #f1f1f1;
+    opacity: 1;
+    overflow-x:hidden;
+    transition: 0.35s;
+}
+
+.side-nav a{
+    padding: 10px 10px 10px 30px;
+    text-decoration: none;
+    font-size: 22px;
+    color: #712F3E;
+    opacity: 1;
+    display: block;
+    transition: 0.25ms;
+
+}
+
+.side-nav a:hover{
+    color:white;
+    cursor:pointer;
+}
+
+.side-nav .btn-close{
+    position: absolute;
+    top :0;
+    right:22px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+

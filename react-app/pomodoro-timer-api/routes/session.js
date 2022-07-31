@@ -42,6 +42,7 @@ router.get("/sum", security.requireAuthenticatedUser, async (req, res, next) => 
 router.post("/", security.requireAuthenticatedUser, async (req, res, next) => {
   try {
     const { username } = res.locals.user;
+    console.log("username", username)
     const user = await User.fetchUserByUsername(username);
     const session = await Session.addSession(req.body, user);
     return res.status(200).json({ session });
