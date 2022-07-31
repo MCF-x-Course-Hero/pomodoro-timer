@@ -23,8 +23,6 @@ export const TodoHistoryContextProvider = ({ children }) => {
       }
       getCompletedTasks();
   }, []);
-
-  console.log("completedTodos", completedTodos)
   const todoHistoryVariables = {completedTodos, pendingTodos, error}
   const todoHistoryFunction = {setCompletedTodos, setPendingTodos, setError}
 
