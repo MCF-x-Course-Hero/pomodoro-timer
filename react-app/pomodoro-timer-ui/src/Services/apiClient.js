@@ -75,7 +75,7 @@ class ApiClient {
     async getPendingTasks() {
         // http request to get completed tasks from task/complete endpoint
         return await this.request({endpoint:'task/pending', method: 'GET'})
-   
+    }
     async addTask(todo){
         // http request to add a task to the database.
         return await this.request({endpoint:"task/", method:"POST", data: todo})
@@ -86,5 +86,6 @@ class ApiClient {
         return await this.request({endpoint:`task/${taskId}`, method:"DELETE"})
     }
 }
+
 
 export default new ApiClient( "http://localhost:3001");

@@ -105,15 +105,7 @@ export const TodoContextProvider = ({ children }) => {
       );
   }, [pinnedTodo]);
 
-  const todoVariables = { todo, todoList, pinnedTodo };
-  const todoFunctions = {
-    setTodo,
-    setTodoList,
-    addTodo,
-    removeTodo,
-    toggleComplete,
-    setPinnedTodo,
-  };
+
 
   const todoVariables = { todo, todoList, pinnedTodo, isActivePin };
   const todoFunctions = {setTodo, setTodoList, addTodo, removeTodo, toggleComplete, setPinnedTodo, setIsActivePin};
