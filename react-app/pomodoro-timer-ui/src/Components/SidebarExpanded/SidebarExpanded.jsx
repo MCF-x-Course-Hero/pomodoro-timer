@@ -18,6 +18,9 @@ export default function SidebarExpanded({handleOnToggle, componentName}) {
         </a>
 
         {("profile"==componentName) ? <ProfileTab/> : ""}
+        {("settings"==componentName) ? <SettingsTab/> : ""}
+        {("history"==componentName) ? <HistoryTab/> : ""}
+        {("todo"==componentName) ? <TodoTab/> : ""}
 
       </div>
     </section>
