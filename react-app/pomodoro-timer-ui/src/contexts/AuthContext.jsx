@@ -11,15 +11,23 @@ export const AuthContextProvider = ({ children }) => {
   const [user, setUser] = React.useState({});
   const [initialized, setInitialized] = React.useState(false);
   const [isProcessing, setIsProcessing] = React.useState(false);
+  const [profileOpen, setProfileOpen] = React.useState(false);
+  const [settingsOpen, setSettingsOpen] = React.useState(false);
+  const [historyOpen, setHistoryOpen] = React.useState(false);
+  const [listOpen, setListOpen] = React.useState(false);
   const [deleteUser, setDeleteUser] = React.useState(false);
   const [sessionsList, setSessionsList] = React.useState({});
   const [loggedIn, setLoggedIn] = React.useState(false);
-  const [login, setLogin] = React.useState(true)
-  const [register, setRegister ] = React.useState(false)
+  const [login, setLogin] = React.useState(true);
+  const [register, setRegister ] = React.useState(false);
+  const [componentName, setComponentName] = React.useState("");
   const [error, setError] = React.useState({});
-  const authStates = { user, initialized, isProcessing, loggedIn, error, login, register, deleteUser, sessionsList };
-  const authSetStates = { setUser, setInitialized, setIsProcessing, setLoggedIn, setError, setLogin, setRegister, setDeleteUser, setSessionsList };
-  const authFunctions = { loginUser, fetchUserFromToken, logoutUser };
+  const authStates = { user, initialized, isProcessing, loggedIn, error,
+                      login, register, deleteUser, sessionsList, profileOpen,
+                      settingsOpen, historyOpen, listOpen, componentName };
+  const authSetStates = { setUser, setInitialized, setIsProcessing, setLoggedIn,
+                        setError, setLogin, setRegister, setDeleteUser, setSessionsList };
+  const authFunctions = { loginUser, fetchUserFromToken, logoutUser, handleOnToggle };
   
   function loginUser(person, token) {
     setRegister(false);
@@ -30,7 +38,6 @@ export const AuthContextProvider = ({ children }) => {
   }
 
   async function fetchUserFromToken() {
-
     const { data, error } = await apiClient.fetchUserFromToken();
     if (data) setUser({ ...data.user });
     if (error) setError(error);
@@ -42,6 +49,65 @@ export const AuthContextProvider = ({ children }) => {
     apiClient.setToken("null");
     localStorage.setItem("pomozone_token", "null");
     setUser({});
+  }
+
+  function handleOnToggle(tabName = "") {
+
+    if(tabName == "profile" && !profileOpen) {
+      setProfileOpen(true);
+      setHistoryOpen(false);
+      setListOpen(false);
+      setSettingsOpen(false);
+      document.querySelector("#side-menu").style.width = "35%";
+      document.querySelector("#side-menu").style.marginLeft = "180px"; 
+    } else if(tabName == "profile" && profileOpen) {
+      setProfileOpen(false);
+      document.querySelector("#side-menu").style.width = "0";
+    }
+    
+    if (tabName == "settings" && !settingsOpen) {
+      setProfileOpen(false);
+      setHistoryOpen(false);
+      setListOpen(false);
+      setSettingsOpen(true);
+      document.querySelector("#side-menu").style.width = "35%";
+      document.querySelector("#side-menu").style.marginLeft = "180px"; 
+    } else if(tabName == "settings" && settingsOpen) {
+      setSettingsOpen(false);
+      document.querySelector("#side-menu").style.width = "0";
+    }
+    
+    if (tabName == "history" && !historyOpen) {
+      setProfileOpen(false);
+      setHistoryOpen(true);
+      setListOpen(false);
+      setSettingsOpen(false);
+      document.querySelector("#side-menu").style.width = "35%";
+      document.querySelector("#side-menu").style.marginLeft = "180px"; 
+    } else if(tabName == "history" && historyOpen) {
+      setHistoryOpen(false);
+      document.querySelector("#side-menu").style.width = "0";
+    }
+    
+    if (tabName == "todo" && !listOpen) {
+      setProfileOpen(false);
+      setHistoryOpen(false);
+      setListOpen(true);
+      setSettingsOpen(false);
+      document.querySelector("#side-menu").style.width = "35%";
+      document.querySelector("#side-menu").style.marginLeft = "180px"; 
+    } else if (tabName == "todo" && listOpen) {
+      setListOpen(false);
+      document.querySelector("#side-menu").style.width = "0";
+    }
+
+    if(tabName == "") {
+      document.querySelector("#side-menu").style.width = "0";      
+    }
+
+    /* setting the componentName to the name tabName that was clicked. 
+    This way we can conditionally render the appropraite tab based on whats clicked */
+    setComponentName(tabName)
   }
 
   React.useEffect(() => {

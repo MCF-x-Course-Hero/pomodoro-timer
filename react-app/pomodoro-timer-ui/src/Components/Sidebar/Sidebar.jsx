@@ -1,12 +1,9 @@
 import * as React from "react";
-import TopSidebar from "../TopSidebar/TopSidebar";
-import BottomSidebar from "../BottomSidebar/BottomSidebar";
-import { SidebarContextProvider } from "../../contexts/SidebarContext";
-import SidebarExpanded from "../SidebarExpanded/SidebarExpanded";
+import { useAuthContext } from "../../contexts/AuthContext";
 import "./Sidebar.css"
 
-export default function Sidebar({handleOnToggle}) {
-
+export default function Sidebar() {
+  const { authFunctions } = useAuthContext();
   return (
     <div className="sidebar">
       <div className="sidebar-top">
@@ -15,19 +12,19 @@ export default function Sidebar({handleOnToggle}) {
       </div>
       <div className="sidebar-center">
         <ul className="list">
-          <li className="list-item" onClick={()=>{handleOnToggle("profile")}}>
+          <li className="list-item" onClick={()=>{authFunctions.handleOnToggle("profile")}}>
             <i className="list-item-icon fa-solid fa-user"></i>
             <span className="list-item-text">Profile</span>
           </li>
-          <li className="list-item" onClick={()=>{handleOnToggle("settings")}}>
+          <li className="list-item" onClick={()=>{authFunctions.handleOnToggle("settings")}}>
             <i className="list-item-icon fa-solid fa-sliders"></i>
-            <span className="list-item-text" >Settings</span>
+            <span className="list-item-text">Settings</span>
           </li>
-          <li className="list-item" onClick={()=>{handleOnToggle("history")}}>
+          <li className="list-item" onClick={()=>{authFunctions.handleOnToggle("history")}}>
             <i className="list-item-icon fa-solid fa-face-sad-tear"></i>
             <span className="list-item-text">History</span>
           </li>
-          <li className="list-item" onClick={()=>{handleOnToggle("todo")}}>
+          <li className="list-item" onClick={()=>{authFunctions.handleOnToggle("todo")}}>
             <i className="list-item-icon fa-solid fa-list-check"></i>
             <span className="list-item-text">To-Do List</span>
           </li>
@@ -41,23 +38,6 @@ export default function Sidebar({handleOnToggle}) {
           <i className="list-item-icon fa-solid fa-moon"></i>
         </div>
       </div>
-    </div>
-  );
-}
-
-function SidebarContainer() {
-  return (
-    <SidebarContextProvider>
-      <OldSidebar />
-    </SidebarContextProvider>
-  );
-}
-
-function OldSidebar() {
-  return (
-    <div className="sidebar">
-      <TopSidebar />
-      <BottomSidebar />
     </div>
   );
 }

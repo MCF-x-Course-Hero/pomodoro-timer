@@ -1,17 +1,17 @@
 import * as React from "react";
-import { useSidebarContext } from "../../contexts/SidebarContext";
+import { useAuthContext } from "../../contexts/AuthContext";
 import Modal from "../Modal/Modal";
 import "./NotAuthHistory.css";
 
 export default function NotAuthHistory() {
-    const { sidebarFunctions } = useSidebarContext();
+    const { authFunctions } = useAuthContext();
     return(
         <>
         <Modal>
             <div className="history-modal-background">
                 <div className="history-modal-container">
                     <p>You must be logged in to access this feature!</p>
-                    <button onClick={sidebarFunctions.clickProfile}>Login</button>
+                    <button onClick={() => authFunctions.handleOnToggle("profile")}>Login</button>
                 </div>
             </div>
         </Modal>

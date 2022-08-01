@@ -7,23 +7,24 @@ import SettingsTab from "../SettingsTab/SettingsTab";
 import HistoryTab from "../HistoryTab/HistoryTab";
 import TodoTab from "../TodoTab/TodoTab";
 import ProfileTab from "../ProfileTab/ProfileTab";
+import NotAuthHistory from "../NotAuthHistory/NotAuthHistory";
 
-export default function SidebarExpanded({handleOnToggle, componentName}) {
-  const { authStates } = useAuthContext();
+export default function SidebarExpanded() {
+  const { authStates, authFunctions } = useAuthContext();
 
   return (
     <section className="sidebar-expanded">
       <div className="side-nav" id="side-menu">
-        <a href="#" className="btn-close" onClick={handleOnToggle}>
+        <a className="btn-close" onClick={() => authFunctions.handleOnToggle("")}>
           &times;
         </a>
-        { ("profile"==componentName && !authStates.loggedIn && authStates.login) ? <LoginForm /> : null}
-        { ("profile"==componentName && !authStates.loggedIn && authStates.register) ? <RegisterForm  /> : null }
-        { ("profile"==componentName && !authStates.login && !authStates.register && authStates.loggedIn) ? <ProfileTab /> : null }
-        {("settings"==componentName) ? <SettingsTab/> : ""}
-        {("history"==componentName) ? <HistoryTab/> : ""}
-        {("todo"==componentName) ? <TodoTab/> : ""}
-
+        { ("profile" == authStates.componentName && !authStates.loggedIn && authStates.login) ? <LoginForm /> : null }
+        { ("profile" == authStates.componentName && !authStates.loggedIn && authStates.register) ? <RegisterForm  /> : null }
+        { ("profile" == authStates.componentName && !authStates.login && !authStates.register && authStates.loggedIn) ? <ProfileTab /> : null }
+        { ("settings" == authStates.componentName) ? <SettingsTab/> : null }
+        { ("history" == authStates.componentName && authStates.loggedIn) ? <HistoryTab/> : null }
+        { ("history" == authStates.componentName && !authStates.loggedIn) ? <NotAuthHistory /> : null }
+        { ("todo" == authStates.componentName) ? <TodoTab/> : null }
       </div>
     </section>
   );
