@@ -25,7 +25,7 @@ function App() {
   const {width, height} = useWindowSize();
   const { settingsStates } = useSettingsContext();
   const { authStates } = useAuthContext();
-
+  
   return (
       <div className={`app ${settingsStates.session}-${settingsStates.theme}`}>
         {settingsStates.isExploding ? <Confetti
@@ -40,4 +40,3 @@ function App() {
       </div>
   )
 }
-

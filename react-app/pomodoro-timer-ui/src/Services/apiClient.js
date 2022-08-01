@@ -85,6 +85,10 @@ class ApiClient {
         // deletes a task from the database by providing its id
         return await this.request({endpoint:`task/${taskId}`, method:"DELETE"})
     }
+
+    async updateTask(task){
+        return await this.request({endpoint:"task/update", method:"POST", data:task})
+    }
 }
 
 
