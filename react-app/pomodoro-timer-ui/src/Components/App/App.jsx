@@ -59,8 +59,6 @@ function App() {
     setComponentName(tabName)
   }
 
-
-  console.log("name", componentName)
   return (
       <div className={`app ${settingsStates.session}-${settingsStates.theme}`}>
         {settingsStates.isExploding ? <Confetti
