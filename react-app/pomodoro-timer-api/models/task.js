@@ -47,11 +47,6 @@ class Task{
     /* this function will update the following task attributes: 
        is_completed, the task itself (name of the task). 
        post or put*/
-
-       console.log(taskInfo.id)
-
-       console.log(userInfo.id)
-
        const query = `UPDATE userTasks SET is_completed = ${!taskInfo.is_completed} WHERE id = ${taskInfo.id} AND user_id = ${userInfo.id};`
        const result = await db.query(query)
        return result.rows;
