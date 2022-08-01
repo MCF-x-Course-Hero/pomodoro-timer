@@ -51,7 +51,7 @@ function App() {
       document.querySelector("#side-menu").style.width = "35%";
 
       //accounts for the space taken by the smaller sidebar:
-      document.querySelector("#side-menu").style.marginLeft = "180px"; 
+      // document.querySelector("#side-menu").style.marginLeft = "180px"; 
     }
 
     /* setting the componentName to the name tabName that was clicked. 

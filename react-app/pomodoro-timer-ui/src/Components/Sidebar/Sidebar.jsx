@@ -15,21 +15,21 @@ export default function Sidebar({handleOnToggle}) {
       </div>
       <div className="sidebar-center">
         <ul className="list">
-          <li className="list-item">
+          <li className="list-item" onClick={()=>{handleOnToggle("profile")}}>
             <i className="list-item-icon fa-solid fa-user"></i>
-            <span className="list-item-text" onClick={()=>{handleOnToggle("profile")}}>Profile</span>
+            <span className="list-item-text">Profile</span>
           </li>
-          <li className="list-item">
+          <li className="list-item" onClick={()=>{handleOnToggle("settings")}}>
             <i className="list-item-icon fa-solid fa-sliders"></i>
-            <span className="list-item-text" onClick={()=>{handleOnToggle("settings")}}>Settings</span>
+            <span className="list-item-text" >Settings</span>
           </li>
-          <li className="list-item">
+          <li className="list-item" onClick={()=>{handleOnToggle("history")}}>
             <i className="list-item-icon fa-solid fa-face-sad-tear"></i>
-            <span className="list-item-text"onClick={()=>{handleOnToggle("history")}}>History</span>
+            <span className="list-item-text">History</span>
           </li>
-          <li className="list-item">
+          <li className="list-item" onClick={()=>{handleOnToggle("todo")}}>
             <i className="list-item-icon fa-solid fa-list-check"></i>
-            <span className="list-item-text"onClick={()=>{handleOnToggle("todo")}}>To-Do List</span>
+            <span className="list-item-text">To-Do List</span>
           </li>
         </ul>
       </div>
