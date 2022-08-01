@@ -64,7 +64,6 @@ router.get("/pending", security.requireAuthenticatedUser, async (req, res, next)
 //  (post with name or put with no name) for updating task
 router.post("/update", security.requireAuthenticatedUser, async (req, res, next) => {
   try {
-    console.log(req.body)
     const {username} = res.locals.user
     const user = await User.fetchUserByUsername(username);
     const updatedTask = await Task.updateTask(req.body, user);
