@@ -176,9 +176,11 @@
     margin-left: 50px;
 }
 
-/* @media only screen and (max-width: 768px) {
+@media only screen and (max-width: 768px) {
     #side-menu {
         margin-left: 50px;
-        min-width: 300px;
+        /* min-width: 100%; */
+        transition: 0.35s;
     }
-} */
+}
+
