@@ -4,6 +4,7 @@
     height: 100%;
     color: white;
     display: flex;
+    justify-content: space-between;
     align-items: center;
     flex-direction: column;
     transition: 0.35s;
@@ -14,6 +15,7 @@
 
 .sidebar-pomozone-pdefault {
     background: #615184;
+    transition: 0.35s;
 }
 
 .sidebar-pomozone-red{
@@ -160,15 +162,19 @@
     border-bottom: 1px solid #4b4b4b;
 }
 
+.sidebar-top {
+    margin-top: 10px;
+}
+
 .sidebar-bottom {
+    margin-top: 10px;
     border: none;
-    justify-content: flex-end;
+    justify-content: center;
 }
 
 .logo {
     font-size: 24px;
     margin-right: 10px;
-    cursor: pointer;
     padding-left: 10px;
 }
 
