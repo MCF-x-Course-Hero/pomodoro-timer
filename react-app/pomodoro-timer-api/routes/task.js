@@ -65,9 +65,9 @@ router.get("/pending", security.requireAuthenticatedUser, async (req, res, next)
 router.post("/update", async (req, res, next) => {
   try {
     const {username} = res.locals.user
-    const task = await User.fetchUserByUsername(username);
-    const user = await Task.createTask(req.body, task);
-    return res.status(201).json({ user });
+    const user = await User.fetchUserByUsername(username);
+    const updatedTask = await Task.updateTask(req.body, user);
+    return res.status(201).json({ updatedTask:updatedTask });
   } catch (err) {
     next(err);
   }

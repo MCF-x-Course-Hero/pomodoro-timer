@@ -43,11 +43,20 @@ class Task{
         return result.rows
     }
  
-    static async updateTask(){
+    static async updateTask(taskInfo, userInfo){
     /* this function will update the following task attributes: 
        is_completed, the task itself (name of the task). 
        post or put*/
+
+       console.log(taskInfo.id)
+
+       console.log(userInfo.id)
+
+       const query = `UPDATE userTasks SET is_completed = true WHERE id = ${taskInfo.id} AND user_id = ${userInfo.id};`
+       const result = await db.query(query)
+       return result.rows;
     }
+
     
     static async getCompletedTask(userInfo){
     /*  this function will get completed tasks from the database
