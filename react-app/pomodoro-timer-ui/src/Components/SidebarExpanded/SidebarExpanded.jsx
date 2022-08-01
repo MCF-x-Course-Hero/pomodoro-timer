@@ -1,5 +1,5 @@
 import * as React from "react";
-import "./SidebarExpanded.css";
+import { useSettingsContext } from "../../contexts/SettingsContext";
 import { useAuthContext } from "../../contexts/AuthContext";
 import LoginForm from "../LoginForm/LoginForm";
 import RegisterForm from "../RegisterForm/RegisterForm";
@@ -8,16 +8,18 @@ import HistoryTab from "../HistoryTab/HistoryTab";
 import TodoTab from "../TodoTab/TodoTab";
 import ProfileTab from "../ProfileTab/ProfileTab";
 import NotAuthHistory from "../NotAuthHistory/NotAuthHistory";
+import "./SidebarExpanded.css";
 
 export default function SidebarExpanded() {
+  const { settingsStates } = useSettingsContext();
   const { authStates, authFunctions } = useAuthContext();
 
   return (
     <section className="sidebar-expanded">
-      <div className="side-nav" id="side-menu">
-        <a className="btn-close" onClick={() => authFunctions.handleOnToggle("")}>
+      <div className={`side-nav side-nav-${settingsStates.session}-${settingsStates.theme}`} id="side-menu">
+        <div className="btn-close" onClick={() => authFunctions.handleOnToggle("")}>
           &times;
-        </a>
+        </div>
         { ("profile" == authStates.componentName && !authStates.loggedIn && authStates.login) ? <LoginForm /> : null }
         { ("profile" == authStates.componentName && !authStates.loggedIn && authStates.register) ? <RegisterForm  /> : null }
         { ("profile" == authStates.componentName && !authStates.login && !authStates.register && authStates.loggedIn) ? <ProfileTab /> : null }
