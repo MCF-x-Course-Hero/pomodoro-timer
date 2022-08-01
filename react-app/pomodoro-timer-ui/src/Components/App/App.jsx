@@ -48,7 +48,7 @@ function App() {
     if (!isOpen) {
       // increases width of "ExpandedSidebar"
       setIsOpen(true);
-      document.querySelector("#side-menu").style.width = "35%";
+      document.querySelector("#side-menu").style.width = "25%";
 
       //accounts for the space taken by the smaller sidebar:
       document.querySelector("#side-menu").style.marginLeft = "180px"; 

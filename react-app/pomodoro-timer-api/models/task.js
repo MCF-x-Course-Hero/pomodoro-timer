@@ -52,7 +52,7 @@ class Task{
 
        console.log(userInfo.id)
 
-       const query = `UPDATE userTasks SET is_completed = true WHERE id = ${taskInfo.id} AND user_id = ${userInfo.id};`
+       const query = `UPDATE userTasks SET is_completed = ${!taskInfo.is_completed} WHERE id = ${taskInfo.id} AND user_id = ${userInfo.id};`
        const result = await db.query(query)
        return result.rows;
     }

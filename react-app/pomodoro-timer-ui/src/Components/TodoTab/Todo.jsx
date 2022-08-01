@@ -23,7 +23,7 @@ export default function ({ todo, toggleComplete, removeTodo }) {
 
   // this handler will evoke toggle complete whenever the respective todo's checkbox is clicked
   function handleCheckBoxClick() {
-    toggleComplete(todo.id);
+    toggleComplete(todo);
   }
 
   function handleRemoveButton() {

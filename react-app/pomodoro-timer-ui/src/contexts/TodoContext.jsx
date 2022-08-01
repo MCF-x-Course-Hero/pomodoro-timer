@@ -2,13 +2,13 @@ import * as React from "react";
 import { createContext, useContext } from "react";
 import { useState, useEffect } from "react";
 import { useAuthContext } from "./AuthContext";
-
-export const TodoContext = createContext();
 import apiClient from "../Services/apiClient";
+
 
 const TODOS_LOCAL_STORAGE_KEY = "react-todo-list";
 const PINNED_TODO_LOCAL_STORAGE_KEY = "pinned-todo";
 
+export const TodoContext = createContext();
 export function useTodoContext() {
   return useContext(TodoContext);
 }
@@ -30,7 +30,8 @@ export const TodoContextProvider = ({ children }) => {
   });
   const [isActivePin, setIsActivePin] = useState(false)
 
-  const { authStates } = useAuthContext();
+  
+
   async function addTodo(todo) {
     if (authStates.loggedIn) {
       // storing response data in order to update todo with id
@@ -54,14 +55,19 @@ export const TodoContextProvider = ({ children }) => {
   - Otherwise if the id does not match, simply return the todo object as it is not the one we want to mark/unmark
   - all of this is done inside the setTodoList since we want to update the todoList in order to render it with a todo marked off.
   */
-  function toggleComplete(id) {
+  const { authStates } = useAuthContext();
+  function toggleComplete(todo) {
+    if (authStates.loggedIn){
+      apiClient.updateTask(todo)
+    }
     setTodoList(
       todoList.map((element) => {
-        if (id == element.id) {
+        if (todo.id == element.id) {
           return {
             ...element,
             is_completed: !element.is_completed,
           };
+          
         }
         return element;
       })
