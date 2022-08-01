@@ -1,9 +1,4 @@
 import * as React from "react";
-import clock from "../../assets/clock.svg";
-import history from "../../assets/history.svg";
-import list from "../../assets/list.svg";
-import settings from "../../assets/settings.svg";
-import profile from "../../assets/loginuser.svg";
 import TopSidebar from "../TopSidebar/TopSidebar";
 import BottomSidebar from "../BottomSidebar/BottomSidebar";
 import { SidebarContextProvider } from "../../contexts/SidebarContext";
