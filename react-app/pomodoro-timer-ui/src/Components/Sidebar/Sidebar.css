@@ -1,10 +1,12 @@
 .sidebar {
     width: 180px;
     min-height: 100%;
+    height: 100%;
     color: white;
     display: flex;
     align-items: center;
     flex-direction: column;
+    transition: 0.35s;
     z-index: 1;
 }
 
@@ -160,8 +162,7 @@
 
 .sidebar-bottom {
     border: none;
-    justify-content: center;
-
+    justify-content: flex-end;
 }
 
 .logo {
@@ -211,8 +212,9 @@
     margin-right: 15px;
 }
 
-/* @media only screen and (max-width: 768px) {
+@media only screen and (max-width: 768px) {
     .sidebar {
+        transition: 0.35s;
         width: 50px;
     }
     .brand, .list-item-text {
@@ -225,4 +227,4 @@
         margin-bottom: 10px;
         margin-right: 15px;
     }
-} */
+}
