@@ -1,12 +1,150 @@
 .sidebar {
     width: 180px;
     min-height: 100%;
-    background-color: #615184;
     color: white;
     display: flex;
     align-items: center;
     flex-direction: column;
     z-index: 1;
+}
+
+/* Pomozone Button Themes */
+
+.sidebar-pomozone-pdefault {
+    background: #615184;
+}
+
+.sidebar-pomozone-red{
+    background: #D36A6A;
+}
+
+.sidebar-pomozone-orange{
+    background: #D6A753;
+}
+
+.sidebar-pomozone-light-green{
+    background: #728F88;
+}
+
+.sidebar-pomozone-green{
+    background: #436142;
+}
+
+.sidebar-pomozone-teal{
+    background: #6EB8B8;
+}
+
+.sidebar-pomozone-pink{
+    background: #BD617E;
+}
+
+.sidebar-pomozone-turquoise{
+    background: #299BBF;
+}
+
+.sidebar-pomozone-sbdefault{
+    background: #497593;
+}
+
+.sidebar-pomozone-lbdefault{
+    background: #788bff;
+}
+
+.sidebar-pomozone-dark-mode {
+    background: #514866;
+    color: #75ead4;
+}
+
+/* Short Break Themes */
+
+.sidebar-short-break-sbdefault {
+    background: #497593;
+}
+
+.sidebar-short-break-red{
+    background: #D36A6A;
+}
+
+.sidebar-short-break-orange{
+    background: #D6A753;
+}
+
+.sidebar-short-break-light-green{
+    background: #728F88;
+}
+
+.sidebar-short-break-green{
+    background: #436142;
+}
+
+.sidebar-short-break-teal{
+    background: #6EB8B8;
+}
+
+.sidebar-short-break-pink{
+    background: #BD617E;
+}
+
+.sidebar-short-break-turquoise{
+    background: #299BBF;
+}
+
+.sidebar-short-break-pdefault{
+    background: #615184;
+}
+
+.sidebar-short-break-lbdefault{
+    background: #788bff;
+}
+
+.sidebar-short-break-dark-mode {
+    background: #A9AAC5;
+}
+
+/* Long Break Themes */
+
+.sidebar-long-break-lbdefault {
+    background: #788bff;
+}
+
+.sidebar-long-break-red{
+    background: #D36A6A;
+}
+
+.sidebar-long-break-orange{
+    background: #D6A753;
+}
+
+.sidebar-long-break-light-green{
+    background: #728F88;
+}
+
+.sidebar-long-break-green{
+    background: #436142;
+}
+
+.sidebar-long-break-teal{
+    background: #6EB8B8;
+}
+
+.sidebar-long-break-pink{
+    background: #BD617E;
+}
+
+.sidebar-long-break-turquoise{
+    background: #299BBF;
+}
+
+.sidebar-long-break-sbdefault{
+    background: #497593;
+}
+
+.sidebar-long-break-pdefault{
+    background: #615184;
+}
+
+.sidebar-long-break-dark-mode {
+    background: #A9AAC5;
 }
 
 .sidebar .sidebar-top,
@@ -73,7 +211,7 @@
     margin-right: 15px;
 }
 
-@media only screen and (max-width: 768px) {
+/* @media only screen and (max-width: 768px) {
     .sidebar {
         width: 50px;
     }
@@ -87,4 +225,4 @@
         margin-bottom: 10px;
         margin-right: 15px;
     }
-}
+} */

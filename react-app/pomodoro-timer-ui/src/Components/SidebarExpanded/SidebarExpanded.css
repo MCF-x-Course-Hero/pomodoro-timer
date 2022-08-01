@@ -5,12 +5,147 @@
     z-index: 0;
     Left: 0;
     top: 0;
-    background-color: #712F3E;
-    background-color: #88D4CC;
-    background-color: #f1f1f1;
     opacity: 1;
     overflow-x:hidden;
     transition: 0.35s;
+}
+
+/* Pomozone Button Themes */
+
+.side-nav-pomozone-pdefault {
+    background: #615184;
+}
+
+.side-nav-pomozone-red{
+    background: #D36A6A;
+}
+
+.side-nav-pomozone-orange{
+    background: #D6A753;
+}
+
+.side-nav-pomozone-light-green{
+    background: #728F88;
+}
+
+.side-nav-pomozone-green{
+    background: #436142;
+}
+
+.side-nav-pomozone-teal{
+    background: #6EB8B8;
+}
+
+.side-nav-pomozone-pink{
+    background: #BD617E;
+}
+
+.side-nav-pomozone-turquoise{
+    background: #299BBF;
+}
+
+.side-nav-pomozone-sbdefault{
+    background: #497593;
+}
+
+.side-nav-pomozone-lbdefault{
+    background: #788bff;
+}
+
+.side-nav-pomozone-dark-mode {
+    background: #514866;
+}
+
+/* Short Break Themes */
+
+.side-nav-short-break-sbdefault {
+    background: #497593;
+}
+
+.side-nav-short-break-red{
+    background: #D36A6A;
+}
+
+.side-nav-short-break-orange{
+    background: #D6A753;
+}
+
+.side-nav-short-break-light-green{
+    background: #728F88;
+}
+
+.side-nav-short-break-green{
+    background: #436142;
+}
+
+.side-nav-short-break-teal{
+    background: #6EB8B8;
+}
+
+.side-nav-short-break-pink{
+    background: #BD617E;
+}
+
+.side-nav-short-break-turquoise{
+    background: #299BBF;
+}
+
+.side-nav-short-break-pdefault{
+    background: #615184;
+}
+
+.side-nav-short-break-lbdefault{
+    background: #788bff;
+}
+
+.side-nav-short-break-dark-mode {
+    background: #A9AAC5;
+}
+
+/* Long Break Themes */
+
+.side-nav-long-break-lbdefault {
+    background: #788bff;
+}
+
+.side-nav-long-break-red{
+    background: #D36A6A;
+}
+
+.side-nav-long-break-orange{
+    background: #D6A753;
+}
+
+.side-nav-long-break-light-green{
+    background: #728F88;
+}
+
+.side-nav-long-break-green{
+    background: #436142;
+}
+
+.side-nav-long-break-teal{
+    background: #6EB8B8;
+}
+
+.side-nav-long-break-pink{
+    background: #BD617E;
+}
+
+.side-nav-long-break-turquoise{
+    background: #299BBF;
+}
+
+.side-nav-long-break-sbdefault{
+    background: #497593;
+}
+
+.side-nav-long-break-pdefault{
+    background: #615184;
+}
+
+.side-nav-long-break-dark-mode {
+    background: #A9AAC5;
 }
 
 .side-nav a{
@@ -29,6 +164,10 @@
     cursor:pointer;
 }
 
+#side-menu {
+    margin-left: 180px;
+}
+
 .side-nav .btn-close{
     position: absolute;
     top :0;
@@ -37,3 +176,9 @@
     margin-left: 50px;
 }
 
+/* @media only screen and (max-width: 768px) {
+    #side-menu {
+        margin-left: 50px;
+        min-width: 300px;
+    }
+} */

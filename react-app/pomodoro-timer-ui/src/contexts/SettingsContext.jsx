@@ -18,7 +18,25 @@ export const SettingsContextProvider = ({children}) => {
     const [timeForm, setTimeForm] = React.useState({ focusTime: 25, shortBreakTime: 5, longBreakTime: 15 })
     const settingsStates = { session, theme, pomozoneTheme, shortBreakTheme, longBreakTheme, notifToggle, darkToggle, isExploding, timeForm };
     const settingsSetStates = { setSession, setTheme, setPomozoneTheme, setShortBreakTheme, setLongBreakTheme, setNotifToggle, setDarkToggle, setIsExploding, setTimeForm };
-    const settingsFunctions = { darkModeToggle }
+    const settingsFunctions = { darkModeToggle, darkModeButtons }
+
+    function darkModeButtons(mode) {
+        if(mode == "default") {
+            setDarkToggle(false);
+            setPomozoneTheme("pdefault");
+            setShortBreakTheme("sbdefault");
+            setLongBreakTheme("lbdefault");
+            session === "pomozone" ? setTheme("pdefault") : null;
+            session === "short-break" ? setTheme("sbdefault") : null;
+            session === "long-break" ? setTheme("lbdefault") : null;
+        } else {
+            setDarkToggle(true);
+            setPomozoneTheme("dark-mode");
+            setShortBreakTheme("dark-mode");
+            setLongBreakTheme("dark-mode");
+            setTheme("dark-mode");
+        }
+    }
 
     function darkModeToggle() {
         setDarkToggle(!darkToggle);
