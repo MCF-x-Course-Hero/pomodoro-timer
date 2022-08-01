@@ -19,7 +19,6 @@ export default function CompletedTasks() {
 
   return (
     <div>
-      <p>I am completed Tasks</p>
       {completedTodos.length > 0 ? (
         completedTodos.map((element, index) => {
           return (
