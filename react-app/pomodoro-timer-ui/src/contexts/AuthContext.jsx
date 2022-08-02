@@ -53,6 +53,10 @@ export const AuthContextProvider = ({ children }) => {
 
   function handleOnToggle(tabName = "") {
     if(tabName == "profile" && !profileOpen) {
+      document.getElementById("profile").classList.add("active");
+      document.getElementById("settings").classList.remove("active");
+      document.getElementById("todo").classList.remove("active");
+      document.getElementById("history").classList.remove("active");
       setProfileOpen(true);
       setHistoryOpen(false);
       setListOpen(false);
@@ -60,6 +64,7 @@ export const AuthContextProvider = ({ children }) => {
       document.querySelector("#side-menu").style.width = "450px";
     } else if(tabName == "profile" && profileOpen) {
       setProfileOpen(false);
+      document.getElementById("profile").classList.remove("active");
       document.querySelector("#side-menu").style.width = "0";
     }
     
@@ -68,9 +73,14 @@ export const AuthContextProvider = ({ children }) => {
       setHistoryOpen(false);
       setListOpen(false);
       setSettingsOpen(true);
+      document.getElementById("profile").classList.remove("active");
+      document.getElementById("settings").classList.add("active");
+      document.getElementById("todo").classList.remove("active");
+      document.getElementById("history").classList.remove("active");
       document.querySelector("#side-menu").style.width = "450px";
     } else if(tabName == "settings" && settingsOpen) {
       setSettingsOpen(false);
+      document.getElementById("settings").classList.remove("active");
       document.querySelector("#side-menu").style.width = "0";
     }
     
@@ -79,9 +89,14 @@ export const AuthContextProvider = ({ children }) => {
       setHistoryOpen(true);
       setListOpen(false);
       setSettingsOpen(false);
+      document.getElementById("profile").classList.remove("active");
+      document.getElementById("settings").classList.remove("active");
+      document.getElementById("todo").classList.remove("active");
+      document.getElementById("history").classList.add("active");
       document.querySelector("#side-menu").style.width = "450px";
     } else if(tabName == "history" && historyOpen) {
       setHistoryOpen(false);
+      document.getElementById("history").classList.remove("active");
       document.querySelector("#side-menu").style.width = "0";
     }
     
@@ -90,13 +105,22 @@ export const AuthContextProvider = ({ children }) => {
       setHistoryOpen(false);
       setListOpen(true);
       setSettingsOpen(false);
+      document.getElementById("profile").classList.remove("active");
+      document.getElementById("settings").classList.remove("active");
+      document.getElementById("todo").classList.add("active");
+      document.getElementById("history").classList.remove("active");
       document.querySelector("#side-menu").style.width = "450px"; 
     } else if (tabName == "todo" && listOpen) {
       setListOpen(false);
+      document.getElementById("todo").classList.remove("active")
       document.querySelector("#side-menu").style.width = "0";
     }
 
     if(tabName == "") {
+      document.getElementById("profile").classList.remove("active");
+      document.getElementById("settings").classList.remove("active");
+      document.getElementById("todo").classList.remove("active");
+      document.getElementById("history").classList.remove("active");
       document.querySelector("#side-menu").style.width = "0";      
     }
 

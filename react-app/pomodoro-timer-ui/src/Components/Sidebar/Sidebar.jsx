@@ -14,19 +14,19 @@ export default function Sidebar() {
       </div>
       <div className="sidebar-center">
         <ul className="list">
-          <li className="list-item" onClick={()=>{authFunctions.handleOnToggle("profile")}}>
+          <li className={`list-item ${settingsStates.session}-${settingsStates.theme}`} id="profile" onClick={()=>{authFunctions.handleOnToggle("profile")}}>
             <i className="list-item-icon fa-solid fa-user"></i>
             <span className="list-item-text">Profile</span>
           </li>
-          <li className="list-item" onClick={()=>{authFunctions.handleOnToggle("todo")}}>
+          <li className={`list-item ${settingsStates.session}-${settingsStates.theme}`} id="todo" onClick={()=>{authFunctions.handleOnToggle("todo")}}>
             <i className="list-item-icon fa-solid fa-list-check"></i>
             <span className="list-item-text">To-Do List</span>
           </li>
-          <li className="list-item" onClick={()=>{authFunctions.handleOnToggle("history")}}>
+          <li className={`list-item ${settingsStates.session}-${settingsStates.theme}`} id="history" onClick={()=>{authFunctions.handleOnToggle("history")}}>
             <i className="list-item-icon fa-regular fa-calendar"></i>
             <span className="list-item-text">History</span>
           </li>
-          <li className="list-item" onClick={()=>{authFunctions.handleOnToggle("settings")}}>
+          <li className={`list-item ${settingsStates.session}-${settingsStates.theme}`} id="settings" onClick={()=>{authFunctions.handleOnToggle("settings")}}>
             <i className="list-item-icon fa-solid fa-gears"></i>
             <span className="list-item-text">Settings</span>
           </li>
