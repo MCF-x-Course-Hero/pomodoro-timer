@@ -1,11 +1,12 @@
 import * as React from "react";
+import classnames from "classnames";
 import { useSettingsContext } from "../../contexts/SettingsContext";
 import { useAuthContext } from "../../contexts/AuthContext";
 import "./Sidebar.css"
 
 export default function Sidebar() {
   const { settingsStates, settingsFunctions } = useSettingsContext();
-  const { authFunctions } = useAuthContext();
+  const { authFunctions, authSetStates, authStates } = useAuthContext();
   return (
     <div className={`sidebar sidebar-${settingsStates.session}-${settingsStates.theme}`}>
       <div className="sidebar-top">
@@ -14,19 +15,19 @@ export default function Sidebar() {
       </div>
       <div className="sidebar-center">
         <ul className="list">
-          <li className={`list-item ${settingsStates.session}-${settingsStates.theme}`} id="profile" onClick={()=>{authFunctions.handleOnToggle("profile")}}>
+          <li className={classnames("list-item", `${settingsStates.session}-${settingsStates.theme}`, {active : authStates.active === "profile"})} id="profile" onClick={()=>{authFunctions.handleOnToggle("profile"); authSetStates.setActive(authStates.active === "profile" ? "" : "profile")}}>
             <i className="list-item-icon fa-solid fa-user"></i>
             <span className="list-item-text">Profile</span>
           </li>
-          <li className={`list-item ${settingsStates.session}-${settingsStates.theme}`} id="todo" onClick={()=>{authFunctions.handleOnToggle("todo")}}>
+          <li className={classnames("list-item", `${settingsStates.session}-${settingsStates.theme}`, {active : authStates.active === "todo"})} id="todo" onClick={()=>{authFunctions.handleOnToggle("todo"); authSetStates.setActive(authStates.active === "todo" ? "" : "todo")}}>
             <i className="list-item-icon fa-solid fa-list-check"></i>
             <span className="list-item-text">To-Do List</span>
           </li>
-          <li className={`list-item ${settingsStates.session}-${settingsStates.theme}`} id="history" onClick={()=>{authFunctions.handleOnToggle("history")}}>
+          <li className={classnames("list-item", `${settingsStates.session}-${settingsStates.theme}`, {active : authStates.active === "history"})} id="history" onClick={()=>{authFunctions.handleOnToggle("history"); authSetStates.setActive(authStates.active === "history" ? "" : "history")}}>
             <i className="list-item-icon fa-regular fa-calendar"></i>
             <span className="list-item-text">History</span>
           </li>
-          <li className={`list-item ${settingsStates.session}-${settingsStates.theme}`} id="settings" onClick={()=>{authFunctions.handleOnToggle("settings")}}>
+          <li className={classnames("list-item", `${settingsStates.session}-${settingsStates.theme}`, {active : authStates.active === "settings"})} id="settings" onClick={()=>{authFunctions.handleOnToggle("settings"); authSetStates.setActive(authStates.active === "settings" ? "" : "settings")}}>
             <i className="list-item-icon fa-solid fa-gears"></i>
             <span className="list-item-text">Settings</span>
           </li>

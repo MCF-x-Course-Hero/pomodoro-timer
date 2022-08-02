@@ -12,12 +12,12 @@ import "./SidebarExpanded.css";
 
 export default function SidebarExpanded() {
   const { settingsStates } = useSettingsContext();
-  const { authStates, authFunctions } = useAuthContext();
+  const { authStates, authSetStates, authFunctions } = useAuthContext();
 
   return (
     <section className="sidebar-expanded">
       <div className={`side-nav side-nav-${settingsStates.session}-${settingsStates.theme}`} id="side-menu">
-        <div className="btn-close" onClick={() => authFunctions.handleOnToggle("")}>
+        <div className="btn-close" onClick={() => {authFunctions.handleOnToggle(""); authSetStates.setActive("")}}>
           &times;
         </div>
         { ("profile" == authStates.componentName && !authStates.loggedIn && authStates.login) ? <LoginForm /> : null }

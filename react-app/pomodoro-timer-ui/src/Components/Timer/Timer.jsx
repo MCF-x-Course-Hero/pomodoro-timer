@@ -85,9 +85,9 @@ export default function Timer() {
     function setTime(s) {
         const time = new Date();
         if(s === pomozone) {
-            time.setSeconds(time.getSeconds() + 6);
+            time.setSeconds(time.getSeconds() + pomozoneTime);
         } else if(s === shortBreak) {
-            time.setSeconds(time.getSeconds() + 3);
+            time.setSeconds(time.getSeconds() + shortBreakTime);
         } else if(s === longBreak) {
             time.setSeconds(time.getSeconds() + longBreakTime);
         }
