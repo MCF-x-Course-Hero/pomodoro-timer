@@ -1,3 +1,9 @@
+body {
+    font-family: "Roboto Condensed";
+  }
+
+/* Pomozone Themes */
+
 .app {
     display: flex;
     /* flex-direction: column; */
