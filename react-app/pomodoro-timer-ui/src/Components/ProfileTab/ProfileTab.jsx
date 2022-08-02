@@ -17,13 +17,13 @@ export default function ProfileTab() {
     }, []);
     return(
         <div className="profile-tab">
-            <h1>{authStates.user.username}</h1>
+            <h1>Welcome,  {authStates.user.username}!</h1>
             <div className="member-since">
                 <h2>Member Since</h2>
                 <h4>{authStates.user.createdAt}</h4>
             </div>
             <div className="work-time">
-                <h2>⏰ Total Zone Time</h2>
+                <h2>Total Zone Time</h2>
                 <h4>{totalTime / 60} minutes</h4>
             </div>
             <div className="buttons">
