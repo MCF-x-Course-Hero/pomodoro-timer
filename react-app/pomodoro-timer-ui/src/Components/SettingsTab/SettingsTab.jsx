@@ -43,12 +43,13 @@ export default function SettingsTab() {
         <div className={`settings-tab ${settingsStates.darkToggle ? "dark" : null}`}>
             <h2>Settings</h2>
             <div className="set-time">
+                <h4>Set Times</h4>
                 <div className="time-forms">
-                    <div className="input-names">
-                        <label>Focus Time</label>
-                        <label>Short Break Time</label>
-                        <label>Long Break Time</label>
-                    </div>
+                    <ul className="input-names">
+                        <li>Focus Time {"(in min):"}</li>
+                        <li>Short Break Time {"(in min):"}</li>
+                        <li>Long Break Time {"(in min):"}</li>
+                    </ul>
                     <div className="inputs">
                         <div className="input-field">
                             <input
@@ -65,7 +66,6 @@ export default function SettingsTab() {
                                 }}
                                 min="0"
                             />
-                            <label>min.</label>
                         </div>
                         <div className="input-field">
                             <input
@@ -82,7 +82,6 @@ export default function SettingsTab() {
                                 }}
                                 min="0"
                             />
-                            <label>min.</label>
                         </div>
                         <div className="input-field">
                             <input
@@ -99,7 +98,6 @@ export default function SettingsTab() {
                                 }}
                                 min="0"
                             />
-                            <label>min.</label>
                         </div>
                     </div>
                 </div>
@@ -119,7 +117,8 @@ export default function SettingsTab() {
                     <span className="dot orange" onClick={() => {colorPalette("orange")}}></span>
                 </div>
             </div>
-            <div className="slider-area">
+            <h4 className="toggle-header">Toggle Options</h4>
+            <div className="slider-area">                
                 <div className="slider-names">
                     <ul>
                         <li>Dark Mode</li>

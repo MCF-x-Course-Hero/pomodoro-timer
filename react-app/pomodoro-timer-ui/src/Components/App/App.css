@@ -1,5 +1,3 @@
-/* Pomozone Themes */
-
 .app {
     display: flex;
     /* flex-direction: column; */
@@ -9,6 +7,7 @@
     width: 100vw;
     margin: 0px;
     overflow: visible;
+    transition: 0.35s;
 }
 
 .explode {
@@ -20,135 +19,80 @@
     height: 100vw;
 }
 
-.pomozone-pdefault{
+/* Themes */
+
+.pomozone-pdefault,
+.short-break-pdefault,
+.long-break-pdefault,
+.settings-tab .color-themes .color-palette .pdefault {
     background: #8270A9;
 }
 
-.pomozone-red{
+.pomozone-red,
+.short-break-red,
+.long-break-red,
+.settings-tab .color-themes .color-palette .red {
     background: #FF7F7F;
 }
 
-.pomozone-orange{
+.pomozone-orange,
+.short-break-orange,
+.long-break-orange,
+.settings-tab .color-themes .color-palette .orange {
     background: #F0BE63;
 }
 
-.pomozone-light-green{
+.pomozone-light-green,
+.short-break-light-green,
+.long-break-light-green,
+.settings-tab .color-themes .color-palette .light-green {
     background: #84a59d;
 }
-.pomozone-green{
+
+.pomozone-green,
+.short-break-green,
+.long-break-green,
+.settings-tab .color-themes .color-palette .green {
     background: #588157;
 }
 
-.pomozone-teal{
+.pomozone-teal,
+.short-break-teal,
+.long-break-teal,
+.settings-tab .color-themes .color-palette .teal {
     background: #7FD3D3;
 }
 
-.pomozone-pink{
+.pomozone-pink,
+.short-break-pink,
+.long-break-pink,
+.settings-tab .color-themes .color-palette .pink {
     background: #e27396;
 }
 
-.pomozone-turquoise{
+.pomozone-turquoise,
+.short-break-turquoise,
+.long-break-turquoise,
+.settings-tab .color-themes .color-palette .turquoise {
     background: #31B5DF;
 }
 
-.pomozone-sbdefault{
+.pomozone-sbdefault,
+.short-break-sbdefault,
+.long-break-sbdefault, 
+.settings-tab .color-themes .color-palette .sbdefault {
     background: #6096BA;
 }
 
-.pomozone-lbdefault{
+.pomozone-lbdefault,
+.short-break-lbdefault,
+.long-break-lbdefault,
+.settings-tab .color-themes .color-palette .lbdefault {
     background: #9bb1ff;
 }
 
-.pomozone-dark-mode {
-    background: #2E293A;
-}
-
-/* Short Break Themes */
-
-.short-break-sbdefault {
-    background: #6096BA;
-}
-
-.short-break-red{
-    background: #FF7F7F;
-}
-
-.short-break-orange{
-    background: #F0BE63;
-}
-
-.short-break-light-green{
-    background: #84a59d;
-}
-.short-break-green{
-    background: #588157;
-}
-
-.short-break-teal{
-    background: #7FD3D3;
-}
-
-.short-break-pink{
-    background: #e27396;
-}
-
-.short-break-turquoise{
-    background: #31B5DF;
-}
-
-.short-break-pdefault{
-    background: #8270A9;
-}
-
-.short-break-lbdefault{
-    background: #9bb1ff;
-}
-
-.short-break-dark-mode {
-    background: #2E293A;
-}
-
-
-/* Long Break Themes */
-
-.long-break-lbdefault {
-    background: #9bb1ff;
-}
-
-.long-break-red{
-    background: #FF7F7F;
-}
-
-.long-break-orange{
-    background: #F0BE63;
-}
-
-.long-break-light-green{
-    background: #84a59d;
-}
-.long-break-green{
-    background: #588157;
-}
-.long-break-teal{
-    background: #7FD3D3;
-}
-
-.long-break-pink{
-    background: #e27396;
-}
-
-.long-break-turquoise{
-    background: #31B5DF;
-}
-
-.long-break-sbdefault{
-    background: #6096BA;
-}
-
-.long-break-pdefault{
-    background: #8270A9;
-}
-
+.pomozone-dark-mode,
+.short-break-dark-mode,
 .long-break-dark-mode {
-    background: #2E293A;
+    background: #121212;
 }
