@@ -1,3 +1,4 @@
+
 .profile-tab {
     position: absolute;
     width: 250px;
@@ -5,30 +6,38 @@
 }
 
 .profile-tab h1 {
-   display: flex;
-   justify-content: center;
-   align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 20%;
     margin: 0px 0px 0px 0px;
+    color: white;
+    text-align: center;
+    
+
 }
 
 .profile-tab .member-since {
-    display: flex;
+    /* display: flex; */
     flex-direction: column;
     align-items: flex-start;
     margin-left: 10px;
     margin-right: 10px;
     height: 20%;
+    color: white;
+    text-align: left;
 }
 
 .profile-tab .member-since h2 {
     font-size: 18px;
     margin: 0px;
     margin-bottom: 5px;
+
 }
 
 .profile-tab .member-since h4 {
     margin: 0px;
+    text-align: left;
 }
 
 .profile-tab .work-time {
@@ -37,6 +46,7 @@
     align-items: flex-start;
     margin: 0px 10px 0px 10px;
     height: 20%;
+    color: white
 }
 
 .profile-tab .work-time h2 {

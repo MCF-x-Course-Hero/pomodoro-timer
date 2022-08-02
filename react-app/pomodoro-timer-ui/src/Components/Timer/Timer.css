@@ -1,7 +1,5 @@
 .timer {
     display: flex;
-    /* align-self: center; this line was originally by jose*/
-    /* align-items was added by shehab */
     align-items: center; 
     margin: auto;
     overflow: visible;
@@ -48,11 +46,11 @@
     line-height: 117px;
     align-items: center;
     text-align: center;
-    color: #A9AAC5;
+    color: #FFFFFF;
 }
 
 .timer .content .session-reg {
-    font-family: 'Inter';
+    font-family: 'Roboto Condensed';
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
@@ -63,14 +61,14 @@
 }
 
 .timer .content .session-dark {
-    font-family: 'Inter';
+    font-family: 'Roboto Condensed';
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
     line-height: 24px;
     text-align: center;
     margin: 0px 0px 25px 0px;
-    color: #A9AAC5;
+    color: #FFFFFF;
 }
 
 .timer .content .buttons {
@@ -92,138 +90,68 @@
 
 /* Pomozone Button Themes */
 
-.timer .content .buttons .pomozone-pdefault {
-    background: #615184;
+.timer .content .buttons .pomozone-pdefault,
+.timer .content .buttons .short-break-pdefault,
+.timer .content .buttons .long-break-pdefault {
+    background: #4a3e63;
 }
 
-.timer .content .buttons .pomozone-red{
+.timer .content .buttons .pomozone-red,
+.timer .content .buttons .short-break-red,
+.timer .content .buttons .long-break-red {
     background: #D36A6A;
 }
 
-.timer .content .buttons .pomozone-orange{
+.timer .content .buttons .pomozone-orange,
+.timer .content .buttons .short-break-orange,
+.timer .content .buttons .long-break-orange {
     background: #D6A753;
 }
 
-.timer .content .buttons .pomozone-light-green{
+.timer .content .buttons .pomozone-light-green,
+.timer .content .buttons .short-break-light-green,
+.timer .content .buttons .long-break-light-green {
     background: #728F88;
 }
 
-.timer .content .buttons .pomozone-green{
+.timer .content .buttons .pomozone-green,
+.timer .content .buttons .short-break-green,
+.timer .content .buttons .long-break-green {
     background: #436142;
 }
 
-.timer .content .buttons .pomozone-teal{
+.timer .content .buttons .pomozone-teal,
+.timer .content .buttons .short-break-teal,
+.timer .content .buttons .long-break-teal {
     background: #6EB8B8;
 }
 
-.timer .content .buttons .pomozone-pink{
+.timer .content .buttons .pomozone-pink,
+.timer .content .buttons .short-break-pink,
+.timer .content .buttons .long-break-pink {
     background: #BD617E;
 }
 
-.timer .content .buttons .pomozone-turquoise{
+.timer .content .buttons .pomozone-turquoise,
+.timer .content .buttons .short-break-turquoise,
+.timer .content .buttons .long-break-turquoise {
     background: #299BBF;
 }
 
-.timer .content .buttons .pomozone-sbdefault{
+.timer .content .buttons .pomozone-sbdefault,
+.timer .content .buttons .short-break-sbdefault,
+.timer .content .buttons .long-break-sbdefault {
     background: #497593;
 }
 
-.timer .content .buttons .pomozone-lbdefault{
-    background: #788bff;
-}
-
-.timer .content .buttons .pomozone-dark-mode {
-    background: #514866;
-}
-
-/* Short Break Themes */
-
-.timer .content .buttons .short-break-sbdefault {
-    background: #497593;
-}
-
-.timer .content .buttons .short-break-red{
-    background: #D36A6A;
-}
-
-.timer .content .buttons .short-break-orange{
-    background: #D6A753;
-}
-
-.timer .content .buttons .short-break-light-green{
-    background: #728F88;
-}
-
-.timer .content .buttons .short-break-green{
-    background: #436142;
-}
-
-.timer .content .buttons .short-break-teal{
-    background: #6EB8B8;
-}
-
-.timer .content .buttons .short-break-pink{
-    background: #BD617E;
-}
-
-.timer .content .buttons .short-break-turquoise{
-    background: #299BBF;
-}
-
-.timer .content .buttons .short-break-pdefault{
-    background: #615184;
-}
-
-.timer .content .buttons .short-break-lbdefault{
-    background: #788bff;
-}
-
-.timer .content .buttons .short-break-dark-mode {
-    background: #A9AAC5;
-}
-
-/* Long Break Themes */
-
+.timer .content .buttons .pomozone-lbdefault,
+.timer .content .buttons .short-break-lbdefault,
 .timer .content .buttons .long-break-lbdefault {
     background: #788bff;
 }
 
-.timer .content .buttons .long-break-red{
-    background: #D36A6A;
-}
-
-.timer .content .buttons .long-break-orange{
-    background: #D6A753;
-}
-
-.timer .content .buttons .long-break-light-green{
-    background: #728F88;
-}
-
-.timer .content .buttons .long-break-green{
-    background: #436142;
-}
-
-.timer .content .buttons .long-break-teal{
-    background: #6EB8B8;
-}
-
-.timer .content .buttons .long-break-pink{
-    background: #BD617E;
-}
-
-.timer .content .buttons .long-break-turquoise{
-    background: #299BBF;
-}
-
-.timer .content .buttons .long-break-sbdefault{
-    background: #497593;
-}
-
-.timer .content .buttons .long-break-pdefault{
-    background: #615184;
-}
-
+.timer .content .buttons .pomozone-dark-mode,
+.timer .content .buttons .short-break-dark-mode,
 .timer .content .buttons .long-break-dark-mode {
-    background: #A9AAC5;
+    background: #292929;
 }

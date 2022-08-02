@@ -17,7 +17,7 @@ export default function ProfileTab() {
     }, []);
     return(
         <div className="profile-tab">
-            <h1>{authStates.user.username}</h1>
+            <h1>Welcome,  {authStates.user.username}!</h1>
             <div className="member-since">
                 <h2>Member Since</h2>
                 <h4>{authStates.user.createdAt}</h4>
