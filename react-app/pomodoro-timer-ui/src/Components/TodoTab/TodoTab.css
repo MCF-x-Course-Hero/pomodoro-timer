@@ -25,10 +25,11 @@
 
 .todo-form-input.todo-form-input label+div::before {
     border-color: white !important;
+    opacity: 0.5 !important;
 }
 
 .todo-form-input.todo-form-input label+div::after {
-    border-color: purple;
+    border-color: white;
 }
 
 

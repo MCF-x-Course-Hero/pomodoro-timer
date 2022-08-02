@@ -2,24 +2,6 @@ import React from "react";
 import { useState } from "react";
 import { useTodoContext } from "../../contexts/TodoContext";
 
-// const theme = createTheme({
-//   palette: {
-//     primary: {
-//       light: '#757ce8',
-//       main: '#3f50b5',
-//       dark: '#002884',
-//       contrastText: '#fff',
-//     },
-//     secondary: {
-//       light: '#ff7961',
-//       main: '#f44336',
-//       dark: '#ba000d',
-//       contrastText: '#000',
-//     },
-//   },
-// });
-
-
 /* in the terminal enter "npm install uuid". 
 This will give a unique id to each todo we add */
 import { v4 as uuidv4 } from "uuid";
@@ -48,27 +30,31 @@ export default function TodoForm() {
     }
   }
   return (
-    // <ThemeProvider theme = {theme}>
     <div>
       <form className="todo-form" onSubmit={handleOnSubmitTask}>
         <TextField
-          variant="standard"
-          color="primary"
+          variant="filled"
           label="Task"
-          size="small"
-          // multiline
-          // fullWidth
+          size="medium"
+          fullWidth
           name="task"
           type="text"
           value={todo.task}
           onChange={handleTaskInputChange}
           className="todo-form-input"
+          style={{width:"315px"}}
         ></TextField>
-        <Button color="secondary" size="medium" type="submit">
-          submit
+        <Button
+          size="large"
+          type="submit"
+          style={{
+            color: "white",
+            padding:"20px 20px"
+          }}
+        >
+          SUBMIT
         </Button>
       </form>
     </div>
-    // </ThemeProvider>
   );
 }
