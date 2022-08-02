@@ -1,5 +1,7 @@
 /* Pomozone Themes */
-
+body{
+    font-family: "Roboto Condensed";
+}
 .app {
     display: flex;
     /* flex-direction: column; */

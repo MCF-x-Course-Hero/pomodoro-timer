@@ -5,8 +5,44 @@
     margin-left:5%;
     flex-direction: column;
     align-items: center;
+    color: white;
     /* justify-content: center; */
 
+}
+
+.todo-form-input input{
+        color: white;
+        /* display: inline; */
+        font-weight: bold;
+        font-size: 14px;
+        margin:0.5em
+}
+
+.todo-form-input.todo-form-input label {
+    color: white;
+}
+
+
+.todo-form-input.todo-form-input label+div::before {
+    border-color: white !important;
+}
+
+.todo-form-input.todo-form-input label+div::after {
+    border-color: purple;
+}
+
+
+
+
+
+.todo-row{
+    text-align: center;
+    display: flex;
+    height: 100%;
+    margin-left:5%;
+    flex-direction: column;
+    align-items: center;
+    color: white;
 }
 
 .todo-form{

@@ -1,3 +1,43 @@
 .completed-tasks p {
     text-align: center;
 }
+
+.task-history {
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.session-history .no-sessions {
+    text-align: center;
+}
+
+.task-history .date {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    align-self: center;
+    text-align: center;
+    border: solid 1px black;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    background: white;
+
+}
+
+.task-history .date h3{
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28.13px;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.task-history .task .date .toulidine-blue {
+    margin: 0px;
+}
+
+.task-name {
+    font-size: 18px;
+}

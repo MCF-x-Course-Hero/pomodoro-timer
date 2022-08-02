@@ -203,7 +203,7 @@
 
 .list-item:hover,
 .list-item.active {
-    background-color: #374151;
+    background-color: #4a3e63;
     color: white;
 }
 
@@ -218,7 +218,7 @@
 @media only screen and (max-width: 768px) {
     .sidebar {
         width: 50px;
-        transition: .35s;
+        transition: 0.35s;
     }
     .brand, .list-item-text {
         display: none;

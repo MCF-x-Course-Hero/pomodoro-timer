@@ -20,7 +20,6 @@ export default function ({ todo, toggleComplete, removeTodo }) {
   const isActivePin = todoVariables.isActivePin;
   const setIsActivePin = todoFunctions.setIsActivePin;
 
-
   // this handler will evoke toggle complete whenever the respective todo's checkbox is clicked
   function handleCheckBoxClick() {
     toggleComplete(todo);
@@ -45,12 +44,12 @@ export default function ({ todo, toggleComplete, removeTodo }) {
     if (!isActivePin) {
       //when there's no pinned todo at the moment
       setPinnedTodo(todo);
-      document.getElementById(`${todo.id}`).style.fill = "black";
+      document.getElementById(`${todo.id}`).style.fill = "white";
       setIsActivePin(true);
     } else if (todo.id != pinnedTodo.id && isActivePin) {
       /* when there's a pinned todo,
       but the user chooses to change the pin todo to something different */
-      document.getElementById(`${todo.id}`).style.fill = "black";
+      document.getElementById(`${todo.id}`).style.fill = "white";
       document.getElementById(`${pinnedTodo.id}`).style.fill = "none";
       setPinnedTodo(todo);
     } else if (todo.id == pinnedTodo.id && isActivePin) {
@@ -68,6 +67,7 @@ export default function ({ todo, toggleComplete, removeTodo }) {
 
   return (
     <List style={{ display: "flex" }}>
+      {/* <div className="todo-row"> */}
       <div className="todo-left-side">
         <div className="pin-btn">
           <svg
@@ -78,8 +78,8 @@ export default function ({ todo, toggleComplete, removeTodo }) {
             height="28"
             viewBox="0 0 24 24"
             strokeWidth="1.5"
-            stroke="#000000"
-            fill={(todo.id == pinnedTodo.id)? "black":"none"}
+            stroke="white"
+            fill={todo.id == pinnedTodo.id ? "black" : "none"}
             strokeLinecap="round"
             strokeLinejoin="round"
           >
@@ -93,6 +93,9 @@ export default function ({ todo, toggleComplete, removeTodo }) {
           checked={todo.is_completed}
           type="checkbox"
           onClick={handleCheckBoxClick}
+          style={{
+            color: "white",
+          }}
         />
         <Typography
           variant="body1"
@@ -103,20 +106,27 @@ export default function ({ todo, toggleComplete, removeTodo }) {
           {todo.task}
         </Typography>
       </div>
-
       <div className="close-btn">
         <IconButton onClick={handleRemoveButton}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            height="24"
+            className="icon icon-tabler icon-tabler-backspace"
+            width="28"
+            height="28"
             viewBox="0 0 24 24"
-            width="24"
+            strokeWidth="1.5"
+            stroke="#ffffff"
+            fill="none"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           >
-            <path d="M0 0h24v24H0z" fill="none" />
-            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M20 6a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-11l-5 -5a1.5 1.5 0 0 1 0 -2l5 -5z" />
+            <path d="M12 10l4 4m0 -4l-4 4" />
           </svg>
         </IconButton>
       </div>
+      {/* </div> */}
     </List>
   );
 }
