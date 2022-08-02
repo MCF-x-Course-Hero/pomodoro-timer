@@ -9,7 +9,9 @@
 .history-tab .buttons .closed {
     cursor: pointer;
     border-radius: 20px;
-    border: 0.5px solid black;
+    border: 1px solid black;
+    background: #8270A9;
+    color: white;
     height: 30px;
     width: 40%;
 }
@@ -17,9 +19,8 @@
 .history-tab .buttons .current {
     border-radius: 20px;
     border: none;
+    color: black;
     font-weight: bold;
-    background: #8270A9;
-    color: white;
     height: 30px;
     width: 40%;
 }

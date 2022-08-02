@@ -2,6 +2,8 @@ import * as React from "react";
 import { useAuthContext } from "../../contexts/AuthContext";
 import { useState, useEffect } from "react";
 import apiClient from "../../Services/apiClient";
+import "./CompletedTasks.css"
+
 
 export default function CompletedTasks() {
   const { authStates, authSetStates } = useAuthContext();
@@ -18,7 +20,7 @@ export default function CompletedTasks() {
   }, []);
 
   return (
-    <div>
+    <div className="task-history">
       {completedTodos.length > 0 ? (
         completedTodos.map((element, index) => {
           return (
@@ -30,7 +32,7 @@ export default function CompletedTasks() {
           );
         })
       ) : (
-        <h4> You have not marked any tasks as complete. </h4>
+        <h4 className="no-tasks"> You have not marked any tasks as complete. </h4>
       )}
     </div>
   );
@@ -44,7 +46,7 @@ export function TodosPerDay({ todos, date }) {
         {todos.map((element, index) => {
           return (
             <div key={index} className="task">
-              <p className="task-name"> {element.task}</p>
+              <p className="task-name"> {index+1}. {element.task}</p>
             </div>
           );
         })}
