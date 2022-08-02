@@ -148,7 +148,7 @@
     background: #A9AAC5;
 }
 
-.side-nav a{
+.side-nav a {
     padding: 10px 10px 10px 30px;
     text-decoration: none;
     font-size: 22px;
@@ -179,8 +179,6 @@
 @media only screen and (max-width: 768px) {
     #side-menu {
         margin-left: 50px;
-        /* min-width: 100%; */
         transition: 0.35s;
     }
 }
-
