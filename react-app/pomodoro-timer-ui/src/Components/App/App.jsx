@@ -9,6 +9,7 @@ import Sidebar from "../Sidebar/Sidebar"; //new sidebar
 import Confetti from "react-confetti";
 import Timer from "../Timer/Timer";
 import './App.css'
+import "@fontsource/roboto-condensed";
 
 export default function AppContainer() {
   return(

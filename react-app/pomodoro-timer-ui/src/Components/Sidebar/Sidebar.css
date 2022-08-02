@@ -211,8 +211,6 @@
 }
 
 .brand {
-    font-weight: bold;
-    font-family: 'Roboto', sans-serif;
     padding-left: 10px;
 }
 
@@ -239,7 +237,6 @@
 
 .list-item-text {
     padding: 8px 5px 0px 5px;
-    font-family: 'Roboto', sans-serif;
 }
 
 .list-item-icon {
