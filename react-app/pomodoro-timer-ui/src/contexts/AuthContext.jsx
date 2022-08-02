@@ -57,7 +57,7 @@ export const AuthContextProvider = ({ children }) => {
       setHistoryOpen(false);
       setListOpen(false);
       setSettingsOpen(false);
-      document.querySelector("#side-menu").style.width = "25%";
+      document.querySelector("#side-menu").style.width = "450px";
     } else if(tabName == "profile" && profileOpen) {
       setProfileOpen(false);
       document.querySelector("#side-menu").style.width = "0";
@@ -68,7 +68,7 @@ export const AuthContextProvider = ({ children }) => {
       setHistoryOpen(false);
       setListOpen(false);
       setSettingsOpen(true);
-      document.querySelector("#side-menu").style.width = "25%";
+      document.querySelector("#side-menu").style.width = "450px";
     } else if(tabName == "settings" && settingsOpen) {
       setSettingsOpen(false);
       document.querySelector("#side-menu").style.width = "0";
@@ -79,7 +79,7 @@ export const AuthContextProvider = ({ children }) => {
       setHistoryOpen(true);
       setListOpen(false);
       setSettingsOpen(false);
-      document.querySelector("#side-menu").style.width = "25%";
+      document.querySelector("#side-menu").style.width = "450px";
     } else if(tabName == "history" && historyOpen) {
       setHistoryOpen(false);
       document.querySelector("#side-menu").style.width = "0";
@@ -90,7 +90,7 @@ export const AuthContextProvider = ({ children }) => {
       setHistoryOpen(false);
       setListOpen(true);
       setSettingsOpen(false);
-      document.querySelector("#side-menu").style.width = "25%"; 
+      document.querySelector("#side-menu").style.width = "450px"; 
     } else if (tabName == "todo" && listOpen) {
       setListOpen(false);
       document.querySelector("#side-menu").style.width = "0";

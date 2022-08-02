@@ -9,6 +9,7 @@
     flex-direction: column;
     transition: 0.35s;
     z-index: 1;
+    transition: 0.35s;
 }
 
 /* Pomozone Button Themes */
@@ -56,7 +57,7 @@
 
 .sidebar-pomozone-dark-mode {
     background: #514866;
-    color: #75ead4;
+    color: white;
 }
 
 /* Short Break Themes */
@@ -151,15 +152,30 @@
     background: #A9AAC5;
 }
 
-.sidebar .sidebar-top,
-.sidebar-bottom,
-.sidebar-bottom {
-    width: 80%;
+.sidebar-top {
+    width: 90%;
     padding: 10px 0px;
     margin-bottom: 10px;
     display: flex;
     align-items: center;
-    border-bottom: 1px solid #4b4b4b;
+    border-bottom: 1px solid white;
+    justify-content: center;
+}
+
+.sidebar-bottom {
+    width: 100%;
+    padding: 10px 0px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sidebar-center {
+    height: 40%;
+    display: flex;
+    align-items: center;
+    margin-bottom: auto;
 }
 
 .sidebar-top {
@@ -170,21 +186,41 @@
     margin-top: 10px;
     border: none;
     justify-content: center;
+    align-items: center;
+}
+
+.sidebar-bottom li {
+    list-style: none;
+    margin: 5px;
+    cursor: pointer;
+}
+.sidebar-bottom ul {
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    align-items: center;
+    justify-content: space-around;
 }
 
 .logo {
     font-size: 24px;
     margin-right: 10px;
-    padding-left: 10px;
+    margin: 0px;
 }
 
 .brand {
     font-weight: bold;
-    cursor: pointer;
     font-family: 'Roboto', sans-serif;
+    padding-left: 10px;
 }
 
 .list {
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
     list-style: none;
     padding: 0px;
     width: 100%;
@@ -197,11 +233,22 @@
     cursor: pointer;
     padding: 10px;
     border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.list-item-text {
+    padding: 8px 5px 0px 5px;
+    font-family: 'Roboto', sans-serif;
 }
 
 .list-item-icon {
     width: 30px;
+    height: 30px;
     font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .list-item:hover,
@@ -211,26 +258,22 @@
 }
 
 .color-box {
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
     border-radius: 5px;
     cursor: pointer;
-    margin-right: 15px;
 }
 
 @media only screen and (max-width: 768px) {
     .sidebar {
         transition: 0.35s;
         width: 50px;
+        transition: 0.35s;
     }
     .brand, .list-item-text {
         display: none;
     }
-    .sidebar-bottom {
+    .sidebar-bottom ul {
         flex-direction: column;
-    }
-    .color-box {
-        margin-bottom: 10px;
-        margin-right: 15px;
     }
 }
