@@ -20,13 +20,14 @@ export const AuthContextProvider = ({ children }) => {
   const [loggedIn, setLoggedIn] = React.useState(false);
   const [login, setLogin] = React.useState(true);
   const [register, setRegister ] = React.useState(false);
+  const [active, setActive] = React.useState("");
   const [componentName, setComponentName] = React.useState("");
   const [error, setError] = React.useState({});
   const authStates = { user, initialized, isProcessing, loggedIn, error,
                       login, register, deleteUser, sessionsList, profileOpen,
-                      settingsOpen, historyOpen, listOpen, componentName };
+                      settingsOpen, historyOpen, listOpen, componentName, active };
   const authSetStates = { setUser, setInitialized, setIsProcessing, setLoggedIn,
-                        setError, setLogin, setRegister, setDeleteUser, setSessionsList };
+                        setError, setLogin, setRegister, setDeleteUser, setSessionsList, setActive };
   const authFunctions = { loginUser, fetchUserFromToken, logoutUser, handleOnToggle };
   
   function loginUser(person, token) {
@@ -71,6 +72,7 @@ export const AuthContextProvider = ({ children }) => {
       document.querySelector("#side-menu").style.width = "450px";
     } else if(tabName == "settings" && settingsOpen) {
       setSettingsOpen(false);
+      document.getElementById("settings").classList.remove("active");
       document.querySelector("#side-menu").style.width = "0";
     }
     

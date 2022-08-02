@@ -85,9 +85,9 @@ export default function Timer() {
     function setTime(s) {
         const time = new Date();
         if(s === pomozone) {
-            time.setSeconds(time.getSeconds() + 6);
+            time.setSeconds(time.getSeconds() + pomozoneTime);
         } else if(s === shortBreak) {
-            time.setSeconds(time.getSeconds() + 3);
+            time.setSeconds(time.getSeconds() + shortBreakTime);
         } else if(s === longBreak) {
             time.setSeconds(time.getSeconds() + longBreakTime);
         }
@@ -133,13 +133,13 @@ export default function Timer() {
                 </h2>
                 <div className="buttons">
                     <button className={`${settingsStates.session}-${settingsStates.theme}`} onClick={() => {updateTimer(true)}}>
-                        <img src={settingsStates.darkToggle ? darkReset : resetIcon} alt="restart timer"></img>
+                        <img src={resetIcon} alt="restart timer"></img>
                     </button>
                     <button className={`${settingsStates.session}-${settingsStates.theme}`} onClick={isRunning ? pause : resume}>
-                        <img src={isRunning ? (settingsStates.darkToggle ? darkPause : pauseIcon) : (settingsStates.darkToggle ? darkPlay : startIcon) } alt={isRunning ? "pause timer": "start timer"}></img>
+                        <img src={isRunning ? (pauseIcon) : (startIcon) } alt={isRunning ? "pause timer": "start timer"}></img>
                     </button>
                     <button className={`${settingsStates.session}-${settingsStates.theme}`} onClick={() => {updateTimer(false)}}>
-                        <img src={settingsStates.darkToggle ? darkForward : forwardIcon} alt="move to next session"></img>
+                        <img src={forwardIcon} alt="move to next session"></img>
                     </button>
                 </div>
                 </div>

@@ -1,33 +1,47 @@
 .settings-tab {
     display: flex;
     flex-direction: column;
+    color: white;
+    width: 100%;
 }
 
 .dark {
   display: flex;
   flex-direction: column;
-  color: #F1F1F1;
+  color: white;
 }
 
 .settings-tab h2 {
     text-align: center;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin-top: 10px;
+    margin-bottom: 30px;
 }
 
 .settings-tab .set-time {
     display: flex;
-    flex-direction: row;
-    width: 100%;
+    flex-direction: column;
+    width: 90%;
+    align-self: center;
+}
+
+.settings-tab .set-time h4 {
+  margin: 0px 0px 5px 0px;
+}
+
+.settings-tab .toggle-header {
+  margin: 15px 0px 5px 0px;
+  width: 90%;
+  align-self: center;
 }
 
 .settings-tab .set-time .time-forms {
     display: flex;
     flex-direction: row;
+    border: solid 1px white;
+    border-radius: 5px;
     justify-content: center;
     align-items: flex-start;
     margin-bottom: 15px;
-    margin-top: 15px;
     width: 100%;
 }
 
@@ -35,26 +49,36 @@
   display: flex;
   flex-direction: column;
   width: 50%;
-  height: 100%;
-  margin-left: 10px;
+  font-size: 17px;
+  padding: 0px;
+  list-style: none;
+  height: 96px;
   justify-content: space-evenly;
+  margin: 5px;
+}
+
+.settings-tab .set-time .time-forms .input-names li {
+  height: 22px;
+}
+
+.settings-tab .set-time .time-forms .input-names p {
+  margin: 0px;
 }
 
 .settings-tab .set-time .time-forms .inputs {
   width: 50%;
   display: flex;
   flex-direction: column;
+  margin-top: 3px;
 }
 
 .settings-tab .set-time .time-forms .input-field {
-  display: flex;
-  flex-direction: row;
   margin: 5px 0px 5px 0px;
 }
 
 .settings-tab .set-time .time-forms .input-field .form-input {
-  width: 50px;
-  border-radius: 10px;
+  width: 150px;
+  border-radius: 8px;
   margin-left: 30px;
 }
 
@@ -65,33 +89,34 @@
 }
 
 .settings-tab .set-time .time-forms .input-field .dark {
-  width: 50px;
-  border-radius: 10px;
+  width: 150px;
+  border-radius: 8px;
   margin-left: 30px;
-  background: #2E293A;
+  color: black;
 }
 
 .settings-tab .color-themes {
     display: flex;
     flex-direction: column;
+    align-self: center;
+    width: 90%;
 }
 
 .settings-tab .color-themes h4 {
-    margin: 0px 0px 5px 10px;
+    margin: 0px 0px 5px 0px;
 }
 
 .settings-tab .color-themes .color-palette {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 5px;
-    margin: 0px 5px 0px 5px;
-    border: solid 1px black;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0px 0px 0px 0px;
+    border: solid 1px white;
+    align-self: flex-start;
+    align-items: center;
+    justify-content: center;
+    width: 98%;
     border-radius: 5px;
     padding: 5px;
-}
-
-.dark .color-themes .color-palette {
-  background: #2E293A;
 }
 
 .settings-tab .color-themes .color-palette .dot {
@@ -101,46 +126,10 @@
     border-radius: 50%;
     border: solid 1px black;
     cursor: pointer;
-}
-
-.settings-tab .color-themes .color-palette .red {
-    background-color: #F17A7A;
-  }
-
-.settings-tab .color-themes .color-palette .orange {
-    background-color: #F0BE63;
-}
-
-.settings-tab .color-themes .color-palette .light-green {
-    background-color: #84a59d;
-}
-
-.settings-tab .color-themes .color-palette .green {
-    background-color: #588157;
-}
-
-.settings-tab .color-themes .color-palette .teal {
-    background-color: #7FD3D3;
-}
-
-.settings-tab .color-themes .color-palette .pdefault {
-    background-color: #8270A9;
-}
-
-.settings-tab .color-themes .color-palette .pink {
-    background-color: #e27396;
-}
-
-.settings-tab .color-themes .color-palette .turquoise {
-    background-color: #31B5DF;
-}
-
-.settings-tab .color-themes .color-palette .sbdefault {
-    background-color: #6096BA;
-}
-
-.settings-tab .color-themes .color-palette .lbdefault {
-    background-color: #9bb1ff;
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .settings-tab .slider-area .slider-names ul {
@@ -152,7 +141,10 @@
 .settings-tab .slider-area {
     display: flex;
     flex-direction: row;
-    width: 100%;
+    border: solid 1px white;
+    border-radius: 5px;
+    width: 90%;
+    align-self: center;
 }
 
 .settings-tab .slider-area .sliders {
@@ -169,6 +161,7 @@
     padding: 0px;
     margin: 0px;
     width: 60%;
+    font-size: 17px;
 }
 
 .settings-tab .slider-area .slider-names li {
@@ -176,6 +169,8 @@
     text-align: center;
     line-height: 40px;
 }
+
+/* Toggle-Sliders CSS */
 
 .react-toggle {
     touch-action: pan-x;
@@ -221,7 +216,7 @@
     height: 24px;
     padding: 0;
     border-radius: 30px;
-    background-color: #4D4D4D;
+    background-color: rgb(52, 52, 52);
     -webkit-transition: all 0.2s ease;
     -moz-transition: all 0.2s ease;
     transition: all 0.2s ease;

@@ -9,6 +9,9 @@ export default function NotAuthHistory() {
         <>
         <Modal>
             <div className="history-modal-background">
+                <div className="btn-close" onClick={() => {authFunctions.handleOnToggle (""); authSetStates.setActive("")}}>
+                    &times;
+                </div>
                 <div className="history-modal-container">
                     <p>You must be logged in to access this feature!</p>
                     <button onClick={() => authFunctions.handleOnToggle("profile")}>Login</button>
