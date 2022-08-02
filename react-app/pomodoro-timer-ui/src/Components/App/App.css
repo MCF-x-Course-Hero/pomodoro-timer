@@ -11,6 +11,7 @@ body{
     width: 100vw;
     margin: 0px;
     overflow: visible;
+    transition: 0.35s;
 }
 
 .explode {

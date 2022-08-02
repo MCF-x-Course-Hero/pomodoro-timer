@@ -148,7 +148,11 @@
     background: #A9AAC5;
 }
 
+<<<<<<< HEAD
 .btn-close{
+=======
+.side-nav a {
+>>>>>>> 896af406208a200add53790d53e8be29295b0f45
     padding: 10px 10px 10px 30px;
     text-decoration: none;
     font-size: 22px;
@@ -182,4 +186,3 @@
         transition: 0.35s;
     }
 }
-
