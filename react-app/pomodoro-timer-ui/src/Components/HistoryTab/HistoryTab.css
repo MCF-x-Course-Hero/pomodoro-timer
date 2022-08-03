@@ -10,19 +10,19 @@
 }
 
 .history-tab .buttons .closed {
-    cursor: pointer;
     border-radius: 20px;
-    border: 1px solid black;
-    background: #8270A9;
-    color: white;
+    cursor: pointer;
+    border: none;
+    color: black;
     height: 30px;
     width: 40%;
 }
 
 .history-tab .buttons .current {
+    background: var(--profile-btn-primary);
     border-radius: 20px;
-    border: none;
-    color: black;
+    border: 1px solid white;
+    color: white;
     font-weight: bold;
     height: 30px;
     width: 40%;

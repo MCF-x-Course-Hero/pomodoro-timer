@@ -5,7 +5,8 @@ import "./RegisterForm.css";
 
 export default function RegisterForm() {
   const [isLoading, setIsLoading] = React.useState(false);
-  const { authStates, authSetStates, authFunctions } = useAuthContext();
+  const [error, setError] = React.useState({});
+  const { authSetStates, authFunctions } = useAuthContext();
   const [form, setForm] = React.useState({
     username: "",
     password: "",
@@ -20,30 +21,30 @@ export default function RegisterForm() {
           passwordConfirm: "Passwords do not match",
         });
       } else {
-        authSetStates.setError((e) => ({ ...e, passwordConfirm: null }));
+        setError((e) => ({ ...e, passwordConfirm: null }));
       }
     }
     if (event.target.name === "passwordConfirm") {
       if (form.password && form.password !== event.target.value) {
-        authSetStates.setError((e) => ({
+        setError((e) => ({
           ...e,
           passwordConfirm: "Passwords do not match",
         }));
       } else {
-        authSetStates.setError((e) => ({ ...e, passwordConfirm: null }));
+        setError((e) => ({ ...e, passwordConfirm: null }));
       }
     }
 
     if (event.target.name === "username" && event.target.value !== "") {
-      authSetStates.setError((e) => ({ ...e, username: null }));
+      setError((e) => ({ ...e, username: null }));
     }
 
     if (event.target.name === "password" && event.target.value !== "") {
-      authSetStates.setError((e) => ({ ...e, password: null }));
+      setError((e) => ({ ...e, password: null }));
     }
 
     if (event.target.name === "confirmPassword" && event.target.value !== "") {
-      authSetStates.setError((e) => ({ ...e, confirmPassword: null }));
+      setError((e) => ({ ...e, confirmPassword: null }));
     }
 
     setForm((f) => ({ ...f, [event.target.name]: event.target.value }));
@@ -51,22 +52,22 @@ export default function RegisterForm() {
 
   const handleOnSubmit = async () => {
     setIsLoading(true);
-    authSetStates.setError((e) => ({ ...e, form: null }));
+    setError((e) => ({ ...e, form: null }));
 
     if (form.username === "") {
-      authSetStates.setError((e) => ({ ...e, username: "Please enter a username" }));
+      setError((e) => ({ ...e, username: "Please enter a username" }));
       setIsLoading(false);
       return;
     }
 
     if (form.password === "") {
-      authSetStates.setError((e) => ({ ...e, password: "Please enter a password" }));
+      setError((e) => ({ ...e, password: "Please enter a password" }));
       setIsLoading(false);
       return;
     }
 
     if (form.confirmPassword === "") {
-      authSetStates.setError((e) => ({
+      setError((e) => ({
         ...e,
         confirmPassword: "Please confirm your password",
       }));
@@ -75,7 +76,7 @@ export default function RegisterForm() {
     }
 
     if (form.passwordConfirm !== form.password) {
-      authSetStates.setError((e) => ({ ...e, passwordConfirm: "Passwords do not match." }));
+      setError((e) => ({ ...e, passwordConfirm: "Passwords do not match." }));
       setIsLoading(false);
       return;
     } else {
@@ -84,7 +85,7 @@ export default function RegisterForm() {
 
     const { data, error } = await apiClient.signup(form);
     if (error) {
-      authSetStates.setError((e) => ({ ...e, form: error }));
+      setError((e) => ({ ...e, form: error }));
       setIsLoading(false);
     } else if (data?.user) {
       authFunctions.loginUser(data.user, data.token);
@@ -95,7 +96,12 @@ export default function RegisterForm() {
   return (
     <div className="register-form">
       <h2>Sign Up</h2>
-      {authStates.error?.form && (<span className="error">{authStates.error.form}</span>)}
+      {error?.form && (<span className="error">{error.form}</span>)}
+      {error.username && <span className="error">{error.username}</span>}
+      {error.password && <span className="error">{error.password}</span>}
+      {error.passwordConfirm && (
+            <span className="error">{error.passwordConfirm}</span>
+          )}
       <div className="form">
         <div className="input-field">
           <i className="material-symbols-outlined">person</i>
@@ -108,7 +114,6 @@ export default function RegisterForm() {
             onChange={handleOnInputChange}
           />
         </div>
-        {authStates.error.username && <span className="error">{authStates.error.username}</span>}
         <div className="input-field">
           <i className="material-symbols-outlined">key</i>
           <input
@@ -120,7 +125,6 @@ export default function RegisterForm() {
             onChange={handleOnInputChange}
           />
         </div>
-        {authStates.error.password && <span className="error">{authStates.error.password}</span>}
         <div className="input-field">
           <i className="material-symbols-outlined">key</i>
           <input
@@ -132,11 +136,8 @@ export default function RegisterForm() {
             onChange={handleOnInputChange}
           />
         </div>
-        {authStates.error.passwordConfirm && (
-            <span className="error">{authStates.error.passwordConfirm}</span>
-          )}
       </div>
-      <button className="submit-registration" onClick={handleOnSubmit}>
+      <button className="submit-registration" onClick={handleOnSubmit} disabled={isLoading} >
           {isLoading ? "Loading..." : "Register"}
         </button>
       <div className="footer">
