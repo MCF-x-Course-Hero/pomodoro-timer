@@ -6,9 +6,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background: var(--sidebar-timer-btn-bg-primary);
     flex-direction: column;
     z-index: 1;
-    transition: 0.45s;
+    transition: 0.35s;
+    position: absolute;
 }
 
 .sidebar-top {
@@ -30,7 +32,6 @@
 
 .brand {
     font-weight: bold;
-    font-family: 'Roboto', sans-serif;
     padding-left: 10px;
 }
 
@@ -48,8 +49,18 @@
     flex-direction: column;
     align-items: flex-end;
     list-style: none;
+    background: var(--sidebar-timer-btn-bg-primary);
     padding: 0px;
+    transition: 0.35s;
     width: 100%;
+}
+
+.list .active {
+    background: var(--expanded-sidebar-hover-primary);
+}
+
+.list .list-item:hover {
+    background: var(--expanded-sidebar-hover-primary);
 }
 
 .list-item {
@@ -68,7 +79,6 @@
 
 .list-item-text {
     padding: 8px 5px 0px 5px;
-    font-family: 'Roboto', sans-serif;
 }
 
 .list-item-icon {
@@ -109,7 +119,8 @@
 }
 
 .sidebar-bottom li:hover {
-    background-color: #615184;
+    font-weight: bold;
+    background-color: var(--expanded-sidebar-hover-primary);
 }
 
 @media only screen and (max-width: 768px) {
@@ -127,242 +138,4 @@
     .sidebar-bottom ul {
         flex-direction: column;
     }
-}
-
-/* PomoZone Sidebar Themes */
-
-.sidebar-pomozone-pdefault,
-.sidebar-short-break-pdefault,
-.sidebar-long-break-pdefault,
-.sidebar .sidebar-center .list .pomozone-pdefault,
-.sidebar .sidebar-center .list .short-break-pdefault,
-.sidebar .sidebar-center .list .long-break-pdefault {
-    background: #4a3e63;
-    transition: 0.35s;
-}
-
-.sidebar-pomozone-red,
-.sidebar-short-break-red,
-.short-break-long-break-red,
-.sidebar .sidebar-center .list .pomozone-red,
-.sidebar .sidebar-center .list .short-break-red,
-.sidebar .sidebar-center .list .long-break-red {
-    background: #EF8484;
-    transition: 0.35s;
-}
-
-.sidebar-pomozone-orange,
-.sidebar-short-break-orange,
-.sidebar-long-break-orange,
-.sidebar .sidebar-center .list .pomozone-orange,
-.sidebar .sidebar-center .list .short-break-orange,
-.sidebar .sidebar-center .list .long-break-orange {
-    background: #D69C36;
-    transition: 0.35s;
-}
-
-.sidebar-pomozone-light-green,
-.sidebar-short-break-light-green,
-.sidebar-long-break-light-green,
-.sidebar .sidebar-center .list .pomozone-light-green,
-.sidebar .sidebar-center .list .short-break-light-green,
-.sidebar .sidebar-center .list .long-break-light-green {
-    background: #607872;
-    transition: 0.35s;
-}
-
-
-.sidebar-pomozone-green,
-.sidebar-short-break-green,
-.sidebar-long-break-green,
-.sidebar .sidebar-center .list .pomozone-green,
-.sidebar .sidebar-center .list .short-break-green,
-.sidebar .sidebar-center .list .long-break-green {
-    background: #436142;
-    transition: 0.35s;
-}
-
-.sidebar-pomozone-teal,
-.sidebar-short-break-teal,
-.sidebar-long-break-teal,
-.sidebar .sidebar-center .list .pomozone-teal,
-.sidebar .sidebar-center .list .short-break-teal,
-.sidebar .sidebar-center .list .long-break-teal {
-    background: #64A4A4;
-    transition: 0.35s;
-}
-
-.sidebar-pomozone-pink,
-.sidebar-short-break-pink,
-.sidebar-long-break-pink,
-.sidebar .sidebar-center .list .pomozone-pink,
-.sidebar .sidebar-center .list .short-break-pink,
-.sidebar .sidebar-center .list .long-break-pink {
-    background: #BD617E;
-    transition: 0.35s;
-}
-
-
-.sidebar-pomozone-turquoise,
-.sidebar-short-break-turquoise,
-.sidebar-long-break-turquoise,
-.sidebar .sidebar-center .list .pomozone-turquoise,
-.sidebar .sidebar-center .list .short-break-turquoise,
-.sidebar .sidebar-center .list .long-break-turquoise {
-    background: #299BBF;
-    transition: 0.35s;
-}
-
-.sidebar-pomozone-sbdefault,
-.sidebar-short-break-sbdefault,
-.sidebar-long-break-sbdefault,
-.sidebar .sidebar-center .list .pomozone-sbdefault,
-.sidebar .sidebar-center .list .short-break-sbdefault,
-.sidebar .sidebar-center .list .long-break-sbdefault {
-    background: #497593;
-    transition: 0.35s;
-}
-
-.sidebar-pomozone-lbdefault,
-.sidebar-short-break-lbdefault,
-.sidebar-long-break-lbdefault,
-.sidebar .sidebar-center .list .pomozone-lbdefault,
-.sidebar .sidebar-center .list .short-break-lbdefault,
-.sidebar .sidebar-center .list .long-break-lbdefault {
-    background: #697EFF;
-    transition: 0.35s;
-}
-
-.sidebar-pomozone-dark-mode,
-.sidebar-short-break-dark-mode,
-.sidebar-long-break-dark-mode,
-.sidebar .sidebar-center .list .pomozone-dark-mode,
-.sidebar .sidebar-center .list .short-break-dark-mode,
-.sidebar .sidebar-center .list .long-break-dark-mode {
-    background: #292929;
-    color: white;
-    transition: 0.50s;
-}
-
-/* Hover Styling*/
-
-.sidebar .sidebar-center .list .pomozone-pdefault:hover,
-.sidebar .sidebar-center .list .pomozone-pdefault.active,
-.sidebar .sidebar-center .list .short-break-pdefault:hover,
-.sidebar .sidebar-center .list .short-break-pdefault.active,
-.sidebar .sidebar-center .list .long-break-pdefault:hover,
-.sidebar .sidebar-center .list .long-break-pdefault.active {
-    background: #615184;
-    font-weight: bold;
-    color: #FFFFFF;
-}
-
-.sidebar .sidebar-center .list .pomozone-sbdefault:hover,
-.sidebar .sidebar-center .list .pomozone-sbdefault.active,
-.sidebar .sidebar-center .list .short-break-sbdefault:hover,
-.sidebar .sidebar-center .list .short-break-sbdefault.active,
-.sidebar .sidebar-center .list .long-break-sbdefault:hover,
-.sidebar .sidebar-center .list .long-break-sbdefault.active {
-    background: #5E87A3;
-    font-weight: bold;
-    color: #FFFFFF;
-}
-
-.sidebar .sidebar-center .list .pomozone-lbdefault:hover,
-.sidebar .sidebar-center .list .pomozone-lbdefault.active,
-.sidebar .sidebar-center .list .short-break-lbdefault:hover,
-.sidebar .sidebar-center .list .short-break-lbdefault.active,
-.sidebar .sidebar-center .list .long-break-lbdefault:hover,
-.sidebar .sidebar-center .list .long-break-lbdefault.active {
-    background: #8192FF;
-    font-weight: bold;
-    color: #FFFFFF;
-}
-
-.sidebar .sidebar-center .list .pomozone-turquoise:hover,
-.sidebar .sidebar-center .list .pomozone-turquoise.active,
-.sidebar .sidebar-center .list .short-break-turquoise:hover,
-.sidebar .sidebar-center .list .short-break-turquoise.active,
-.sidebar .sidebar-center .list .long-break-turquoise:hover,
-.sidebar .sidebar-center .list .long-break-turquoise.active {
-    background: #2FAAD1;
-    font-weight: bold;
-    color: #FFFFFF;
-}
-
-.sidebar .sidebar-center .list .pomozone-teal:hover,
-.sidebar .sidebar-center .list .pomozone-teal.active,
-.sidebar .sidebar-center .list .short-break-teal:hover,
-.sidebar .sidebar-center .list .short-break-teal.active,
-.sidebar .sidebar-center .list .long-break-teal:hover,
-.sidebar .sidebar-center .list .long-break-teal.active {
-    background: #56BCBC;
-    font-weight: bold;
-    color: #FFFFFF;
-}
-
-.sidebar .sidebar-center .list .pomozone-green:hover,
-.sidebar .sidebar-center .list .pomozone-green.active,
-.sidebar .sidebar-center .list .short-break-green:hover,
-.sidebar .sidebar-center .list .short-break-green.active,
-.sidebar .sidebar-center .list .long-break-green:hover,
-.sidebar .sidebar-center .list .long-break-green.active {
-    background: #547952;
-    font-weight: bold;
-    color: #FFFFFF;
-}
-
-.sidebar .sidebar-center .list .pomozone-light-green:hover,
-.sidebar .sidebar-center .list .pomozone-light-green.active,
-.sidebar .sidebar-center .list .short-break-light-green:hover,
-.sidebar .sidebar-center .list .short-break-light-green.active,
-.sidebar .sidebar-center .list .long-break-light-green:hover,
-.sidebar .sidebar-center .list .long-break-light-green.active {
-    background: #728F88;
-    font-weight: bold;
-    color: #FFFFFF;
-}
-
-.sidebar .sidebar-center .list .pomozone-pink:hover,
-.sidebar .sidebar-center .list .pomozone-pink.active,
-.sidebar .sidebar-center .list .short-break-pink:hover,
-.sidebar .sidebar-center .list .short-break-pink.active,
-.sidebar .sidebar-center .list .long-break-pink:hover,
-.sidebar .sidebar-center .list .long-break-pink.active {
-    background: #F192B0;
-    font-weight: bold;
-    color: #FFFFFF;
-}
-
-.sidebar .sidebar-center .list .pomozone-red:hover,
-.sidebar .sidebar-center .list .pomozone-red.active,
-.sidebar .sidebar-center .list .short-break-red:hover,
-.sidebar .sidebar-center .list .short-break-red.active,
-.sidebar .sidebar-center .list .long-break-red:hover,
-.sidebar .sidebar-center .list .long-break-red.active {
-    background: #D36A6A;
-    font-weight: bold;
-    color: #FFFFFF;
-}
-
-.sidebar .sidebar-center .list .pomozone-orange:hover,
-.sidebar .sidebar-center .list .pomozone-orange.active,
-.sidebar .sidebar-center .list .short-break-orange:hover,
-.sidebar .sidebar-center .list .short-break-orange.active,
-.sidebar .sidebar-center .list .long-break-orange:hover,
-.sidebar .sidebar-center .list .long-break-orange.active {
-    background: #D6A753;
-    font-weight: bold;
-    color: #FFFFFF;
-}
-
-.sidebar .sidebar-center .list .pomozone-dark-mode:hover,
-.sidebar .sidebar-center .list .pomozone-dark-mode.active,
-.sidebar .sidebar-center .list .short-break-dark-mode:hover,
-.sidebar .sidebar-center .list .short-break-dark-mode.active,
-.sidebar .sidebar-center .list .long-break-dark-mode:hover,
-.sidebar .sidebar-center .list .long-break-dark-mode.active {
-    background: #303030;
-    font-weight: bold;
-    color: #FFFFFF;
 }

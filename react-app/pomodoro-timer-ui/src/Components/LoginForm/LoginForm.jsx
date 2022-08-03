@@ -4,7 +4,8 @@ import apiClient from "../../services/apiClient"
 import "./LoginForm.css";
 
 export default function LoginForm() {
-  const { authStates, authSetStates, authFunctions } = useAuthContext();
+  const { authSetStates, authFunctions } = useAuthContext();
+  const [error, setError] = React.useState({});
   const [isLoading, setIsLoading] = React.useState(false);
   const [form, setForm] = React.useState({
     username: "",
@@ -13,11 +14,11 @@ export default function LoginForm() {
 
   const handleOnInputChange = (event) => {
     if (event.target.name === "username" && event.target.value !== "") {
-      authSetStates.setError((e) => ({ ...e, username: null }));
+      setError((e) => ({ ...e, username: null }));
     }
 
     if (event.target.name === "password" && event.target.value !== "") {
-      authSetStates.setError((e) => ({ ...e, password: null }));
+      setError((e) => ({ ...e, password: null }));
     }
 
     setForm((f) => ({ ...f, [event.target.name]: event.target.value }));
@@ -27,23 +28,23 @@ export default function LoginForm() {
 
     event.preventDefault();
     setIsLoading(true);
-    authSetStates.setError((e) => ({ ...e, form: null }));
+    setError((e) => ({ ...e, form: null }));
 
     if (form.username === "") {
-      authSetStates.setError((e) => ({ ...e, username: "Please enter an username" }));
+      setError((e) => ({ ...e, username: "Please enter an username" }));
       setIsLoading(false);
       return;
     }
 
     if (form.password === "") {
-      authSetStates.setError((e) => ({ ...e, password: "Please enter a password" }));
+      setError((e) => ({ ...e, password: "Please enter a password" }));
       setIsLoading(false);
       return;
     }
 
     const { data, error } = await apiClient.login(form);
     if (error) {
-      authSetStates.setError((e) => ({ ...e, form: error }));
+      setError((e) => ({ ...e, form: error }));
       setIsLoading(false);
     } else if (data?.user) { 
       authFunctions.loginUser(data.user, data.token);
@@ -54,7 +55,9 @@ export default function LoginForm() {
   return (
     <div className="login-form">
       <h2>Login</h2>
-      {authStates.error?.form && (<span className="error">{authStates.error.form}</span>)}
+      {error?.form && (<span className="error">{error.form}</span>)}
+      {error?.username && (<span className="error">{error.username}</span>)}
+      {error?.password && (<span className="error">{error.password}</span>)}
       <div className="form">
         <div className="input-field">
           <i className="material-symbols-outlined">person</i>
@@ -69,7 +72,6 @@ export default function LoginForm() {
             onChange={handleOnInputChange}
           />
         </div>
-        {authStates.error?.username && (<span className="error">{authStates.error.username}</span>)}
         <div className="input-field">
           <i className="material-symbols-outlined">lock</i>
           <input
@@ -81,9 +83,8 @@ export default function LoginForm() {
             value={form.password}
           />
         </div>
-        {authStates.error?.password && (<span className="error">{authStates.error.password}</span>)}
       </div>
-      <button className="btn" disabled={isLoading} onClick={handleOnSubmit}>
+      <button className="btn" disabled={isLoading} onClick={handleOnSubmit} >
           {" "}
           {isLoading ? "Loading..." : "Login"}
         </button>
