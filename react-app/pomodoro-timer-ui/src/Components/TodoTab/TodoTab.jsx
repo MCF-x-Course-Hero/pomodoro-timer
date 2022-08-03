@@ -18,7 +18,7 @@ export default function TodoTab() {
 
     return (
     <div className="todo-tab">
-      <h3>Your Tasks </h3>
+      <h3>Todo Planner </h3>
       <TodoForm/>
       <TodoList/>
     </div>
