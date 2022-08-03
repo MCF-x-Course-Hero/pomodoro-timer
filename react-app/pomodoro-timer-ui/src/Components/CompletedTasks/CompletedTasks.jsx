@@ -19,8 +19,6 @@ export default function CompletedTasks() {
     if (authStates.loggedIn) getCompletedTasks();
   }, []);
 
-
-  console.log(element);
   return (
     <div className="task-history">
       {completedTodos.length > 0 ? (
@@ -41,7 +39,6 @@ export default function CompletedTasks() {
 }
 
 export function TodosPerDay({ todos, date }) {
-  console.log(todos);
   return (
     <div className="date">
       <h3>{date}</h3>
