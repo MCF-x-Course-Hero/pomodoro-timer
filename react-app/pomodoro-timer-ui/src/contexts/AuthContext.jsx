@@ -15,6 +15,7 @@ export const AuthContextProvider = ({ children }) => {
   const [settingsOpen, setSettingsOpen] = React.useState(false);
   const [historyOpen, setHistoryOpen] = React.useState(false);
   const [listOpen, setListOpen] = React.useState(false);
+  const [aboutOpen, setAboutOpen] = React.useState(false);
   const [deleteUser, setDeleteUser] = React.useState(false);
   const [sessionsList, setSessionsList] = React.useState({});
   const [loggedIn, setLoggedIn] = React.useState(false);
@@ -25,7 +26,7 @@ export const AuthContextProvider = ({ children }) => {
   const [error, setError] = React.useState({});
   const authStates = { user, initialized, isProcessing, loggedIn, error,
                       login, register, deleteUser, sessionsList, profileOpen,
-                      settingsOpen, historyOpen, listOpen, componentName, active };
+                      settingsOpen, historyOpen, listOpen, aboutOpen, componentName, active };
   const authSetStates = { setUser, setInitialized, setIsProcessing, setLoggedIn,
                         setError, setLogin, setRegister, setDeleteUser, setSessionsList, setActive };
   const authFunctions = { loginUser, fetchUserFromToken, logoutUser, handleOnToggle };
@@ -95,6 +96,18 @@ export const AuthContextProvider = ({ children }) => {
       document.querySelector("#side-menu").style.width = "450px"; 
     } else if (tabName == "todo" && listOpen) {
       setListOpen(false);
+      document.querySelector("#side-menu").style.width = "0";
+    }
+
+    if (tabName == "about" && !aboutOpen){
+      setProfileOpen(false);
+      setHistoryOpen(false);
+      setSettingsOpen(false);
+      setListOpen(false);
+      setAboutOpen(true);
+      document.querySelector("#side-menu").style.width = "450px"; 
+    } else if (tabName == "about" && aboutOpen) {
+      setAboutOpen(false);
       document.querySelector("#side-menu").style.width = "0";
     }
 

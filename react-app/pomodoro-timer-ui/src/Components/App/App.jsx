@@ -10,6 +10,7 @@ import Confetti from "react-confetti";
 import Timer from "../Timer/Timer";
 import './App.css'
 import "@fontsource/roboto-condensed";
+import AboutTab from "../AboutTab/AboutTab";
 
 
 export default function AppContainer() {
