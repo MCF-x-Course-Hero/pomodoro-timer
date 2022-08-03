@@ -14,25 +14,15 @@
 }
 
 .side-nav .btn-close {
-    padding: 10px 10px 10px 30px;
+    margin-left: auto;
     text-decoration: none;
     font-size: 22px;
-    color: #712F3E;
+    color: white;
     opacity: 1;
     display: block;
-    transition: 0.25ms;
+    /* transition: 0.25ms; */
 
 }
-
-.side-nav .btn-close:hover{
-    color:white;
-    cursor:pointer;
-}
-
-#side-menu {
-    margin-left: 180px;
-}
-
 .side-nav .btn-close{
     position: absolute;
     top :0;
@@ -40,6 +30,12 @@
     font-size: 36px;
     margin-left: 50px;
 }
+
+
+#side-menu {
+    margin-left: 180px;
+}
+
 
 @media only screen and (max-width: 768px) {
     #side-menu {

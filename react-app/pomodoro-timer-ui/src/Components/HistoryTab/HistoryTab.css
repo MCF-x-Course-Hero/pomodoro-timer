@@ -1,6 +1,9 @@
 .history-tab .buttons {
-    padding: 10px;
+    padding: 10px 10px;
+    margin-right:30px;
     height: 30%;
+    justify-content: center;
+    align-items: center;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -24,3 +27,5 @@
     height: 30px;
     width: 40%;
 }
+
+
