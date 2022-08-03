@@ -16,9 +16,14 @@ app.use("/auth", authRoutes)
 app.use("/session", sessionRoutes)
 app.use("/task", taskRoutes)
 
+app.get("/", async (req, res, next)=>{
+    return res.status(200).json({ping:"pong"})
+})
+
 app.use((req, res, next) => {
     return next(new NotFoundError())
 })
+
 app.use((err, req, res, next) => {
     const status = err.status || 500;
     const message = err.message;
@@ -27,11 +32,5 @@ app.use((err, req, res, next) => {
         error: { message, status }
     })
 })
-
-app.get("/", async (req, res, next)=>{
-    return res.status(200).json({ping:"pong"})
-    
-})
-
 
 module.exports = app
