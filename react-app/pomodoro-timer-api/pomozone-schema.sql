@@ -1,11 +1,11 @@
 CREATE TABLE users (
     id          SERIAL PRIMARY KEY,
-    username    TEXT NOT NULL,
+    username    TEXT NOT NULL UNIQUE,
     password    TEXT NOT NULL,
     created_at  TIMESTAMP NOT NULL DEFAULT NOW()
 );
 
--- for now, it not mandetory to insert starting time/ending time for each sessions. simply need the duration.
+-- for now, it not mandatory to insert starting time/ending time for each sessions. simply need the duration.
 CREATE TABLE userSessions (
     id              SERIAL PRIMARY KEY,
     user_id         INT NOT NULL,
