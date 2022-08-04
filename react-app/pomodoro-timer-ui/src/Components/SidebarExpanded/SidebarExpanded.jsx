@@ -8,6 +8,7 @@ import HistoryTab from "../HistoryTab/HistoryTab";
 import TodoTab from "../TodoTab/TodoTab";
 import ProfileTab from "../ProfileTab/ProfileTab";
 import NotAuthHistory from "../NotAuthHistory/NotAuthHistory";
+import AboutTab from "../AboutTab/AboutTab";
 import { IconButton } from "@mui/material";
 import "./SidebarExpanded.css";
 
@@ -45,6 +46,7 @@ export default function SidebarExpanded() {
         { ("history" == authStates.componentName && authStates.loggedIn) ? <HistoryTab/> : null }
         { ("history" == authStates.componentName && !authStates.loggedIn) ? <NotAuthHistory /> : null }
         { ("todo" == authStates.componentName) ? <TodoTab/> : null }
+        { ("about" == authStates.componentName) ? <AboutTab/> : null }
       </div>
     </section>
   );
