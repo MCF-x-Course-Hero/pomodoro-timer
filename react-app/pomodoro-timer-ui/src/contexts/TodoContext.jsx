@@ -56,15 +56,16 @@ export const TodoContextProvider = ({ children }) => {
   function toggleComplete(todo) {
     if (authStates.loggedIn) {
       apiClient.updateTask(todo);
-      if (todo.id == pinnedTodo.id) {
-        setPinnedTodo({
-          id: "",
-          task: "",
-          is_completed: false,
-        });
-        document.getElementById(`${todo.id}`).style.fill = "none";
-        setIsActivePin(false)
-      }
+    }
+    if (todo.id == pinnedTodo.id) {
+      console.log("todo completed was also pinned")
+      setPinnedTodo({
+        id: "",
+        task: "",
+        is_completed: false,
+      });
+      document.getElementById(`${todo.id}`).style.fill = "none";
+      setIsActivePin(false)
     }
 
     setTodoList(

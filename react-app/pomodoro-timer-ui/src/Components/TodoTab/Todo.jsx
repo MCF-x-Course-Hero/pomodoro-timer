@@ -41,6 +41,11 @@ export default function ({ todo, toggleComplete, removeTodo }) {
   function handlePinButton() {
     // isActivePin is a boolean value that denotes if there's a todo pinned.
     if (todo.is_completed){
+      console.log("todo was completed")
+      if (isActivePin) {
+        console.log(isActivePin)
+        document.getElementById(`${pinnedTodo.id}`).style.fill = "none";
+      }
       document.getElementById(`${todo.id}`).style.fill = "white";
       toggleComplete(todo)
       setPinnedTodo(todo)
@@ -50,18 +55,21 @@ export default function ({ todo, toggleComplete, removeTodo }) {
 
     if (!isActivePin) {
       //when there's no pinned todo at the moment
+      console.log("no pin atm")
       setPinnedTodo(todo);
       document.getElementById(`${todo.id}`).style.fill = "white";
       setIsActivePin(true);
     } else if (todo.id != pinnedTodo.id && isActivePin) {
       /* when there's a pinned todo,
       but the user chooses to change the pin todo to something different */
+      console.log("todo clicked is different")
       document.getElementById(`${todo.id}`).style.fill = "white";
       document.getElementById(`${pinnedTodo.id}`).style.fill = "none";
       setPinnedTodo(todo);
     } else if (todo.id == pinnedTodo.id && isActivePin) {
       /* when the user chooses to unpin the current todo without replacing it 
       with a new pinned todo*/
+      console.log("todo clicked is the same")
       document.getElementById(`${todo.id}`).style.fill = "none";
       setPinnedTodo({
         id: "",
@@ -71,6 +79,7 @@ export default function ({ todo, toggleComplete, removeTodo }) {
       setIsActivePin(false);
     }
   }
+
 
   return (
     <List style={{ display: "flex" }}>
