@@ -4,7 +4,7 @@ import "./AboutTab.css";
 export default function AboutTab() {
   return (
     <div className="about-tab">
-      <h2>About</h2>
+      <h1>About</h1>
       <div className="about-pomozone">
         <h2>What is PomoZone?</h2>
         <p>
@@ -33,7 +33,7 @@ export default function AboutTab() {
           anywhere at any time. Aditionally, PomoZone emphasizes minimalism, and
           functionality so that the user may be rid of distractions. To further
           enhance this experience, one of the defining features for this app we
-          plan to implement is the use of background music/ambience.
+          plan to implement in the future is the use of background music/ambience.
         </p>
       </div>
       <div className="app-features">

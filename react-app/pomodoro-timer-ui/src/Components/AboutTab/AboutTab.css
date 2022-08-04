@@ -1,0 +1,51 @@
+.about-tab {
+  color: white;
+}
+.about-tab h1 {
+  color: white;
+  text-align: center;
+  margin-bottom: 30px;
+  margin: 35px;
+}
+
+.about-pomozone h2 {
+  text-align: left;
+  margin: 35px;
+  margin-BOTTOM: 10px;
+}
+
+.about-pomozone p {
+  text-align: left;
+  margin: 35px;
+  margin-TOP: 15px;
+}
+
+.why-pomodoro h2 {
+  margin: 35px;
+  margin-BOTTOM: 10px;
+}
+
+.why-pomodoro p {
+  margin: 35px;
+  margin-TOP: 15px;
+}
+
+.why-pomozone h2 {
+  margin: 35px;
+  margin-BOTTOM: 10px;
+}
+
+.why-pomozone p {
+  margin: 35px;
+  margin-TOP: 15px;
+}
+
+.app-features h2 {
+  margin: 35px;
+  margin-BOTTOM: 10px;
+}
+
+.app-features ul {
+  margin: 35px;
+  margin-TOP: 15px;
+}
