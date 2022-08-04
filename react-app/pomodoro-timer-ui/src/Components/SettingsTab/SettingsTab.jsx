@@ -40,7 +40,7 @@ export default function SettingsTab() {
         }
     }
     return(
-        <div className={`settings-tab ${settingsStates.darkToggle ? "dark" : null}`}>
+        <div className="settings-tab">
             <h2>Settings</h2>
             <div className="set-time">
                 <h4>Set Times</h4>
@@ -53,7 +53,7 @@ export default function SettingsTab() {
                     <div className="inputs">
                         <div className="input-field">
                             <input
-                                className={`form-input ${settingsStates.darkToggle ? "dark" : null}`}
+                                className="input-form"
                                 type="number"
                                 name="focusTime"
                                 placeholder="1"
@@ -69,7 +69,7 @@ export default function SettingsTab() {
                         </div>
                         <div className="input-field">
                             <input
-                                className={`form-input ${settingsStates.darkToggle ? "dark" : null}`}
+                                className="input-form"
                                 type="number"
                                 name="shortBreakTime"
                                 placeholder="80"
@@ -85,7 +85,7 @@ export default function SettingsTab() {
                         </div>
                         <div className="input-field">
                             <input
-                                className={`form-input ${settingsStates.darkToggle ? "dark" : null}`}
+                                className="input-form"
                                 type="number"
                                 name="longBreakTime"
                                 placeholder="25"

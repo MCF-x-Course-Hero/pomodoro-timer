@@ -15,7 +15,7 @@
 }
 
 .register-form .form {
-    height: 35%;
+    height: 30%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -36,18 +36,23 @@
     width: 55px;
     border-top-left-radius: 30px;
     border-bottom-left-radius: 30px;
+    height: 32px;
 }
 
 .register-form .submit-registration {
     width: 240px;
     align-self: center;
     color: white;
-    background:#8270A9;
+    background: var(--profile-btn-primary);
     border: none;
-    height: 30px;
+    height: 32px;
     margin-bottom: 10px;
     cursor: pointer;
     border-radius: 15px;
+}
+
+.register-form .submit-registration:hover {
+    background: var(--sidebar-timer-btn-bg-primary);
 }
 
 .register-form .form .input-field {
@@ -55,17 +60,15 @@
     flex-direction: row;
     justify-content: center;
     border: 1px;
-    /* border-radius: 10px; */
+    height: 32px;
 }
 
 .register-form .form .input-field .form-input {
     height: 30px;
     border: none;
     width: 180px;
-    /* end border */
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
-
 }
 
 .register-form .footer {
@@ -97,8 +100,9 @@
 }
 .register-form .error {
     margin: 2px;
+    margin-top: 10px;
     padding-left: 5px;
-    color: #f75050;
+    color: #FFCCCC;
     font-size: 14px;
     align-self: center;
 }

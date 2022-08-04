@@ -9,6 +9,7 @@
   border-radius:20px;
   position: absolute;
   top: 20%;
+  overflow-x: auto;
   /* box-shadow: 2px 4px 8px black; */
   /* border: solid 3px #615184; */
 }

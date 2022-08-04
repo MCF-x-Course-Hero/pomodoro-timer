@@ -1,5 +1,6 @@
 body {
-    font-family: "Roboto Condensed";
+    font-family: 'Open Sans', sans-serif;
+    letter-spacing: 0.25mm;
 }
 
 .app {
@@ -10,6 +11,7 @@ body {
     width: 100vw;
     margin: 0px;
     overflow: visible;
+    background: var(--timer-bg-primary);
 }
 
 .explode {
@@ -21,91 +23,114 @@ body {
     height: 100vw;
 }
 
-/* Themes */
+/* Variable Themes */
 
 .pomozone-pdefault,
 .short-break-pdefault,
-.long-break-pdefault,
-.settings-tab .color-themes .color-palette .pdefault {
-    background: #8270A9;
-    transition: 0.35s;
-}
-
-.pomozone-red,
-.short-break-red,
-.long-break-red,
-.settings-tab .color-themes .color-palette .red {
-    background: #FF7F7F;
-    transition: 0.35s;
-}
-
-.pomozone-orange,
-.short-break-orange,
-.long-break-orange,
-.settings-tab .color-themes .color-palette .orange {
-    background: #F0BE63;
-    transition: 0.35s;
-}
-
-.pomozone-light-green,
-.short-break-light-green,
-.long-break-light-green,
-.settings-tab .color-themes .color-palette .light-green {
-    background: #84a59d;
-    transition: 0.35s;
-}
-
-.pomozone-green,
-.short-break-green,
-.long-break-green,
-.settings-tab .color-themes .color-palette .green {
-    background: #588157;
-    transition: 0.35s;
-}
-
-.pomozone-teal,
-.short-break-teal,
-.long-break-teal,
-.settings-tab .color-themes .color-palette .teal {
-    background: #7FD3D3;
-    transition: 0.35s;
-}
-
-.pomozone-pink,
-.short-break-pink,
-.long-break-pink,
-.settings-tab .color-themes .color-palette .pink {
-    background: #e27396;
-    transition: 0.35s;
-}
-
-.pomozone-turquoise,
-.short-break-turquoise,
-.long-break-turquoise,
-.settings-tab .color-themes .color-palette .turquoise {
-    background: #31B5DF;
+.long-break-pdefault {
+    --profile-btn-primary: #8270A9;
+    --timer-bg-primary: #8270A9;
+    --sidebar-timer-btn-bg-primary: #4a3e63;
+    --expanded-sidebar-hover-primary: #615184;
     transition: 0.35s;
 }
 
 .pomozone-sbdefault,
 .short-break-sbdefault,
-.long-break-sbdefault, 
-.settings-tab .color-themes .color-palette .sbdefault {
-    background: #6096BA;
+.long-break-sbdefault {
+    --profile-btn-primary: #6096BA;
+    --timer-bg-primary: #6096BA;
+    --sidebar-timer-btn-bg-primary: #497593;
+    --expanded-sidebar-hover-primary: #5E87A3;
     transition: 0.35s;
 }
 
 .pomozone-lbdefault,
 .short-break-lbdefault,
-.long-break-lbdefault,
-.settings-tab .color-themes .color-palette .lbdefault {
-    background: #9bb1ff;
+.long-break-lbdefault {
+    --profile-btn-primary: #9bb1ff;
+    --timer-bg-primary: #9bb1ff;
+    --sidebar-timer-btn-bg-primary: #697EFF;
+    --expanded-sidebar-hover-primary: #8192FF;
     transition: 0.35s;
 }
 
 .pomozone-dark-mode,
 .short-break-dark-mode,
 .long-break-dark-mode {
-    background: #121212;
+    --profile-btn-primary: #121212;
+    --timer-bg-primary: #121212;
+    --sidebar-timer-btn-bg-primary: #292929;
+    --expanded-sidebar-hover-primary: #303030;
+    transition: 0.35s;
+}
+
+.pomozone-turquoise,
+.short-break-turquoise,
+.long-break-turquoise {
+    --profile-btn-primary: #31B5DF;
+    --timer-bg-primary: #31B5DF;
+    --sidebar-timer-btn-bg-primary: #299BBF;
+    --expanded-sidebar-hover-primary: #2FAAD1;
+    transition: 0.35s;
+}
+
+.pomozone-teal,
+.short-break-teal,
+.long-break-teal {
+    --profile-btn-primary: #7FD3D3;
+    --timer-bg-primary: #7FD3D3;
+    --sidebar-timer-btn-bg-primary: #64A4A4;
+    --expanded-sidebar-hover-primary: #56BCBC;
+    transition: 0.35s;
+}
+
+.pomozone-green,
+.short-break-green,
+.long-break-green {
+    --profile-btn-primary: #588157;
+    --timer-bg-primary: #588157;
+    --sidebar-timer-btn-bg-primary: #436142;
+    --expanded-sidebar-hover-primary: #547952;
+    transition: 0.35s;
+}
+
+.pomozone-light-green,
+.short-break-light-green,
+.long-break-light-green {
+    --profile-btn-primary: #84a59d;
+    --timer-bg-primary: #84a59d;
+    --sidebar-timer-btn-bg-primary: #607872;
+    --expanded-sidebar-hover-primary: #728F88;
+    transition: 0.35s;
+}
+
+.pomozone-pink,
+.short-break-pink,
+.long-break-pink {
+    --profile-btn-primary: #e27396;
+    --timer-bg-primary: #e27396;
+    --sidebar-timer-btn-bg-primary: #BD617E;
+    --expanded-sidebar-hover-primary: #F192B0;
+    transition: 0.35s;
+}
+
+.pomozone-red,
+.short-break-red,
+.long-break-red {
+    --profile-btn-primary: #FF7F7F;
+    --timer-bg-primary: #FF7F7F;
+    --sidebar-timer-btn-bg-primary: #EF8484;
+    --expanded-sidebar-hover-primary: #D36A6A;
+    transition: 0.35s;
+}
+
+.pomozone-orange,
+.short-break-orange,
+.long-break-orange {
+    --profile-btn-primary: #F0BE63;
+    --timer-bg-primary: #F0BE63;
+    --sidebar-timer-btn-bg-primary: #D69C36;
+    --expanded-sidebar-hover-primary: #D6A753;
     transition: 0.35s;
 }

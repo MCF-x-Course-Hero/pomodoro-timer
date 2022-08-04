@@ -9,6 +9,7 @@ import TodoTab from "../TodoTab/TodoTab";
 import ProfileTab from "../ProfileTab/ProfileTab";
 import NotAuthHistory from "../NotAuthHistory/NotAuthHistory";
 import AboutTab from "../AboutTab/AboutTab";
+import { IconButton } from "@mui/material";
 import "./SidebarExpanded.css";
 
 export default function SidebarExpanded() {
@@ -17,9 +18,26 @@ export default function SidebarExpanded() {
 
   return (
     <section className="sidebar-expanded">
-      <div className={`side-nav side-nav-${settingsStates.session}-${settingsStates.theme}`} id="side-menu">
+      <div className={`side-nav ${settingsStates.session}-${settingsStates.theme}`} id="side-menu">
         <div className="btn-close" onClick={() => {authFunctions.handleOnToggle(""); authSetStates.setActive("")}}>
-          &times;
+          <IconButton>
+
+          <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="icon icon-tabler icon-tabler-x"
+              width="28"
+              height="28"
+              viewBox="0 0 24 24"
+              strokeWidth="1.5"
+              stroke="#ffffff"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg></IconButton>
         </div>
         { ("profile" == authStates.componentName && !authStates.loggedIn && authStates.login) ? <LoginForm /> : null }
         { ("profile" == authStates.componentName && !authStates.loggedIn && authStates.register) ? <RegisterForm  /> : null }

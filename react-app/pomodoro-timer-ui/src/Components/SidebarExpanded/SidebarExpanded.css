@@ -2,34 +2,24 @@
     height: 100%;
     width: 0;
     position: fixed;
-    z-index: 0;
+    z-index: 1;
     Left: 0;
     top: 0;
     opacity: 1;
     overflow-x:hidden;
-    transition: 0.45s;
+    transition: 0.35s;
+    background: var(--expanded-sidebar-hover-primary);
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
 }
 
 .side-nav .btn-close {
-    padding: 10px 10px 10px 30px;
+    margin-left: auto;
     text-decoration: none;
     font-size: 22px;
-    color: #712F3E;
+    color: white;
     opacity: 1;
     display: block;
-    transition: 0.25ms;
-
-}
-
-.side-nav .btn-close:hover{
-    color:white;
-    cursor:pointer;
-}
-
-#side-menu {
-    margin-left: 180px;
 }
 
 .side-nav .btn-close{
@@ -40,78 +30,13 @@
     margin-left: 50px;
 }
 
+#side-menu {
+    margin-left: 180px;
+}
+
 @media only screen and (max-width: 768px) {
     #side-menu {
         margin-left: 50px;
         transition: 0.45s;
     }
-}
-
-/* Pomozone Expanded Sidebar Themes */
-
-.side-nav-pomozone-pdefault,
-.side-nav-short-break-pdefault,
-.side-nav-long-break-pdefault {
-    background: #615184;
-}
-
-.side-nav-pomozone-red,
-.side-nav-short-break-red,
-.side-nav-long-break-red {
-    background: #D36A6A;
-}
-
-.side-nav-pomozone-orange,
-.side-nav-short-break-orange,
-.side-nav-long-break-orange {
-    background: #D6A753;
-}
-
-.side-nav-pomozone-light-green,
-.side-nav-short-break-light-green,
-.side-nav-long-break-light-green {
-    background: #728F88;
-}
-
-.side-nav-pomozone-green,
-.side-nav-short-break-green,
-.side-nav-long-break-green {
-    background: #547952;
-}
-
-.side-nav-pomozone-teal,
-.side-nav-short-break-teal,
-.side-nav-long-break-teal {
-    background: #56BCBC;
-}
-
-.side-nav-pomozone-pink,
-.side-nav-short-break-pink,
-.side-nav-long-break-pink {
-    background: #F192B0;
-}
-
-.side-nav-pomozone-turquoise,
-.side-nav-short-break-turquoise,
-.side-nav-long-break-turquoise {
-    background: #2FAAD1;
-}
-
-.side-nav-pomozone-sbdefault,
-.side-nav-short-break-sbdefault,
-.side-nav-long-break-sbdefault {
-    background: #5E87A3;
-}
-
-.side-nav-pomozone-lbdefault,
-.side-nav-short-break-lbdefault,
-.side-nav-long-break-lbdefault {
-    background: #8192FF;
-}
-
-.side-nav-pomozone-dark-mode,
-.side-nav-short-break-dark-mode,
-.side-nav-long-break-dark-mode {
-    background: #303030;
-    color: #FFFFFF;
 }

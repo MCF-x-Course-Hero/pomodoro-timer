@@ -8,7 +8,7 @@ export default function Sidebar() {
   const { settingsStates, settingsFunctions } = useSettingsContext();
   const { authFunctions, authSetStates, authStates } = useAuthContext();
   return (
-    <div className={`sidebar sidebar-${settingsStates.session}-${settingsStates.theme}`}>
+    <div className={`sidebar ${settingsStates.session}-${settingsStates.theme}`}>
       <div className="sidebar-top">
         <i className="logo fa-solid fa-clock"></i>
         <span className="brand">PomoZone</span>

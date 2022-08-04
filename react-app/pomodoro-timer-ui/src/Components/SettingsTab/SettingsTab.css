@@ -5,12 +5,6 @@
     width: 100%;
 }
 
-.dark {
-  display: flex;
-  flex-direction: column;
-  color: white;
-}
-
 .settings-tab h2 {
     text-align: center;
     margin-top: 10px;
@@ -49,7 +43,7 @@
   display: flex;
   flex-direction: column;
   width: 50%;
-  font-size: 17px;
+  font-size: 14px;
   padding: 0px;
   list-style: none;
   height: 96px;
@@ -76,23 +70,17 @@
   margin: 5px 0px 5px 0px;
 }
 
-.settings-tab .set-time .time-forms .input-field .form-input {
+.settings-tab .set-time .time-forms .input-field .input-form {
   width: 150px;
   border-radius: 8px;
   margin-left: 30px;
+  color: black;
 }
 
 .settings-tab .set-time .time-forms .input-field label {
   margin-left: 5px;
   margin-right: 12px;
   margin-top: 2px;
-}
-
-.settings-tab .set-time .time-forms .input-field .dark {
-  width: 150px;
-  border-radius: 8px;
-  margin-left: 30px;
-  color: black;
 }
 
 .settings-tab .color-themes {
@@ -117,10 +105,10 @@
     width: 98%;
     border-radius: 5px;
     padding: 5px;
+    height: 95px;
 }
 
 .settings-tab .color-themes .color-palette .dot {
-    display: inline-grid;
     height: 25px;
     width: 25px;
     border-radius: 50%;
@@ -128,8 +116,90 @@
     cursor: pointer;
     margin-right: 20px;
     margin-left: 20px;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* Color Palette Themes */
+
+.settings-tab .color-themes .color-palette .pdefault {
+  background: #8270A9;
+}
+
+.settings-tab .color-themes .color-palette .pdefault:hover {
+  background: #615184;
+}
+
+.settings-tab .color-themes .color-palette .red {
+  background: #FF7F7F;
+}
+
+.settings-tab .color-themes .color-palette .red:hover {
+  background: #D36A6A;
+}
+
+.settings-tab .color-themes .color-palette .orange {
+  background: #F0BE63;
+}
+
+.settings-tab .color-themes .color-palette .orange:hover {
+  background: #D6A753;
+}
+
+.settings-tab .color-themes .color-palette .light-green {
+  background: #84a59d;
+}
+
+.settings-tab .color-themes .color-palette .light-green:hover {
+  background: #728F88;
+}
+
+.settings-tab .color-themes .color-palette .green {
+  background: #588157;
+}
+
+.settings-tab .color-themes .color-palette .green:hover {
+  background: #547952;
+}
+
+.settings-tab .color-themes .color-palette .teal {
+  background: #7FD3D3;
+}
+
+.settings-tab .color-themes .color-palette .teal:hover {
+  background: #56BCBC;
+}
+
+.settings-tab .color-themes .color-palette .pink {
+  background: #e27396;
+}
+
+.settings-tab .color-themes .color-palette .pink:hover {
+  background: #F192B0;
+}
+
+.settings-tab .color-themes .color-palette .turquoise {
+  background: #31B5DF;
+}
+
+.settings-tab .color-themes .color-palette .turquoise:hover {
+  background: #2FAAD1;
+}
+
+.settings-tab .color-themes .color-palette .sbdefault {
+  background: #6096BA;
+}
+
+.settings-tab .color-themes .color-palette .sbdefault:hover {
+  background: #5E87A3;
+}
+
+.settings-tab .color-themes .color-palette .lbdefault {
+  background: #9bb1ff;
+}
+
+.settings-tab .color-themes .color-palette .lbdefault:hover {
+  background: #8192FF;
 }
 
 .settings-tab .slider-area .slider-names ul {

@@ -23,13 +23,34 @@
     margin-left: 5px;
 }
 
+.history-modal-background .btn-close-modal {
+    margin-left: auto;
+    text-decoration: none;
+    font-size: 22px;
+    color: white;
+    opacity: 1;
+    display: block;
+}
+
+.history-modal-background .btn-close-modal {
+    position: absolute;
+    top :0;
+    right:22px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
 .history-modal-background .history-modal-container button {
     width: 10rem;
     padding: 10px;
     border-radius: 10px;
     align-self: center;
     cursor: pointer;
-    background: #8270A9;
+    background: var(--profile-btn-primary);
     color: white;
     border: none;
+}
+
+.history-modal-background .history-modal-container button:hover {
+    background: var(--sidebar-timer-btn-bg-primary);
 }

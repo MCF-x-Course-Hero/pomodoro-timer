@@ -21,9 +21,9 @@ export const AuthContextProvider = ({ children }) => {
   const [loggedIn, setLoggedIn] = React.useState(false);
   const [login, setLogin] = React.useState(true);
   const [register, setRegister ] = React.useState(false);
+  const [error, setError] = React.useState({});
   const [active, setActive] = React.useState("");
   const [componentName, setComponentName] = React.useState("");
-  const [error, setError] = React.useState({});
   const authStates = { user, initialized, isProcessing, loggedIn, error,
                       login, register, deleteUser, sessionsList, profileOpen,
                       settingsOpen, historyOpen, listOpen, aboutOpen, componentName, active };
@@ -122,7 +122,7 @@ export const AuthContextProvider = ({ children }) => {
 
   React.useEffect(() => {
     const token = localStorage.getItem("pomozone_token");
-    if (token !== "null") {
+    if (token !== "null" && token !== null) {
       apiClient.setToken(token);
       fetchUserFromToken();
       setLoggedIn(true);
