@@ -8,35 +8,21 @@ export default function AboutTab() {
       <div className="about-pomozone">
         <h2>What is PomoZone?</h2>
         <p>
-          Many people find it difficult to stay focused while completing tasks,
-          especially for several hours at a time. PomoZone is a customizable
-          progress tracker + agenda pomodoro timer to help with staying in the
+          PomoZone is a customizable pomodoro timer with progress tracking + agenda planning to help users stay in the
           zone and increase productivity. The aim of this app is to help you
-          focus on any task you are working on, such as studying, writing, or
-          coding. This app is inspired by Pomodoro Technique which is a time
+          focus on any task you are working on. This app is inspired by the Pomodoro Technique, a time
           management method developed by Francesco Cirillo.
         </p>
       </div>
       <div className="why-pomodoro">
-        <h2>What is the Pomodoro Techniqque?</h2>
+        <h2>What is the Pomodoro Technique?</h2>
         <p>
           The Pomodoro Technique uses a timer to break down work into intervals,
-          traditionally 25 minutes in length, separated by short breaks. Each
-          interval is known as a pomodoro.
+          traditionally 25 minutes in length, separated by three short breaks. Each
+          interval is known as a pomodoro. After the fourth pomodoro session, you go into a long break. 
         </p>
       </div>
-      <div className="why-pomozone">
-        <h2>Why should I use PomoZone?</h2>
-        <p>
-          Because most pomodoro timers lack user profiles. PomoZone aimed to
-          ensure the ability for the user to keep track of their progress from
-          anywhere at any time. Aditionally, PomoZone emphasizes minimalism, and
-          functionality so that the user may be rid of distractions. To further
-          enhance this experience, one of the defining features for this app we
-          plan to implement in the future is the use of background music/ambience.
-        </p>
-      </div>
-      <div className="app-features">
+      {/* <div className="app-features">
         <h2>Features</h2>
         <ul>
           <li>
@@ -44,7 +30,7 @@ export default function AboutTab() {
             themes, sound notifications, and set custom times
           </li>
           <li>Displays the tasks marked as complete/incomplete by the user</li>
-          <li>Provides work/break session history seperated by days</li>
+          <li>Provides work/break session history separated by days</li>
           <li>
             Option to add task and provides you with the ability to pin,
             complete and delete your task
@@ -54,7 +40,10 @@ export default function AboutTab() {
             track of past and current progress
           </li>
         </ul>
-      </div>
+      </div> */}
+      {/* <footer className="our-team">
+        <p> Our team is blah blah b</p>
+      </footer> */}
     </div>
   );
 }
