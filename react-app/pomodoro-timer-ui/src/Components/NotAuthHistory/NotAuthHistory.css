@@ -23,6 +23,23 @@
     margin-left: 5px;
 }
 
+.history-modal-background .btn-close-modal {
+    margin-left: auto;
+    text-decoration: none;
+    font-size: 22px;
+    color: white;
+    opacity: 1;
+    display: block;
+}
+
+.history-modal-background .btn-close-modal {
+    position: absolute;
+    top :0;
+    right:22px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
 .history-modal-background .history-modal-container button {
     width: 10rem;
     padding: 10px;

@@ -34,16 +34,17 @@
     background:white;
     color: var(--profile-btn-primary);
     width: 55px;
+    height: 32px;
     border-top-left-radius: 30px;
     border-bottom-left-radius: 30px;
 }
 
 .login-form .btn {
+    height: 32px;
     width: 244px;
     align-self: center;
     color: white;
     border: none;
-    height: 4.5%;
     margin-bottom: 50px;
     cursor: pointer;
     border-radius: 25px;

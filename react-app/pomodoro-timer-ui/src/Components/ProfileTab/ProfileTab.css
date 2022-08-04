@@ -20,7 +20,7 @@
     align-items: flex-start;
     margin-left: 10px;
     margin-right: 10px;
-    height: 10%;
+    height: 70px;
     width: 40%;
     color: white;
     text-align: left;
@@ -42,7 +42,7 @@
     flex-direction: column;
     align-items: flex-start;
     margin: 0px 10px 0px 10px;
-    height: 10%;
+    height: 70px;
     width: 40%;
     color: white
 }
@@ -61,7 +61,7 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    height: 25%;
+    height: 170px;
     width: 50%;
 }
 
@@ -71,7 +71,7 @@
     color: white;
     background: var(--profile-btn-primary);
     border: none;
-    height: 25%;
+    height: 42px;
     cursor: pointer;
     border-radius: 10px;
     font-size: 16px;
