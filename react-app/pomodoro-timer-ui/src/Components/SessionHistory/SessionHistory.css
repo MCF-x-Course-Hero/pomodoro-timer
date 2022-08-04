@@ -5,6 +5,10 @@
     flex-direction: column;
 }
 
+.session-history h4 {
+    color: white;
+}
+
 .session-history .no-sessions {
     text-align: center;
 }
