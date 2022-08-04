@@ -68,6 +68,7 @@ export const AuthContextProvider = ({ children }) => {
     if (tabName == "settings" && !settingsOpen) {
       setProfileOpen(false);
       setHistoryOpen(false);
+      setAboutOpen(false);
       setListOpen(false);
       setSettingsOpen(true);
       document.querySelector("#side-menu").style.width = "450px";
@@ -79,6 +80,7 @@ export const AuthContextProvider = ({ children }) => {
     
     if (tabName == "history" && !historyOpen) {
       setProfileOpen(false);
+      setAboutOpen(false);
       setHistoryOpen(true);
       setListOpen(false);
       setSettingsOpen(false);
@@ -91,6 +93,7 @@ export const AuthContextProvider = ({ children }) => {
     if (tabName == "todo" && !listOpen) {
       setProfileOpen(false);
       setHistoryOpen(false);
+      setAboutOpen(false);
       setListOpen(true);
       setSettingsOpen(false);
       document.querySelector("#side-menu").style.width = "450px"; 

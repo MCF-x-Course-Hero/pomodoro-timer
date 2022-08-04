@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Link } from "react-router-dom";
 import "./AboutTab.css";
 
 export default function AboutTab() {
@@ -41,9 +42,26 @@ export default function AboutTab() {
           </li>
         </ul>
       </div> */}
-      {/* <footer className="our-team">
-        <p> Our team is blah blah b</p>
-      </footer> */}
+      <div className="our-team">
+        <p>Developed by{" "}
+          <a href="https://github.com/mariamconde">
+            Mariam Conde
+          </a>
+          {", "}
+          <a href="https://github.com/ShehabMohsen">
+            Shehab Mohsen
+          </a>
+          {", "}
+          <a href="https://github.com/JoseMario3">
+            Jose Folgar
+          </a>
+        </p>
+        <p>Check out our{" "}
+          <a href="https://github.com/MCF-x-Course-Hero/pomodoro-timer">
+            Github Repository
+          </a>
+        </p>
+      </div>
     </div>
   );
 }

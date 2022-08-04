@@ -1,5 +1,6 @@
 .about-tab {
   color: white;
+  height: 90%;
 }
 .about-tab h1 {
   color: white;
@@ -34,22 +35,30 @@
   margin-top: 15px;
 }
 
-.why-pomozone h2 {
-  margin: 35px;
-  margin-bottom: 10px;
+.our-team {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0px;
+  width: 100%;
+  font-size: 13px;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 20px;
 }
 
-.why-pomozone p {
-  margin: 35px;
-  margin-top: 15px;
+.our-team p {
+  margin: 0px;
 }
 
-.app-features h2 {
-  margin: 35px;
-  margin-bottom: 10px;
+.our-team a {
+  color: white;
+  font-style: none;
+  font-style: none;
+  text-decoration: none;
 }
 
-.app-features ul {
-  margin: 35px;
-  margin-top: 15px;
+.our-team a:hover {
+  color: lightblue;
 }
