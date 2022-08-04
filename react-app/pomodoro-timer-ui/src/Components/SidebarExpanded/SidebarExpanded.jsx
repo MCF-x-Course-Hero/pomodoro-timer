@@ -8,15 +8,8 @@ import HistoryTab from "../HistoryTab/HistoryTab";
 import TodoTab from "../TodoTab/TodoTab";
 import ProfileTab from "../ProfileTab/ProfileTab";
 import NotAuthHistory from "../NotAuthHistory/NotAuthHistory";
+import { IconButton } from "@mui/material";
 import "./SidebarExpanded.css";
-import {
-  Checkbox,
-  IconButton,
-  List,
-  ListItem,
-  Typography,
-} from "@mui/material";
-
 
 export default function SidebarExpanded() {
   const { settingsStates } = useSettingsContext();
