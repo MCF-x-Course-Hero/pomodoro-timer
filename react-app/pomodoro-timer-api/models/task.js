@@ -49,6 +49,7 @@ class Task{
        post or put*/
        const query = `UPDATE userTasks SET is_completed = ${!taskInfo.is_completed} WHERE id = ${taskInfo.id} AND user_id = ${userInfo.id};`
        const result = await db.query(query)
+       console.log
        return result.rows;
     }
 
