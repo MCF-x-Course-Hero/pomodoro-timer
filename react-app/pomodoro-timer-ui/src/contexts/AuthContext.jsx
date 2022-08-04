@@ -15,6 +15,7 @@ export const AuthContextProvider = ({ children }) => {
   const [settingsOpen, setSettingsOpen] = React.useState(false);
   const [historyOpen, setHistoryOpen] = React.useState(false);
   const [listOpen, setListOpen] = React.useState(false);
+  const [aboutOpen, setAboutOpen] = React.useState(false);
   const [deleteUser, setDeleteUser] = React.useState(false);
   const [sessionsList, setSessionsList] = React.useState({});
   const [loggedIn, setLoggedIn] = React.useState(false);
@@ -25,7 +26,7 @@ export const AuthContextProvider = ({ children }) => {
   const [componentName, setComponentName] = React.useState("");
   const authStates = { user, initialized, isProcessing, loggedIn, error,
                       login, register, deleteUser, sessionsList, profileOpen,
-                      settingsOpen, historyOpen, listOpen, componentName, active };
+                      settingsOpen, historyOpen, listOpen, aboutOpen, componentName, active };
   const authSetStates = { setUser, setInitialized, setIsProcessing, setLoggedIn,
                         setError, setLogin, setRegister, setDeleteUser, setSessionsList, setActive };
   const authFunctions = { loginUser, fetchUserFromToken, logoutUser, handleOnToggle };
@@ -67,6 +68,7 @@ export const AuthContextProvider = ({ children }) => {
     if (tabName == "settings" && !settingsOpen) {
       setProfileOpen(false);
       setHistoryOpen(false);
+      setAboutOpen(false);
       setListOpen(false);
       setSettingsOpen(true);
       document.querySelector("#side-menu").style.width = "450px";
@@ -78,6 +80,7 @@ export const AuthContextProvider = ({ children }) => {
     
     if (tabName == "history" && !historyOpen) {
       setProfileOpen(false);
+      setAboutOpen(false);
       setHistoryOpen(true);
       setListOpen(false);
       setSettingsOpen(false);
@@ -90,11 +93,24 @@ export const AuthContextProvider = ({ children }) => {
     if (tabName == "todo" && !listOpen) {
       setProfileOpen(false);
       setHistoryOpen(false);
+      setAboutOpen(false);
       setListOpen(true);
       setSettingsOpen(false);
       document.querySelector("#side-menu").style.width = "450px"; 
     } else if (tabName == "todo" && listOpen) {
       setListOpen(false);
+      document.querySelector("#side-menu").style.width = "0";
+    }
+
+    if (tabName == "about" && !aboutOpen){
+      setProfileOpen(false);
+      setHistoryOpen(false);
+      setSettingsOpen(false);
+      setListOpen(false);
+      setAboutOpen(true);
+      document.querySelector("#side-menu").style.width = "450px"; 
+    } else if (tabName == "about" && aboutOpen) {
+      setAboutOpen(false);
       document.querySelector("#side-menu").style.width = "0";
     }
 
@@ -109,7 +125,7 @@ export const AuthContextProvider = ({ children }) => {
 
   React.useEffect(() => {
     const token = localStorage.getItem("pomozone_token");
-    if (token !== "null") {
+    if (token !== "null" && token !== null) {
       apiClient.setToken(token);
       fetchUserFromToken();
       setLoggedIn(true);

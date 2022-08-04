@@ -24,7 +24,7 @@ export default function ProfileTab() {
             </div>
             <div className="work-time">
                 <h2>Total Zone Time</h2>
-                <h4>{totalTime == 0 ? "You do not have any work time yet!" : totalTime / 60} minutes</h4>
+                <h4>{totalTime == 0 ? "You do not have any work time yet!" : (totalTime / 60) + " minutes"}</h4>
             </div>
             <div className="buttons">
                 <button onClick={authFunctions.logoutUser}>Logout</button>

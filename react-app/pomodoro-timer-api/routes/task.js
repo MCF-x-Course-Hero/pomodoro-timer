@@ -29,7 +29,6 @@ router.get("/complete", security.requireAuthenticatedUser, async (req, res, next
     const {username} = res.locals.user
     const user = await User.fetchUserByUsername(username);
     const taskList = await Task.getCompletedTask(user);
-
     const uniqueDates = {};
       taskList.forEach((task) => {
         const date = getFormattedDate(task.created_at);
@@ -38,10 +37,10 @@ router.get("/complete", security.requireAuthenticatedUser, async (req, res, next
         }
       })
       const data = [];
-      Object.keys(uniqueDates).forEach((date) => {
-        const dateTasks = taskList.filter((row) => getFormattedDate(row.created_at) === date);
-        data.push({ tasks: dateTasks, date: date });
-      })
+      for(let i = Object.keys(uniqueDates).length - 1; i > 0; i--) {
+        const dateTasks = taskList.filter((row) => getFormattedDate(row.created_at) == Object.keys(uniqueDates)[i])
+        data.push({ tasks: dateTasks, date: Object.keys(uniqueDates)[i]});
+    }
       return res.status(201).json({ data });
 
 } catch (error) {
