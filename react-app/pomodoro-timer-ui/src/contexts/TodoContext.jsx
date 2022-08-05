@@ -58,7 +58,6 @@ export const TodoContextProvider = ({ children }) => {
       apiClient.updateTask(todo);
     }
     if (todo.id == pinnedTodo.id) {
-      console.log("todo completed was also pinned")
       setPinnedTodo({
         id: "",
         task: "",
