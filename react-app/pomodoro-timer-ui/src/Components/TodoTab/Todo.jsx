@@ -121,6 +121,7 @@ export default function ({ todo, toggleComplete, removeTodo }) {
           style={{
 
             textDecoration: todo.is_completed ? "line-through" : null,
+            padding:"9px"
           }}
         >
           {todo.task}

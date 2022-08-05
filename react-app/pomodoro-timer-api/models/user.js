@@ -55,8 +55,11 @@ class User {
       throw new BadRequestError("No username provided");
     }
     const query = `SELECT * FROM users WHERE username = $1`;
-    const result = await db.query(query, [username.toLowerCase()]);
+    const result = await db.query(query, [username]);
     const user = result.rows[0];
+
+    // TODO: check in all places if the user has not been found in db except for register endpoint.
+    // if (!user) throw new BadRequestError("user not found")
     return user;
   }
 
@@ -79,8 +82,9 @@ class User {
   static async remove(username) {
     /* Delete given user from database; returns undefined. */
     let parsed = username.slice(1);
+    const user = await this.fetchUserByUsername(parsed);
+    if (!user) throw new NotFoundError(`No user: ${parsed}`);
     let result = await db.query(`DELETE FROM users WHERE username = $1;`, [parsed]);
-    if (!username) throw new NotFoundError(`No user: ${parsed}`);
   }
 }
 

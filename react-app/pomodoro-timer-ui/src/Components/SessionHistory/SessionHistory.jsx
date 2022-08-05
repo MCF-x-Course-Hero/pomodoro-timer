@@ -1,23 +1,22 @@
 import * as React from "react";
-import Session from "./../Session/Session";
 import apiClient from "../../services/ApiClient";
 import { useAuthContext } from "../../contexts/AuthContext";
 import "./SessionHistory.css";
 
 export default function SessionHistory() {
-    const { authStates, authSetStates } = useAuthContext();
-    const [userSessions, setUserSessions] = React.useState({});
+    const { authStates } = useAuthContext();
+    const [error, setError] = React.useState("");
     const [retrieved, setRetrieved] = React.useState(false);
+    const [userSessions, setUserSessions] = React.useState({});
 
     React.useEffect( () => {
-        setRetrieved(false);
         const fetchSessions = async () => {
-          const { data, error } = await apiClient.getSessions(authStates.user.username);
+          const { data, err } = await apiClient.getSessions(authStates.user.username);
           if (data) {
             setUserSessions({ ...data });
-            setTimeout(() => setRetrieved(true), 10);
+            setTimeout(() => {setRetrieved(true)}, 10);
           }
-          if (error) authSetStates.setError(error);
+          if (err) setError(err);
         };
         fetchSessions();
     }, []);
@@ -37,5 +36,15 @@ export default function SessionHistory() {
                 </div>)
             }))) : null }
         </div>
+    )
+}
+
+function Session({session, id}){
+    let minutes = session.duration / 60;
+    return (
+        <div className="session">
+            <p className="type">{session.session_type} {id + 1}</p>
+            <p className="duration">{minutes} {minutes == 1 ? "minute" : "minutes"}</p>
+        </div>   
     )
 }

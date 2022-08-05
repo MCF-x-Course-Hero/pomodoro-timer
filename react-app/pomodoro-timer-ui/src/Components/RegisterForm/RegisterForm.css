@@ -36,6 +36,7 @@
     width: 55px;
     border-top-left-radius: 30px;
     border-bottom-left-radius: 30px;
+    height: 32px;
 }
 
 .register-form .submit-registration {
@@ -44,7 +45,7 @@
     color: white;
     background: var(--profile-btn-primary);
     border: none;
-    height: 30px;
+    height: 32px;
     margin-bottom: 10px;
     cursor: pointer;
     border-radius: 15px;
@@ -59,17 +60,15 @@
     flex-direction: row;
     justify-content: center;
     border: 1px;
-    /* border-radius: 10px; */
+    height: 32px;
 }
 
 .register-form .form .input-field .form-input {
     height: 30px;
     border: none;
     width: 180px;
-    /* end border */
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
-
 }
 
 .register-form .footer {

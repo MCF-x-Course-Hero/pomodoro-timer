@@ -20,9 +20,8 @@
     color: white;
     opacity: 1;
     display: block;
-    /* transition: 0.25ms; */
-
 }
+
 .side-nav .btn-close{
     position: absolute;
     top :0;
@@ -31,11 +30,9 @@
     margin-left: 50px;
 }
 
-
 #side-menu {
     margin-left: 180px;
 }
-
 
 @media only screen and (max-width: 768px) {
     #side-menu {

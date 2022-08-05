@@ -5,7 +5,7 @@ const { createUserJwt } = require("../utils/tokens");
 const security = require("../middleware/security");
 
 router.get("/", async (req, res, next) => {
-  return res.status(200).json({ auth: "working" });
+  return res.status(204).json({ auth: "working" });
 });
 
 router.post("/login", async (req, res, next) => {
@@ -31,9 +31,9 @@ router.post("/register", async (req, res, next) => {
 router.delete("/::username", async function (req, res, next) {
   try {
     await User.remove(req.params.username);
-    return res.json({ Deleted: req.params.username });
+    return res.status(204).json({ Deleted: req.params.username });
   } catch (err) {
-    return next(err);
+    next(err);
   }
 });
 

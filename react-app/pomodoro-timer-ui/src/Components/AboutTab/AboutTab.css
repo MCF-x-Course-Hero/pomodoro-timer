@@ -1,0 +1,64 @@
+.about-tab {
+  color: white;
+  height: 90%;
+}
+.about-tab h1 {
+  color: white;
+  text-align: center;
+  margin-bottom: 30px;
+  margin: 35px;
+}
+
+.about-pomozone h2 {
+  text-align: left;
+  margin: 35px;
+  margin-bottom: 10px;
+}
+
+.about-pomozone p {
+  text-align: left;
+  margin: 35px;
+  margin-top: 15px;
+}
+
+.why-pomodoro {
+  margin-bottom: auto;
+}
+
+.why-pomodoro h2 {
+  margin: 35px;
+  margin-bottom: 10px;
+}
+
+.why-pomodoro p {
+  margin: 35px;
+  margin-top: 15px;
+}
+
+.our-team {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0px;
+  width: 100%;
+  font-size: 13px;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 20px;
+}
+
+.our-team p {
+  margin: 0px;
+}
+
+.our-team a {
+  color: white;
+  font-style: none;
+  font-style: none;
+  text-decoration: none;
+}
+
+.our-team a:hover {
+  color: lightblue;
+}

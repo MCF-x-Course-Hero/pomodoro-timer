@@ -4,14 +4,6 @@ import CompletedTasks from "../CompletedTasks/CompletedTasks";
 import "./HistoryTab.css";
 // import { TodoHistoryContextProvider } from "../../contexts/TodoHistoryContext";
 
-import {
-  Checkbox,
-  IconButton,
-  List,
-  ListItem,
-  Typography,
-} from "@mui/material";
-
 export default function HistoryTab() {
   const [tasks, setTasks] = React.useState(false);
   return (
@@ -31,7 +23,7 @@ export default function HistoryTab() {
         </button>
       </div>
       {/* <TodoHistoryContextProvider> */}
-      {tasks ? <CompletedTasks /> : <SessionHistory />}
+      {tasks ? <CompletedTasks /> : <SessionHistory itemsPerPage={4} />}
       {/* </TodoHistoryContextProvider> */}
     </div>
   );
