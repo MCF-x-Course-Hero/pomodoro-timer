@@ -13,7 +13,6 @@ export default function SessionHistory() {
         const fetchSessions = async () => {
           const { data, err } = await apiClient.getSessions(authStates.user.username);
           if (data) {
-            console.log(data);
             setUserSessions({ ...data });
             setTimeout(() => {setRetrieved(true)}, 10);
           }
