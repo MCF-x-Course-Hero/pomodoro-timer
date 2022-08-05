@@ -27,6 +27,10 @@ export default function Sidebar() {
             <i className="list-item-icon fa-regular fa-calendar"></i>
             <span className="list-item-text">History</span>
           </li>
+          <li className={classnames("list-item", `${settingsStates.session}-${settingsStates.theme}`, {active : authStates.active === "music"})} id="music" onClick={()=>{authFunctions.handleOnToggle("music"); authSetStates.setActive(authStates.active === "music" ? "" : "music")}}>
+            <i className="list-item-icon fa-solid fa-headphones-simple"></i>
+            <span className="list-item-text">Music</span>
+          </li>
           <li className={classnames("list-item", `${settingsStates.session}-${settingsStates.theme}`, {active : authStates.active === "settings"})} id="settings" onClick={()=>{authFunctions.handleOnToggle("settings"); authSetStates.setActive(authStates.active === "settings" ? "" : "settings")}}>
             <i className="list-item-icon fa-solid fa-gears"></i>
             <span className="list-item-text">Settings</span>
@@ -34,10 +38,6 @@ export default function Sidebar() {
           <li className={classnames("list-item", `${settingsStates.session}-${settingsStates.theme}`, {active : authStates.active === "about"})} id="about" onClick={()=>{authFunctions.handleOnToggle("about"); authSetStates.setActive(authStates.active === "about" ? "" : "about")}}>
             <i className="list-item-icon fa-solid fa-circle-info"></i>
             <span className="list-item-text">About</span>
-          </li>
-          <li className={classnames("list-item", `${settingsStates.session}-${settingsStates.theme}`, {active : authStates.active === "music"})} id="music" onClick={()=>{authFunctions.handleOnToggle("music"); authSetStates.setActive(authStates.active === "music" ? "" : "music")}}>
-            <i className="list-item-icon fa-solid fa-solid fa-music"></i>
-            <span className="list-item-text">Music</span>
           </li>
         </ul>
       </div>

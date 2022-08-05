@@ -13,7 +13,7 @@ export default function MusicTab() {
   
   return (
     <div className="music-tab">
-      <h1>Spotify</h1>
+      <h1>Music</h1>
       <SpotifyPlayer
         uri="spotify:playlist:0vvXsWCC9xrXsKd4FyS8kM"
         size={size}
