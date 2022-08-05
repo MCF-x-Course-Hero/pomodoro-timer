@@ -22,41 +22,22 @@ export default function AboutTab() {
           interval is known as a pomodoro. After the fourth pomodoro session, you go into a long break. 
         </p>
       </div>
-      {/* <div className="app-features">
-        <h2>Features</h2>
-        <ul>
-          <li>
-            Customizable and responsive design - dark mode, selection of color
-            themes, sound notifications, and set custom times
-          </li>
-          <li>Displays the tasks marked as complete/incomplete by the user</li>
-          <li>Provides work/break session history separated by days</li>
-          <li>
-            Option to add task and provides you with the ability to pin,
-            complete and delete your task
-          </li>
-          <li>
-            Includes user profile - can register and login to view and keep
-            track of past and current progress
-          </li>
-        </ul>
-      </div> */}
       <div className="our-team">
         <p>Developed by{" "}
-          <a href="https://github.com/mariamconde">
+          <a href="https://github.com/mariamconde" target="_blank">
             Mariam Conde
           </a>
           {", "}
-          <a href="https://github.com/ShehabMohsen">
+          <a href="https://github.com/ShehabMohsen" target="_blank">
             Shehab Mohsen
           </a>
           {", "}
-          <a href="https://github.com/JoseMario3">
+          <a href="https://github.com/JoseMario3" target="_blank">
             Jose Folgar
           </a>
         </p>
         <p>Check out our{" "}
-          <a href="https://github.com/MCF-x-Course-Hero/pomodoro-timer">
+          <a href="https://github.com/MCF-x-Course-Hero/pomodoro-timer" target="_blank">
             Github Repository
           </a>
         </p>

@@ -82,8 +82,9 @@ class User {
   static async remove(username) {
     /* Delete given user from database; returns undefined. */
     let parsed = username.slice(1);
+    const user = await this.fetchUserByUsername(parsed);
+    if (!user) throw new NotFoundError(`No user: ${parsed}`);
     let result = await db.query(`DELETE FROM users WHERE username = $1;`, [parsed]);
-    if (!username) throw new NotFoundError(`No user: ${parsed}`);
   }
 }
 

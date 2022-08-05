@@ -10,8 +10,7 @@ const jwtFrom = ({ headers }) => {
             return token;
         }
     }
-
-    return null;
+    return undefined;
 };
 
 //create a function to attach the user to the res object
@@ -22,8 +21,8 @@ const extractUserFromJwt = (req, res, next) => {
             res.locals.user = jwt.verify(token, SECRET_KEY);
         }
         return next();
-    } catch (error) {
-        return next(error);
+    } catch (err) {
+        return next(err);
     }
 };
 
@@ -31,12 +30,10 @@ const extractUserFromJwt = (req, res, next) => {
 const requireAuthenticatedUser = (req, res, next) => {
     try {
         const { user } = res.locals;
-        if (!user.username) {
-            throw new UnauthorizedError();
-        }
+        if (!user?.username) throw new UnauthorizedError();
         return next();
-    } catch (error) {
-        return next(error);
+    } catch (err) {
+        return next(err);
     }
 };
 

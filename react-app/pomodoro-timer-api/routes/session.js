@@ -9,6 +9,7 @@ router.get("/::username", async (req, res, next) => {
   try {
       let parsed = req.params.username.slice(1);
       const user = await User.fetchUserByUsername(parsed);
+      
       const sessionHistory = await Session.getUserSessions(user);
       const uniqueDates = {};
       sessionHistory.forEach((session) => {
@@ -18,7 +19,7 @@ router.get("/::username", async (req, res, next) => {
         }
       })
       const data = [];
-      for(let i = Object.keys(uniqueDates).length - 1; i > 0; i--) {
+      for(let i = Object.keys(uniqueDates).length - 1; i >= 0; i--) {
           const dateSessions = sessionHistory.filter((row) => getFormattedDate(row.created_at) == Object.keys(uniqueDates)[i])
           data.push({ session: dateSessions, date: Object.keys(uniqueDates)[i]});
       }
@@ -49,8 +50,5 @@ router.post("/", security.requireAuthenticatedUser, async (req, res, next) => {
     next(error);
   }
 });
-
-
-
 
 module.exports = router;
