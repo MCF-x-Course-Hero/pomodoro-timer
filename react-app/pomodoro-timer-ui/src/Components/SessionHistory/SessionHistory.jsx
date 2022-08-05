@@ -13,6 +13,7 @@ export default function SessionHistory() {
         const fetchSessions = async () => {
           const { data, err } = await apiClient.getSessions(authStates.user.username);
           if (data) {
+            console.log(data);
             setUserSessions({ ...data });
             setTimeout(() => {setRetrieved(true)}, 10);
           }
@@ -44,7 +45,7 @@ function Session({session, id}){
     return (
         <div className="session">
             <p className="type">{session.session_type} {id + 1}</p>
-            <p className="duration">{minutes} minutes</p>
+            <p className="duration">{minutes} {minutes == 1 ? "minute" : "minutes"}</p>
         </div>   
     )
 }
