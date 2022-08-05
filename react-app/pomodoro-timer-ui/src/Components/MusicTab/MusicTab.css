@@ -1,0 +1,16 @@
+.music-tab {
+  color: white;
+  height: 90%;
+  text-align: center;
+}
+
+.music-tab h1 {
+  color: white;
+  text-align: center;
+  margin-bottom: 30px;
+  margin: 35px;
+}
+
+.spotify-player {
+  text-align: center;
+}

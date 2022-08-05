@@ -238,7 +238,7 @@ const submit = (e) => {
           </label>
         </div>
       </div>
-      <div className="music-url" >
+      {/* <div className="music-url" >
         <h4>YouTube Playlist URL</h4>
         <input
           className="playlistLink"
@@ -249,7 +249,7 @@ const submit = (e) => {
           onClick={(e) => e.target.select()}
           onChange={inputChange}
         />
-      </div>
+      </div> */}
     </div>
   );
 }
