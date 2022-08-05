@@ -23,7 +23,7 @@ export default function TodoList() {
     if (authStates.loggedIn) getPendingTasks();
   }, []);
   return (
-    <List className="todo-list">
+    <div className="todo-list">
       {pendingTodos.length > 0
         ? pendingTodos.map((element) => (
           <Todo
@@ -41,6 +41,7 @@ export default function TodoList() {
               removeTodo={removeTodo}
             />
           ))}
-    </List>
+    </div>
+
   );
 }

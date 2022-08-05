@@ -1,83 +1,91 @@
-.todo-tab{
-    text-align: center;
-    display: flex;
-    height: 100%;
-    margin-left:5%;
-    flex-direction: column;
-    /* align-items: flex-start; */
-    color: white;
-
+/* TODO TAB */
+.todo-tab {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  color: white;
+  margin: 0px 20px;
 }
 
-.todo-form-input input{
-        color: white;
-        /* display: inline; */
-        font-weight: bold;
-        font-size: 14px;
-        margin:0.5em
+.todo-tab h3{
+    text-align: center;
+}
+
+/* TODO FORM */
+
+.todo-tab .todo-form{
+    margin: 20px 0px;
+}
+
+.todo-form-input input {
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
 }
 
 .todo-form-input.todo-form-input label {
-    color: white;
+  color: white;
 }
 
-
-.todo-form-input.todo-form-input label+div::before {
-    border-color: white !important;
-    opacity: 0.5 !important;
+.todo-form-input.todo-form-input label + div::before {
+  border-color: white !important;
+  opacity: 0.5 !important;
 }
 
-.todo-form-input.todo-form-input label+div::after {
-    border-color: white;
+.todo-form-input.todo-form-input label + div::after {
+  border-color: white;
 }
 
-.todo-form{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    align-self: flex-start;
-    width: 100%;
-}
+/* TODO LIST */
 
 .todo-list{
-    align-items: flex-start;
-}
-
-.todo-row{
     display: flex;
-    height: 100%;
-    margin-right: 10px;
+    flex-direction:column ;
     justify-content: center;
-    color: white;
-    background-color: #4a3e63;
-    border-radius: 3px;
+}
+
+.todo-tab .todo-list .todo-row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  color: white;
+  background-color: var(--sidebar-timer-btn-bg-primary);
+  border-radius: 5px;
+  width: 100%;
+}
+
+.todo-tab .todo-list .todo-row .todo-left-side {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 
-.todo-left-side{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: flex-start;
-    text-align: left;
-}
-
-.close-btn{
-    margin: 0%;
-    margin-left: auto;
-    margin-right: 3%;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
-}
-
-.pin-btn{
-    cursor:pointer;
-    fill: black;
+.todo-tab .todo-list .todo-row .task-name {
+    text-align:left ;
+    width: 65%;
     padding: 9px;
+    margin: 0%;
+    margin-right: auto;
 }
 
+.todo-tab .todo-list .todo-row .close-btn {
+  margin: 0%;
+  margin-left: auto;
+  margin-right: 3%;
+  align-self: right;
+  justify-self: right;
+  position: absolute;
+  right: 0;
+  padding: 0;
+}
+
+.pin-btn {
+  cursor: pointer;
+  background-color: black;
+}
 
 li {
-    text-align:initial
+  text-align: initial;
 }
