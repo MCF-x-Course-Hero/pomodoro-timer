@@ -1,147 +1,255 @@
 import * as React from "react";
 import { useSettingsContext } from "../../contexts/SettingsContext";
-import Toggle from 'react-toggle';
+import Toggle from "react-toggle";
 import "./SettingsTab.css";
+import { useState, useEffect } from "react";
 
 export default function SettingsTab() {
-    const { settingsStates, settingsSetStates, settingsFunctions } = useSettingsContext();
+  const { settingsStates, settingsSetStates, settingsFunctions } =
+    useSettingsContext();
 
-    const handleOnInputChange = (e) => {
-        if (e.target.value >= 0) {
-            settingsSetStates.setTimeForm((f) => ({ ...f, [e.target.name]: e.target.value}));
-        }
-    }
+  const [pref, setPref] =  useState({playlistId: ""})
+  const [saved, setSaved] = useState(true);
 
-    function colorPalette(color) {
-        if(settingsStates.session === "pomozone") {
-            settingsSetStates.setPomozoneTheme(color);
-            settingsSetStates.setTheme(color);
-            if(settingsStates.darkToggle) {
-                settingsSetStates.setDarkToggle(!settingsStates.darkToggle);
-                settingsSetStates.setShortBreakTheme("sbdefault");
-                settingsSetStates.setLongBreakTheme("lbdefault");
-            }
-        } else if(settingsStates.session === "short-break") {
-            settingsSetStates.setShortBreakTheme(color);
-            settingsSetStates.setTheme(color);
-            if(settingsStates.darkToggle) {
-                settingsSetStates.setDarkToggle(!settingsStates.darkToggle);
-                settingsSetStates.setPomozoneTheme("pdefault");
-                settingsSetStates.setLongBreakTheme("lbdefault");
-            }
-        } else if(settingsStates.session === "long-break") {
-            settingsSetStates.setLongBreakTheme(color);
-            settingsSetStates.setTheme(color);
-            if(settingsStates.darkToggle) {
-                settingsSetStates.setDarkToggle(!settingsStates.darkToggle);
-                settingsSetStates.setPomozoneTheme("pdefault");
-                settingsSetStates.setShortBreakTheme("sbdefault");
-            }
-        }
+  useEffect(()=>{
+    setPref(JSON.parse(localStorage.getItem("preferences")));;
+}, [])
+
+const inputChange = (e) => {
+    setSaved(false);
+    setPref(({...pref, [e.target.name]: e.target.value}));
+}
+
+const checkChange = e => {
+    setSaved(false);
+    setPref(({...pref, [e.currentTarget.name]: e.currentTarget.checked}))
+}
+
+
+
+const submit = (e) => {
+    e.preventDefault();
+
+     // Link Stripping
+     var link = pref.playlistId.split("=");
+     const playlistId = link.pop();
+     setPref(({...pref, playlistId: playlistId}));
+
+     // SavingLocal Storage 
+     var local = JSON.parse(localStorage.getItem("preferences"));
+     local.playlistId = playlistId;
+     local.continue = pref.continue;
+     local.shuffle = pref.shuffle;
+     localStorage.setItem("preferences", JSON.stringify(local));
+
+}
+    
+
+  const handleOnInputChange = (e) => {
+    if (e.target.value >= 0) {
+      settingsSetStates.setTimeForm((f) => ({
+        ...f,
+        [e.target.name]: e.target.value,
+      }));
     }
-    return(
-        <div className="settings-tab">
-            <h2>Settings</h2>
-            <div className="set-time">
-                <h4>Set Times</h4>
-                <div className="time-forms">
-                    <ul className="input-names">
-                        <li>Focus Time {"(in min):"}</li>
-                        <li>Short Break Time {"(in min):"}</li>
-                        <li>Long Break Time {"(in min):"}</li>
-                    </ul>
-                    <div className="inputs">
-                        <div className="input-field">
-                            <input
-                                className="input-form"
-                                type="number"
-                                name="focusTime"
-                                placeholder="1"
-                                value={settingsStates.timeForm.focusTime}
-                                onChange={handleOnInputChange}
-                                onKeyDown={ (evt) => {
-                                    evt.key === 'e' && evt.preventDefault();
-                                    evt.key === '-' && evt.preventDefault();
-                                    evt.key === '.' && evt.preventDefault();
-                                }}
-                                min="0"
-                            />
-                        </div>
-                        <div className="input-field">
-                            <input
-                                className="input-form"
-                                type="number"
-                                name="shortBreakTime"
-                                placeholder="80"
-                                value={settingsStates.timeForm.shortBreakTime}
-                                onChange={handleOnInputChange}
-                                onKeyDown={ (evt) => {
-                                    evt.key === 'e' && evt.preventDefault();
-                                    evt.key === '-' && evt.preventDefault();
-                                    evt.key === '.' && evt.preventDefault();
-                                }}
-                                min="0"
-                            />
-                        </div>
-                        <div className="input-field">
-                            <input
-                                className="input-form"
-                                type="number"
-                                name="longBreakTime"
-                                placeholder="25"
-                                value={settingsStates.timeForm.longBreakTime}
-                                onChange={handleOnInputChange}
-                                onKeyDown={ (evt) => {
-                                    evt.key === 'e' && evt.preventDefault();
-                                    evt.key === '-' && evt.preventDefault();
-                                    evt.key === '.' && evt.preventDefault();
-                                }}
-                                min="0"
-                            />
-                        </div>
-                    </div>
-                </div>
+  };
+
+  function colorPalette(color) {
+    if (settingsStates.session === "pomozone") {
+      settingsSetStates.setPomozoneTheme(color);
+      settingsSetStates.setTheme(color);
+      if (settingsStates.darkToggle) {
+        settingsSetStates.setDarkToggle(!settingsStates.darkToggle);
+        settingsSetStates.setShortBreakTheme("sbdefault");
+        settingsSetStates.setLongBreakTheme("lbdefault");
+      }
+    } else if (settingsStates.session === "short-break") {
+      settingsSetStates.setShortBreakTheme(color);
+      settingsSetStates.setTheme(color);
+      if (settingsStates.darkToggle) {
+        settingsSetStates.setDarkToggle(!settingsStates.darkToggle);
+        settingsSetStates.setPomozoneTheme("pdefault");
+        settingsSetStates.setLongBreakTheme("lbdefault");
+      }
+    } else if (settingsStates.session === "long-break") {
+      settingsSetStates.setLongBreakTheme(color);
+      settingsSetStates.setTheme(color);
+      if (settingsStates.darkToggle) {
+        settingsSetStates.setDarkToggle(!settingsStates.darkToggle);
+        settingsSetStates.setPomozoneTheme("pdefault");
+        settingsSetStates.setShortBreakTheme("sbdefault");
+      }
+    }
+  }
+  return (
+    <div className="settings-tab">
+      <h2>Settings</h2>
+      <div className="set-time">
+        <h4>Set Times</h4>
+        <div className="time-forms">
+          <ul className="input-names">
+            <li>Focus Time {"(in min):"}</li>
+            <li>Short Break Time {"(in min):"}</li>
+            <li>Long Break Time {"(in min):"}</li>
+          </ul>
+          <div className="inputs">
+            <div className="input-field">
+              <input
+                className="input-form"
+                type="number"
+                name="focusTime"
+                placeholder="1"
+                value={settingsStates.timeForm.focusTime}
+                onChange={handleOnInputChange}
+                onKeyDown={(evt) => {
+                  evt.key === "e" && evt.preventDefault();
+                  evt.key === "-" && evt.preventDefault();
+                  evt.key === "." && evt.preventDefault();
+                }}
+                min="0"
+              />
             </div>
-            <div className="color-themes">
-                <h4>Color Themes</h4>
-                <div className="color-palette">
-                    <span className="dot pdefault" onClick={() => {colorPalette("pdefault")}}></span>
-                    <span className="dot sbdefault" onClick={() => {colorPalette("sbdefault")}}></span>
-                    <span className="dot lbdefault" onClick={() => {colorPalette("lbdefault")}}></span>
-                    <span className="dot turquoise" onClick={() => {colorPalette("turquoise")}}></span>
-                    <span className="dot teal" onClick={() => {colorPalette("teal")}}></span>
-                    <span className="dot green" onClick={() => {colorPalette("green")}}></span>
-                    <span className="dot light-green" onClick={() => {colorPalette("light-green")}}></span>
-                    <span className="dot pink" onClick={() => {colorPalette("pink")}}></span>
-                    <span className="dot red" onClick={() => {colorPalette("red")}}></span>
-                    <span className="dot orange" onClick={() => {colorPalette("orange")}}></span>
-                </div>
+            <div className="input-field">
+              <input
+                className="input-form"
+                type="number"
+                name="shortBreakTime"
+                placeholder="80"
+                value={settingsStates.timeForm.shortBreakTime}
+                onChange={handleOnInputChange}
+                onKeyDown={(evt) => {
+                  evt.key === "e" && evt.preventDefault();
+                  evt.key === "-" && evt.preventDefault();
+                  evt.key === "." && evt.preventDefault();
+                }}
+                min="0"
+              />
             </div>
-            <h4 className="toggle-header">Toggle Options</h4>
-            <div className="slider-area">                
-                <div className="slider-names">
-                    <ul>
-                        <li>Dark Mode</li>
-                        <li>Sound Notifications</li>
-                    </ul>
-                </div>
-                <div className="sliders">
-                    <label>
-                        <Toggle
-                            checked={settingsStates.darkToggle}
-                            onChange={() => { settingsFunctions.darkModeToggle() }}
-                            icons={false}
-                        />
-                    </label>
-                    <label>
-                        <Toggle
-                            defaultChecked={settingsStates.notifToggle}
-                            onChange={() => {settingsSetStates.setNotifToggle(!settingsStates.notifToggle)}}
-                            icons={false}
-                        />
-                    </label>
-                </div>
+            <div className="input-field">
+              <input
+                className="input-form"
+                type="number"
+                name="longBreakTime"
+                placeholder="25"
+                value={settingsStates.timeForm.longBreakTime}
+                onChange={handleOnInputChange}
+                onKeyDown={(evt) => {
+                  evt.key === "e" && evt.preventDefault();
+                  evt.key === "-" && evt.preventDefault();
+                  evt.key === "." && evt.preventDefault();
+                }}
+                min="0"
+              />
             </div>
+          </div>
         </div>
-    )
+      </div>
+      <div className="color-themes">
+        <h4>Color Themes</h4>
+        <div className="color-palette">
+          <span
+            className="dot pdefault"
+            onClick={() => {
+              colorPalette("pdefault");
+            }}
+          ></span>
+          <span
+            className="dot sbdefault"
+            onClick={() => {
+              colorPalette("sbdefault");
+            }}
+          ></span>
+          <span
+            className="dot lbdefault"
+            onClick={() => {
+              colorPalette("lbdefault");
+            }}
+          ></span>
+          <span
+            className="dot turquoise"
+            onClick={() => {
+              colorPalette("turquoise");
+            }}
+          ></span>
+          <span
+            className="dot teal"
+            onClick={() => {
+              colorPalette("teal");
+            }}
+          ></span>
+          <span
+            className="dot green"
+            onClick={() => {
+              colorPalette("green");
+            }}
+          ></span>
+          <span
+            className="dot light-green"
+            onClick={() => {
+              colorPalette("light-green");
+            }}
+          ></span>
+          <span
+            className="dot pink"
+            onClick={() => {
+              colorPalette("pink");
+            }}
+          ></span>
+          <span
+            className="dot red"
+            onClick={() => {
+              colorPalette("red");
+            }}
+          ></span>
+          <span
+            className="dot orange"
+            onClick={() => {
+              colorPalette("orange");
+            }}
+          ></span>
+        </div>
+      </div>
+      <h4 className="toggle-header">Toggle Options</h4>
+      <div className="slider-area">
+        <div className="slider-names">
+          <ul>
+            <li>Dark Mode</li>
+            <li>Sound Notifications</li>
+          </ul>
+        </div>
+        <div className="sliders">
+          <label>
+            <Toggle
+              checked={settingsStates.darkToggle}
+              onChange={() => {
+                settingsFunctions.darkModeToggle();
+              }}
+              icons={false}
+            />
+          </label>
+          <label>
+            <Toggle
+              defaultChecked={settingsStates.notifToggle}
+              onChange={() => {
+                settingsSetStates.setNotifToggle(!settingsStates.notifToggle);
+              }}
+              icons={false}
+            />
+          </label>
+        </div>
+      </div>
+      <div className="music-url" >
+        <h4>YouTube Playlist URL</h4>
+        <input
+          className="playlistLink"
+          name="playlistId"
+          type="text"
+          placeholder="URL"
+          //value={pref.playlistId}
+          onClick={(e) => e.target.select()}
+          onChange={inputChange}
+        />
+      </div>
+    </div>
+  );
 }
