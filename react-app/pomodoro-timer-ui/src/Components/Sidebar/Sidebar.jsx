@@ -28,7 +28,7 @@ export default function Sidebar() {
             <span className="list-item-text">History</span>
           </li>
           <li className={classnames("list-item", `${settingsStates.session}-${settingsStates.theme}`, {active : authStates.active === "music"})} id="music" onClick={()=>{authFunctions.handleOnToggle("music"); authSetStates.setActive(authStates.active === "music" ? "" : "music")}}>
-            <i className="list-item-icon fa-solid fa-headphones-simple"></i>
+            <i className="list-item-icon fa-solid fa-headphones"></i>
             <span className="list-item-text">Music</span>
           </li>
           <li className={classnames("list-item", `${settingsStates.session}-${settingsStates.theme}`, {active : authStates.active === "settings"})} id="settings" onClick={()=>{authFunctions.handleOnToggle("settings"); authSetStates.setActive(authStates.active === "settings" ? "" : "settings")}}>
