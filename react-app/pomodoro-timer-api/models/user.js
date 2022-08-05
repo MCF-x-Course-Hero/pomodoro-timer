@@ -57,6 +57,9 @@ class User {
     const query = `SELECT * FROM users WHERE username = $1`;
     const result = await db.query(query, [username]);
     const user = result.rows[0];
+
+    // TODO: check in all places if the user has not been found in db except for register endpoint.
+    // if (!user) throw new BadRequestError("user not found")
     return user;
   }
 

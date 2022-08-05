@@ -23,7 +23,7 @@ export default function TodoList() {
     if (authStates.loggedIn) getPendingTasks();
   }, []);
   return (
-    <List>
+    <List className="todo-list">
       {pendingTodos.length > 0
         ? pendingTodos.map((element) => (
           <Todo
