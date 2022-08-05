@@ -86,12 +86,11 @@ export default function ({ todo, toggleComplete, removeTodo }) {
 
   return (
     <List style={{ display: "flex" }}>
-      {/* <div className="todo-row"> */}
+      <div className="todo-row">
       <div className="todo-left-side">
-        <div className="pin-btn">
+        <IconButton className="pin-btn" onClick={handlePinButton}>
           <svg
             id={`${todo.id}`}
-            onClick={handlePinButton}
             xmlns="http://www.w3.org/2000/svg"
             width="28"
             height="28"
@@ -107,7 +106,7 @@ export default function ({ todo, toggleComplete, removeTodo }) {
             <line x1="9" y1="15" x2="4.5" y2="19.5" />
             <line x1="14.5" y1="4" x2="20" y2="9.5" />
           </svg>
-        </div>
+        </IconButton>
         <Checkbox
           checked={todo.is_completed}
           type="checkbox"
@@ -118,7 +117,9 @@ export default function ({ todo, toggleComplete, removeTodo }) {
         />
         <Typography
           variant="body1"
+          className="task-name"
           style={{
+
             textDecoration: todo.is_completed ? "line-through" : null,
           }}
         >
@@ -145,7 +146,7 @@ export default function ({ todo, toggleComplete, removeTodo }) {
           </svg>
         </IconButton>
       </div>
-      {/* </div> */}
+      </div>
     </List>
   );
 }

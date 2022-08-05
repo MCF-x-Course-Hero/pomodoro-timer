@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useTodoContext } from "../../contexts/TodoContext";
-
+import "./TodoTab.css"
 /* in the terminal enter "npm install uuid". 
 This will give a unique id to each todo we add */
 import { v4 as uuidv4 } from "uuid";
@@ -30,8 +30,8 @@ export default function TodoForm() {
     }
   }
   return (
-    <div>
-      <form className="todo-form" onSubmit={handleOnSubmitTask}>
+    <div className="todo-form">
+      <form onSubmit={handleOnSubmitTask}>
         <TextField
           variant="filled"
           label="Todo"
@@ -49,7 +49,7 @@ export default function TodoForm() {
           type="submit"
           style={{
             color: "white",
-            padding:"20px 20px"
+            padding:"13px 13px"
           }}
         >
           SUBMIT
