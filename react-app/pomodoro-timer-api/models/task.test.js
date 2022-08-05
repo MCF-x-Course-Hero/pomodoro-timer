@@ -13,14 +13,16 @@ beforeEach(commonBeforeEach);
 afterEach(commonAfterEach);
 afterAll(commonAfterAll);
 
+const userInfo = {
+    username: "tonyhawk",
+    password: "proskater2001"
+}
+
 describe("Task Models", () => {
     /************* Create Task */
     describe("Test Create Task", () => {
         test("User can successfully create a task to send to the database as pending", async () => {
-            const user = await User.login({
-                username: "tonyhawk",
-                password: "proskater2001"
-            });
+            const user = await User.login(userInfo);
             const newTask = {
                 task: "writing tests",
                 is_completed: false
@@ -35,10 +37,7 @@ describe("Task Models", () => {
         })
 
         test("Throws an error when proper attributes aren't provided", async () => {
-            const user = await User.login({
-                username: "tonyhawk",
-                password: "proskater2001"
-            });
+            const user = await User.login(userInfo);
             const newTask = {
                 task: "writing tests",
                 // is_completed: false
@@ -54,10 +53,7 @@ describe("Task Models", () => {
     /************* List Pending Tasks */
     describe("Test List Pending Task", () => {
         test("User can successfully retrieve a list of all their incomplete tasks", async () => {
-            const user = await User.login({
-                username: "tonyhawk",
-                password: "proskater2001"
-            });
+            const user = await User.login(userInfo);
             const newTask = {
                 task: "writing tests",
                 is_completed: false
@@ -78,10 +74,7 @@ describe("Task Models", () => {
         })
 
         test("User retrieves no task if all tasks are complete", async () => {
-            const user = await User.login({
-                username: "tonyhawk",
-                password: "proskater2001"
-            });
+            const user = await User.login(userInfo);
             const newTask = {
                 task: "writing tests",
                 is_completed: true
@@ -105,10 +98,7 @@ describe("Task Models", () => {
     /************* Update Task */
     describe("Test Update Task", () => {
         test("User can successfully update a task from complete to pending", async () => {
-            const user = await User.login({
-                username: "tonyhawk",
-                password: "proskater2001"
-            });
+            const user = await User.login(userInfo);
             const newTask = {
                 task: "writing tests",
                 is_completed: true
@@ -122,10 +112,7 @@ describe("Task Models", () => {
         })
 
         test("User can successfully update a task from pending to complete", async () => {
-            const user = await User.login({
-                username: "tonyhawk",
-                password: "proskater2001"
-            });
+            const user = await User.login(userInfo);
             const newTask = {
                 task: "writing tests",
                 is_completed: false
@@ -139,10 +126,7 @@ describe("Task Models", () => {
         })
 
         test("Throws an error when proper attributes aren't provided", async () => {
-            const user = await User.login({
-                username: "tonyhawk",
-                password: "proskater2001"
-            });
+            const user = await User.login(userInfo);
             const newTask = {
                 task: "writing tests",
                 is_completed: false
@@ -158,10 +142,7 @@ describe("Task Models", () => {
     /************* Get Completed Tasks */
     describe("Test Get Completed Tasks", () => {
         test("User can successfully retrieve a list of all their completed tasks", async () => {
-            const user = await User.login({
-                username: "tonyhawk",
-                password: "proskater2001"
-            });
+            const user = await User.login(userInfo);
             const newTask = {
                 task: "writing tests",
                 is_completed: true
@@ -182,10 +163,7 @@ describe("Task Models", () => {
         })
 
         test("User retrieves no task if all tasks are incomplete", async () => {
-            const user = await User.login({
-                username: "tonyhawk",
-                password: "proskater2001"
-            });
+            const user = await User.login(userInfo);
             const newTask = {
                 task: "writing tests",
                 is_completed: false
@@ -209,10 +187,7 @@ describe("Task Models", () => {
     /************* Remove Task */
     describe("Test Remove Task", () => {
         test("User can successfully remove a task from the database", async () => {
-            const user = await User.login({
-                username: "tonyhawk",
-                password: "proskater2001"
-            });
+            const user = await User.login(userInfo);
             const newTask = {
                 task: "writing tests",
                 is_completed: false

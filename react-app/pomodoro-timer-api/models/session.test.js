@@ -5,8 +5,7 @@ const {
     commonBeforeAll,
     commonBeforeEach,
     commonAfterEach,
-    commonAfterAll,
-    testTokens
+    commonAfterAll
 } = require("../tests/common");
 
 beforeAll(commonBeforeAll);
@@ -14,28 +13,38 @@ beforeEach(commonBeforeEach);
 afterEach(commonAfterEach);
 afterAll(commonAfterAll);
 
+const newSession = {
+    duration: 900,
+    session_type: "pomozone"
+}
+
+const newSession2 = {
+    duration: 800,
+    session_type: "pomozone"
+}
+
+const newSession3 = {
+    duration: 300,
+    session_type: "pomozone"
+}
+
+const userInfo = {
+    username: "lebronjames",
+    password: "password"
+}
+
 describe("Session Models", () => {
     /***************** Get Total */
     describe("Test get total", () => {
         test("User can successfully get the total duration of their completed sessions", async () => {
-            const user = await User.login({
-                username: "lebronjames",
-                password: "password"
-            })
-            const newSession = {
-                duration: 900,
-                session_type: "pomozone"
-            }
+            const user = await User.login(userInfo)
             const session = await Session.addSession(newSession, user);
             const total = await Session.getTotal(user);
             expect(total.duration).toEqual("900");
         })
 
         test("User gets no duration time if they do not have any sessions completed", async () => {
-            const user = await User.login({
-                username: "lebronjames",
-                password: "password"
-            })
+            const user = await User.login(userInfo);
             const total = await Session.getTotal(user);
             expect(total.duration).toEqual(null);
         })
@@ -52,34 +61,19 @@ describe("Session Models", () => {
     /***************** Get User Sessions */
     describe("Test get user sessions", () => {
         test("User can successfully retrieve their completed sessions", async () => {
-            const user = await User.login({
-                username: "lebronjames",
-                password: "password"
-            })
-            const newSession = {
-                duration: 900,
-                session_type: "pomozone"
-            }
+            const user = await User.login(userInfo);
             const session1 = await Session.addSession(newSession, user);
-            const newSession2 = {
-                duration: 800,
-                session_type: "pomozone"
-            }
             const session2 = await Session.addSession(newSession2, user);
-            const newSession3 = {
-                duration: 300,
-                session_type: "pomozone"
-            }
             const session3 = await Session.addSession(newSession3, user);
             const allSessions = await Session.getUserSessions(user);
             expect(allSessions.length).toEqual(3);
         })
 
-        test("Throws unauthorized error if no user is provided", async () => {
+        test("Throws not found error if no user is provided", async () => {
             try {
-                const total = await Session.getTotal();
+                const total = await Session.getUserSessions();
             } catch (err) {
-                expect(err instanceof UnauthorizedError).toBeTruthy();
+                expect(err instanceof NotFoundError).toBeTruthy();
             }
         })
     })
@@ -87,14 +81,7 @@ describe("Session Models", () => {
     /***************** addSession */
     describe("Test addSession", () => {
         test("Can add new session successfully with valid params", async () => {
-            const user = await User.login({
-                username: "lebronjames",
-                password: "password"
-            });
-            const newSession = {
-                duration: 900,
-                session_type: "pomozone"
-            };
+            const user = await User.login(userInfo);
             const session = await Session.addSession(newSession, user);
             expect(session).toEqual({
                 id: expect.any(Number),
@@ -106,16 +93,13 @@ describe("Session Models", () => {
 
         test("Throws an error when proper attributes aren't provided", async () => {
             expect.assertions(1);
-            const user = await User.login({
-                username: "lebronjames",
-                password: "password"
-            });
-            const newSession = {
+            const user = await User.login(userInfo);
+            const newSessionWrong = {
                 duration: 900,
                 // session_type: "pomozone"
             };
             try {
-                await Session.addSession(newSession, user);
+                await Session.addSession(newSessionWrong, user);
             } catch (err) {
                 expect(err instanceof BadRequestError).toBeTruthy();
             }

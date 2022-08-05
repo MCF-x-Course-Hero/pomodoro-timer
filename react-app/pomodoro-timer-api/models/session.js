@@ -1,4 +1,4 @@
-const {BadRequestError, UnauthorizedError} =  require("../utils/errors")
+const {BadRequestError, UnauthorizedError, NotFoundError} =  require("../utils/errors")
 const db = require("../db");
 
 class Session {
@@ -14,7 +14,7 @@ class Session {
   static async getUserSessions(userInfo){
     //if user exists, then we can use their id to query sessions associated with them
     if(!userInfo) {
-      throw new UnauthorizedError("No user info was provided");
+      throw new NotFoundError("No user info was provided");
     }
     const result = await db.query(`SELECT * FROM userSessions WHERE user_id = $1;`, [userInfo.id]);
     return result.rows;

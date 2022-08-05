@@ -6,7 +6,6 @@ const {
     commonBeforeEach,
     commonAfterEach,
     commonAfterAll,
-    testSessionIds,
     testTokens
 } = require("../tests/common");
 
@@ -25,7 +24,7 @@ describe("Session Routes", () => {
 
         test("Throws not found error when user does not exist", async () => {
             const res = await request(app).get(`/session/::nonuser`);
-            expect(res.statusCode).toEqual(401);
+            expect(res.statusCode).toEqual(404);
         })
     })
 
