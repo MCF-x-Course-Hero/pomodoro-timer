@@ -85,11 +85,11 @@ export default function ({ todo, toggleComplete, removeTodo }) {
 
 
   return (
-    <List style={{ display: "flex" }}>
+    <List style={{ display: "flex", alignItems:"flex-start"}}>
       {/* <div className="todo-row"> */}
       <div className="todo-left-side">
         <div className="pin-btn">
-          <svg
+            <svg
             id={`${todo.id}`}
             onClick={handlePinButton}
             xmlns="http://www.w3.org/2000/svg"
@@ -120,6 +120,7 @@ export default function ({ todo, toggleComplete, removeTodo }) {
           variant="body1"
           style={{
             textDecoration: todo.is_completed ? "line-through" : null,
+            padding:"9px"
           }}
         >
           {todo.task}
