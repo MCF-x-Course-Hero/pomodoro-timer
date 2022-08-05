@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import { useAuthContext } from "./AuthContext";
 import apiClient from "../Services/apiClient";
 
-
 const TODOS_LOCAL_STORAGE_KEY = "react-todo-list";
 const PINNED_TODO_LOCAL_STORAGE_KEY = "pinned-todo";
 
@@ -28,9 +27,7 @@ export const TodoContextProvider = ({ children }) => {
     task: "",
     is_completed: false,
   });
-  const [isActivePin, setIsActivePin] = useState(false)
-
-  
+  const [isActivePin, setIsActivePin] = useState(false);
 
   async function addTodo(todo) {
     if (authStates.loggedIn) {
@@ -46,7 +43,7 @@ export const TodoContextProvider = ({ children }) => {
   async function removeTodo(todo) {
     // filter method will return all todos except for the one matches with the id given to update
     setTodoList(todoList.filter((element) => element.id !== todo.id)); //deleting from frontend
-    await apiClient.removeTask(todo.id); //deleting from backend
+    if (authStates.loggedIn) await apiClient.removeTask(todo.id); //deleting from backend
   }
 
   /* Toggle complete does the following when the checkbox button is clicked:
@@ -57,9 +54,19 @@ export const TodoContextProvider = ({ children }) => {
   */
   const { authStates } = useAuthContext();
   function toggleComplete(todo) {
-    if (authStates.loggedIn){
-      apiClient.updateTask(todo)
+    if (authStates.loggedIn) {
+      apiClient.updateTask(todo);
     }
+    if (todo.id == pinnedTodo.id) {
+      setPinnedTodo({
+        id: "",
+        task: "",
+        is_completed: false,
+      });
+      document.getElementById(`${todo.id}`).style.fill = "none";
+      setIsActivePin(false)
+    }
+
     setTodoList(
       todoList.map((element) => {
         if (todo.id == element.id) {
@@ -67,7 +74,6 @@ export const TodoContextProvider = ({ children }) => {
             ...element,
             is_completed: !element.is_completed,
           };
-          
         }
         return element;
       })
@@ -82,14 +88,14 @@ export const TodoContextProvider = ({ children }) => {
       localStorage.getItem(TODOS_LOCAL_STORAGE_KEY)
     );
     if (storageTodos) setTodoList(storageTodos);
-    
+
     const storagePinnedTodo = JSON.parse(
       localStorage.getItem(PINNED_TODO_LOCAL_STORAGE_KEY)
     );
-    
+
     if (storagePinnedTodo?.task) {
       setPinnedTodo(storagePinnedTodo);
-      setIsActivePin(true)
+      setIsActivePin(true);
     }
     setIsLoading(false);
   }, []);
@@ -104,18 +110,22 @@ export const TodoContextProvider = ({ children }) => {
 
   useEffect(() => {
     if (!isLoading)
-    // document.getElementById(`${pinnedTodo.id}`).style.fill="black"
       localStorage.setItem(
         PINNED_TODO_LOCAL_STORAGE_KEY,
         JSON.stringify(pinnedTodo)
       );
   }, [pinnedTodo]);
 
-
-
   const todoVariables = { todo, todoList, pinnedTodo, isActivePin };
-  const todoFunctions = {setTodo, setTodoList, addTodo, removeTodo, toggleComplete, setPinnedTodo, setIsActivePin};
-  
+  const todoFunctions = {
+    setTodo,
+    setTodoList,
+    addTodo,
+    removeTodo,
+    toggleComplete,
+    setPinnedTodo,
+    setIsActivePin,
+  };
 
   return (
     <TodoContext.Provider value={{ todoVariables, todoFunctions }}>

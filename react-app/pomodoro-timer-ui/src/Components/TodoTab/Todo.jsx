@@ -38,8 +38,21 @@ export default function ({ todo, toggleComplete, removeTodo }) {
       setIsActivePin(false);
     }
   }
+
+
+ 
   function handlePinButton() {
     // isActivePin is a boolean value that denotes if there's a todo pinned.
+    if (todo.is_completed){
+      if (isActivePin) {
+        document.getElementById(`${pinnedTodo.id}`).style.fill = "none";
+      }
+      document.getElementById(`${todo.id}`).style.fill = "white";
+      toggleComplete(todo)
+      setPinnedTodo(todo)
+      setIsActivePin(true)
+      return
+    }
 
     if (!isActivePin) {
       //when there's no pinned todo at the moment
@@ -65,6 +78,7 @@ export default function ({ todo, toggleComplete, removeTodo }) {
     }
   }
 
+
   return (
     <List style={{ display: "flex", alignItems:"flex-start"}}>
       {/* <div className="todo-row"> */}
@@ -79,7 +93,7 @@ export default function ({ todo, toggleComplete, removeTodo }) {
             viewBox="0 0 24 24"
             strokeWidth="1.5"
             stroke="white"
-            fill={todo.id == pinnedTodo.id ? "black" : "none"}
+            fill={todo.id == pinnedTodo.id ? "white" : "none"}
             strokeLinecap="round"
             strokeLinejoin="round"
           >

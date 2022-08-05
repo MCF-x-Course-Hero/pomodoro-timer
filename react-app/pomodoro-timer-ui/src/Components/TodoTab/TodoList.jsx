@@ -41,15 +41,6 @@ export default function TodoList() {
               removeTodo={removeTodo}
             />
           ))}
-
-      {/* {todoList.map((element) => (
-        <Todo
-          key={element.id}
-          todo={element}
-          toggleComplete={toggleComplete}
-          removeTodo={removeTodo}
-        />
-      ))} */}
     </List>
   );
 }

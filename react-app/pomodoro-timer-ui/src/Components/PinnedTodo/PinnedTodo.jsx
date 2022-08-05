@@ -8,24 +8,22 @@ export default function PinnedTodo() {
   const pinnedTodo = todoVariables.pinnedTodo;
   const setPinnedTodo = todoFunctions.setPinnedTodo
   const setIsActivePin = todoFunctions.setIsActivePin
-
-  const [activeTodo, setActiveTodo] = useState({});
+  const todoList = todoVariables.todoList;
+  const isActivePin = todoVariables.isActivePin;
 
     function handlePinButton(){
-        setPinnedTodo({
-            id: "",
-            task: "",
-            is_completed: false,
-          })
-          document.getElementById(`${activeTodo.id}`).style.fill = "none"
-          setIsActivePin(false)
+        
+      document.getElementById(`${pinnedTodo.id}`).style.fill = "none";
+      setPinnedTodo({
+        id: "",
+        task: "",
+        is_completed: false,
+      });
+      setIsActivePin(false);
     }
 
-  useEffect(() => {
-    setActiveTodo(pinnedTodo);
-  }, [pinnedTodo]);
 
-  const todoList = todoVariables.todoList;
+ 
 
   return (
       <div className={pinnedTodo.task ? "pinned-task-content" : ""}>
@@ -47,7 +45,7 @@ export default function PinnedTodo() {
           <line x1="9" y1="15" x2="4.5" y2="19.5" />
           <line x1="14.5" y1="4" x2="20" y2="9.5" />
         </svg> : ""}
-        <p className="pinned-task">{pinnedTodo.task ? activeTodo.task : ""}</p>
+        <p className="pinned-task">{pinnedTodo.task ? pinnedTodo.task : ""}</p>
     </div>
   );
 }

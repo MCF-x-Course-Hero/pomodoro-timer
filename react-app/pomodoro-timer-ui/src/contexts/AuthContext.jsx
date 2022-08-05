@@ -125,7 +125,6 @@ export const AuthContextProvider = ({ children }) => {
 
   React.useEffect(() => {
     const token = localStorage.getItem("pomozone_token");
-    console.log(token);
     if (token !== "null" && token !== null) {
       apiClient.setToken(token);
       fetchUserFromToken();
