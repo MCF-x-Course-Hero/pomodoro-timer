@@ -12,14 +12,14 @@ export default function PinnedTodo() {
   const isActivePin = todoVariables.isActivePin;
 
     function handlePinButton(){
-        setPinnedTodo({
-            id: "",
-            task: "",
-            is_completed: false,
-          })
-
-          if (isActivePin) document.getElementById(`${setPinnedTodo.id}`).style.fill = "none"
-          setIsActivePin(false)
+        
+      document.getElementById(`${pinnedTodo.id}`).style.fill = "none";
+      setPinnedTodo({
+        id: "",
+        task: "",
+        is_completed: false,
+      });
+      setIsActivePin(false);
     }
 
 

@@ -38,6 +38,9 @@ export default function ({ todo, toggleComplete, removeTodo }) {
       setIsActivePin(false);
     }
   }
+
+
+  console.log("1", pinnedTodo.id)
   function handlePinButton() {
     // isActivePin is a boolean value that denotes if there's a todo pinned.
     if (todo.is_completed){
