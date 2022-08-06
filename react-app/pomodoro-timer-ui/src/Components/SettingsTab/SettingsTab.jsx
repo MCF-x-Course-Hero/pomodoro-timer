@@ -1,10 +1,12 @@
 import * as React from "react";
 import { useSettingsContext } from "../../contexts/SettingsContext";
+import { useAuthContext } from "../../contexts/AuthContext";
 import Toggle from 'react-toggle';
 import "./SettingsTab.css";
 
 export default function SettingsTab() {
     const { settingsStates, settingsSetStates, settingsFunctions } = useSettingsContext();
+    const { authStates } = useAuthContext();
 
     const handleOnInputChange = (e) => {
         if (e.target.value >= 0) {
@@ -142,10 +144,11 @@ export default function SettingsTab() {
                     </label>
                 </div>
             </div>
-            <div className="update-settings">
-                <button onClick={settingsFunctions.updateDefaultSettings}>Revert to Default</button>
-                <button onClick={settingsFunctions.updateUserSettings}>Apply Changes</button>
-            </div>
+            { authStates.loggedIn ? 
+                (<div className="update-settings">
+                    <button onClick={settingsFunctions.updateDefaultSettings}>Revert to Default</button>
+                    <button onClick={settingsFunctions.updateUserSettings}>Apply Changes</button>
+                </div>) : (null)}
         </div>
     )
 }
