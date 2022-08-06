@@ -1,4 +1,4 @@
-const {BadRequestError, UnauthorizedError, NotFoundError} =  require("../utils/errors")
+const { BadRequestError, UnauthorizedError, NotFoundError } =  require("../utils/errors")
 const db = require("../db");
 
 class Session {

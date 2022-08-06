@@ -1,5 +1,6 @@
 import * as React from "react";
 import apiClient from "../Services/apiClient";
+import { useSettingsContext } from "./SettingsContext";
 
 export const AuthContext = React.createContext();
 
@@ -24,14 +25,24 @@ export const AuthContextProvider = ({ children }) => {
   const [error, setError] = React.useState({});
   const [active, setActive] = React.useState("");
   const [componentName, setComponentName] = React.useState("");
+  const { settingsFunctions } = useSettingsContext();
   const authStates = { user, initialized, isProcessing, loggedIn, error,
                       login, register, deleteUser, sessionsList, profileOpen,
                       settingsOpen, historyOpen, listOpen, aboutOpen, componentName, active };
   const authSetStates = { setUser, setInitialized, setIsProcessing, setLoggedIn,
                         setError, setLogin, setRegister, setDeleteUser, setSessionsList, setActive };
-  const authFunctions = { loginUser, fetchUserFromToken, logoutUser, handleOnToggle };
+  const authFunctions = { loginUser, registerUser, fetchUserFromToken, logoutUser, handleOnToggle };
   
   function loginUser(person, token) {
+    setRegister(false);
+    setLogin(false);
+    setLoggedIn(true);
+    apiClient.setToken(token);
+    settingsFunctions.getUserSettings();
+    person ? setUser({ ...person }) : null;
+  }
+
+  function registerUser(person, token) {
     setRegister(false);
     setLogin(false);
     setLoggedIn(true);
@@ -41,7 +52,10 @@ export const AuthContextProvider = ({ children }) => {
 
   async function fetchUserFromToken() {
     const { data, error } = await apiClient.fetchUserFromToken();
-    if (data) setUser({ ...data.user });
+    if (data) {
+      setUser({ ...data.user });
+      settingsFunctions.getUserSettings();
+    }
     if (error) setError(error);
   }
 

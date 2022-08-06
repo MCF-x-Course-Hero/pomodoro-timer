@@ -38,14 +38,9 @@ export default function Sidebar() {
         </ul>
       </div>
       <div className="sidebar-bottom">
-        <ul>
-          <li onClick={() => settingsFunctions.darkModeButtons("default")}>
-            <i className="list-item-icon fa-solid fa-sun"></i>
-          </li>
-          <li onClick={() => settingsFunctions.darkModeButtons("dark")}>
-            <i className="list-item-icon fa-solid fa-moon"></i>
-          </li>
-        </ul>
+          <div className="button" onClick={() => settingsFunctions.darkModeButtons(settingsStates.darkToggle ? "default" : "dark")}>
+            <i className={`list-item-icon ${settingsStates.darkToggle ? "fa-solid fa-sun" : "fa-solid fa-moon"}`}></i>
+          </div>
       </div>
     </div>
   );

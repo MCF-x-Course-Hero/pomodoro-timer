@@ -142,6 +142,10 @@ export default function SettingsTab() {
                     </label>
                 </div>
             </div>
+            <div className="update-settings">
+                <button onClick={settingsFunctions.updateDefaultSettings}>Revert to Default</button>
+                <button onClick={settingsFunctions.updateUserSettings}>Apply Changes</button>
+            </div>
         </div>
     )
 }

@@ -1,6 +1,5 @@
 const request = require("supertest");
 const app = require("../app");
-const Session = require("../models/session");
 const {
     commonBeforeAll,
     commonBeforeEach,

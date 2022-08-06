@@ -383,3 +383,28 @@
     -moz-box-shadow: 0px 0px 5px 5px #0099E0;
     box-shadow: 0px 0px 5px 5px #0099E0;
   }
+
+.settings-tab .update-settings button {
+  width: 10rem;
+  padding: 12px;
+  border-radius: 5px;
+  align-self: center;
+  cursor: pointer;
+  background: var(--profile-btn-primary);
+  color: white;
+  font-weight: bold;
+  border: white 1px solid;
+  font-size: 16px;
+}
+
+.settings-tab .update-settings button:hover {
+  background: var(--sidebar-timer-btn-bg-primary);
+}
+
+.settings-tab .update-settings {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-around;
+}
