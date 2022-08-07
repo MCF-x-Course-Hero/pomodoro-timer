@@ -30,11 +30,15 @@
   margin-bottom: 10px;
 }
 
-.why-pomodoro p {
+/* .why-pomodoro p {
+  margin: 35px;
+  margin-top: 15px;
+} */
+
+.about-video {
   margin: 35px;
   margin-top: 15px;
 }
-
 .our-team {
   display: flex;
   flex-direction: column;

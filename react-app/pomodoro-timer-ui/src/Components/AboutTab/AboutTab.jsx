@@ -1,5 +1,8 @@
 import * as React from "react";
 import "./AboutTab.css";
+import { render } from "react-dom";
+import LiteYouTubeEmbed from 'react-lite-youtube-embed';
+import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css'
 
 export default function AboutTab() {
   return (
@@ -16,11 +19,17 @@ export default function AboutTab() {
       </div>
       <div className="why-pomodoro">
         <h2>What is the Pomodoro Technique?</h2>
-        <p>
+        {/* <p>
           The Pomodoro Technique uses a timer to break down work into intervals,
           traditionally 25 minutes in length, separated by three short breaks. Each
           interval is known as a pomodoro. After the fourth pomodoro session, you go into a long break. 
-        </p>
+        </p> */}
+      </div>
+      <div className="about-video">
+        <LiteYouTubeEmbed 
+        id="ppnPGk36mMY"
+        title="Barbara Oakley Benefits of The Pomodoro Technique"
+        />
       </div>
       <div className="our-team">
         <p>Developed by{" "}
