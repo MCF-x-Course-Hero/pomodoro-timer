@@ -13,12 +13,13 @@
 }
 
 .history-tab .buttons .closed:hover{
-    transition: 0.35s;
-    background-color: var(--sidebar-timer-btn-bg-primary)
+    transition: 300ms;
+    background-color: var(--profile-btn-primary);
+    background-color: var(--sidebar-timer-btn-bg-primary);
+
 }
 .history-tab .buttons .current:hover{
-    transition: 0.35s;
-    background-color: var(--sidebar-timer-btn-bg-primary)
+    transition: 300ms;
 }
 
 .history-tab .buttons .current {
@@ -27,7 +28,9 @@
     border-radius: 5px;
     color: white;
     font-weight: bold;
+    background: var(--profile-btn-primary);
     background: var(--sidebar-timer-btn-bg-primary);
+
     font-size: 14px;
     border: none;
     cursor:default;
@@ -38,7 +41,9 @@
     height: 32px;
     border-radius: 5px;
     color: white;
+    background: var(--sidebar-timer-btn-bg-primary);
     background: var(--profile-btn-primary);
+
     border-radius: 5px;
     font-size: 14px;
     border: none;

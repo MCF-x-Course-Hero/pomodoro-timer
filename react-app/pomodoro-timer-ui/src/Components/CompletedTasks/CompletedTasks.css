@@ -7,7 +7,6 @@
     text-align: center;
 }
 
-
 .task-history {
     margin-top: 10px;
     width: 100%;
@@ -27,17 +26,14 @@
     align-self: center;
     text-align: flex-start;
     border-radius: 7px;
-    background-color: var(--profile-btn-primary);
-    background-color: var(--sidebar-timer-btn-bg-primary);
-    
+    background-color: var(--sidebar-timer-btn-bg-primary); 
 }
 
 .task-history .date .toulidine-blue {
-    background-color: var(--profile-btn-primary);
     background-color: var(--sidebar-timer-btn-bg-primary);
     border-bottom-left-radius:5px ;
     border-bottom-right-radius: 5px;
-    margin: 0px;
+    border-radius: 10px;
 }
 
 .task-history .date h3{
@@ -47,15 +43,13 @@
     margin: auto;
     margin-top: 10px;
     color: var(--profile-btn-primary);
-    color: #a596c3;
     color:white;
+    padding: 5px;
 }
-
 
 
 .task-name {
     font-size: 18px;
-    color:var(--sidebar-timer-btn-bg-primary);
     color: var(--profile-btn-primary);
     color: white;
     padding: 0px 20px;
