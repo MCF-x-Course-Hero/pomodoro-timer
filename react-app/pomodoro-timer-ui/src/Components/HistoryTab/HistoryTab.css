@@ -1,29 +1,46 @@
 .history-tab .buttons {
-    padding: 10px 10px;
-    margin-right:30px;
-    height: 30%;
-    justify-content: center;
-    align-items: center;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    align-items: center;
+    padding: 10px;
+    margin-right:50px;
+    height: 30%;
+}
+.history-tab{
+    display: flex;
+    flex-direction:column ;
 }
 
-.history-tab .buttons .closed {
-    border-radius: 20px;
-    cursor: pointer;
-    border: none;
-    color: black;
-    height: 30px;
-    width: 40%;
+.history-tab .buttons .closed:hover{
+    transition: 0.35s;
+    background-color: var(--sidebar-timer-btn-bg-primary)
+}
+.history-tab .buttons .current:hover{
+    transition: 0.35s;
+    background-color: var(--sidebar-timer-btn-bg-primary)
 }
 
 .history-tab .buttons .current {
-    background: var(--profile-btn-primary);
-    border-radius: 20px;
-    border: 1px solid white;
+    width: 180px;
+    height: 42px;
+    border-radius: 5px;
     color: white;
     font-weight: bold;
-    height: 30px;
-    width: 40%;
+    background: var(--sidebar-timer-btn-bg-primary);
+    font-size: 14px;
+    border: none;
+    cursor:default;
+}
+
+.history-tab .buttons .closed {
+    width: 155px;
+    height: 32px;
+    border-radius: 5px;
+    color: white;
+    background: var(--profile-btn-primary);
+    border-radius: 5px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
 }
