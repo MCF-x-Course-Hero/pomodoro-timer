@@ -1,29 +1,32 @@
 .timer .pinned-task-content {
-  margin: 0%;
-  padding: 0% 10px;
+  margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #f1f1f1;
   max-width: 100vw;
-  width: 15%;
   border-radius:20px;
   position: absolute;
   top: 20%;
-  overflow-x: auto;
-  /* box-shadow: 2px 4px 8px black; */
-  /* border: solid 3px #615184; */
+}
+
+.timer .pinned-task-content p {
+  white-space: nowrap;
 }
 
 .pinned-task {
   margin: 0%;
-  padding: 2%;
   font-size: 24px;
+  padding-right: 20px;
 }
 
 .pinned-task-content .pin{
-  padding: 5px;
+  padding-left: 20px;
+  padding-top: 7px;
   margin: 0%;
   margin-right: 2%; 
   cursor:pointer;
+  justify-content: center;
+  align-items: center;
+  align-self: center;  
 }
