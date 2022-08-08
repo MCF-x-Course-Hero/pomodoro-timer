@@ -27,7 +27,7 @@ class Task {
 
     static async listPendingTask(userInfo){
     /* gets list of tasks that the user has not completed */
-        const user = await this.fetchUserByUsername(userInfo.username)
+        const user = await User.fetchUserByUsername(userInfo.username)
         const query = `SELECT * FROM userTasks WHERE is_completed = false AND user_id=${user.id};`
         const result = await db.query(query)
         return result.rows
