@@ -31,24 +31,25 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: white;
-    color: #8270A9;
-    width: 55px;
-    border-top-left-radius: 30px;
-    border-bottom-left-radius: 30px;
+    background: transparent;
+    color: white;
+    width: 35px;
     height: 32px;
+    text-align: center;
+    font-size: 1.3rem;
+    border-bottom: 2px solid white;
 }
 
 .register-form .submit-registration {
-    width: 240px;
+    margin-bottom: 50px;
+    width: 10rem;
+    padding: 10px;
+    border-radius: 10px;
     align-self: center;
-    color: white;
-    background: var(--profile-btn-primary);
-    border: none;
-    height: 32px;
-    margin-bottom: 10px;
     cursor: pointer;
-    border-radius: 15px;
+    background: var(--profile-btn-primary);
+    color: white;
+    border: none;
 }
 
 .register-form .submit-registration:hover {
@@ -67,12 +68,17 @@
     height: 30px;
     border: none;
     width: 180px;
-    border-top-right-radius: 15px;
-    border-bottom-right-radius: 15px;
+    font-size: 1.0rem;
+    font-weight: 600;
+    line-height: 1;
+    outline: none;
+    color: white;
+    background-color: transparent;
+    border-bottom: 2px solid white;
 }
 
 .register-form .footer {
-    margin-top: 20px;
+    margin-top: -10px;
     width: 210px;
     height: 20%;
     padding-top: 3px;
@@ -81,8 +87,9 @@
     text-align: center;
     color: white;
     font-size: smaller;
-    font-size: 12px;
-    margin: 0.5em;
+    /* font-size: 12px; */
+    /* margin: 0.5em; */
+
 }
 
 .register-form .footer p {
@@ -90,7 +97,8 @@
     cursor: pointer;
     border: none;
     font-weight: bold;
-    font-size: 12px;
+    font-size: small;
+    /* font-size: 12px; */
     margin: 0.5em;  
 }
 .register-form .footer p:hover{
