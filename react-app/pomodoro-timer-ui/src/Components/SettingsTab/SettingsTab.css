@@ -44,16 +44,28 @@
   display: flex;
   flex-direction: column;
   width: 50%;
-  font-size: 14px;
+  font-size: 13px;
   padding: 0px;
   list-style: none;
-  height: 96px;
   justify-content: space-evenly;
   margin: 5px;
 }
 
+.settings-tab .set-time .inputs .session-num {
+  width: 78px;
+  margin: 5px 0px 5px 30px;
+  border-radius: 8px;
+  border: solid 1px black;
+  cursor: pointer;
+  height: 20px;
+}
+
+.settings-tab .set-time .inputs .session:focus-visible {
+  outline: var(--profile-btn-primary);
+}
+
 .settings-tab .set-time .time-forms .input-names li {
-  height: 22px;
+  margin: 6px 0px 6px 0px;
 }
 
 .settings-tab .set-time .time-forms .input-names p {
@@ -64,7 +76,7 @@
   width: 50%;
   display: flex;
   flex-direction: column;
-  margin-top: 3px;
+  margin-top: 5px;
 }
 
 .settings-tab .set-time .time-forms .input-field {
@@ -72,7 +84,7 @@
 }
 
 .settings-tab .set-time .time-forms .input-field .input-form {
-  width: 150px;
+  width: 70px;
   border-radius: 8px;
   margin-left: 30px;
   color: black;
@@ -204,6 +216,8 @@
   background: #8192FF;
 }
 
+/* Toggle Options css */
+
 .settings-tab .slider-area .slider-names ul {
     list-style: none;
     padding: 5px;
@@ -218,6 +232,7 @@
     border-radius: 5px;
     width: 90%;
     align-self: center;
+    height: 150px;
 }
 
 .settings-tab .slider-area .sliders {
@@ -238,9 +253,13 @@
 }
 
 .settings-tab .slider-area .slider-names li {
-    height: 40px;
+    height: 48px;
     text-align: start;
-    line-height: 40px;
+    line-height: 48px;
+}
+
+.settings-tab .slider-area .slider-names .auto-toggle {
+  line-height: 20px;
 }
 
 /* Toggle-Sliders CSS */

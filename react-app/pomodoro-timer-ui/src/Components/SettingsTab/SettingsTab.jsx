@@ -51,6 +51,7 @@ export default function SettingsTab() {
                         <li>PomoZone Time {"(in min):"}</li>
                         <li>Short Break Time {"(in min):"}</li>
                         <li>Long Break Time {"(in min):"}</li>
+                        <li>Number of Sessions before Long Break:</li>
                     </ul>
                     <div className="inputs">
                         <div className="input-field">
@@ -101,6 +102,15 @@ export default function SettingsTab() {
                                 min="0"
                             />
                         </div>
+                        <div className="input-field">
+                            <select className="session-num" onChange={(evt) => {settingsSetStates.setNumSessions(evt.target.value)}} defaultValue={settingsStates.numSessions}>
+                                <option value={2}>2</option>
+                                <option value={3}>3</option>
+                                <option value={4}>4</option>
+                                <option value={5}>5</option>
+                            </select>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -125,6 +135,7 @@ export default function SettingsTab() {
                     <ul>
                         <li>Dark Mode:</li>
                         <li>Sound Notifications:</li>
+                        <li className="auto-toggle">Automatically Move to Next Session:</li>
                     </ul>
                 </div>
                 <div className="sliders">
@@ -139,6 +150,13 @@ export default function SettingsTab() {
                         <Toggle
                             defaultChecked={settingsStates.notifToggle}
                             onChange={() => {settingsSetStates.setNotifToggle(!settingsStates.notifToggle)}}
+                            icons={false}
+                        />
+                    </label>
+                    <label>
+                        <Toggle
+                            defaultChecked={settingsStates.automaticTimer}
+                            onChange={() => {settingsSetStates.setAutomaticTimer(!settingsStates.automaticTimer)}}
                             icons={false}
                         />
                     </label>

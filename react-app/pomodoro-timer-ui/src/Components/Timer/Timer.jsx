@@ -2,19 +2,15 @@ import * as React from "react";
 import { useTimer } from "react-timer-hook";
 import apiClient from "../../Services/apiClient";
 import resetIcon from "../../Assets/restart.svg";
-import darkReset from "../../Assets/dark-restart.svg";
-import darkPause from "../../assets/dark-pause.svg";
-import darkPlay from "../../assets/dark-play.svg";
 import pauseIcon from "../../Assets/pause.svg";
 import forwardIcon from "../../Assets/forward.svg";
-import darkForward from "../../assets/dark-forward.svg";
 import startIcon from "../../Assets/play.svg";
 import softNotif from "../../assets/soft-notif.mp3";
 import { useSettingsContext } from "../../contexts/SettingsContext";
 import { useAuthContext } from "../../contexts/AuthContext";
+import PinnedTodo from "../PinnedTodo/PinnedTodo";
 import useSound from "use-sound";
 import "./Timer.css";
-import PinnedTodo from "../PinnedTodo/PinnedTodo";
 
 export default function Timer() {
     const { settingsStates, settingsSetStates } = useSettingsContext();
@@ -22,8 +18,7 @@ export default function Timer() {
     let pomozoneTime = (settingsStates.timeForm.focusTime * 60);
     let shortBreakTime = (settingsStates.timeForm.shortBreakTime * 60);
     let longBreakTime = (settingsStates.timeForm.longBreakTime * 60);
-    let totalTime = (pomozoneTime * 4) + (shortBreakTime * 3) + (longBreakTime);
-    const [loops, setLoops] = React.useState(0);
+    const [loops, setLoops] = React.useState(1);
     const pomozone = "pomozone";
     const shortBreak = "short-break";
     const longBreak = "long-break";
@@ -39,7 +34,6 @@ export default function Timer() {
             longBreakTime = (settingsStates.timeForm.longBreakTime * 60);
             updateTimer(true);
         }
-        totalTime = (pomozoneTime * 4) + (shortBreakTime * 3) + (longBreakTime);
     }, [settingsStates.timeForm])
 
     //expiryTimestamp tells the timer how long the timer should run for
@@ -60,7 +54,7 @@ export default function Timer() {
                 settingsSetStates.setTheme(settingsStates.pomozoneTheme);
                 settingsSetStates.setSession(pomozone);
                 expiryTimestamp = setTime(pomozone);
-                setLoops(0);
+                setLoops(1);
             } else if(settingsStates.session == pomozone) {
                 if(authStates.loggedIn) {
                     const { data, error } = await apiClient.addSession({session_type: "PomoZone", duration: pomozoneTime });
@@ -68,7 +62,7 @@ export default function Timer() {
                         authSetStates.setError((e) => ({ ...e, form: error }));
                     }
                 }
-                if(loops == 3) {
+                if(loops == settingsStates.numSessions) {
                     settingsSetStates.setTheme(settingsStates.longBreakTheme);
                     settingsSetStates.setSession(longBreak);
                     expiryTimestamp = setTime(longBreak);
@@ -78,7 +72,7 @@ export default function Timer() {
                     expiryTimestamp = setTime(shortBreak);
                 }
             }
-            restart(expiryTimestamp, true);
+            restart(expiryTimestamp, settingsStates.automaticTimer);
         }, 3000);
     }
 
@@ -129,16 +123,16 @@ export default function Timer() {
                         <span>:{(seconds < 10) ? '0' + seconds : seconds}</span>
                     </div>
                 <h2 className={`session-${settingsStates.darkToggle ? "dark" : "reg"}`}>
-                    {settingsStates.session.replace("-", " ")}
+                    {`${settingsStates.session.replace("-", " ")} ${settingsStates.session == "pomozone" ? loops : ""}`}
                 </h2>
                 <div className="buttons">
-                    <button className={`${settingsStates.session}-${settingsStates.theme}`} onClick={() => {updateTimer(true)}}>
+                    <button className={`${settingsStates.darkToggle ? `${settingsStates.session}-dark-mode` : `${settingsStates.session}-${settingsStates.theme}`}`} onClick={() => {updateTimer(true)}}>
                         <img src={resetIcon} alt="restart timer"></img>
                     </button>
-                    <button className={`${settingsStates.session}-${settingsStates.theme}`} onClick={isRunning ? pause : resume}>
+                    <button className={`${settingsStates.darkToggle ? `${settingsStates.session}-dark-mode` : `${settingsStates.session}-${settingsStates.theme}`}`} onClick={isRunning ? pause : resume}>
                         <img src={isRunning ? (pauseIcon) : (startIcon) } alt={isRunning ? "pause timer": "start timer"}></img>
                     </button>
-                    <button className={`${settingsStates.session}-${settingsStates.theme}`} onClick={() => {updateTimer(false)}}>
+                    <button className={`${settingsStates.darkToggle ? `${settingsStates.session}-dark-mode` : `${settingsStates.session}-${settingsStates.theme}`}`} onClick={() => {updateTimer(false)}}>
                         <img src={forwardIcon} alt="move to next session"></img>
                     </button>
                 </div>

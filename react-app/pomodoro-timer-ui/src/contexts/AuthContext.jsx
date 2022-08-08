@@ -79,18 +79,12 @@ export const AuthContextProvider = ({ children }) => {
           settingsStates.session === "short-break" ? settingsSetStates.setTheme(settingsStates.userSettings.settings.sbcolor) : null;
           settingsStates.session === "long-break" ? settingsSetStates.setTheme(settingsStates.userSettings.settings.lbcolor) : null;
         } else {
-          settingsSetStates.setPomozoneTheme("pdefault");
-          settingsSetStates.setShortBreakTheme("sbdefault");
-          settingsSetStates.setLongBreakTheme("lbdefault");
-          settingsStates.session === "pomozone" ? settingsSetStates.setTheme("pdefault") : null;
-          settingsStates.session === "short-break" ? settingsSetStates.setTheme("sbdefault") : null;
-          settingsStates.session === "long-break" ? settingsSetStates.setTheme("lbdefault") : null;
+          settingsStates.session === "pomozone" ? settingsSetStates.setTheme(settingsStates.pomozoneTheme) : null;
+          settingsStates.session === "short-break" ? settingsSetStates.setTheme(settingsStates.shortBreakTheme) : null;
+          settingsStates.session === "long-break" ? settingsSetStates.setTheme(settingsStates.longBreakTheme) : null;
         }
     } else {
         settingsSetStates.setDarkToggle(true);
-        settingsSetStates.setPomozoneTheme("dark-mode");
-        settingsSetStates.setShortBreakTheme("dark-mode");
-        settingsSetStates.setLongBreakTheme("dark-mode");
         settingsSetStates.setTheme("dark-mode");
     }
   }
