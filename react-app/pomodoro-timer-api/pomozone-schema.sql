@@ -25,3 +25,16 @@ CREATE TABLE userTasks (
     session_id      INT,
     FOREIGN KEY     (session_id) REFERENCES userSessions(id) ON DELETE CASCADE
 );
+
+CREATE TABLE userSettings (
+    pTime           INT NOT NULL,
+    sbTime          INT NOT NULL,
+    lbTime          INT NOT NULL,
+    pColor          TEXT NOT NULL,
+    sbColor         TEXT NOT NULL,
+    lbColor         TEXT NOT NULL,
+    dark_mode       BOOLEAN NOT NULL,
+    sound_notif     BOOLEAN NOT NULL,
+    user_id         INT NOT NULL,
+    FOREIGN KEY     (user_id) REFERENCES users(id) ON DELETE CASCADE
+);

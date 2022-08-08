@@ -101,24 +101,14 @@
     border: none;
 }
 
-.sidebar-bottom li {
+.sidebar-bottom .button {
     list-style: none;
     margin: 5px;
     cursor: pointer;
     border-radius: 5px;
 }
 
-.sidebar-bottom ul {
-    padding: 0px;
-    margin: 0px;
-    display: flex;
-    flex-direction: row;
-    width: 80%;
-    align-items: center;
-    justify-content: space-around;
-}
-
-.sidebar-bottom li:hover {
+.sidebar-bottom .button:hover {
     font-weight: bold;
     background-color: var(--expanded-sidebar-hover-primary);
 }
@@ -134,8 +124,5 @@
     }
     .brand, .list-item-text {
         display: none;
-    }
-    .sidebar-bottom ul {
-        flex-direction: column;
     }
 }

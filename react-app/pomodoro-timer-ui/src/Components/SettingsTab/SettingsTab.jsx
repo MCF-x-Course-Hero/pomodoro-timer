@@ -1,10 +1,12 @@
 import * as React from "react";
 import { useSettingsContext } from "../../contexts/SettingsContext";
+import { useAuthContext } from "../../contexts/AuthContext";
 import Toggle from 'react-toggle';
 import "./SettingsTab.css";
 
 export default function SettingsTab() {
     const { settingsStates, settingsSetStates, settingsFunctions } = useSettingsContext();
+    const { authStates } = useAuthContext();
 
     const handleOnInputChange = (e) => {
         if (e.target.value >= 0) {
@@ -46,7 +48,7 @@ export default function SettingsTab() {
                 <h4>Set Times</h4>
                 <div className="time-forms">
                     <ul className="input-names">
-                        <li>Focus Time {"(in min):"}</li>
+                        <li>PomoZone Time {"(in min):"}</li>
                         <li>Short Break Time {"(in min):"}</li>
                         <li>Long Break Time {"(in min):"}</li>
                     </ul>
@@ -121,8 +123,8 @@ export default function SettingsTab() {
             <div className="slider-area">                
                 <div className="slider-names">
                     <ul>
-                        <li>Dark Mode</li>
-                        <li>Sound Notifications</li>
+                        <li>Dark Mode:</li>
+                        <li>Sound Notifications:</li>
                     </ul>
                 </div>
                 <div className="sliders">
@@ -142,6 +144,13 @@ export default function SettingsTab() {
                     </label>
                 </div>
             </div>
+            { authStates.loggedIn ? 
+                (<div className="update-settings">
+                    <button onClick={settingsFunctions.updateDefaultSettings} disabled={settingsStates.loading}>Revert to Default</button>
+                    <button onClick={settingsFunctions.updateUserSettings} disabled={settingsStates.loading}>Apply Changes</button>
+                </div>) : (null)}
+                <p className={settingsStates.fadeProp.fade}>Your settings have been saved</p>
+                <p className={settingsStates.fadeProp.fadeError}>Oh no! Something went wrong</p>
         </div>
     )
 }

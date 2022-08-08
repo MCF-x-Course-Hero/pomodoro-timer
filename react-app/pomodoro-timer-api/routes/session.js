@@ -9,7 +9,6 @@ router.get("/::username", async (req, res, next) => {
   try {
       let parsed = req.params.username.slice(1);
       const user = await User.fetchUserByUsername(parsed);
-      
       const sessionHistory = await Session.getUserSessions(user);
       const uniqueDates = {};
       sessionHistory.forEach((session) => {

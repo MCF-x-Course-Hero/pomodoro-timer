@@ -33,7 +33,7 @@ class ApiClient {
         }
     }
 
-// USER ENDPOINTS
+    // USER ENDPOINTS
     async login(credentials) {
         //send an http request to the auth/login endpoint
         return await this.request({ endpoint: `auth/login`, method: `POST`, data: credentials });
@@ -54,7 +54,7 @@ class ApiClient {
         return await this.request({ endpoint: `auth/me`, method: `GET` });
     }
 
-// SESSION ENDPOINTS
+    // SESSION ENDPOINTS
     async addSession(sessionInfo) {
         return await this.request({ endpoint:`session/`, method:`POST`, data: sessionInfo })
     }
@@ -67,7 +67,7 @@ class ApiClient {
         return await this.request({ endpoint:  `session/sum`, method: `GET` })
     }
 
-// TASKS ENDPOINTS
+    // TASKS ENDPOINTS
     async getCompletedTasks() {
         // http request to get completed tasks from task/complete endpoint
         return await this.request({endpoint:'task/complete', method: 'GET'})
@@ -88,6 +88,22 @@ class ApiClient {
 
     async updateTask(task){
         return await this.request({endpoint:"task/update", method:"POST", data:task})
+    }
+
+    // SETTINGS ENDPOINTS
+    async getSettings() {
+        // http request to get user settings from /settings/ endpoint
+        return await this.request({ endpoint: 'settings/', method: 'GET' });
+    }
+
+    async addSettings(settings) {
+        // http request to get user settings from /settings/ endpoint
+        return await this.request({ endpoint: 'settings/', method: 'POST', data: settings });
+    }
+
+    async updateSettings(newSettings) {
+        // http request to get user settings from /settings/ endpoint
+        return await this.request({ endpoint: 'settings/update/', method: 'POST', data: newSettings});
     }
 }
 

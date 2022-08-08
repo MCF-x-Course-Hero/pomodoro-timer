@@ -1,5 +1,6 @@
 import * as React from "react";
 import { useAuthContext } from "../../contexts/AuthContext";
+import { useSettingsContext } from "../../contexts/SettingsContext";
 import apiClient from "./../../Services/apiClient"
 import "./RegisterForm.css";
 
@@ -7,6 +8,7 @@ export default function RegisterForm() {
   const [isLoading, setIsLoading] = React.useState(false);
   const [error, setError] = React.useState({});
   const { authSetStates, authFunctions } = useAuthContext();
+  const { settingsFunctions } = useSettingsContext();
   const [form, setForm] = React.useState({
     username: "",
     password: "",
@@ -88,9 +90,11 @@ export default function RegisterForm() {
       setError((e) => ({ ...e, form: error }));
       setIsLoading(false);
     } else if (data?.user) {
-      authFunctions.loginUser(data.user, data.token);
+      authFunctions.registerUser(data.user, data.token);
+      settingsFunctions.addUserSettings();
       setIsLoading(false);
     }
+    
   };
 
   return (

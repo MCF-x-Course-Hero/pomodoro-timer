@@ -7,6 +7,7 @@ const security = require("./middleware/security");
 const authRoutes = require("./routes/auth");
 const sessionRoutes = require("./routes/session");
 const taskRoutes = require("./routes/task");
+const settingsRoutes = require("./routes/settings");
 const { NotFoundError } = require("./utils/errors");
 
 const app = express();
@@ -26,6 +27,7 @@ app.use(security.extractUserFromJwt);
 app.use("/auth", authRoutes)
 app.use("/session", sessionRoutes)
 app.use("/task", taskRoutes)
+app.use("/settings", settingsRoutes);
 
 //health check
 app.get("/", async (req, res, next)=>{
