@@ -7,7 +7,6 @@
     text-align: center;
 }
 
-
 .task-history {
     margin-top: 10px;
     width: 100%;
@@ -21,15 +20,20 @@
 
 .task-history .date {
     display: flex;
+    margin-bottom: 10px;
     flex-direction: column;
     width: 80%;
     align-self: center;
-    text-align: center;
-    border: solid 1px black;
-    border-radius: 15px;
-    margin-bottom: 10px;
-    background: white;
+    text-align: flex-start;
+    border-radius: 7px;
+    background-color: var(--sidebar-timer-btn-bg-primary); 
+}
 
+.task-history .date .toulidine-blue {
+    background-color: var(--sidebar-timer-btn-bg-primary);
+    border-bottom-left-radius:5px ;
+    border-bottom-right-radius: 5px;
+    border-radius: 10px;
 }
 
 .task-history .date h3{
@@ -38,12 +42,15 @@
     line-height: 28.13px;
     margin: auto;
     margin-top: 10px;
+    color: var(--profile-btn-primary);
+    color:white;
+    padding: 5px;
 }
 
-.task-history .task .date .toulidine-blue {
-    margin: 0px;
-}
 
 .task-name {
     font-size: 18px;
+    color: var(--profile-btn-primary);
+    color: white;
+    padding: 0px 20px;
 }
