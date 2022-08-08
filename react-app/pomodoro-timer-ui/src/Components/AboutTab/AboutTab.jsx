@@ -19,11 +19,11 @@ export default function AboutTab() {
       </div>
       <div className="why-pomodoro">
         <h2>What is the Pomodoro Technique?</h2>
-        {/* <p>
+        <p>
           The Pomodoro Technique uses a timer to break down work into intervals,
           traditionally 25 minutes in length, separated by three short breaks. Each
           interval is known as a pomodoro. After the fourth pomodoro session, you go into a long break. 
-        </p> */}
+        </p>
       </div>
       <div className="about-video">
         <LiteYouTubeEmbed 
@@ -31,7 +31,7 @@ export default function AboutTab() {
         title="Barbara Oakley Benefits of The Pomodoro Technique"
         />
       </div>
-      <div className="our-team">
+      <footer className="our-team">
         <p>Developed by{" "}
           <a href="https://github.com/mariamconde" target="_blank">
             Mariam Conde
@@ -50,7 +50,7 @@ export default function AboutTab() {
             Github Repository
           </a>
         </p>
-      </div>
+      </footer>
     </div>
   );
 }
