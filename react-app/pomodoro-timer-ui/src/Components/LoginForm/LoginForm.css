@@ -1,3 +1,5 @@
+
+
 .login-form {
     display: flex;
     flex-direction: column;
@@ -25,32 +27,36 @@
 
 ::placeholder {
     padding-left: 5px;
+    font-weight: 500;
+    color: white;
+
 }
 
 .login-form .form .input-field i {
     display: flex;
     justify-content: center;
     align-items: center;
-    background:white;
-    color: var(--profile-btn-primary);
-    width: 55px;
+    background: transparent;
+    color: white;
+    width: 35px;
     height: 32px;
-    border-top-left-radius: 30px;
-    border-bottom-left-radius: 30px;
+    text-align: center;
+    font-size: 1.3rem;
+    border-bottom: 2px solid white;
 }
 
 .login-form .btn {
-    height: 32px;
-    width: 244px;
+    margin-bottom: 50px;
+    width: 10rem;
+    padding: 10px;
+    border-radius: 10px;
     align-self: center;
+    cursor: pointer;
+    background: var(--profile-btn-primary);
     color: white;
     border: none;
-    margin-bottom: 50px;
-    cursor: pointer;
-    border-radius: 25px;
-    font-size: 16px;
-    background: var(--profile-btn-primary);
 }
+
 
 .login-form .btn:hover {
     background: var(--sidebar-timer-btn-bg-primary);
@@ -61,19 +67,28 @@
     flex-direction: row;
     justify-content: center;
     border: 1px;
+    
 }
 
 .login-form .form .input-field .form-input:focus-visible {
-    outline: #8270A9 auto 1px;
+    outline: none;
 }
+
+
 
 .login-form .form .input-field .form-input {
     height: 30px;
     border: none;
     width: 180px;
-    border-top-right-radius: 15px;
-    border-bottom-right-radius: 15px;
+    font-size: 1.0rem;
+    font-weight: 600;
+    line-height: 1;
+    outline: none;
+    color: white;
+    background-color: transparent;
+    border-bottom: 2px solid white;
 }
+
 
 .login-form .footer {
     margin-top: -25px;
