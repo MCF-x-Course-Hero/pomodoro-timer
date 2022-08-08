@@ -25,16 +25,17 @@ export default function AboutTab() {
         </p>
       </div>
       <div className="about-video">
-
-
-<div className="ratio ratio-16x9">
-  <iframe
-    src="https://www.youtube.com/embed/ppnPGk36mMY"
-    title="YouTube video"
-    allowFullScreen
-  ></iframe>
-</div>
-
+        <div className="ratio ratio-16x9">
+          <iframe
+            width="350"
+            height="200"
+            src="https://www.youtube.com/embed/ppnPGk36mMY"
+            title="YouTube video"
+            frameBorder="0"
+            allowFullScreen
+          ></iframe>
+        </div>
+      </div>
       <footer className="our-team">
         <p>
           Developed by{" "}
