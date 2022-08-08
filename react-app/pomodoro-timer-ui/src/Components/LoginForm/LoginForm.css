@@ -45,6 +45,7 @@
     border-bottom: 2px solid white;
 }
 
+
 .login-form .btn {
     margin-bottom: 50px;
     width: 10rem;
@@ -91,7 +92,7 @@
 
 
 .login-form .footer {
-    margin-top: -25px;
+    margin-top: -10px;
     width: 210px;
     height: 20%;
     padding-top: 3px;
