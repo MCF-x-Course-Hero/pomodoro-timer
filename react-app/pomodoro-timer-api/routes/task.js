@@ -68,10 +68,11 @@ router.post("/update", security.requireAuthenticatedUser, async (req, res, next)
 
 //delete task
 router.delete("/:taskId", security.requireAuthenticatedUser, async function (req, res, next) {
-  const taskId = req.params.taskId.slice(1);
+  const taskId = req.params.taskId.slice(1)
   try {
     await Task.removeTask(taskId);
-    return res.status(204).json({ deleted: taskId });
+    console.log(taskId)
+    return res.status(200).json({ deleted: taskId });
   } catch (err) {
     return next(err);
   }

@@ -31,7 +31,7 @@ router.post("/register", async (req, res, next) => {
 router.delete("/::username", async function (req, res, next) {
   try {
     await User.remove(req.params.username);
-    return res.status(204).json({ Deleted: req.params.username });
+    return res.status(200).json({ Deleted: req.params.username });
   } catch (err) {
     next(err);
   }
