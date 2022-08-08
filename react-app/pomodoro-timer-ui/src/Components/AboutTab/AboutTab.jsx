@@ -1,10 +1,7 @@
 import * as React from "react";
 import "./AboutTab.css";
-// import 'bootstrap/dist/css/bootstrap.min.css';
-
 
 export default function AboutTab() {
-
   return (
     <div className="about-tab">
       <h1>About</h1>
@@ -29,17 +26,15 @@ export default function AboutTab() {
       </div>
       <div className="about-video">
 
-        <div className="ratio ratio-16x9">
-          <iframe
-            src="https://www.youtube.com/embed/ppnPGk36mMY"
-            title="YouTube video"
-            allowFullScreen
-          ></iframe>
 
+<div className="ratio ratio-16x9">
+  <iframe
+    src="https://www.youtube.com/embed/ppnPGk36mMY"
+    title="YouTube video"
+    allowFullScreen
+  ></iframe>
+</div>
 
-        </div>
-
-      </div>
       <footer className="our-team">
         <p>
           Developed by{" "}
