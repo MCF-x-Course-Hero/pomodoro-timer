@@ -32,7 +32,7 @@
     justify-content: center;
     align-items: center;
     background: white;
-    color: #8270A9;
+    color: var(--profile-btn-primary);
     width: 55px;
     border-top-left-radius: 30px;
     border-bottom-left-radius: 30px;

@@ -25,13 +25,13 @@ export const AuthContextProvider = ({ children }) => {
   const [error, setError] = React.useState({});
   const [active, setActive] = React.useState("");
   const [componentName, setComponentName] = React.useState("");
-  const { settingsFunctions } = useSettingsContext();
+  const { settingsFunctions, settingsStates, settingsSetStates } = useSettingsContext();
   const authStates = { user, initialized, isProcessing, loggedIn, error,
                       login, register, deleteUser, sessionsList, profileOpen,
                       settingsOpen, historyOpen, listOpen, aboutOpen, componentName, active };
   const authSetStates = { setUser, setInitialized, setIsProcessing, setLoggedIn,
                         setError, setLogin, setRegister, setDeleteUser, setSessionsList, setActive };
-  const authFunctions = { loginUser, registerUser, fetchUserFromToken, logoutUser, handleOnToggle };
+  const authFunctions = { loginUser, registerUser, fetchUserFromToken, logoutUser, handleOnToggle, darkModeButton };
   
   function loginUser(person, token) {
     setRegister(false);
@@ -65,6 +65,34 @@ export const AuthContextProvider = ({ children }) => {
     apiClient.setToken("null");
     localStorage.setItem("pomozone_token", "null");
     setUser({});
+    setUserSettings({});
+  }
+
+  function darkModeButton(mode) {
+    if(mode == "default") {
+        settingsSetStates.setDarkToggle(false);
+        if (loggedIn) {
+          settingsSetStates.setPomozoneTheme(settingsStates.userSettings.settings.pcolor);
+          settingsSetStates.setShortBreakTheme(settingsStates.userSettings.settings.sbcolor);
+          settingsSetStates.setLongBreakTheme(settingsStates.userSettings.settings.lbcolor);
+          settingsStates.session === "pomozone" ? settingsSetStates.setTheme(settingsStates.userSettings.settings.pcolor) : null;
+          settingsStates.session === "short-break" ? settingsSetStates.setTheme(settingsStates.userSettings.settings.sbcolor) : null;
+          settingsStates.session === "long-break" ? settingsSetStates.setTheme(settingsStates.userSettings.settings.lbcolor) : null;
+        } else {
+          settingsSetStates.setPomozoneTheme("pdefault");
+          settingsSetStates.setShortBreakTheme("sbdefault");
+          settingsSetStates.setLongBreakTheme("lbdefault");
+          settingsStates.session === "pomozone" ? settingsSetStates.setTheme("pdefault") : null;
+          settingsStates.session === "short-break" ? settingsSetStates.setTheme("sbdefault") : null;
+          settingsStates.session === "long-break" ? settingsSetStates.setTheme("lbdefault") : null;
+        }
+    } else {
+        settingsSetStates.setDarkToggle(true);
+        settingsSetStates.setPomozoneTheme("dark-mode");
+        settingsSetStates.setShortBreakTheme("dark-mode");
+        settingsSetStates.setLongBreakTheme("dark-mode");
+        settingsSetStates.setTheme("dark-mode");
+    }
   }
 
   function handleOnToggle(tabName = "") {

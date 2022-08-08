@@ -123,8 +123,8 @@ export default function SettingsTab() {
             <div className="slider-area">                
                 <div className="slider-names">
                     <ul>
-                        <li>Dark Mode</li>
-                        <li>Sound Notifications</li>
+                        <li>Dark Mode:</li>
+                        <li>Sound Notifications:</li>
                     </ul>
                 </div>
                 <div className="sliders">
@@ -146,9 +146,10 @@ export default function SettingsTab() {
             </div>
             { authStates.loggedIn ? 
                 (<div className="update-settings">
-                    <button onClick={settingsFunctions.updateDefaultSettings}>Revert to Default</button>
-                    <button onClick={settingsFunctions.updateUserSettings}>Apply Changes</button>
+                    <button onClick={settingsFunctions.updateDefaultSettings}disabled={settingsStates.loading}>Revert to Default</button>
+                    <button onClick={settingsFunctions.updateUserSettings}disabled={settingsStates.loading}>Apply Changes</button>
                 </div>) : (null)}
+                <p className={settingsStates.fadeProp.fade}>Your settings have been saved</p>
         </div>
     )
 }

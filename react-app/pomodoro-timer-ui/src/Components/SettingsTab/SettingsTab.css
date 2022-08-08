@@ -31,7 +31,8 @@
 .settings-tab .set-time .time-forms {
     display: flex;
     flex-direction: row;
-    border: solid 1px white;
+    border: none;
+    background: var(--sidebar-timer-btn-bg-primary);
     border-radius: 5px;
     justify-content: center;
     align-items: flex-start;
@@ -98,7 +99,8 @@
     display: flex;
     flex-wrap: wrap;
     margin: 0px 0px 0px 0px;
-    border: solid 1px white;
+    border: none;
+    background: var(--sidebar-timer-btn-bg-primary);
     align-self: flex-start;
     align-items: center;
     justify-content: center;
@@ -211,7 +213,8 @@
 .settings-tab .slider-area {
     display: flex;
     flex-direction: row;
-    border: solid 1px white;
+    border: none;
+    background: var(--sidebar-timer-btn-bg-primary);
     border-radius: 5px;
     width: 90%;
     align-self: center;
@@ -231,12 +234,12 @@
     padding: 0px;
     margin: 0px;
     width: 60%;
-    font-size: 17px;
+    font-size: 14px;
 }
 
 .settings-tab .slider-area .slider-names li {
     height: 40px;
-    text-align: center;
+    text-align: start;
     line-height: 40px;
 }
 
@@ -387,14 +390,14 @@
 .settings-tab .update-settings button {
   width: 10rem;
   padding: 12px;
-  border-radius: 5px;
+  border-radius: 10px;
   align-self: center;
   cursor: pointer;
   background: var(--profile-btn-primary);
   color: white;
   font-weight: bold;
-  border: white 1px solid;
   font-size: 16px;
+  border: none;
 }
 
 .settings-tab .update-settings button:hover {
@@ -407,4 +410,15 @@
   flex-direction: row;
   width: 100%;
   justify-content: space-around;
+}
+
+.fade-in {
+  text-align: center;
+  transition: opacity 1s ease;
+}
+
+.fade-out {
+  opacity: 0;
+  text-align: center;
+  transition: opacity 1s ease;
 }
