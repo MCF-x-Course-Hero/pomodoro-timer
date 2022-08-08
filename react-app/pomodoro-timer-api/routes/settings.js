@@ -31,7 +31,6 @@ router.get("/", security.requireAuthenticatedUser, async (req, res, next) => {
         const { username } = res.locals.user;
         const user = await User.fetchUserByUsername(username);
         const settings = await Settings.getSettings(user);
-        console.log(settings);
         return res.status(200).json({ settings });
     } catch (err) {
         next(err);

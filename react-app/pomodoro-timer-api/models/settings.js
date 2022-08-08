@@ -52,10 +52,8 @@ class Settings {
         if(!user) {
             throw new UnauthorizedError("No user info provided");
         }
-        console.log("user", user);
         const query = `SELECT * FROM userSettings WHERE user_id = $1;`
         const result = await db.query(query, [user.id]);
-        console.log("result.rows", result.rows[0]);
         return result.rows[0];
     }
 

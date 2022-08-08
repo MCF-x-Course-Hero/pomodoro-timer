@@ -24,6 +24,7 @@ class User {
       }
     });
     const user = await User.fetchUserByUsername(credentials.username);
+    if (!user) throw new BadRequestError("user not found");
     if (user) {
       const isValid = await bcrypt.compare(credentials.password, user.password);
       if (isValid) {
@@ -57,9 +58,6 @@ class User {
     const query = `SELECT * FROM users WHERE username = $1`;
     const result = await db.query(query, [username]);
     const user = result.rows[0];
-
-    // TODO: check in all places if the user has not been found in db except for register endpoint.
-    // if (!user) throw new BadRequestError("user not found")
     return user;
   }
 
@@ -83,7 +81,7 @@ class User {
     /* Delete given user from database; returns undefined. */
     let parsed = username.slice(1);
     const user = await this.fetchUserByUsername(parsed);
-    if (!user) throw new NotFoundError(`No user: ${parsed}`);
+    if (!user) throw new BadRequestError("user not found");
     let result = await db.query(`DELETE FROM users WHERE username = $1;`, [parsed]);
   }
 }

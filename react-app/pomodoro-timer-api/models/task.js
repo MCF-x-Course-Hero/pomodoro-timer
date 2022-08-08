@@ -1,4 +1,5 @@
-const {NotFoundError, BadRequestError} = require("../utils/errors")
+const {NotFoundError, BadRequestError} = require("../utils/errors");
+const User = require("./user");
 const db = require("../db")
 
 class Task {
@@ -24,16 +25,6 @@ class Task {
         return tasks
     }
 
-    static async fetchUserByUsername(username) {
-        if (!username) {
-          throw new BadRequestError("No username provided");
-        }
-        const query = `SELECT * FROM users WHERE username = $1`;
-        const result = await db.query(query, [username]);
-        const user = result.rows[0];
-        return user;
-      }
-
     static async listPendingTask(userInfo){
     /* gets list of tasks that the user has not completed */
         const user = await this.fetchUserByUsername(userInfo.username)
@@ -56,15 +47,14 @@ class Task {
        const result = await db.query(query)
        return result.rows[0];
     }
-
     
     static async getCompletedTask(userInfo){
     /*  this function will get completed tasks from the database
         to display in task history */
-        const user = await this.fetchUserByUsername(userInfo.username)
-        if (!user) throw new NotFoundError(`no user by ${userInfo.username} found`)
+        const user = await User.fetchUserByUsername(userInfo.username);
+        if (!user) throw new BadRequestError("user not found");
         const query = `SELECT * FROM userTasks WHERE is_completed = true AND user_id=${user.id};`
-        const result = await db.query(query)
+        const result = await db.query(query);
         return result.rows;
     }
 
