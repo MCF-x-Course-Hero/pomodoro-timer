@@ -1,6 +1,8 @@
 import * as React from "react";
 import "./PinnedTodo.css";
 import { useTodoContext } from "../../contexts/TodoContext";
+import { useAuthContext } from "../../contexts/AuthContext";
+
 import { useState, useEffect } from "react";
 
 export default function PinnedTodo() {
@@ -11,9 +13,13 @@ export default function PinnedTodo() {
   const todoList = todoVariables.todoList;
   const isActivePin = todoVariables.isActivePin;
 
+  const { authStates, authSetStates, authFunctions } = useAuthContext();
+
+
     function handlePinButton(){
-        
-      document.getElementById(`${pinnedTodo.id}`).style.fill = "none";
+      if ("todo" == authStates.componentName)
+        document.getElementById(`${pinnedTodo.id}`).style.fill = "none";
+
       setPinnedTodo({
         id: "",
         task: "",
