@@ -14,7 +14,7 @@ export const SettingsContextProvider = ({children}) => {
     const [pomozoneTheme, setPomozoneTheme] = React.useState("pdefault");
     const [shortBreakTheme, setShortBreakTheme] = React.useState("sbdefault");
     const [longBreakTheme, setLongBreakTheme] = React.useState("lbdefault");
-    const [fadeProp, setFadeProp] = React.useState({ fade: 'fade-out' });
+    const [fadeProp, setFadeProp] = React.useState({ fade: 'fade-out', fadeError: 'fade-out' });
     const [loading, setLoading] = React.useState(false);
     const [notifToggle, setNotifToggle] = React.useState(false);
     const [darkToggle, setDarkToggle] = React.useState(false);
@@ -48,7 +48,9 @@ export const SettingsContextProvider = ({children}) => {
         const { data, error } = await apiClient.getSettings();
         if (data) {
             setUserSettings((s) => ({...data}));
-            setTheme(data.settings.pcolor);
+            session === "pomozone" ? setTheme(data.settings.pcolor) : null;
+            session === "short-break" ? setTheme(data.settings.sbcolor) : null;
+            session === "long-break" ? setTheme(data.settings.lbcolor) : null;
             setPomozoneTheme(data.settings.pcolor);
             setShortBreakTheme(data.settings.sbcolor);
             setLongBreakTheme(data.settings.lbcolor);
@@ -78,13 +80,21 @@ export const SettingsContextProvider = ({children}) => {
         }
         const { data, error } = await apiClient.updateSettings(allSettings);
         if (data) {
-            setUserSettings((s) => ({...data}));
-            setFadeProp({ fade: 'fade-in' })
+            setFadeProp({ fade: 'fade-in', fadeError: 'fade-out' });
             setTimeout(() => {
-                setFadeProp({ fade: 'fade-out' })
+                getUserSettings();
+            }, 10);
+            setTimeout(() => {
+                setFadeProp({ fade: 'fade-out', fadeError: 'fade-out' })
             }, 3000);
         }
-        if (error) setError(error);
+        if (error) {
+            setError(error);
+            setFadeProp({ fade: 'fade-out', fadeError: 'fade-in' })
+            setTimeout(() => {
+                setFadeProp({ fade: 'fade-out', fadeError: 'fade-out' })
+            }, 3000);
+        }
         setLoading(false);
     }
 
@@ -116,12 +126,21 @@ export const SettingsContextProvider = ({children}) => {
         const { data, error } = await apiClient.updateSettings(allSettings);
         if (data) {
             setUserSettings((s) => ({...data}));
-            setFadeProp({ fade: 'fade-in' })
+            setFadeProp({ fade: 'fade-in', fadeError: 'fade-out' });
             setTimeout(() => {
-                setFadeProp({ fade: 'fade-out' })
+                getUserSettings();
+            }, 10);
+            setTimeout(() => {
+                setFadeProp({ fade: 'fade-out', fadeError: 'fade-out' })
             }, 3000);
         }
-        if (error) setError(error);
+        if (error) {
+            setError(error);
+            setFadeProp({ fade: 'fade-out', fadeError: 'fade-in' })
+            setTimeout(() => {
+                setFadeProp({ fade: 'fade-out', fadeError: 'fade-out' })
+            }, 3000);
+        }
         setLoading(false);
     }
 

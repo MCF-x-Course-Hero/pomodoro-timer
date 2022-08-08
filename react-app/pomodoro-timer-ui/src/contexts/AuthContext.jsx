@@ -65,7 +65,7 @@ export const AuthContextProvider = ({ children }) => {
     apiClient.setToken("null");
     localStorage.setItem("pomozone_token", "null");
     setUser({});
-    setUserSettings({});
+    settingsSetStates.setUserSettings({});
   }
 
   function darkModeButton(mode) {

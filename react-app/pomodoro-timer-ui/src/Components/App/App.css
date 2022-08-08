@@ -120,17 +120,17 @@ body {
 .long-break-red {
     --profile-btn-primary: #FF7F7F;
     --timer-bg-primary: #FF7F7F;
-    --sidebar-timer-btn-bg-primary: #EF8484;
-    --expanded-sidebar-hover-primary: #D36A6A;
+    --sidebar-timer-btn-bg-primary: #D36A6A;
+    --expanded-sidebar-hover-primary: #EF8484;
     transition: 0.35s;
 }
 
 .pomozone-orange,
 .short-break-orange,
 .long-break-orange {
-    --profile-btn-primary: #F0BE63;
-    --timer-bg-primary: #F0BE63;
-    --sidebar-timer-btn-bg-primary: #D69C36;
-    --expanded-sidebar-hover-primary: #D6A753;
+    --profile-btn-primary: #fdb833;
+    --timer-bg-primary: #fdb833;
+    --sidebar-timer-btn-bg-primary: #ff9500;
+    --expanded-sidebar-hover-primary: #ffaa00;
     transition: 0.35s;
 }
