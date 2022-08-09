@@ -6,13 +6,16 @@
     margin-top: 50%;
 }
 
+.music-icon{
+    align-items: center;
+    margin: 0 auto;
+}
 
 .music-icon .btn:hover {
   background: var(--sidebar-timer-btn-bg-primary);
 }
 
 .music-icon .btn{
-    margin-left: 35px;
     width: 150px;
     height: 42px;
     border-radius: 5px;
@@ -23,4 +26,10 @@
     border: none;
     cursor:default;
     transition: 0.35s;
+    align-items: center;
+    margin: 20px;
+    margin-right: 25px;
+    margin-left: 40px;
+    
 }
+
