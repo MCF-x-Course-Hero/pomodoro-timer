@@ -10,7 +10,7 @@ export default function NotAuthHistory() {
         <>
         <Modal>
             <div className="history-modal-background">
-                <div className="btn-close-modal" onClick={() => {authFunctions.handleOnToggle(""); authSetStates.setActive("")}}>
+                <div className="btn-close-modal" onClick={() => {authFunctions.handleOnToggle("")}}>
                     <IconButton>
                     <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -31,7 +31,7 @@ export default function NotAuthHistory() {
                 </div>  
                 <div className="history-modal-container">
                     <p>You must be logged in to access this feature!</p>
-                    <button onClick={() => {authFunctions.handleOnToggle("profile"); authSetStates.setActive("profile")}}>Login</button>
+                    <button onClick={() => {authFunctions.handleOnToggle("profile")}}>Login</button>
                 </div>
             </div>
         </Modal>

@@ -41,15 +41,15 @@ export default function ({ todo, toggleComplete, removeTodo }) {
 
   function handlePinButton() {
     // isActivePin is a boolean value that denotes if there's a todo pinned.
-    if (todo.is_completed){
+    if (todo.is_completed) {
       if (isActivePin) {
         document.getElementById(`${pinnedTodo.id}`).style.fill = "none";
       }
       document.getElementById(`${todo.id}`).style.fill = "white";
-      toggleComplete(todo)
-      setPinnedTodo(todo)
-      setIsActivePin(true)
-      return
+      toggleComplete(todo);
+      setPinnedTodo(todo);
+      setIsActivePin(true);
+      return;
     }
 
     if (!isActivePin) {
@@ -76,70 +76,88 @@ export default function ({ todo, toggleComplete, removeTodo }) {
     }
   }
 
-
   return (
     <List style={{ display: "flex" }}>
       <div className="todo-row">
-      <div className="todo-left-side">
-        <IconButton className="pin-btn" onClick={handlePinButton}>
-          <svg
-            id={`${todo.id}`}
-            xmlns="http://www.w3.org/2000/svg"
-            width="28"
-            height="28"
-            viewBox="0 0 24 24"
-            strokeWidth="1.5"
-            stroke="white"
-            fill={todo.id == pinnedTodo.id ? "white" : "none"}
-            strokeLinecap="round"
-            strokeLinejoin="round"
+        <div className="todo-left-side">
+          <IconButton className="pin-btn" onClick={handlePinButton}>
+            <svg
+              id={`${todo.id}`}
+              xmlns="http://www.w3.org/2000/svg"
+              width="28"
+              height="28"
+              viewBox="0 0 24 24"
+              strokeWidth="1.5"
+              stroke="white"
+              fill={todo.id == pinnedTodo.id ? "white" : "none"}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M15 4.5l-4 4l-4 1.5l-1.5 1.5l7 7l1.5 -1.5l1.5 -4l4 -4" />
+              <line x1="9" y1="15" x2="4.5" y2="19.5" />
+              <line x1="14.5" y1="4" x2="20" y2="9.5" />
+            </svg>
+          </IconButton>
+          <Checkbox
+            checked={todo.is_completed}
+            type="checkbox"
+            onClick={handleCheckBoxClick}
+            style={{
+              color: "white",
+            }}
+          />
+          <Typography
+            variant="body1"
+            className="task-name"
+            style={{
+              textDecoration: todo.is_completed ? "line-through" : null,
+              padding: "9px",
+            }}
           >
-            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-            <path d="M15 4.5l-4 4l-4 1.5l-1.5 1.5l7 7l1.5 -1.5l1.5 -4l4 -4" />
-            <line x1="9" y1="15" x2="4.5" y2="19.5" />
-            <line x1="14.5" y1="4" x2="20" y2="9.5" />
-          </svg>
-        </IconButton>
-        <Checkbox
-          checked={todo.is_completed}
-          type="checkbox"
-          onClick={handleCheckBoxClick}
-          style={{
-            color: "white",
-          }}
-        />
-        <Typography
-          variant="body1"
-          className="task-name"
-          style={{
+            {todo.task}
+          </Typography>
+        </div>
+        <div className="close-btn">
+          <IconButton onClick={handleRemoveButton}>
+            {/* <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="icon icon-tabler icon-tabler-backspace"
+              width="28"
+              height="28"
+              viewBox="0 0 24 24"
+              strokeWidth="1.5"
+              stroke="#ffffff"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M20 6a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-11l-5 -5a1.5 1.5 0 0 1 0 -2l5 -5z" />
+              <path d="M12 10l4 4m0 -4l-4 4" />
 
-            textDecoration: todo.is_completed ? "line-through" : null,
-            padding:"9px"
-          }}
-        >
-          {todo.task}
-        </Typography>
-      </div>
-      <div className="close-btn">
-        <IconButton onClick={handleRemoveButton}>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="icon icon-tabler icon-tabler-backspace"
-            width="28"
-            height="28"
-            viewBox="0 0 24 24"
-            strokeWidth="1.5"
-            stroke="#ffffff"
-            fill="none"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-            <path d="M20 6a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-11l-5 -5a1.5 1.5 0 0 1 0 -2l5 -5z" />
-            <path d="M12 10l4 4m0 -4l-4 4" />
-          </svg>
-        </IconButton>
-      </div>
+            </svg> */}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="icon icon-tabler icon-tabler-trash"
+                width="28"
+                height="28"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                stroke="#ffffff"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <line x1="4" y1="7" x2="20" y2="7" />
+                <line x1="10" y1="11" x2="10" y2="17" />
+                <line x1="14" y1="11" x2="14" y2="17" />
+                <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+                <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+              </svg>
+          </IconButton>
+        </div>
       </div>
     </List>
   );

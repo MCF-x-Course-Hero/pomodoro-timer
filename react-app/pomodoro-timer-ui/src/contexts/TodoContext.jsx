@@ -52,6 +52,7 @@ export const TodoContextProvider = ({ children }) => {
   - Otherwise if the id does not match, simply return the todo object as it is not the one we want to mark/unmark
   - all of this is done inside the setTodoList since we want to update the todoList in order to render it with a todo marked off.
   */
+ 
   const { authStates } = useAuthContext();
   function toggleComplete(todo) {
     if (authStates.loggedIn) {
