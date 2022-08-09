@@ -13,7 +13,6 @@ export default function VideoPlayer({
         className="video"
         width="320"
         url={musicUrl}
-        allowFullScreen
         controls
       />
     </div>

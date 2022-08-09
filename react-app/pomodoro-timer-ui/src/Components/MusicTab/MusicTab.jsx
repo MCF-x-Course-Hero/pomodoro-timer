@@ -10,7 +10,7 @@ export default function MusicTab({displayType}){
     return (
       <div className="music-content" style={{display:displayType}}>
         <MusicForm urlForm={urlForm} setUrlForm={setUrlForm}/>
-        <VideoPlayer musicUrl="https://youtube.com/playlist?list=PLJP5_qSxMbkI7B5W8uo_FLAtmSKwhxXLt" displayType={displayType}/>
+        <VideoPlayer musicUrl={urlForm} displayType={displayType}/>
       </div>
     )
 }
