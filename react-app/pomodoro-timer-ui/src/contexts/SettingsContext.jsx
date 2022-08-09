@@ -18,14 +18,15 @@ export const SettingsContextProvider = ({children}) => {
     const [numSessions, setNumSessions] = React.useState(4);
     const [loading, setLoading] = React.useState(false);
     const [notifSound, setNotifSound] = React.useState("standard");
+    const [notifWord, setNotifWord] = React.useState("standard");
     const [notifToggle, setNotifToggle] = React.useState(false);
     const [darkToggle, setDarkToggle] = React.useState(false);
     const [automaticTimer, setAutomaticTimer] = React.useState(false);
     const [error, setError] = React.useState({});
     const [isExploding, setIsExploding] = React.useState(false);
     const [timeForm, setTimeForm] = React.useState({ focusTime: 25, shortBreakTime: 5, longBreakTime: 15 })
-    const settingsStates = { session, theme, pomozoneTheme, shortBreakTheme, longBreakTheme, notifToggle, darkToggle, isExploding, timeForm, loading, fadeProp, userSettings, automaticTimer, numSessions, notifSound };
-    const settingsSetStates = { setSession, setTheme, setPomozoneTheme, setShortBreakTheme, setLongBreakTheme, setNotifToggle, setDarkToggle, setIsExploding, setTimeForm, setLoading, setUserSettings, setAutomaticTimer, setNumSessions, setNotifSound };
+    const settingsStates = { session, theme, pomozoneTheme, shortBreakTheme, longBreakTheme, notifToggle, darkToggle, isExploding, timeForm, loading, fadeProp, userSettings, automaticTimer, numSessions, notifSound, notifWord };
+    const settingsSetStates = { setSession, setTheme, setPomozoneTheme, setShortBreakTheme, setLongBreakTheme, setNotifToggle, setDarkToggle, setIsExploding, setTimeForm, setLoading, setUserSettings, setAutomaticTimer, setNumSessions, setNotifSound, setNotifWord };
     const settingsFunctions = { darkModeToggle, updateUserSettings, getUserSettings, addUserSettings, updateDefaultSettings }
 
     function darkModeToggle() {
@@ -43,6 +44,12 @@ export const SettingsContextProvider = ({children}) => {
         setLoading(true);
         const { data, error } = await apiClient.getSettings();
         if (data) {
+            if(data.settings.sound_choice == "/assets/attention.58390c52.mp3") setNotifWord("standard");
+            if(data.settings.sound_choice == "/assets/achievement.5d08deff.mp3") setNotifWord("achievement");
+            if(data.settings.sound_choice == "/assets/bike-notif.864ac978.mp3") setNotifWord("bike");
+            if(data.settings.sound_choice == "/assets/dingdong.76933bb1.mp3") setNotifWord("doorbell");
+            if(data.settings.sound_choice == "/assets/typewriter.56fc4a19.mp3") setNotifWord("typewriter");
+            console.log(data);
             setUserSettings((s) => ({...data}));
             session === "pomozone" ? setTheme(data.settings.pcolor) : null;
             session === "short-break" ? setTheme(data.settings.sbcolor) : null;

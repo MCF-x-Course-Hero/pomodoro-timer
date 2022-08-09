@@ -44,6 +44,7 @@ export default function SettingsTab() {
     }
 
     const handleNotifChange = (e) => {
+        settingsSetStates.setNotifWord(e.target.value);
         if(!settingsStates.notifToggle) {
             settingsSetStates.setNotifToggle(true);
         }
@@ -199,7 +200,7 @@ export default function SettingsTab() {
                         />
                     </label>
                     <div className="ding">
-                        <select className="notif-sound" onChange={handleNotifChange} defaultValue={settingsStates.notifSound}>
+                        <select className="notif-sound" onChange={handleNotifChange} defaultValue={settingsStates.notifWord}>
                             <option value={"standard"}>Standard</option>
                             <option value={"achievement"}>Achievement</option>
                             <option value={"bike"}>Bike Bell</option>
