@@ -7,10 +7,8 @@ export default function MusicTab({displayType}){
 
   const [urlForm, setUrlForm] = React.useState("https://youtube.com/playlist?list=PLJP5_qSxMbkI7B5W8uo_FLAtmSKwhxXLt")
 
-
-
     return (
-      <div className="music-content">
+      <div className="music-content" style={{display:displayType}}>
         <MusicForm urlForm={urlForm} setUrlForm={setUrlForm}/>
         <VideoPlayer musicUrl="https://youtube.com/playlist?list=PLJP5_qSxMbkI7B5W8uo_FLAtmSKwhxXLt" displayType={displayType}/>
       </div>
