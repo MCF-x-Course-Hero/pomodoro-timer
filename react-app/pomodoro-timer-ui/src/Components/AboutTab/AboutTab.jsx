@@ -28,8 +28,7 @@ export default function AboutTab() {
       <div className="about-video">
         <div className="ratio ratio-16x9">
           <ReactPlayer
-            width="350"
-            height="200"
+            width="320"
             url="https://www.youtube.com/embed/ppnPGk36mMY"
             title="YouTube video"
             frameBorder="0"
