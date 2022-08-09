@@ -34,9 +34,10 @@ CREATE TABLE userSettings (
     sbColor         TEXT NOT NULL,
     lbColor         TEXT NOT NULL,
     dark_mode       BOOLEAN NOT NULL,
-    sound_notif     BOOLEAN NOT NULL,
+    notif_toggle    BOOLEAN NOT NULL,
     auto_toggle     BOOLEAN NOT NULL,
     num_sessions    INT NOT NULL,
+    sound_choice    TEXT NOT NULL,
     user_id         INT NOT NULL,
     FOREIGN KEY     (user_id) REFERENCES users(id) ON DELETE CASCADE
 );

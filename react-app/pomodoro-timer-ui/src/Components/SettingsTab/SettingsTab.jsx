@@ -1,4 +1,9 @@
 import * as React from "react";
+import standard from "../../assets/soft-notif.mp3";
+import dingdong from "../../assets/dingdong.mp3";
+import bikebell from "../../assets/bike-notif.mp3";
+import attention from "../../assets/attention.mp3";
+import achievement from "../../assets/achievement.mp3";
 import { useSettingsContext } from "../../contexts/SettingsContext";
 import { useAuthContext } from "../../contexts/AuthContext";
 import Toggle from 'react-toggle';
@@ -11,6 +16,27 @@ export default function SettingsTab() {
     const handleOnInputChange = (e) => {
         if (e.target.value >= 0) {
             settingsSetStates.setTimeForm((f) => ({ ...f, [e.target.name]: e.target.value}));
+        }
+    }
+
+    const handleNotifChange = (e) => {
+        if(!settingsStates.notifToggle) {
+            settingsSetStates.setNotifToggle(true);
+        }
+        if(e.target.value == "attention") {
+            settingsSetStates.setNotifSound(attention);
+        }
+        if(e.target.value == "achievement") {
+            settingsSetStates.setNotifSound(achievement);
+        }
+        if(e.target.value == "standard") {
+            settingsSetStates.setNotifSound(standard);
+        }
+        if(e.target.value == "bike") {
+            settingsSetStates.setNotifSound(bikebell);
+        }
+        if(e.target.value == "doorbell") {
+            settingsSetStates.setNotifSound(dingdong);
         }
     }
 
@@ -45,13 +71,14 @@ export default function SettingsTab() {
         <div className="settings-tab">
             <h2>Settings</h2>
             <div className="set-time">
-                <h4>Set Times</h4>
+                <h4>Timer Options</h4>
                 <div className="time-forms">
                     <ul className="input-names">
-                        <li>PomoZone Time {"(in min):"}</li>
-                        <li>Short Break Time {"(in min):"}</li>
-                        <li>Long Break Time {"(in min):"}</li>
-                        <li>Number of Sessions before Long Break:</li>
+                        <li>PomoZone Time {"(in minutes):"}</li>
+                        <li>Short Break Time {"(in minutes):"}</li>
+                        <li>Long Break Time {"(in minutes):"}</li>
+                        <li>Num. of Sessions before Long Break:</li>
+                        <li className="auto-toggle">Automatically Move to Next Session:</li>
                     </ul>
                     <div className="inputs">
                         <div className="input-field">
@@ -59,7 +86,7 @@ export default function SettingsTab() {
                                 className="input-form"
                                 type="number"
                                 name="focusTime"
-                                placeholder="1"
+                                placeholder="25"
                                 value={settingsStates.timeForm.focusTime}
                                 onChange={handleOnInputChange}
                                 onKeyDown={ (evt) => {
@@ -75,7 +102,7 @@ export default function SettingsTab() {
                                 className="input-form"
                                 type="number"
                                 name="shortBreakTime"
-                                placeholder="80"
+                                placeholder="5"
                                 value={settingsStates.timeForm.shortBreakTime}
                                 onChange={handleOnInputChange}
                                 onKeyDown={ (evt) => {
@@ -91,7 +118,7 @@ export default function SettingsTab() {
                                 className="input-form"
                                 type="number"
                                 name="longBreakTime"
-                                placeholder="25"
+                                placeholder="15"
                                 value={settingsStates.timeForm.longBreakTime}
                                 onChange={handleOnInputChange}
                                 onKeyDown={ (evt) => {
@@ -110,56 +137,62 @@ export default function SettingsTab() {
                                 <option value={5}>5</option>
                             </select>
                         </div>
-
+                        <div className="time-toggle">
+                            <Toggle
+                                defaultChecked={settingsStates.automaticTimer}
+                                onChange={() => {settingsSetStates.setAutomaticTimer(!settingsStates.automaticTimer)}}
+                                icons={false}
+                            />
+                        </div>
                     </div>
                 </div>
             </div>
             <div className="color-themes">
-                <h4>Color Themes</h4>
-                <div className="color-palette">
-                    <span className="dot pdefault" onClick={() => {colorPalette("pdefault")}}></span>
-                    <span className="dot sbdefault" onClick={() => {colorPalette("sbdefault")}}></span>
-                    <span className="dot lbdefault" onClick={() => {colorPalette("lbdefault")}}></span>
-                    <span className="dot turquoise" onClick={() => {colorPalette("turquoise")}}></span>
-                    <span className="dot teal" onClick={() => {colorPalette("teal")}}></span>
-                    <span className="dot green" onClick={() => {colorPalette("green")}}></span>
-                    <span className="dot light-green" onClick={() => {colorPalette("light-green")}}></span>
-                    <span className="dot pink" onClick={() => {colorPalette("pink")}}></span>
-                    <span className="dot red" onClick={() => {colorPalette("red")}}></span>
-                    <span className="dot orange" onClick={() => {colorPalette("orange")}}></span>
-                </div>
-            </div>
-            <h4 className="toggle-header">Toggle Options</h4>
-            <div className="slider-area">                
-                <div className="slider-names">
-                    <ul>
-                        <li>Dark Mode:</li>
-                        <li>Sound Notifications:</li>
-                        <li className="auto-toggle">Automatically Move to Next Session:</li>
-                    </ul>
-                </div>
-                <div className="sliders">
-                    <label>
+                <h4>Color Options</h4>
+                <div className="content">
+                    <div className="color-palette">
+                        <span className="dot pdefault" onClick={() => {colorPalette("pdefault")}}></span>
+                        <span className="dot sbdefault" onClick={() => {colorPalette("sbdefault")}}></span>
+                        <span className="dot lbdefault" onClick={() => {colorPalette("lbdefault")}}></span>
+                        <span className="dot turquoise" onClick={() => {colorPalette("turquoise")}}></span>
+                        <span className="dot teal" onClick={() => {colorPalette("teal")}}></span>
+                        <span className="dot green" onClick={() => {colorPalette("green")}}></span>
+                        <span className="dot light-green" onClick={() => {colorPalette("light-green")}}></span>
+                        <span className="dot pink" onClick={() => {colorPalette("pink")}}></span>
+                        <span className="dot red" onClick={() => {colorPalette("red")}}></span>
+                        <span className="dot orange" onClick={() => {colorPalette("orange")}}></span>
+                    </div>
+                    <div className="dark-area">
+                        <p>Toggle Dark Mode:</p>
                         <Toggle
                             checked={settingsStates.darkToggle}
                             onChange={() => { settingsFunctions.darkModeToggle() }}
                             icons={false}
                         />
-                    </label>
+                    </div>
+                </div>
+            </div>
+            <h4 className="toggle-header">Notification Options</h4>
+            <div className="notif-area">                
+                <div className="notif-names">
+                    <p>Toggle Notifications:</p>
+                    <p>Choose Notification Sound:</p>
+                </div>
+                <div className="notifs">
                     <label>
                         <Toggle
-                            defaultChecked={settingsStates.notifToggle}
+                            checked={settingsStates.notifToggle}
                             onChange={() => {settingsSetStates.setNotifToggle(!settingsStates.notifToggle)}}
                             icons={false}
                         />
                     </label>
-                    <label>
-                        <Toggle
-                            defaultChecked={settingsStates.automaticTimer}
-                            onChange={() => {settingsSetStates.setAutomaticTimer(!settingsStates.automaticTimer)}}
-                            icons={false}
-                        />
-                    </label>
+                    <select className="notif-sound" onChange={handleNotifChange} defaultValue={settingsStates.notifSound}>
+                        <option value={"attention"}>Attention</option>
+                        <option value={"achievement"}>Achievement</option>
+                        <option value={"bike"}>Bike Bell</option>
+                        <option value={"standard"}>Standard Ding</option>
+                        <option value={"doorbell"}>Doorbell Ring</option>
+                    </select>
                 </div>
             </div>
             { authStates.loggedIn ? 

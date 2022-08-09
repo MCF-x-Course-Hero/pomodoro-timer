@@ -43,7 +43,7 @@
 .settings-tab .set-time .time-forms .input-names {
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 70%;
   font-size: 13px;
   padding: 0px;
   list-style: none;
@@ -53,7 +53,7 @@
 
 .settings-tab .set-time .inputs .session-num {
   width: 78px;
-  margin: 5px 0px 5px 30px;
+  margin: 5px 0px 5px 0px;
   border-radius: 8px;
   border: solid 1px black;
   cursor: pointer;
@@ -65,7 +65,7 @@
 }
 
 .settings-tab .set-time .time-forms .input-names li {
-  margin: 6px 0px 6px 0px;
+  margin: 8px 0px 8px 0px;
 }
 
 .settings-tab .set-time .time-forms .input-names p {
@@ -73,20 +73,24 @@
 }
 
 .settings-tab .set-time .time-forms .inputs {
-  width: 50%;
+  width: 30%;
   display: flex;
   flex-direction: column;
-  margin-top: 5px;
+  margin: 1px 0px 1px 0px;
 }
 
 .settings-tab .set-time .time-forms .input-field {
-  margin: 5px 0px 5px 0px;
+  margin: 6px 0px 5px 0px;
+}
+
+.settings-tab .set-time .time-forms .time-toggle {
+  margin: 4px 0px 4px 0px;
+  padding-left: 15px;
 }
 
 .settings-tab .set-time .time-forms .input-field .input-form {
   width: 70px;
   border-radius: 8px;
-  margin-left: 30px;
   color: black;
 }
 
@@ -107,17 +111,39 @@
     margin: 0px 0px 5px 0px;
 }
 
+.settings-tab .color-themes .content {
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  background: var(--sidebar-timer-btn-bg-primary);
+}
+
+.settings-tab .color-themes .content .dark-area {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 5px;
+  height: 35px;
+  width: 100%;
+}
+
+.settings-tab .color-themes .content .dark-area p {
+  padding-top: 1px;
+  margin: 0px;
+  font-size: 13px;
+  margin-right: 163px;
+}
+
 .settings-tab .color-themes .color-palette {
     display: flex;
     flex-wrap: wrap;
     margin: 0px 0px 0px 0px;
     border: none;
-    background: var(--sidebar-timer-btn-bg-primary);
     align-self: flex-start;
     align-items: center;
     justify-content: center;
     width: 98%;
-    border-radius: 5px;
     padding: 5px;
     height: 95px;
 }
@@ -218,13 +244,7 @@
 
 /* Toggle Options css */
 
-.settings-tab .slider-area .slider-names ul {
-    list-style: none;
-    padding: 5px;
-    margin: 0px;
-}
-
-.settings-tab .slider-area {
+.settings-tab .notif-area {
     display: flex;
     flex-direction: row;
     border: none;
@@ -232,10 +252,10 @@
     border-radius: 5px;
     width: 90%;
     align-self: center;
-    height: 150px;
+    height: 80px;
 }
 
-.settings-tab .slider-area .sliders {
+.settings-tab .notif-area .notifs {
     width: 40%;
     display: flex;
     flex-direction: column;
@@ -245,21 +265,21 @@
     margin-bottom: 5px;
 }
 
-.settings-tab .slider-area .slider-names {
+.settings-tab .notif-area .notifs select {
+  border-radius: 8px;
+}
+
+.settings-tab .notif-area .notif-names {
     padding: 0px;
     margin: 0px;
+    margin-right: 5px;
+    padding-top: 5px;
     width: 60%;
-    font-size: 14px;
+    font-size: 13px;
 }
 
-.settings-tab .slider-area .slider-names li {
-    height: 48px;
-    text-align: start;
-    line-height: 48px;
-}
-
-.settings-tab .slider-area .slider-names .auto-toggle {
-  line-height: 20px;
+.settings-tab .notif-area .notif-names p {
+  padding-left: 5px;
 }
 
 /* Toggle-Sliders CSS */
@@ -433,11 +453,15 @@
 
 .fade-in {
   text-align: center;
+  margin: 0px;
+  margin-top: 5px;
   transition: opacity 1s ease;
 }
 
 .fade-out {
   opacity: 0;
+  margin: 0px;
+  margin-top: 5px;
   text-align: center;
   transition: opacity 1s ease;
 }

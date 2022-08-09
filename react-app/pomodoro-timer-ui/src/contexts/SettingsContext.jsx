@@ -17,14 +17,15 @@ export const SettingsContextProvider = ({children}) => {
     const [fadeProp, setFadeProp] = React.useState({ fade: 'fade-out', fadeError: 'fade-out' });
     const [numSessions, setNumSessions] = React.useState(4);
     const [loading, setLoading] = React.useState(false);
+    const [notifSound, setNotifSound] = React.useState("standard");
     const [notifToggle, setNotifToggle] = React.useState(false);
     const [darkToggle, setDarkToggle] = React.useState(false);
     const [automaticTimer, setAutomaticTimer] = React.useState(false);
     const [error, setError] = React.useState({});
     const [isExploding, setIsExploding] = React.useState(false);
     const [timeForm, setTimeForm] = React.useState({ focusTime: 25, shortBreakTime: 5, longBreakTime: 15 })
-    const settingsStates = { session, theme, pomozoneTheme, shortBreakTheme, longBreakTheme, notifToggle, darkToggle, isExploding, timeForm, loading, fadeProp, userSettings, automaticTimer, numSessions };
-    const settingsSetStates = { setSession, setTheme, setPomozoneTheme, setShortBreakTheme, setLongBreakTheme, setNotifToggle, setDarkToggle, setIsExploding, setTimeForm, setLoading, setUserSettings, setAutomaticTimer, setNumSessions };
+    const settingsStates = { session, theme, pomozoneTheme, shortBreakTheme, longBreakTheme, notifToggle, darkToggle, isExploding, timeForm, loading, fadeProp, userSettings, automaticTimer, numSessions, notifSound };
+    const settingsSetStates = { setSession, setTheme, setPomozoneTheme, setShortBreakTheme, setLongBreakTheme, setNotifToggle, setDarkToggle, setIsExploding, setTimeForm, setLoading, setUserSettings, setAutomaticTimer, setNumSessions, setNotifSound };
     const settingsFunctions = { darkModeToggle, updateUserSettings, getUserSettings, addUserSettings, updateDefaultSettings }
 
     function darkModeToggle() {
@@ -55,7 +56,8 @@ export const SettingsContextProvider = ({children}) => {
                 longBreakTime: data.settings.lbtime,
             });
             setDarkToggle(data.settings.dark_mode);
-            setNotifToggle(data.settings.sound_notif);
+            setNotifToggle(data.settings.notif_toggle);
+            setNotifSound(data.settings.sound_choice);
             setAutomaticTimer(data.settings.auto_toggle);
             setNumSessions(data.settings.num_sessions);
         }
@@ -73,9 +75,10 @@ export const SettingsContextProvider = ({children}) => {
             sbColor: shortBreakTheme,
             lbColor: longBreakTheme,
             dark_mode: darkToggle,
-            sound_notif: notifToggle,
+            notif_toggle: notifToggle,
             auto_toggle: automaticTimer,
             num_sessions: numSessions,
+            sound_choice: notifSound,
         }
         const { data, error } = await apiClient.updateSettings(allSettings);
         if (data) {
@@ -114,6 +117,7 @@ export const SettingsContextProvider = ({children}) => {
         setNotifToggle(false);
         setNumSessions(4);
         setAutomaticTimer(false);
+        setNotifSound("standard");
         const allSettings = {
             pTime: 25,
             sbTime: 5,
@@ -122,9 +126,10 @@ export const SettingsContextProvider = ({children}) => {
             sbColor: "sbdefault",
             lbColor: "lbdefault",
             dark_mode: false,
-            sound_notif: false,
+            notif_toggle: false,
             auto_toggle: false,
             num_sessions: 4,
+            sound_choice: standard,
         }
         const { data, error } = await apiClient.updateSettings(allSettings);
         if (data) {
@@ -156,9 +161,10 @@ export const SettingsContextProvider = ({children}) => {
             sbColor: shortBreakTheme,
             lbColor: longBreakTheme,
             dark_mode: darkToggle,
-            sound_notif: notifToggle,
+            notif_toggle: notifToggle,
             auto_toggle: automaticTimer,
             num_sessions: numSessions,
+            sound_choice: notifSound,
         }
         const { data, error } = await apiClient.addSettings(allSettings);
         if(data) {

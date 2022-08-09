@@ -1,11 +1,10 @@
 import * as React from "react";
 import { useTimer } from "react-timer-hook";
 import apiClient from "../../Services/apiClient";
-import resetIcon from "../../Assets/restart.svg";
-import pauseIcon from "../../Assets/pause.svg";
-import forwardIcon from "../../Assets/forward.svg";
-import startIcon from "../../Assets/play.svg";
-import softNotif from "../../assets/soft-notif.mp3";
+import resetIcon from "../../assets/restart.svg";
+import pauseIcon from "../../assets/pause.svg";
+import forwardIcon from "../../assets/forward.svg";
+import startIcon from "../../assets/play.svg";
 import { useSettingsContext } from "../../contexts/SettingsContext";
 import { useAuthContext } from "../../contexts/AuthContext";
 import PinnedTodo from "../PinnedTodo/PinnedTodo";
@@ -38,7 +37,7 @@ export default function Timer() {
 
     //expiryTimestamp tells the timer how long the timer should run for
     let expiryTimestamp = setTime(settingsStates.session);
-    const [playActive] = useSound(softNotif, {volume: 2 });
+    const [playActive] = useSound(settingsStates.notifSound, {volume: 2 });
 
     function finishCountdown() {
         settingsStates.notifToggle ? playActive() : null;
@@ -79,7 +78,7 @@ export default function Timer() {
     function setTime(s) {
         const time = new Date();
         if(s === pomozone) {
-            time.setSeconds(time.getSeconds() + pomozoneTime);
+            time.setSeconds(time.getSeconds() + 3);
         } else if(s === shortBreak) {
             time.setSeconds(time.getSeconds() + shortBreakTime);
         } else if(s === longBreak) {
