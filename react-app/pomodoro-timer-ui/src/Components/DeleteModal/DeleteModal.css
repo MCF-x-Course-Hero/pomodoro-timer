@@ -10,26 +10,23 @@
 
 .modal-background .modal-container {
     width: 50%;
-    height: 40%;
+    height: 43%;
     max-width: 550px;
     max-height: 350px;
     border-radius: 12px;
-    background-color: white;
+    color: white;
+    background-color: var(--expanded-sidebar-hover-primary);
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     display: flex;
     flex-direction: column;
 }
 
 .modal-background .modal-container .cancel {
-    width: 10%;
-    align-self: flex-end;
-    margin-top: 5px;
-    margin-right: 5px;
+    margin-left: auto;
+    color: white;
+    background: var(--expanded-sidebar-hover-primary);
+    border-radius: 12px;
     border: none;
-    background: white;
-    cursor: pointer;
-    font-weight: bolder;
-    font-size: 16px;
 }
 
 .modal-background .modal-container h1 {
@@ -47,7 +44,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 80%;
+    width: 285px;
     align-self: center;
 }
 
@@ -56,32 +53,61 @@
 }
 
 .modal-background .modal-container .confirmation input {
-    width: 100%;
-    padding: 0px;
-    padding-left: 5px;
-    border-radius: 5px;
-    height: 40%;
+    height: 30px;
+    border: none;
+    width: 180px;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1;
+    outline: none;
+    color: white;
+    background-color: transparent;
+    border-bottom: 2px solid white;
+}
+
+.modal-background .modal-container .confirmation .username {
+    display: flex;
+    flex-direction: row;
+}
+
+.modal-background .modal-container .confirmation i {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    color: white;
+    width: 35px;
+    height: 32px;
+    text-align: center;
+    font-size: 1.3rem;
+    border-bottom: 2px solid white;
+}
+
+.modal-background .modal-container .confirmation ::placeholder {
+    color: white;
 }
 
 .modal-background .modal-container .delete {
     margin-top: 20px;
-    width: 80%;
-    height: 10%;
+    width: 219px;
+    height: 42px;
     align-self: center;
     background: #FF0909;
     border-radius: 10px;
     border: none;
     color: white;
+    font-size: 16px;
     cursor: pointer;
 }
 
 .modal-background .modal-container .fill {
     margin-top: 20px;
-    width: 80%;
-    height: 10%;
+    width: 219px;
+    height: 42px;
     align-self: center;
     background: #B20A0A;
     border-radius: 10px;
+    font-size: 16px;
     border: none;
     color: white;
 }
