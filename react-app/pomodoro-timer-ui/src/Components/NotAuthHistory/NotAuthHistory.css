@@ -15,6 +15,7 @@
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     display: flex;
     flex-direction: column;
+    margin-right: 180px;
 }
 
 .history-modal-background .history-modal-container p {
