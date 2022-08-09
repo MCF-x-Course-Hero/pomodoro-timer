@@ -158,10 +158,10 @@ export const AuthContextProvider = ({ children }) => {
       setHistoryOpen(false);
       setListOpen(false);
       setSettingsOpen(false);
-      document.querySelector("#side-menu").style.width = "450px";
+      // document.querySelector("#side-menu").style.width = "450px";
     } else if (tabName == "profile" && profileOpen) {
       setProfileOpen(false);
-      document.querySelector("#side-menu").style.width = "0";
+      // document.querySelector("#side-menu").style.width = "0";
     }
 
     if (tabName == "settings" && !settingsOpen) {
@@ -170,11 +170,11 @@ export const AuthContextProvider = ({ children }) => {
       setAboutOpen(false);
       setListOpen(false);
       setSettingsOpen(true);
-      document.querySelector("#side-menu").style.width = "450px";
+      // document.querySelector("#side-menu").style.width = "450px";
     } else if (tabName == "settings" && settingsOpen) {
       setSettingsOpen(false);
       document.getElementById("settings").classList.remove("active");
-      document.querySelector("#side-menu").style.width = "0";
+      // document.querySelector("#side-menu").style.width = "0";
     }
 
     if (tabName == "history" && !historyOpen) {
@@ -183,10 +183,10 @@ export const AuthContextProvider = ({ children }) => {
       setHistoryOpen(true);
       setListOpen(false);
       setSettingsOpen(false);
-      document.querySelector("#side-menu").style.width = "450px";
+      // document.querySelector("#side-menu").style.width = "450px";
     } else if (tabName == "history" && historyOpen) {
       setHistoryOpen(false);
-      document.querySelector("#side-menu").style.width = "0";
+      // document.querySelector("#side-menu").style.width = "0";
     }
 
     if (tabName == "todo" && !listOpen) {
@@ -195,10 +195,10 @@ export const AuthContextProvider = ({ children }) => {
       setAboutOpen(false);
       setListOpen(true);
       setSettingsOpen(false);
-      document.querySelector("#side-menu").style.width = "450px";
+      // document.querySelector("#side-menu").style.width = "450px";
     } else if (tabName == "todo" && listOpen) {
       setListOpen(false);
-      document.querySelector("#side-menu").style.width = "0";
+      // document.querySelector("#side-menu").style.width = "0";
     }
 
     if (tabName == "about" && !aboutOpen) {
@@ -207,20 +207,20 @@ export const AuthContextProvider = ({ children }) => {
       setSettingsOpen(false);
       setListOpen(false);
       setAboutOpen(true);
-      document.querySelector("#side-menu").style.width = "450px";
+      // document.querySelector("#side-menu").style.width = "450px";
     } else if (tabName == "about" && aboutOpen) {
       setAboutOpen(false);
-      document.querySelector("#side-menu").style.width = "0";
+      // document.querySelector("#side-menu").style.width = "0";
     }
 
     if (tabName == "") {
-      document.querySelector("#side-menu").style.width = "0";
+      // document.querySelector("#side-menu").style.width = "0";
     }
 
     /* setting the componentName to the name tabName that was clicked. 
     This way we can conditionally render the appropraite tab based on whats clicked */
     setComponentName(tabName);
-    setActive(authStates.active === tabName ? "" : tabName);
+    setActive((active)=>active === tabName ? "" : tabName);
   }
 
   React.useEffect(() => {

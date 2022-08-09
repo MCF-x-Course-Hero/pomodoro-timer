@@ -1,16 +1,17 @@
 .side-nav {
     height: 100%;
-    width: 0;
+    width: 630px;
     position: fixed;
     z-index: 1;
     Left: 0;
     top: 0;
     opacity: 1;
     overflow-x:hidden;
-    transition: 0.35s;
     background: var(--expanded-sidebar-hover-primary);
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
+    transform: translateX(-100%);
+    box-sizing: border-box;
 }
 
 .side-nav .btn-close {
@@ -31,13 +32,21 @@
     margin-left: 50px;
 }
 
+
 #side-menu {
-    margin-left: 180px;
+    padding-left: 180px;
 }
+
+
+.side-nav-open {
+    transform: translateX(0%);
+}
+
 
 @media only screen and (max-width: 768px) {
     #side-menu {
-        margin-left: 50px;
+        padding-left: 50px;
         transition: 0.45s;
+        width: 100%;
     }
 }
