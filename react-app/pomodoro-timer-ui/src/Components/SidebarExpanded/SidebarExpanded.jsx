@@ -12,13 +12,15 @@ import AboutTab from "../AboutTab/AboutTab";
 import { IconButton } from "@mui/material";
 import "./SidebarExpanded.css";
 
+
 export default function SidebarExpanded() {
   const { settingsStates } = useSettingsContext();
   const { authStates, authSetStates, authFunctions } = useAuthContext();
+  
 
   return (
     <section className="sidebar-expanded">
-      <div className={`side-nav ${settingsStates.darkToggle ? `${settingsStates.session}-dark-mode` : `${settingsStates.session}-${settingsStates.theme}`}`} id="side-menu">
+      <div className={`side-nav ${authStates.active ? "side-nav-open":""} ${settingsStates.darkToggle ? `${settingsStates.session}-dark-mode` : `${settingsStates.session}-${settingsStates.theme}`}`} id="side-menu">
         <div className="btn-close" onClick={() => {authFunctions.handleOnToggle(""); authSetStates.setActive("")}}>
           <IconButton>
 
