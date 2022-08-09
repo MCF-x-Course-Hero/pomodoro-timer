@@ -8,9 +8,7 @@ export default function Sidebar() {
   const { settingsStates } = useSettingsContext();
   const { authFunctions, authSetStates, authStates } = useAuthContext();
   return (
-    <div
-      className={`sidebar ${settingsStates.session}-${settingsStates.theme}`}
-    >
+    <div className={`sidebar ${settingsStates.darkToggle ? `${settingsStates.session}-dark-mode` : `${settingsStates.session}-${settingsStates.theme}`}`}>
       <div className="sidebar-top">
         <i className="logo fa-solid fa-clock"></i>
         <span className="brand">PomoZone</span>
@@ -20,7 +18,7 @@ export default function Sidebar() {
           <li
             className={classnames(
               "list-item",
-              `${settingsStates.session}-${settingsStates.theme}`,
+              `${settingsStates.darkToggle ? `${settingsStates.session}-dark-mode` : `${settingsStates.session}-${settingsStates.theme}`}`,
               { active: authStates.active === "profile" }
             )}
             id="profile"
@@ -34,7 +32,7 @@ export default function Sidebar() {
           <li
             className={classnames(
               "list-item",
-              `${settingsStates.session}-${settingsStates.theme}`,
+              `${settingsStates.darkToggle ? `${settingsStates.session}-dark-mode` : `${settingsStates.session}-${settingsStates.theme}`}`,
               { active: authStates.active === "todo" }
             )}
             id="todo"
@@ -48,7 +46,7 @@ export default function Sidebar() {
           <li
             className={classnames(
               "list-item",
-              `${settingsStates.session}-${settingsStates.theme}`,
+              `${settingsStates.darkToggle ? `${settingsStates.session}-dark-mode` : `${settingsStates.session}-${settingsStates.theme}`}`,
               { active: authStates.active === "history" }
             )}
             id="history"
@@ -62,7 +60,7 @@ export default function Sidebar() {
           <li
             className={classnames(
               "list-item",
-              `${settingsStates.session}-${settingsStates.theme}`,
+              `${settingsStates.darkToggle ? `${settingsStates.session}-dark-mode` : `${settingsStates.session}-${settingsStates.theme}`}`,
               { active: authStates.active === "settings" }
             )}
             id="settings"
@@ -76,7 +74,7 @@ export default function Sidebar() {
           <li
             className={classnames(
               "list-item",
-              `${settingsStates.session}-${settingsStates.theme}`,
+              `${settingsStates.darkToggle ? `${settingsStates.session}-dark-mode` : `${settingsStates.session}-${settingsStates.theme}`}`,
               { active: authStates.active === "about" }
             )}
             id="about"

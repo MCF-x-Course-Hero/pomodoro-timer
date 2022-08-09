@@ -20,8 +20,8 @@ export default function SidebarExpanded() {
 
   return (
     <section className="sidebar-expanded">
-      <div className={`side-nav ${settingsStates.session}-${settingsStates.theme} ${authStates.active ? "side-nav-open":""}`} id="side-menu">
-        <div className="btn-close" onClick={() => {authFunctions.handleOnToggle("")}}>
+      <div className={`side-nav ${authStates.active ? "side-nav-open":""} ${settingsStates.darkToggle ? `${settingsStates.session}-dark-mode` : `${settingsStates.session}-${settingsStates.theme}`}`} id="side-menu">
+        <div className="btn-close" onClick={() => {authFunctions.handleOnToggle(""); authSetStates.setActive("")}}>
           <IconButton>
 
           <svg
