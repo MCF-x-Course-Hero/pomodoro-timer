@@ -1,17 +1,23 @@
 import * as React from "react";
-import standard from "../../assets/soft-notif.mp3";
+import typewriter from "../../assets/typewriter.mp3";
 import dingdong from "../../assets/dingdong.mp3";
 import bikebell from "../../assets/bike-notif.mp3";
-import attention from "../../assets/attention.mp3";
+import standard from "../../assets/attention.mp3";
 import achievement from "../../assets/achievement.mp3";
 import { useSettingsContext } from "../../contexts/SettingsContext";
 import { useAuthContext } from "../../contexts/AuthContext";
+import useSound from "use-sound";
 import Toggle from 'react-toggle';
 import "./SettingsTab.css";
 
 export default function SettingsTab() {
     const { settingsStates, settingsSetStates, settingsFunctions } = useSettingsContext();
     const { authStates } = useAuthContext();
+    const [playTypewriter] = useSound(typewriter, {volume: 2, format: 'mp3' });
+    const [playAchievement] = useSound(achievement, {volume: 2, format: 'mp3' });
+    const [playBikebell] = useSound(bikebell, {volume: 2, format: 'mp3' });
+    const [playDingdog] = useSound(dingdong, {volume: 2, format: 'mp3' });
+    const [playStandard] = useSound(standard, {volume: 2, format: 'mp3' });
 
     const handleOnInputChange = (e) => {
         if (e.target.value >= 0) {
@@ -19,12 +25,30 @@ export default function SettingsTab() {
         }
     }
 
+    function playSound() {
+        if(settingsStates.notifSound === typewriter || settingsStates.notifSound === "typewriter") {
+            playTypewriter();
+        }
+        if(settingsStates.notifSound === achievement || settingsStates.notifSound === "achievement") {
+            playAchievement();
+        }
+        if(settingsStates.notifSound === standard || settingsStates.notifSound === "standard") {
+            playStandard();
+        }
+        if(settingsStates.notifSound === bikebell || settingsStates.notifSound === "bike") {
+            playBikebell();
+        }
+        if(settingsStates.notifSound === dingdong || settingsStates.notifSound === "doorbell") {
+           playDingdog();
+        }
+    }
+
     const handleNotifChange = (e) => {
         if(!settingsStates.notifToggle) {
             settingsSetStates.setNotifToggle(true);
         }
-        if(e.target.value == "attention") {
-            settingsSetStates.setNotifSound(attention);
+        if(e.target.value == "typewriter") {
+            settingsSetStates.setNotifSound(typewriter);
         }
         if(e.target.value == "achievement") {
             settingsSetStates.setNotifSound(achievement);
@@ -44,27 +68,15 @@ export default function SettingsTab() {
         if(settingsStates.session === "pomozone") {
             settingsSetStates.setPomozoneTheme(color);
             settingsSetStates.setTheme(color);
-            if(settingsStates.darkToggle) {
-                settingsSetStates.setDarkToggle(!settingsStates.darkToggle);
-                settingsSetStates.setShortBreakTheme("sbdefault");
-                settingsSetStates.setLongBreakTheme("lbdefault");
-            }
+            if(settingsStates.darkToggle) settingsSetStates.setDarkToggle(false);
         } else if(settingsStates.session === "short-break") {
             settingsSetStates.setShortBreakTheme(color);
             settingsSetStates.setTheme(color);
-            if(settingsStates.darkToggle) {
-                settingsSetStates.setDarkToggle(!settingsStates.darkToggle);
-                settingsSetStates.setPomozoneTheme("pdefault");
-                settingsSetStates.setLongBreakTheme("lbdefault");
-            }
+            if(settingsStates.darkToggle) settingsSetStates.setDarkToggle(false);
         } else if(settingsStates.session === "long-break") {
             settingsSetStates.setLongBreakTheme(color);
             settingsSetStates.setTheme(color);
-            if(settingsStates.darkToggle) {
-                settingsSetStates.setDarkToggle(!settingsStates.darkToggle);
-                settingsSetStates.setPomozoneTheme("pdefault");
-                settingsSetStates.setShortBreakTheme("sbdefault");
-            }
+            if(settingsStates.darkToggle) settingsSetStates.setDarkToggle(false);
         }
     }
     return(
@@ -186,13 +198,16 @@ export default function SettingsTab() {
                             icons={false}
                         />
                     </label>
-                    <select className="notif-sound" onChange={handleNotifChange} defaultValue={settingsStates.notifSound}>
-                        <option value={"attention"}>Attention</option>
-                        <option value={"achievement"}>Achievement</option>
-                        <option value={"bike"}>Bike Bell</option>
-                        <option value={"standard"}>Standard Ding</option>
-                        <option value={"doorbell"}>Doorbell Ring</option>
-                    </select>
+                    <div className="ding">
+                        <select className="notif-sound" onChange={handleNotifChange} defaultValue={settingsStates.notifSound}>
+                            <option value={"standard"}>Standard</option>
+                            <option value={"achievement"}>Achievement</option>
+                            <option value={"bike"}>Bike Bell</option>
+                            <option value={"typewriter"}>Typewriter</option>
+                            <option value={"doorbell"}>Doorbell Ring</option>
+                        </select>
+                        <i className="fa-solid fa-volume-high" onClick={playSound}></i>
+                    </div>
                 </div>
             </div>
             { authStates.loggedIn ? 

@@ -1,5 +1,10 @@
 import * as React from "react";
 import { useTimer } from "react-timer-hook";
+import typewriter from "../../assets/typewriter.mp3";
+import dingdong from "../../assets/dingdong.mp3";
+import bikebell from "../../assets/bike-notif.mp3";
+import standard from "../../assets/attention.mp3";
+import achievement from "../../assets/achievement.mp3";
 import apiClient from "../../Services/apiClient";
 import resetIcon from "../../assets/restart.svg";
 import pauseIcon from "../../assets/pause.svg";
@@ -17,6 +22,11 @@ export default function Timer() {
     let pomozoneTime = (settingsStates.timeForm.focusTime * 60);
     let shortBreakTime = (settingsStates.timeForm.shortBreakTime * 60);
     let longBreakTime = (settingsStates.timeForm.longBreakTime * 60);
+    const [playTypewriter] = useSound(typewriter, {volume: 2, format: 'mp3' });
+    const [playAchievement] = useSound(achievement, {volume: 2, format: 'mp3' });
+    const [playBikebell] = useSound(bikebell, {volume: 2, format: 'mp3' });
+    const [playDingdog] = useSound(dingdong, {volume: 2, format: 'mp3' });
+    const [playStandard] = useSound(standard, {volume: 2, format: 'mp3' });
     const [loops, setLoops] = React.useState(1);
     const pomozone = "pomozone";
     const shortBreak = "short-break";
@@ -35,12 +45,29 @@ export default function Timer() {
         }
     }, [settingsStates.timeForm])
 
+    function playSound() {
+        if(settingsStates.notifSound === typewriter || settingsStates.notifSound === "typewriter") {
+            playTypewriter();
+        }
+        if(settingsStates.notifSound === achievement || settingsStates.notifSound === "achievement") {
+            playAchievement();
+        }
+        if(settingsStates.notifSound === standard || settingsStates.notifSound === "standard") {
+            playStandard();
+        }
+        if(settingsStates.notifSound === bikebell || settingsStates.notifSound === "bike") {
+            playBikebell();
+        }
+        if(settingsStates.notifSound === dingdong || settingsStates.notifSound === "doorbell") {
+           playDingdog();
+        }
+    }
+
     //expiryTimestamp tells the timer how long the timer should run for
     let expiryTimestamp = setTime(settingsStates.session);
-    const [playActive] = useSound(settingsStates.notifSound, {volume: 2 });
 
     function finishCountdown() {
-        settingsStates.notifToggle ? playActive() : null;
+        settingsStates.notifToggle ? playSound() : null;
         settingsSetStates.setIsExploding(true);
         setTimeout( async () => {
             settingsSetStates.setIsExploding(false);
