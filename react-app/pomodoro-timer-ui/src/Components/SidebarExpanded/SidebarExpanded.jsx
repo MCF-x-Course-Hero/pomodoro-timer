@@ -3,8 +3,9 @@ import { useSettingsContext } from "../../contexts/SettingsContext";
 import { useAuthContext } from "../../contexts/AuthContext";
 import LoginForm from "../LoginForm/LoginForm";
 import RegisterForm from "../RegisterForm/RegisterForm";
-import SettingsTab from "../SettingsTab/SettingsTab";
 import HistoryTab from "../HistoryTab/HistoryTab";
+import MusicTab from "../MusicTab/MusicTab";
+import SettingsTab from "../SettingsTab/SettingsTab";
 import TodoTab from "../TodoTab/TodoTab";
 import ProfileTab from "../ProfileTab/ProfileTab";
 import NotAuthHistory from "../NotAuthHistory/NotAuthHistory";
@@ -45,11 +46,15 @@ export default function SidebarExpanded() {
         { ("profile" == authStates.componentName && !authStates.loggedIn && authStates.register) ? <RegisterForm  /> : null }
         { ("profile" == authStates.componentName && !authStates.login && !authStates.register && authStates.loggedIn) ? <ProfileTab /> : null }
         { ("settings" == authStates.componentName) ? <SettingsTab/> : null }
+        { ("music" == authStates.componentName) ? <MusicTab/> : null }
+        {/* { (authStates.musicOpen) ? <MusicTab displayType={""}/> : <MusicTab displayType={"none"}/> } */}
+        {/* { (authStates.musicOpen) ? <MusicTab style={{display:"flex"}}/> : <MusicTab style={{display:"none"}}/>} */}
+
         { ("history" == authStates.componentName && authStates.loggedIn) ? <HistoryTab/> : null }
         { ("history" == authStates.componentName && !authStates.loggedIn) ? <NotAuthHistory /> : null }
         { ("todo" == authStates.componentName) ? <TodoTab/> : null }
         { ("about" == authStates.componentName) ? <AboutTab/> : null }
-      </div>
+      </div>  
     </section>
   );
 }
