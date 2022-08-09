@@ -46,8 +46,8 @@ export default function SidebarExpanded() {
         { ("profile" == authStates.componentName && !authStates.loggedIn && authStates.register) ? <RegisterForm  /> : null }
         { ("profile" == authStates.componentName && !authStates.login && !authStates.register && authStates.loggedIn) ? <ProfileTab /> : null }
         { ("settings" == authStates.componentName) ? <SettingsTab/> : null }
-        { ("music" == authStates.componentName) ? <MusicTab/> : null }
-        {/* { (authStates.musicOpen) ? <MusicTab displayType={""}/> : <MusicTab displayType={"none"}/> } */}
+        {/* { ("music" == authStates.componentName) ? <MusicTab/> : null } */}
+        { ("music" == authStates.componentName) ? <MusicTab/> : <MusicTab displayType={"none"}/> }
         {/* { (authStates.musicOpen) ? <MusicTab style={{display:"flex"}}/> : <MusicTab style={{display:"none"}}/>} */}
 
         { ("history" == authStates.componentName && authStates.loggedIn) ? <HistoryTab/> : null }
