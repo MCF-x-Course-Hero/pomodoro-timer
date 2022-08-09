@@ -7,3 +7,20 @@
 }
 
 
+.music-icon .btn:hover {
+  background: var(--sidebar-timer-btn-bg-primary);
+}
+
+.music-icon .btn{
+    margin-left: 35px;
+    width: 150px;
+    height: 42px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    background: var(--profile-btn-primary);
+    font-size: 14px;
+    border: none;
+    cursor:default;
+    transition: 0.35s;
+}
