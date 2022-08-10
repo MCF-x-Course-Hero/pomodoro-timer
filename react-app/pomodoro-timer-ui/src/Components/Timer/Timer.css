@@ -84,3 +84,7 @@
     cursor: pointer;
     background: var(--sidebar-timer-btn-bg-primary);
 }
+
+.timer .content .buttons button:hover {
+    background: var(--expanded-sidebar-hover-primary);
+}

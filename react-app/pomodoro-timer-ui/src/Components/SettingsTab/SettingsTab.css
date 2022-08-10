@@ -43,17 +43,30 @@
 .settings-tab .set-time .time-forms .input-names {
   display: flex;
   flex-direction: column;
-  width: 50%;
-  font-size: 14px;
+  width: 70%;
+  font-size: 13px;
   padding: 0px;
+  padding-left: 5px;
   list-style: none;
-  height: 96px;
   justify-content: space-evenly;
   margin: 5px;
 }
 
+.settings-tab .set-time .inputs .session-num {
+  width: 78px;
+  margin: 5px 0px 5px 0px;
+  border-radius: 8px;
+  border: solid 1px black;
+  cursor: pointer;
+  height: 20px;
+}
+
+.settings-tab .set-time .inputs .session:focus-visible {
+  outline: var(--profile-btn-primary);
+}
+
 .settings-tab .set-time .time-forms .input-names li {
-  height: 22px;
+  margin: 8px 0px 8px 0px;
 }
 
 .settings-tab .set-time .time-forms .input-names p {
@@ -61,20 +74,25 @@
 }
 
 .settings-tab .set-time .time-forms .inputs {
-  width: 50%;
+  width: 30%;
   display: flex;
   flex-direction: column;
-  margin-top: 3px;
+  margin: 1px 0px 1px 0px;
 }
 
 .settings-tab .set-time .time-forms .input-field {
-  margin: 5px 0px 5px 0px;
+  margin: 6px 0px 5px 0px;
+  padding-left: 30px;
+}
+
+.settings-tab .set-time .time-forms .time-toggle {
+  margin: 4px 0px 4px 0px;
+  padding-left: 45px;
 }
 
 .settings-tab .set-time .time-forms .input-field .input-form {
-  width: 150px;
+  width: 70px;
   border-radius: 8px;
-  margin-left: 30px;
   color: black;
 }
 
@@ -95,17 +113,40 @@
     margin: 0px 0px 5px 0px;
 }
 
+.settings-tab .color-themes .content {
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  background: var(--sidebar-timer-btn-bg-primary);
+}
+
+.settings-tab .color-themes .content .dark-area {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 5px;
+  height: 35px;
+  width: 100%;
+}
+
+.settings-tab .color-themes .content .dark-area p {
+  padding-top: 1px;
+  margin: 0px;
+  padding-left: 5px;
+  font-size: 13px;
+  margin-right: 193px;
+}
+
 .settings-tab .color-themes .color-palette {
     display: flex;
     flex-wrap: wrap;
     margin: 0px 0px 0px 0px;
     border: none;
-    background: var(--sidebar-timer-btn-bg-primary);
     align-self: flex-start;
     align-items: center;
     justify-content: center;
     width: 98%;
-    border-radius: 5px;
     padding: 5px;
     height: 95px;
 }
@@ -204,13 +245,9 @@
   background: #8192FF;
 }
 
-.settings-tab .slider-area .slider-names ul {
-    list-style: none;
-    padding: 5px;
-    margin: 0px;
-}
+/* Toggle Options css */
 
-.settings-tab .slider-area {
+.settings-tab .notif-area {
     display: flex;
     flex-direction: row;
     border: none;
@@ -218,29 +255,52 @@
     border-radius: 5px;
     width: 90%;
     align-self: center;
+    height: 80px;
 }
 
-.settings-tab .slider-area .sliders {
-    width: 40%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    margin-top: 5px;
-    margin-bottom: 5px;
+.settings-tab .notif-area .notifs {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
-.settings-tab .slider-area .slider-names {
+.settings-tab .notif-area .notifs label {
+  padding-left: 60px;
+}
+
+.settings-tab .notif-area .notifs .ding {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.settings-tab .notif-area .notifs .ding i {
+  cursor: pointer;
+}
+
+.settings-tab .notif-area .notifs .ding select {
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.settings-tab .notif-area .notif-names {
     padding: 0px;
     margin: 0px;
+    margin-right: 5px;
+    padding-left: 5px;
+    padding-top: 5px;
     width: 60%;
-    font-size: 14px;
+    font-size: 13px;
 }
 
-.settings-tab .slider-area .slider-names li {
-    height: 40px;
-    text-align: start;
-    line-height: 40px;
+.settings-tab .notif-area .notif-names p {
+  padding-left: 5px;
 }
 
 /* Toggle-Sliders CSS */
@@ -414,11 +474,15 @@
 
 .fade-in {
   text-align: center;
+  margin: 0px;
+  margin-top: 5px;
   transition: opacity 1s ease;
 }
 
 .fade-out {
   opacity: 0;
+  margin: 0px;
+  margin-top: 5px;
   text-align: center;
   transition: opacity 1s ease;
 }

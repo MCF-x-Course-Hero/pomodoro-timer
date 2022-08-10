@@ -31,7 +31,7 @@ function App() {
   const { authStates } = useAuthContext();
   
   return (
-      <div className={`app ${settingsStates.session}-${settingsStates.theme}`}>
+      <div className={`app ${settingsStates.darkToggle ? `${settingsStates.session}-dark-mode` : `${settingsStates.session}-${settingsStates.theme}`}`}>
         {settingsStates.isExploding ? <Confetti
           width={width}
           height={height}
