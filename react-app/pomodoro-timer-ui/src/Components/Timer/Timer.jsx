@@ -147,7 +147,7 @@ export default function Timer() {
                         <span>:{(seconds < 10) ? '0' + seconds : seconds}</span>
                     </div>
                 <h2 className={`session-${settingsStates.darkToggle ? "dark" : "reg"}`}>
-                    {`${settingsStates.session.replace("-", " ")} ${settingsStates.session == "pomozone" ? loops : ""}`}
+                    {`${settingsStates.session.replace("-", " ")} ${settingsStates.session !== "long-break" && isRunning ? loops : ""}`}
                 </h2>
                 <div className="buttons">
                     <button className={`${settingsStates.darkToggle ? `${settingsStates.session}-dark-mode` : `${settingsStates.session}-${settingsStates.theme}`}`} onClick={() => {updateTimer(true)}}>
