@@ -17,6 +17,7 @@ export const AuthContextProvider = ({ children }) => {
   const [historyOpen, setHistoryOpen] = React.useState(false);
   const [listOpen, setListOpen] = React.useState(false);
   const [aboutOpen, setAboutOpen] = React.useState(false);
+  const [musicOpen, setMusicOpen] = React.useState(false)
   const [deleteUser, setDeleteUser] = React.useState(false);
   const [sessionsList, setSessionsList] = React.useState({});
   const [loggedIn, setLoggedIn] = React.useState(false);
@@ -44,6 +45,7 @@ export const AuthContextProvider = ({ children }) => {
     aboutOpen,
     componentName,
     active,
+    musicOpen
   };
   const authSetStates = {
     setUser,
@@ -128,23 +130,22 @@ export const AuthContextProvider = ({ children }) => {
       setHistoryOpen(false);
       setListOpen(false);
       setSettingsOpen(false);
-      // document.querySelector("#side-menu").style.width = "450px";
+      // setMusicOpen(false)
+      
     } else if (tabName == "profile" && profileOpen) {
       setProfileOpen(false);
-      // document.querySelector("#side-menu").style.width = "0";
     }
-
+    
     if (tabName == "settings" && !settingsOpen) {
       setProfileOpen(false);
       setHistoryOpen(false);
       setAboutOpen(false);
       setListOpen(false);
       setSettingsOpen(true);
-      // document.querySelector("#side-menu").style.width = "450px";
+      // setMusicOpen(false)
     } else if (tabName == "settings" && settingsOpen) {
       setSettingsOpen(false);
       document.getElementById("settings").classList.remove("active");
-      // document.querySelector("#side-menu").style.width = "0";
     }
 
     if (tabName == "history" && !historyOpen) {
@@ -153,10 +154,10 @@ export const AuthContextProvider = ({ children }) => {
       setHistoryOpen(true);
       setListOpen(false);
       setSettingsOpen(false);
-      // document.querySelector("#side-menu").style.width = "450px";
+      // setMusicOpen(false)
+
     } else if (tabName == "history" && historyOpen) {
       setHistoryOpen(false);
-      // document.querySelector("#side-menu").style.width = "0";
     }
 
     if (tabName == "todo" && !listOpen) {
@@ -165,10 +166,10 @@ export const AuthContextProvider = ({ children }) => {
       setAboutOpen(false);
       setListOpen(true);
       setSettingsOpen(false);
-      // document.querySelector("#side-menu").style.width = "450px";
+      // setMusicOpen(false)
+
     } else if (tabName == "todo" && listOpen) {
       setListOpen(false);
-      // document.querySelector("#side-menu").style.width = "0";
     }
 
     if (tabName == "about" && !aboutOpen) {
@@ -177,14 +178,18 @@ export const AuthContextProvider = ({ children }) => {
       setSettingsOpen(false);
       setListOpen(false);
       setAboutOpen(true);
-      // document.querySelector("#side-menu").style.width = "450px";
+      // setMusicOpen(false)
+
     } else if (tabName == "about" && aboutOpen) {
       setAboutOpen(false);
-      // document.querySelector("#side-menu").style.width = "0";
     }
-
-    if (tabName == "") {
-      // document.querySelector("#side-menu").style.width = "0";
+    if (!musicOpen) {
+      setMusicOpen(true)
+      setProfileOpen(false);
+      setHistoryOpen(false);
+      setSettingsOpen(false);
+      setListOpen(false);
+      setAboutOpen(false);
     }
 
     /* setting the componentName to the name tabName that was clicked. 

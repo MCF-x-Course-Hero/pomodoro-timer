@@ -1,0 +1,22 @@
+.music-tab .music-form{
+    margin: 20px 0px;
+}
+
+.music-form-input input {
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.music-form-input.music-form-input label {
+  color: white;
+}
+
+.music-form-input.music-form-input label + div::before {
+  border-color: white !important;
+  opacity: 0.5 !important;
+}
+
+.music-form-input.music-form-input label + div::after {
+  border-color: white;
+}

@@ -60,6 +60,20 @@ export default function Sidebar() {
           <li
             className={classnames(
               "list-item",
+              `${settingsStates.session}-${settingsStates.theme}`,
+              { active: authStates.active === "music" }
+            )}
+            id="music"
+            onClick={() => {
+              authFunctions.handleOnToggle("music");
+            }}>
+            <i className="list-item-icon fa-solid fa-headphones"></i>
+            <span className="list-item-text">Music</span>
+          </li>
+          <li
+            className={classnames(
+              "list-item",
+              `${settingsStates.session}-${settingsStates.theme}`,
               `${settingsStates.darkToggle ? `${settingsStates.session}-dark-mode` : `${settingsStates.session}-${settingsStates.theme}`}`,
               { active: authStates.active === "settings" }
             )}
