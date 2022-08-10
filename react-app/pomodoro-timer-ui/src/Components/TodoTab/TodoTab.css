@@ -53,6 +53,7 @@
   background-color: var(--sidebar-timer-btn-bg-primary);
   border-radius: 5px;
   width: 100%;
+  padding: 9px
 }
 
 .todo-tab .todo-list .todo-row .todo-left-side {
