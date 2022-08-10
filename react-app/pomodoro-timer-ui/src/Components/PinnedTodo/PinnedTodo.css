@@ -1,32 +1,43 @@
-.timer .pinned-task-content {
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #f1f1f1;
-  max-width: 100vw;
-  border-radius:20px;
+@import url('https://fonts.googleapis.com/css2?family=Kalam&display=swap');
+
+.pinned-task-content {
+  width: 250px;
+  height: 200px;
   position: absolute;
-  top: 20%;
+  color: white;
+  right: 5%;
+  top: 10%;
+  overflow-y: auto;
+  border-radius: 5px;
+  background: var(--expanded-sidebar-hover-primary);
+  border: 3px solid var(--sidebar-timer-btn-bg-primary);
 }
 
-.timer .pinned-task-content p {
-  white-space: nowrap;
-}
-
-.pinned-task {
-  margin: 0%;
-  font-size: 24px;
-  padding-right: 20px;
-}
-
-.pinned-task-content .pin{
-  padding-left: 20px;
-  padding-top: 7px;
-  margin: 0%;
-  margin-right: 2%; 
-  cursor:pointer;
-  justify-content: center;
+.pinned-task-content .sticky {
+  cursor: pointer;
+  height: 50px;
+  display: flex;
   align-items: center;
-  align-self: center;  
+  justify-content: flex-start;
+}
+
+.pinned-task-content .sticky .pin {
+  margin-top: 1px;
+  padding-left: 10px;
+}
+
+.pinned-task-content .note {
+  text-align: center;
+  width: 100%;
+}
+
+.pinned-task-content .note .pinned-task {
+  text-align: center;
+  font-size: 18px;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-family: 'kalam', cursive;
+  margin-bottom: 5px;
+  word-wrap: break-word;
+  margin-top: 0px;
 }
