@@ -15,7 +15,7 @@ export default function MusicIcon() {
         className="btn"
         id="btnplay"
         onClick={() => {
-          handleOnSubmitIcon("https://youtu.be/YAXTn0E-Zgo");
+          handleOnSubmitIcon("https://www.youtube.com/watch?v=jfKfPfyJRdk");
         }}
       >
         LOFI
@@ -29,7 +29,7 @@ export default function MusicIcon() {
       >
         FIRE PLACE
       </button>
-      {/* <button
+      <button
         className="btn"
         id="btnplay"
         onClick={() => {
@@ -37,7 +37,7 @@ export default function MusicIcon() {
         }}
       >
         OCEAN
-      </button> */}
+      </button>
     </div>
   );
 }
