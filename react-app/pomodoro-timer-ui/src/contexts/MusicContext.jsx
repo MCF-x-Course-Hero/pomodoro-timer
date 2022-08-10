@@ -20,8 +20,10 @@ export const MusicContextProvider = ({ children }) => {
 
   function handleOnSubmitUrl(event) {
     event.preventDefault();
+    if (url=="") {
+      return}
     setUrlForm(url);
-    // setUrl("")
+    setUrl("")
   }
 
   function handleOnSubmitIcon(url) {
