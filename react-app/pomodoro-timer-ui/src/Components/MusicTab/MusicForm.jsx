@@ -16,7 +16,7 @@ export default function MusicForm() {
       <form onSubmit={handleOnSubmitUrl}>
         <TextField
           variant="filled"
-          label="Paste URL"
+          label="Paste YouTube URL"
           size="medium"
           fullWidth
           name="url"

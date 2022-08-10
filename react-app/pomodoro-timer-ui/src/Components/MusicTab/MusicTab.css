@@ -11,6 +11,9 @@
   text-align: center;
 }
 
+.music-tab p {
+    text-align: center;
+}
 /* VideoPlayer.jsx */
 .video {
   flex-direction: column;
