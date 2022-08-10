@@ -1,20 +1,26 @@
 import * as React from "react";
-import "./MusicTab.css";
 import "./MusicForm.css";
 import {useMusicContext} from "../../contexts/MusicContext"
-
 import { Button, TextField, ThemeProvider } from "@mui/material";
+
 
 export default function MusicForm() {
   const {MusicContextVariables} = useMusicContext()
   const handleOnSubmitUrl = MusicContextVariables.handleOnSubmitUrl
   const handleUrlInputChange = MusicContextVariables.handleUrlInputChange
   const url = MusicContextVariables.url
-  // const url = MusicContextVariables.urlForm
+
+
+
   return (
     <div className="music-form">
-      <form onSubmit={handleOnSubmitUrl}>
+      <form 
+      onSubmit={(event)=>{
+        event.preventDefault()
+        handleOnSubmitUrl(url)
+        }}>
         <TextField
+          id = "url"
           variant="filled"
           label="Paste URL"
           size="medium"
