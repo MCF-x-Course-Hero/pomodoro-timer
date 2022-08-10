@@ -1,5 +1,7 @@
 import * as React from "react";
 import "./MusicTab.css";
+import "./MusicForm.css"
+
 import { Button, TextField, ThemeProvider } from "@mui/material";
 
 export default function MusicForm({ urlForm, setUrlForm }) {
@@ -13,8 +15,8 @@ export default function MusicForm({ urlForm, setUrlForm }) {
 
     function handleOnSubmitUrl(event) {
         event.preventDefault()
-        if (url != urlForm && url != "")
             setUrlForm(url)  
+
   }
 
   return (
@@ -25,8 +27,8 @@ export default function MusicForm({ urlForm, setUrlForm }) {
           label="url"
           size="medium"
           fullWidth
-          name="task"
-          type="text"
+          name="url"
+          type="url"
           value={url}
           onChange={handleUrlInputChange}
           className="music-form-input"
