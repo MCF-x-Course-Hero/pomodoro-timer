@@ -67,7 +67,7 @@ export default function Timer() {
 
     function finishCountdown() {
         settingsStates.notifToggle ? playSound() : null;
-        settingsSetStates.setIsExploding(true);
+        settingsStates.confetti ? settingsSetStates.setIsExploding(true) : null;
         setTimeout( async () => {
             settingsSetStates.setIsExploding(false);
             if (settingsStates.session == shortBreak) {
@@ -98,13 +98,13 @@ export default function Timer() {
                 }
             }
             restart(expiryTimestamp, settingsStates.automaticTimer);
-        }, 3000);
+        }, settingsStates.confetti ? 5000 : 2000);
     }
 
     function setTime(s) {
         const time = new Date();
         if(s === pomozone) {
-            time.setSeconds(time.getSeconds() + 3);
+            time.setSeconds(time.getSeconds() + pomozoneTime);
         } else if(s === shortBreak) {
             time.setSeconds(time.getSeconds() + shortBreakTime);
         } else if(s === longBreak) {
