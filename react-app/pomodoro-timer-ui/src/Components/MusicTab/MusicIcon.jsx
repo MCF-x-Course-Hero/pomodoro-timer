@@ -1,13 +1,13 @@
 import * as React from "react";
 import "./MusicTab.css";
-import {useMusicContext} from "../../contexts/MusicContext"
+import { useMusicContext } from "../../contexts/MusicContext";
 
 export default function MusicIcon() {
-  const {MusicContextVariables} = useMusicContext()
-  const handleOnSubmitUrl = MusicContextVariables.handleOnSubmitUrl
-  const handleUrlInputChange = MusicContextVariables.handleUrlInputChange
-  const url = MusicContextVariables.url
-  const handleOnSubmitIcon = MusicContextVariables.handleOnSubmitIcon
+  const { MusicContextVariables } = useMusicContext();
+  const handleOnSubmitUrl = MusicContextVariables.handleOnSubmitUrl;
+  const handleUrlInputChange = MusicContextVariables.handleUrlInputChange;
+  const url = MusicContextVariables.url;
+  const handleOnSubmitIcon = MusicContextVariables.handleOnSubmitIcon;
 
   return (
     <div className="music-icon">
@@ -15,7 +15,7 @@ export default function MusicIcon() {
         className="btn"
         id="btnplay"
         onClick={() => {
-          handleOnSubmitIcon("https://www.youtube.com/watch?v=jfKfPfyJRdk");
+          handleOnSubmitIcon("https://youtu.be/jfKfPfyJRdk");
         }}
       >
         LOFI
@@ -36,13 +36,13 @@ export default function MusicIcon() {
           handleOnSubmitIcon("https://youtu.be/WHPEKLQID4U");
         }}
       >
-        OCEAN
+        OCEAN WAVES
       </button>
       <button
         className="btn"
         id="btnplay"
         onClick={() => {
-          handleOnSubmitIcon("add link");
+          handleOnSubmitIcon("https://youtu.be/8plwv25NYRo");
         }}
       >
         RAIN
@@ -51,10 +51,19 @@ export default function MusicIcon() {
         className="btn"
         id="btnplay"
         onClick={() => {
-          handleOnSubmitIcon("add link");
+          handleOnSubmitIcon("https://youtu.be/neV3EPgvZ3g");
         }}
       >
         JAZZ
+      </button>
+      <button
+        className="btn"
+        id="btnplay"
+        onClick={() => {
+          handleOnSubmitIcon("https://youtu.be/rYoZgpAEkFs");
+        }}
+      >
+        BIRD
       </button>
     </div>
   );
