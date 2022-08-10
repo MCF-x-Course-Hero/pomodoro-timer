@@ -24,7 +24,7 @@ export default function MusicForm() {
           value={url}
           onChange={handleUrlInputChange}
           className="music-form-input"
-          style={{ width: "315px" }}
+          style={{ width: "300px" }}
         ></TextField>
         <Button
           size="large"

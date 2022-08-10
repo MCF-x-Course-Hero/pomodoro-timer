@@ -1,6 +1,5 @@
 import * as React from "react";
 import "./MusicTab.css"
-import ReactPlayer from 'react-player/youtube'
 
 import VideoPlayer from "./VideoPlayer";
 import MusicForm from "./MusicForm";
