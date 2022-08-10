@@ -1,5 +1,6 @@
 import * as React from "react";
 import "./AboutTab.css";
+import ReactPlayer from "react-player"; 
 
 export default function AboutTab() {
   return (
@@ -26,14 +27,13 @@ export default function AboutTab() {
       </div>
       <div className="about-video">
         <div className="ratio ratio-16x9">
-          <iframe
-            width="350"
-            height="200"
-            src="https://www.youtube.com/embed/ppnPGk36mMY"
+          <ReactPlayer
+            width="320"
+            url="https://www.youtube.com/embed/ppnPGk36mMY"
             title="YouTube video"
             frameBorder="0"
             allowFullScreen
-          ></iframe>
+          ></ReactPlayer>
         </div>
       </div>
       <footer className="our-team">

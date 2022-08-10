@@ -1,0 +1,21 @@
+.music-tab {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    color: white;
+    margin: 0px 20px;
+  }
+
+  .music-tab h3{
+    text-align: center;
+}
+
+.video {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+    margin-top: 15px;    
+}
+
