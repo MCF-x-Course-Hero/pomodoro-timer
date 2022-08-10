@@ -24,6 +24,15 @@ export default function MusicIcon() {
         className="btn"
         id="btnplay"
         onClick={() => {
+          handleOnSubmitIcon("https://youtu.be/neV3EPgvZ3g");
+        }}
+      >
+        JAZZ
+      </button>
+      <button
+        className="btn"
+        id="btnplay"
+        onClick={() => {
           handleOnSubmitIcon("https://youtu.be/UgHKb_7884o");
         }}
       >
@@ -46,15 +55,6 @@ export default function MusicIcon() {
         }}
       >
         RAIN
-      </button>
-      <button
-        className="btn"
-        id="btnplay"
-        onClick={() => {
-          handleOnSubmitIcon("https://youtu.be/neV3EPgvZ3g");
-        }}
-      >
-        JAZZ
       </button>
       <button
         className="btn"
