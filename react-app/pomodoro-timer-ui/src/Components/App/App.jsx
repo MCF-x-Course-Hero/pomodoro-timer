@@ -2,6 +2,7 @@ import * as React from "react";
 import { SettingsContextProvider, useSettingsContext } from "../../contexts/SettingsContext";
 import { AuthContextProvider, useAuthContext } from "../../contexts/AuthContext";
 import { TodoContextProvider } from "../../contexts/TodoContext";
+import { MusicContextProvider } from "../../contexts/MusicContext";
 import DeleteModal from "../../Components/DeleteModal/DeleteModal";
 import SidebarExpanded from "../SidebarExpanded/SidebarExpanded";
 import useWindowSize from "react-use/lib/useWindowSize";
@@ -16,7 +17,9 @@ export default function AppContainer() {
   <SettingsContextProvider>
     <AuthContextProvider>
       <TodoContextProvider>
+        <MusicContextProvider>
         <App />
+        </MusicContextProvider>
       </TodoContextProvider>
     </AuthContextProvider>
   </SettingsContextProvider>

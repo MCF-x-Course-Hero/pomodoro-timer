@@ -228,8 +228,6 @@ export const AuthContextProvider = ({ children }) => {
     setActive((active)=>active === tabName ? "" : tabName);
   }
 
-  console.log("name", componentName)
-console.log(musicOpen)
   React.useEffect(() => {
     const token = localStorage.getItem("pomozone_token");
     if (token !== "null" && token !== null) {
