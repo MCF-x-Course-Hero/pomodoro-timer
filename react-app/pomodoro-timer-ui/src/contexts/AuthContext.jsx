@@ -104,53 +104,23 @@ export const AuthContextProvider = ({ children }) => {
   }
 
   function darkModeButton(mode) {
-    if (mode == "default") {
-      settingsSetStates.setDarkToggle(false);
-      if (loggedIn) {
-        settingsSetStates.setPomozoneTheme(
-          settingsStates.userSettings.settings.pcolor
-        );
-        settingsSetStates.setShortBreakTheme(
-          settingsStates.userSettings.settings.sbcolor
-        );
-        settingsSetStates.setLongBreakTheme(
-          settingsStates.userSettings.settings.lbcolor
-        );
-        settingsStates.session === "pomozone"
-          ? settingsSetStates.setTheme(
-              settingsStates.userSettings.settings.pcolor
-            )
-          : null;
-        settingsStates.session === "short-break"
-          ? settingsSetStates.setTheme(
-              settingsStates.userSettings.settings.sbcolor
-            )
-          : null;
-        settingsStates.session === "long-break"
-          ? settingsSetStates.setTheme(
-              settingsStates.userSettings.settings.lbcolor
-            )
-          : null;
-      } else {
-        settingsSetStates.setPomozoneTheme("pdefault");
-        settingsSetStates.setShortBreakTheme("sbdefault");
-        settingsSetStates.setLongBreakTheme("lbdefault");
-        settingsStates.session === "pomozone"
-          ? settingsSetStates.setTheme("pdefault")
-          : null;
-        settingsStates.session === "short-break"
-          ? settingsSetStates.setTheme("sbdefault")
-          : null;
-        settingsStates.session === "long-break"
-          ? settingsSetStates.setTheme("lbdefault")
-          : null;
-      }
+    if(mode == "default") {
+        settingsSetStates.setDarkToggle(false);
+        if (loggedIn) {
+          settingsSetStates.setPomozoneTheme(settingsStates.userSettings.settings.pcolor);
+          settingsSetStates.setShortBreakTheme(settingsStates.userSettings.settings.sbcolor);
+          settingsSetStates.setLongBreakTheme(settingsStates.userSettings.settings.lbcolor);
+          settingsStates.session === "pomozone" ? settingsSetStates.setTheme(settingsStates.userSettings.settings.pcolor) : null;
+          settingsStates.session === "short-break" ? settingsSetStates.setTheme(settingsStates.userSettings.settings.sbcolor) : null;
+          settingsStates.session === "long-break" ? settingsSetStates.setTheme(settingsStates.userSettings.settings.lbcolor) : null;
+        } else {
+          settingsStates.session === "pomozone" ? settingsSetStates.setTheme(settingsStates.pomozoneTheme) : null;
+          settingsStates.session === "short-break" ? settingsSetStates.setTheme(settingsStates.shortBreakTheme) : null;
+          settingsStates.session === "long-break" ? settingsSetStates.setTheme(settingsStates.longBreakTheme) : null;
+        }
     } else {
-      settingsSetStates.setDarkToggle(true);
-      settingsSetStates.setPomozoneTheme("dark-mode");
-      settingsSetStates.setShortBreakTheme("dark-mode");
-      settingsSetStates.setLongBreakTheme("dark-mode");
-      settingsSetStates.setTheme("dark-mode");
+        settingsSetStates.setDarkToggle(true);
+        settingsSetStates.setTheme("dark-mode");
     }
   }
 
@@ -228,8 +198,6 @@ export const AuthContextProvider = ({ children }) => {
     setActive((active)=>active === tabName ? "" : tabName);
   }
 
-  console.log("name", componentName)
-console.log(musicOpen)
   React.useEffect(() => {
     const token = localStorage.getItem("pomozone_token");
     if (token !== "null" && token !== null) {

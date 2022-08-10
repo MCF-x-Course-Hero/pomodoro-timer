@@ -1,11 +1,25 @@
-.video{
+.music-tab {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    color: white;
+    margin: 0px 20px;
+  }
+
+  .music-tab h3{
+    text-align: center;
+}
+
+.video {
     display:flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 50%;
+    margin: 0px;
+    margin-top: 15px;    
 }
 
+<<<<<<< HEAD
 .music-icon{
     align-items: center;
     margin: 0 auto;
@@ -33,3 +47,5 @@
     
 }
 
+=======
+>>>>>>> 3cc266cf58f189f3fca19c8073d47ed09e305baa

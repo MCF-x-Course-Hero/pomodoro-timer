@@ -43,6 +43,7 @@ export default function TodoForm() {
           onChange={handleTaskInputChange}
           className="todo-form-input"
           style={{width:"315px"}}
+          inputProps={{ maxLength: 65 }}
         ></TextField>
         <Button
           size="large"

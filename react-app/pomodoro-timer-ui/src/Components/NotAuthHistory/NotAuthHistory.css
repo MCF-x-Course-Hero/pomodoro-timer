@@ -1,7 +1,7 @@
 .history-modal-background {
     width: 100%;
     height: 100%;
-    background-color: transparent;
+    background-color: var(--expanded-sidebar-hover-primary);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,7 +11,8 @@
     width: 50%;
     padding: 16px;
     border-radius: 12px;
-    background-color: white;
+    background: var(--sidebar-timer-btn-bg-primary);
+    color: white;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     display: flex;
     flex-direction: column;
@@ -52,6 +53,8 @@
     border: none;
 }
 
-.history-modal-background .history-modal-container button:hover {
-    background: var(--sidebar-timer-btn-bg-primary);
+button:active {
+    background-color: var(--expanded-sidebar-hover-primary);
+    box-shadow: 0 3px var(--expanded-sidebar-hover-primary);
+    transform: translateY(4px);
 }

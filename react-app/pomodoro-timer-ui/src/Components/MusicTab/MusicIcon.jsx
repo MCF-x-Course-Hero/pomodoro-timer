@@ -1,12 +1,13 @@
 import * as React from "react";
 import "./MusicTab.css";
-import { useState } from "react";
-import ReactPlayer from "react-player";
+import {useMusicContext} from "../../contexts/MusicContext"
 
-export default function MusicIcon({ urlForm, setUrlForm }) {
-  function handleOnSubmitIcon(url) {
-    setUrlForm(url);
-  }
+export default function MusicIcon() {
+  const {MusicContextVariables} = useMusicContext()
+  const handleOnSubmitUrl = MusicContextVariables.handleOnSubmitUrl
+  const handleUrlInputChange = MusicContextVariables.handleUrlInputChange
+  const url = MusicContextVariables.url
+  const handleOnSubmitIcon = MusicContextVariables.handleOnSubmitIcon
 
   return (
     <div className="music-icon">
