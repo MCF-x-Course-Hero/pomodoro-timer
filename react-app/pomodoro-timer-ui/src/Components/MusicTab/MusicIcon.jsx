@@ -38,6 +38,24 @@ export default function MusicIcon() {
       >
         OCEAN
       </button>
+      <button
+        className="btn"
+        id="btnplay"
+        onClick={() => {
+          handleOnSubmitIcon("add link");
+        }}
+      >
+        RAIN
+      </button>
+      <button
+        className="btn"
+        id="btnplay"
+        onClick={() => {
+          handleOnSubmitIcon("add link");
+        }}
+      >
+        JAZZ
+      </button>
     </div>
   );
 }
