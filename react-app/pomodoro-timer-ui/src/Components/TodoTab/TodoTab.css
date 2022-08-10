@@ -61,6 +61,8 @@
   flex-direction: row;
   justify-content: center;
   align-items: flex-start;
+  word-wrap: break-word;
+  width: 375px;
 }
 
 
