@@ -17,6 +17,7 @@ export const SettingsContextProvider = ({children}) => {
     const [fadeProp, setFadeProp] = React.useState({ fade: 'fade-out', fadeError: 'fade-out' });
     const [numSessions, setNumSessions] = React.useState(4);
     const [loading, setLoading] = React.useState(false);
+    const [confetti, setConfetti] = React.useState(true);
     const [notifSound, setNotifSound] = React.useState("standard");
     const [notifWord, setNotifWord] = React.useState("standard");
     const [notifToggle, setNotifToggle] = React.useState(false);
@@ -25,8 +26,8 @@ export const SettingsContextProvider = ({children}) => {
     const [error, setError] = React.useState({});
     const [isExploding, setIsExploding] = React.useState(false);
     const [timeForm, setTimeForm] = React.useState({ focusTime: 25, shortBreakTime: 5, longBreakTime: 15 })
-    const settingsStates = { session, theme, pomozoneTheme, shortBreakTheme, longBreakTheme, notifToggle, darkToggle, isExploding, timeForm, loading, fadeProp, userSettings, automaticTimer, numSessions, notifSound, notifWord };
-    const settingsSetStates = { setSession, setTheme, setPomozoneTheme, setShortBreakTheme, setLongBreakTheme, setNotifToggle, setDarkToggle, setIsExploding, setTimeForm, setLoading, setUserSettings, setAutomaticTimer, setNumSessions, setNotifSound, setNotifWord };
+    const settingsStates = { session, theme, pomozoneTheme, shortBreakTheme, longBreakTheme, notifToggle, darkToggle, isExploding, timeForm, loading, fadeProp, userSettings, automaticTimer, numSessions, notifSound, notifWord, confetti };
+    const settingsSetStates = { setSession, setTheme, setPomozoneTheme, setShortBreakTheme, setLongBreakTheme, setNotifToggle, setDarkToggle, setIsExploding, setTimeForm, setLoading, setUserSettings, setAutomaticTimer, setNumSessions, setNotifSound, setNotifWord, setConfetti };
     const settingsFunctions = { darkModeToggle, updateUserSettings, getUserSettings, addUserSettings, updateDefaultSettings }
 
     function darkModeToggle() {
@@ -49,7 +50,6 @@ export const SettingsContextProvider = ({children}) => {
             if(data.settings.sound_choice == "/assets/bike-notif.864ac978.mp3") setNotifWord("bike");
             if(data.settings.sound_choice == "/assets/dingdong.76933bb1.mp3") setNotifWord("doorbell");
             if(data.settings.sound_choice == "/assets/typewriter.56fc4a19.mp3") setNotifWord("typewriter");
-            console.log(data);
             setUserSettings((s) => ({...data}));
             session === "pomozone" ? setTheme(data.settings.pcolor) : null;
             session === "short-break" ? setTheme(data.settings.sbcolor) : null;
@@ -67,6 +67,7 @@ export const SettingsContextProvider = ({children}) => {
             setNotifSound(data.settings.sound_choice);
             setAutomaticTimer(data.settings.auto_toggle);
             setNumSessions(data.settings.num_sessions);
+            setConfetti(data.settings.confetti);
         }
         if (error) setError(error);
         setLoading(false);
@@ -86,6 +87,7 @@ export const SettingsContextProvider = ({children}) => {
             auto_toggle: automaticTimer,
             num_sessions: numSessions,
             sound_choice: notifSound,
+            confetti: confetti,
         }
         const { data, error } = await apiClient.updateSettings(allSettings);
         if (data) {
@@ -125,6 +127,7 @@ export const SettingsContextProvider = ({children}) => {
         setNumSessions(4);
         setAutomaticTimer(false);
         setNotifSound("standard");
+        setConfetti(true);
         const allSettings = {
             pTime: 25,
             sbTime: 5,
@@ -136,7 +139,8 @@ export const SettingsContextProvider = ({children}) => {
             notif_toggle: false,
             auto_toggle: false,
             num_sessions: 4,
-            sound_choice: standard,
+            sound_choice: "standard",
+            confetti: true,
         }
         const { data, error } = await apiClient.updateSettings(allSettings);
         if (data) {
@@ -172,6 +176,7 @@ export const SettingsContextProvider = ({children}) => {
             auto_toggle: automaticTimer,
             num_sessions: numSessions,
             sound_choice: notifSound,
+            confetti: confetti,
         }
         const { data, error } = await apiClient.addSettings(allSettings);
         if(data) {

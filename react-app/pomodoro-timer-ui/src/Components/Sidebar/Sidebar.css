@@ -113,7 +113,7 @@
     background-color: var(--expanded-sidebar-hover-primary);
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 500px) {
     .sidebar {
         transition: 0.35s;
         width: 50px;

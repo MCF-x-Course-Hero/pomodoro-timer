@@ -43,7 +43,7 @@
 }
 
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 500px) {
     #side-menu {
         padding-left: 50px;
         transition: 0.45s;

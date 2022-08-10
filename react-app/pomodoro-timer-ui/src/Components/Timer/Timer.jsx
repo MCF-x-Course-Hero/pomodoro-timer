@@ -12,7 +12,6 @@ import forwardIcon from "../../assets/forward.svg";
 import startIcon from "../../assets/play.svg";
 import { useSettingsContext } from "../../contexts/SettingsContext";
 import { useAuthContext } from "../../contexts/AuthContext";
-import PinnedTodo from "../PinnedTodo/PinnedTodo";
 import useSound from "use-sound";
 import "./Timer.css";
 
@@ -68,7 +67,7 @@ export default function Timer() {
 
     function finishCountdown() {
         settingsStates.notifToggle ? playSound() : null;
-        settingsSetStates.setIsExploding(true);
+        settingsStates.confetti ? settingsSetStates.setIsExploding(true) : null;
         setTimeout( async () => {
             settingsSetStates.setIsExploding(false);
             if (settingsStates.session == shortBreak) {
@@ -99,13 +98,13 @@ export default function Timer() {
                 }
             }
             restart(expiryTimestamp, settingsStates.automaticTimer);
-        }, 3000);
+        }, settingsStates.confetti ? 5000 : 2000);
     }
 
     function setTime(s) {
         const time = new Date();
         if(s === pomozone) {
-            time.setSeconds(time.getSeconds() + 3);
+            time.setSeconds(time.getSeconds() + pomozoneTime);
         } else if(s === shortBreak) {
             time.setSeconds(time.getSeconds() + shortBreakTime);
         } else if(s === longBreak) {
@@ -139,7 +138,6 @@ export default function Timer() {
 
     return (
         <div className="timer">
-            <PinnedTodo />
             <div className="content">
                 <div className="timer-area">
                     <div className={`time-${settingsStates.darkToggle ? "dark" : "reg"}`}>
@@ -149,7 +147,7 @@ export default function Timer() {
                         <span>:{(seconds < 10) ? '0' + seconds : seconds}</span>
                     </div>
                 <h2 className={`session-${settingsStates.darkToggle ? "dark" : "reg"}`}>
-                    {`${settingsStates.session.replace("-", " ")} ${settingsStates.session == "pomozone" ? loops : ""}`}
+                    {`${settingsStates.session.replace("-", " ")} ${settingsStates.session !== "long-break" && isRunning ? loops : ""}`}
                 </h2>
                 <div className="buttons">
                     <button className={`${settingsStates.darkToggle ? `${settingsStates.session}-dark-mode` : `${settingsStates.session}-${settingsStates.theme}`}`} onClick={() => {updateTimer(true)}}>
