@@ -1,21 +1,52 @@
+/* MusicTab.jsx */
 .music-tab {
-    display: flex;
-    height: 100%;
-    flex-direction: column;
-    color: white;
-    margin: 0px 20px;
-  }
-
-  .music-tab h3{
-    text-align: center;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  color: white;
+  margin: 0px 20px;
 }
 
+.music-tab h3 {
+  text-align: center;
+}
+
+/* VideoPlayer.jsx */
 .video {
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 0px;
-    margin-top: 15px;    
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px;
+  margin-top: 15px;
 }
 
+/* MusicIcon.jsx */
+.music-tab .music-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.music-icon .btn:hover {
+  background: var(--sidebar-timer-btn-bg-primary);
+  cursor:pointer;
+}
+
+.music-icon .btn {
+  width: 150px;
+  height: 42px;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  background: var(--profile-btn-primary);
+  font-size: 14px;
+  border: none;
+  cursor: default;
+  transition: 0.35s;
+  align-items: center;
+  margin: 20px;
+  margin-right: 25px;
+  margin-left: 40px;
+}
