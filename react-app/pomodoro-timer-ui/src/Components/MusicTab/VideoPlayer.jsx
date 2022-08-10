@@ -7,7 +7,6 @@ import {useMusicContext} from "../../contexts/MusicContext"
 export default function VideoPlayer({displayType}) {
   const {MusicContextVariables} = useMusicContext()
   const videoUrl = MusicContextVariables.urlForm
-  console.log(1)
   return (
     <div className="video" style={{ display: displayType }}>
 

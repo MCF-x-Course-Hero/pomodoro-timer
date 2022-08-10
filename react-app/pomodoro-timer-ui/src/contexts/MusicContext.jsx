@@ -14,11 +14,14 @@ export const MusicContextProvider = ({ children }) => {
 
   function handleUrlInputChange(event) {
     setUrl(event.target.value);
+    // setUrlForm(event.target.value);
+
   }
 
   function handleOnSubmitUrl(event) {
     event.preventDefault();
     setUrlForm(url);
+    setUrl("")
   }
 
   const MusicContextVariables = {

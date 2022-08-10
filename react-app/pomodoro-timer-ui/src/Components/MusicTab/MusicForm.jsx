@@ -10,6 +10,7 @@ export default function MusicForm() {
   const handleOnSubmitUrl = MusicContextVariables.handleOnSubmitUrl
   const handleUrlInputChange = MusicContextVariables.handleUrlInputChange
   const url = MusicContextVariables.url
+  // const url = MusicContextVariables.urlForm
   return (
     <div className="music-form">
       <form onSubmit={handleOnSubmitUrl}>
