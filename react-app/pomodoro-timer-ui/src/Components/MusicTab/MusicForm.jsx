@@ -22,7 +22,7 @@ export default function MusicForm() {
         <TextField
           id = "url"
           variant="filled"
-          label="Paste URL"
+          label="YouTube URL"
           size="medium"
           fullWidth
           name="url"

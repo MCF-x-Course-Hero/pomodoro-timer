@@ -13,7 +13,6 @@ import startIcon from "../../assets/play.svg";
 import { useSettingsContext } from "../../contexts/SettingsContext";
 import { useAuthContext } from "../../contexts/AuthContext";
 import { useMusicContext } from "../../contexts/MusicContext";
-import PinnedTodo from "../PinnedTodo/PinnedTodo";
 import useSound from "use-sound";
 import "./Timer.css";
 
@@ -185,7 +184,6 @@ export default function Timer() {
 
   return (
     <div className="timer">
-      <PinnedTodo />
       <div className="content">
         <div className="timer-area">
           <div className={`time-${settingsStates.darkToggle ? "dark" : "reg"}`}>

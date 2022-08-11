@@ -10,7 +10,7 @@ export function useMusicContext() {
 
 export const MusicContextProvider = ({ children }) => {
   const defaultUrl = "https://www.youtube.com/watch?v=jfKfPfyJRdk"
-  const [urlForm, setUrlForm] = React.useState("");
+  const [urlForm, setUrlForm] = React.useState(defaultUrl);
   const [url, setUrl] = useState("");
   const [shouldPlay, setShouldPlay] = React.useState(true)
   function handleUrlInputChange(event) {
