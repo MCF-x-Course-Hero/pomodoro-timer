@@ -22,7 +22,6 @@ export const MusicContextProvider = ({ children }) => {
   function handleOnSubmitUrl(url) {
     
     if (!url) return
-    console.log(ReactPlayer.canPlay(url))	
     setUrlForm(url);
     setUrl("")
     SetActivePreset("")
