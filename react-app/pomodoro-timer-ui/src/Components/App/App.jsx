@@ -4,6 +4,7 @@ import { AuthContextProvider, useAuthContext } from "../../contexts/AuthContext"
 import { TodoContextProvider } from "../../contexts/TodoContext";
 import { MusicContextProvider } from "../../contexts/MusicContext";
 import DeleteModal from "../../Components/DeleteModal/DeleteModal";
+import PinnedTodo from "../PinnedTodo/PinnedTodo";
 import SidebarExpanded from "../SidebarExpanded/SidebarExpanded";
 import useWindowSize from "react-use/lib/useWindowSize";
 import Sidebar from "../Sidebar/Sidebar"; //new sidebar
@@ -40,6 +41,7 @@ function App() {
         <Sidebar />
         <SidebarExpanded />
         <Timer />
+        <PinnedTodo />
         {authStates.deleteUser ? <DeleteModal /> : null }
       </div>
   )
