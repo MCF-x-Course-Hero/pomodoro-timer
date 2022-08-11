@@ -7,6 +7,7 @@ import MusicIcon from "./MusicIcon";
 export default function MusicTab({displayType}){
   const { MusicContextVariables } = useMusicContext();
   const urlForm  = MusicContextVariables.urlForm;
+  // const shouldPlay = MusicContextVariables.shouldPlay;
 
   
     return (
