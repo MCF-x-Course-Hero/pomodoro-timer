@@ -12,11 +12,11 @@ export default function MusicTab({displayType}){
       <div className="music-tab" style={{display:displayType}}>
       <h3>Music </h3>
       <MusicForm />
-      <VideoPlayer
+      {ReactPlayer.canPlay(urlForm) ? <VideoPlayer
         key={String(urlForm)}
         displayType={displayType}
         urlForm={urlForm}
-      />
+      />: <h4>Please Include a Valid YouTube URL</h4>}
       <MusicIcon />
     </div>
   );

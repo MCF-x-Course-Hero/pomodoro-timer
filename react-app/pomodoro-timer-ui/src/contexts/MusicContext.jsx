@@ -1,7 +1,8 @@
 import * as React from "react";
 import { createContext, useContext } from "react";
 import { useState, useEffect } from "react";
-
+import ReactPlayer
+ from "react-player";
 export const MusicContext = createContext();
 
 export function useMusicContext() {
@@ -21,6 +22,7 @@ export const MusicContextProvider = ({ children }) => {
   function handleOnSubmitUrl(url) {
     
     if (!url) return
+    console.log(ReactPlayer.canPlay(url))	
     setUrlForm(url);
     setUrl("")
     SetActivePreset("")

@@ -62,3 +62,15 @@
   transition: 0.35s;
   margin: 20px;
 }
+
+
+.music-tab h4 {
+  margin: 2px;
+  margin-top: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #ba3939;
+  background: #ffe0e0;
+  align-self: center;
+  border: 1px solid #a33a3a;
+}
