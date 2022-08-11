@@ -7,18 +7,18 @@ class Settings {
         if(!user) {
             throw new UnauthorizedError("No user info provided");
         }
-        const requiredFields = ["pTime", "sbTime", "lbTime", "pColor", "sbColor", "lbColor", "dark_mode", "notif_toggle", "auto_toggle", "num_sessions", "sound_choice", "confetti"];
+        const requiredFields = ["pTime", "sbTime", "lbTime", "pColor", "sbColor", "lbColor", "dark_mode", "notif_toggle", "auto_toggle", "num_sessions", "sound_choice", "confetti", "pause_music"];
         requiredFields.forEach((field) => {
             if(!settings.hasOwnProperty(field)) {
                 throw new BadRequestError(`Missing ${field} in request body`);
             }
         });
         const query = `
-            INSERT INTO userSettings (pTime, sbTime, lbTime, pColor, sbColor, lbColor, dark_mode, notif_toggle, auto_toggle, num_sessions,sound_choice, confetti, user_id)
-            VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13)
-            RETURNING pTime, sbTime, lbTime, pColor, sbColor, lbColor, dark_mode, notif_toggle, auto_toggle, num_sessions, sound_choice, confetti;
+            INSERT INTO userSettings (pTime, sbTime, lbTime, pColor, sbColor, lbColor, dark_mode, notif_toggle, auto_toggle, num_sessions,sound_choice, confetti, pause_music, user_id)
+            VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)
+            RETURNING pTime, sbTime, lbTime, pColor, sbColor, lbColor, dark_mode, notif_toggle, auto_toggle, num_sessions, sound_choice, confetti, pause_music;
         `;
-        const result = await db.query(query, [settings.pTime, settings.sbTime, settings.lbTime, settings.pColor, settings.sbColor, settings.lbColor, settings.dark_mode, settings.notif_toggle, settings.auto_toggle, settings.num_sessions, settings.sound_choice, settings.confetti, user.id]);
+        const result = await db.query(query, [settings.pTime, settings.sbTime, settings.lbTime, settings.pColor, settings.sbColor, settings.lbColor, settings.dark_mode, settings.notif_toggle, settings.auto_toggle, settings.num_sessions, settings.sound_choice, settings.confetti, settings.pause_music, user.id]);
         return result.rows[0];
     }
 
@@ -26,7 +26,7 @@ class Settings {
         if(!user) {
             throw new UnauthorizedError("No user info provided");
         }
-        const requiredFields = ["pTime", "sbTime", "lbTime", "pColor", "sbColor", "lbColor", "dark_mode", "notif_toggle", "auto_toggle", "num_sessions", "sound_choice", "confetti"];
+        const requiredFields = ["pTime", "sbTime", "lbTime", "pColor", "sbColor", "lbColor", "dark_mode", "notif_toggle", "auto_toggle", "num_sessions", "sound_choice", "confetti", "pause_music"];
         requiredFields.forEach((field) => {
             if(!newSettings.hasOwnProperty(field)) {
                 throw new BadRequestError(`Missing ${field} in request body`);
@@ -45,10 +45,11 @@ class Settings {
             auto_toggle = $9,
             num_sessions = $10,
             sound_choice = $11,
-            confetti = $12
-            WHERE user_id = $13;
+            confetti = $12,
+            pause_music = $13
+            WHERE user_id = $14;
         `;
-        const result = await db.query(query, [newSettings.pTime, newSettings.sbTime, newSettings.lbTime, newSettings.pColor, newSettings.sbColor, newSettings.lbColor, newSettings.dark_mode, newSettings.notif_toggle, newSettings.auto_toggle, newSettings.num_sessions, newSettings.sound_choice, newSettings.confetti, user.id]);
+        const result = await db.query(query, [newSettings.pTime, newSettings.sbTime, newSettings.lbTime, newSettings.pColor, newSettings.sbColor, newSettings.lbColor, newSettings.dark_mode, newSettings.notif_toggle, newSettings.auto_toggle, newSettings.num_sessions, newSettings.sound_choice, newSettings.confetti, newSettings.pause_music, user.id]);
         return result.rows[0];
     }
 

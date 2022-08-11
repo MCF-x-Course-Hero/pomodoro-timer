@@ -84,14 +84,14 @@ export default function SettingsTab() {
         <div className="settings-tab">
             <h2>Settings</h2>
             <div className="set-time">
-                <h4>Timer Options</h4>
+                <h4>Session Options</h4>
                 <div className="time-forms">
                     <ul className="input-names">
                         <li>PomoZone Time {"(in minutes):"}</li>
                         <li>Short Break Time {"(in minutes):"}</li>
                         <li>Long Break Time {"(in minutes):"}</li>
                         <li>Num. of Sessions before Long Break:</li>
-                        <li className="auto-toggle">Automatically Move to Next Session:</li>
+                        <li className="auto-toggle">Auto Advance to Next Session:</li>
                     </ul>
                     <div className="inputs">
                         <div className="input-field">
@@ -185,11 +185,12 @@ export default function SettingsTab() {
                     </div>
                 </div>
             </div>
-            <h4 className="toggle-header">Notification Options</h4>
+            <h4 className="toggle-header">Timer Options</h4>
             <div className="notif-area">                
                 <div className="notif-names">
                     <p>Toggle Notifications:</p>
                     <p>Choose Notification Sound:</p>
+                    <p>Pause Music Between Sessions:</p>
                     <p>Toggle Confetti:</p>
                 </div>
                 <div className="notifs">
@@ -210,6 +211,13 @@ export default function SettingsTab() {
                         </select>
                         <i className="fa-solid fa-volume-high" onClick={playSound}></i>
                     </div>
+                    <label>
+                        <Toggle
+                            checked={settingsStates.pauseMusic}
+                            onChange={() => {settingsSetStates.setPauseMusic(!settingsStates.pauseMusic)}}
+                            icons={false}
+                        />
+                    </label>
                     <label>
                         <Toggle
                             checked={settingsStates.confetti}

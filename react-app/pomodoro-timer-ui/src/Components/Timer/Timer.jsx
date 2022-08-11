@@ -2,7 +2,6 @@ import * as React from "react";
 import { useTimer } from "react-timer-hook";
 import typewriter from "../../assets/typewriter.mp3";
 import dingdong from "../../assets/dingdong.mp3";
-import PinnedTodo from "../PinnedTodo/PinnedTodo";
 import bikebell from "../../assets/bike-notif.mp3";
 import standard from "../../assets/attention.mp3";
 import achievement from "../../assets/achievement.mp3";
@@ -32,9 +31,6 @@ export default function Timer() {
   const pomozone = "pomozone";
   const shortBreak = "short-break";
   const longBreak = "long-break";
-
-
-
 
   React.useEffect(() => {
     if (settingsStates.session === pomozone) {
@@ -87,7 +83,7 @@ export default function Timer() {
 
   function finishCountdown() {
     settingsStates.notifToggle ? playSound() : null;
-    settingsSetStates.setIsExploding(true);
+    settingsStates.confetti ? settingsSetStates.setIsExploding(true) : null;
     setTimeout(async () => {
       settingsSetStates.setIsExploding(false);
       if (settingsStates.session == shortBreak) {
@@ -121,13 +117,13 @@ export default function Timer() {
         }
       }
       restart(expiryTimestamp, settingsStates.automaticTimer);
-    }, 3000);
+    }, settingsStates.confetti ? 6000 : 3000);
   }
 
   function setTime(s) {
     const time = new Date();
     if (s === pomozone) {
-      time.setSeconds(time.getSeconds() + 3);
+      time.setSeconds(time.getSeconds() + pomozoneTime);
     } else if (s === shortBreak) {
       time.setSeconds(time.getSeconds() + shortBreakTime);
     } else if (s === longBreak) {
@@ -153,17 +149,16 @@ export default function Timer() {
     onExpire: finishCountdown,
   });
 
-    //should music play or stop when a timer ends
-    const { MusicContextVariables } = useMusicContext();
-    const toggleMedia = MusicContextVariables.toggleMedia;
-    React.useEffect(()=>{
-        if (!isRunning && seconds==0 && minutes==0) {    
-            toggleMedia(false);
-        }
-        else toggleMedia(true)
-    },[isRunning])
+  //should music play or stop when a timer ends
+  const { MusicContextVariables } = useMusicContext();
+  const toggleMedia = MusicContextVariables.toggleMedia;
+  React.useEffect(()=>{
+      if (settingsStates.pauseMusic && !isRunning && seconds == 0 && minutes == 0) {    
+          toggleMedia(false);
+      }
+      else toggleMedia(true)
+  },[isRunning])
     
-
   //move the timer forward a session. sets the new session, and resets the timer and expiryTimestamp
   function updateTimer(reset) {
     settingsSetStates.setIsExploding(false);
@@ -196,9 +191,7 @@ export default function Timer() {
           <h2
             className={`session-${settingsStates.darkToggle ? "dark" : "reg"}`}
           >
-            {`${settingsStates.session.replace("-", " ")} ${
-              settingsStates.session == "pomozone" ? loops : ""
-            }`}
+            {`${settingsStates.session.replace("-", " ")} ${settingsStates.session !== "long-break" && isRunning ? loops : ""}`}
           </h2>
           <div className="buttons">
             <button
