@@ -29,7 +29,7 @@
   align-items: center;
 }
 
-.music-icon .button:hover {
+.btnplay:hover {
   background: var(--sidebar-timer-btn-bg-primary);
   cursor: pointer;
 }
@@ -41,6 +41,21 @@
   color: white;
   font-weight: bold;
   background: var(--profile-btn-primary);
+  font-size: 14px;
+  border: none;
+  cursor: default;
+  transition: 0.35s;
+  margin: 20px;
+}
+
+
+.music-icon .btnplay-current{
+  width: 150px;
+  height: 42px;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  background: var(--sidebar-timer-btn-bg-primary);
   font-size: 14px;
   border: none;
   cursor: default;
