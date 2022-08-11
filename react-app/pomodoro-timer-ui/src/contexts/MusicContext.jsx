@@ -13,7 +13,7 @@ export const MusicContextProvider = ({ children }) => {
   const [urlForm, setUrlForm] = React.useState(defaultUrl);
   const [activePreset, SetActivePreset] = React.useState("")
   const [url, setUrl] = useState("");
-  const [shouldPlay, setShouldPlay] = React.useState(true)
+  const [shouldPlay, setShouldPlay] = React.useState(false);
   function handleUrlInputChange(event) {
     setUrl(event.target.value);
   }

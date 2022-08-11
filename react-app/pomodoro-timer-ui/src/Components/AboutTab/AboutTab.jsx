@@ -26,7 +26,6 @@ export default function AboutTab() {
         </p>
       </div>
       <div className="about-video">
-        <div className="ratio ratio-16x9">
           <ReactPlayer
             width="320"
             url="https://www.youtube.com/embed/ppnPGk36mMY"
@@ -34,9 +33,8 @@ export default function AboutTab() {
             frameBorder="0"
             allowFullScreen
           ></ReactPlayer>
-        </div>
       </div>
-      <footer className="our-team">
+      <div className="footer">
         <p>
           Developed by{" "}
           <a href="https://github.com/mariamconde" target="_blank">
@@ -60,7 +58,7 @@ export default function AboutTab() {
             Github Repository
           </a>
         </p>
-      </footer>
+      </div>
     </div>
   );
 }
