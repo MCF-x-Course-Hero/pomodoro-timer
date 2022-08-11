@@ -4,6 +4,10 @@ const { BCRYPT_WORK_FACTOR } = require("../config");
 const { BadRequestError, UnauthorizedError, NotFoundError } = require("../utils/errors");
 const { getFormattedDate } = require("../utils/date");
 
+const MIN_USERNAME_LENGTH = 6
+const MAX_USERNAME_LENGTH = 20
+const MIN_PASSWORD_LENGTH = 8
+
 class User {
 
   static makePublicUser(user) {
@@ -41,6 +45,7 @@ class User {
       credentials.password,
       BCRYPT_WORK_FACTOR
     );
+
     const result = await db.query(
       `INSERT INTO users (username, password)
       VALUES ($1, $2)
@@ -74,6 +79,17 @@ class User {
     const existingUser = await User.fetchUserByUsername(credentials.username);
     if (existingUser) {
       throw new BadRequestError(`duplicate username: ${credentials.username}`);
+    }
+
+    // checks if credentials pass minimum/maximum character length requirements
+    if (credentials.username.length < MIN_USERNAME_LENGTH){
+      throw new BadRequestError("Username length is less than 6 characters");
+    }
+    if (credentials.username.length > MAX_USERNAME_LENGTH){
+      throw new BadRequestError("Username length is more than 15 characters");
+    }
+    if (credentials.password.length < MIN_PASSWORD_LENGTH){
+      throw new BadRequestError("password length is less than 8 characters");
     }
   }
 
