@@ -160,9 +160,10 @@ export default function Timer() {
         if (!isRunning && seconds==0 && minutes==0) {    
             toggleMedia(false);
         }
-        else toggleMedia(true)
+        // else toggleMedia(true)
     },[isRunning])
     
+
   //move the timer forward a session. sets the new session, and resets the timer and expiryTimestamp
   function updateTimer(reset) {
     settingsSetStates.setIsExploding(false);
@@ -219,7 +220,16 @@ export default function Timer() {
                   ? `${settingsStates.session}-dark-mode`
                   : `${settingsStates.session}-${settingsStates.theme}`
               }`}
-              onClick={isRunning ? pause : resume}
+              onClick={(event)=>{
+                if (isRunning){ 
+                    pause()
+                    toggleMedia(false)
+                } 
+                else {
+                    resume()
+                    toggleMedia(true)
+                }
+            }}
             >
               <img
                 src={isRunning ? pauseIcon : startIcon}
