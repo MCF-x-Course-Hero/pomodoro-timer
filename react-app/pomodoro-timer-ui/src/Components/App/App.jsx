@@ -4,10 +4,10 @@ import { AuthContextProvider, useAuthContext } from "../../contexts/AuthContext"
 import { TodoContextProvider } from "../../contexts/TodoContext";
 import { MusicContextProvider } from "../../contexts/MusicContext";
 import DeleteModal from "../../Components/DeleteModal/DeleteModal";
+import PinnedTodo from "../PinnedTodo/PinnedTodo";
 import SidebarExpanded from "../SidebarExpanded/SidebarExpanded";
 import useWindowSize from "react-use/lib/useWindowSize";
 import Sidebar from "../Sidebar/Sidebar"; //new sidebar
-import PinnedTodo from "../PinnedTodo/PinnedTodo";
 import Confetti from "react-confetti";
 import Timer from "../Timer/Timer";
 import './App.css'

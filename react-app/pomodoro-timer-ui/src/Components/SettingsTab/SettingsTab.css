@@ -8,7 +8,7 @@
 .settings-tab h2 {
     text-align: center;
     margin-top: 10px;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
 }
 
 .settings-tab .set-time {
@@ -255,7 +255,7 @@
     border-radius: 5px;
     width: 90%;
     align-self: center;
-    height: 100px;
+    height: 135px;
 }
 
 .settings-tab .notif-area .notifs {
@@ -467,7 +467,7 @@
 }
 
 .settings-tab .update-settings {
-  margin-top: 30px;
+  margin-top: 15px;
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -477,14 +477,16 @@
 .fade-in {
   text-align: center;
   margin: 0px;
-  margin-top: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   transition: opacity 1s ease;
 }
 
 .fade-out {
   opacity: 0;
   margin: 0px;
-  margin-top: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   text-align: center;
   transition: opacity 1s ease;
 }
