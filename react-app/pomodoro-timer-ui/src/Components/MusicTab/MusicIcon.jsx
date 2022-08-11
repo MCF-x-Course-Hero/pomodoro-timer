@@ -8,13 +8,14 @@ export default function MusicIcon() {
   const handleUrlInputChange = MusicContextVariables.handleUrlInputChange;
   const url = MusicContextVariables.url;
   const handleOnSubmitIcon = MusicContextVariables.handleOnSubmitIcon;
-   
-  const [activePreset, SetActivePreset] = React.useState("")
+  const activePreset = MusicContextVariables.activePreset
+  const SetActivePreset = MusicContextVariables.SetActivePreset
+
 
   function handleOnClickPreset(presetName){
     SetActivePreset(presetName)
   }
-  console.log(activePreset)
+  
 
 
   return (
