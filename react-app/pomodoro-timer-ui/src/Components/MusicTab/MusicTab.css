@@ -29,12 +29,12 @@
   align-items: center;
 }
 
-.music-icon .btn:hover {
+.btnplay:hover {
   background: var(--sidebar-timer-btn-bg-primary);
-  cursor:pointer;
+  cursor: pointer;
 }
 
-.music-icon .btn {
+.music-icon button {
   width: 150px;
   height: 42px;
   border-radius: 5px;
@@ -45,8 +45,20 @@
   border: none;
   cursor: default;
   transition: 0.35s;
-  align-items: center;
   margin: 20px;
-  margin-right: 25px;
-  margin-left: 40px;
+}
+
+
+.music-icon .btnplay-current{
+  width: 150px;
+  height: 42px;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  background: var(--sidebar-timer-btn-bg-primary);
+  font-size: 14px;
+  border: none;
+  cursor: default;
+  transition: 0.35s;
+  margin: 20px;
 }
