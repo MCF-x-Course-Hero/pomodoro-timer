@@ -24,7 +24,7 @@ export default function PinnedTodo() {
   }
 
   return (
-    <div style={{transform: "rotate(-5deg)", width: "15em", height: "15em", position: "absolute", right: "50px"}}>
+    <div style={{transform: "rotate(-5deg)", width: "15em", height: "15em", position: "absolute", right: "50px", zIndex: "3"}}>
       <Draggable offsetParent={document.querySelector(".timer")}>
         <div className={pinnedTodo.task ? "pinned-task-content" : ""}>
           <div className="sticky">
@@ -33,10 +33,10 @@ export default function PinnedTodo() {
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="icon icon-tabler icon-tabler-x"
-                  width="28"
-                  height="28"
+                  width="25"
+                  height="25"
                   viewBox="0 0 24 24"
-                  strokeWidth="1.5"
+                  strokeWidth="2"
                   stroke="#ffffff"
                   fill="none"
                   strokeLinecap="round"
@@ -48,6 +48,7 @@ export default function PinnedTodo() {
                 </svg>
               </IconButton>
             </div> : ""}
+            {pinnedTodo.task ? (<p>Currently...</p>) : ""}
           </div>
           <div className="note">
           <p className="pinned-task">{pinnedTodo.task ? pinnedTodo.task : ""}</p>
