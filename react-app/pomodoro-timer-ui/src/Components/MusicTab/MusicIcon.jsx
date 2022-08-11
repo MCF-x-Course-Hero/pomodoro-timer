@@ -15,12 +15,7 @@ export default function MusicIcon() {
   function handleOnClickPreset(presetName){
     SetActivePreset(presetName)
   }
-<<<<<<< HEAD
   
-
-=======
->>>>>>> 378a7910b497eafbd2d02194770d012ea93e11b1
-
   return (
     <div className="music-icon">
       <div className="button1">

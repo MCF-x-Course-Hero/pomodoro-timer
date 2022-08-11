@@ -4,6 +4,10 @@ import { useSettingsContext } from "../../contexts/SettingsContext";
 import apiClient from "./../../Services/apiClient"
 import "./RegisterForm.css";
 
+const MIN_USERNAME_LENGTH = 6
+const MAX_USRENAME_LENGTH = 15
+const MIN_PASSWORD_LENGTH = 8
+
 export default function RegisterForm() {
   const [isLoading, setIsLoading] = React.useState(false);
   const [error, setError] = React.useState({});
@@ -52,10 +56,27 @@ export default function RegisterForm() {
     setForm((f) => ({ ...f, [event.target.name]: event.target.value }));
   };
 
+  
   const handleOnSubmit = async () => {
     setIsLoading(true);
     setError((e) => ({ ...e, form: null }));
 
+    if (form.username.length < MIN_USERNAME_LENGTH){
+      setError((e) => ({ ...e, username: "Username must have at least 6 characters" }));
+      setIsLoading(false);
+      return;
+    }
+    if (form.username.length > MAX_USRENAME_LENGTH){
+      setError((e) => ({ ...e, username: "Username must have less than 15 characters" }));
+      setIsLoading(false);
+      return;
+    }
+    if (form.password.length < MIN_PASSWORD_LENGTH){
+      setError((e) => ({ ...e, password: "Password must have at least 8 characters" }));
+      setIsLoading(false);
+      return;
+    }
+    
     if (form.username === "") {
       setError((e) => ({ ...e, username: "Please enter a username" }));
       setIsLoading(false);
@@ -114,6 +135,7 @@ export default function RegisterForm() {
             type="username"
             name="username"
             placeholder="Username"
+            minLength={4}
             value={form.username}
             onChange={handleOnInputChange}
           />
@@ -126,6 +148,7 @@ export default function RegisterForm() {
             name="password"
             placeholder="Password"
             value={form.password}
+            minLength={8}
             onChange={handleOnInputChange}
           />
         </div>
@@ -136,6 +159,7 @@ export default function RegisterForm() {
             type="password"
             name="passwordConfirm"
             placeholder="Confirm Password"
+            minLength={8}
             value={form.passwordConfirm}
             onChange={handleOnInputChange}
           />
