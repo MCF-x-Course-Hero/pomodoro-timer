@@ -14,8 +14,6 @@ export default function MusicIcon() {
   function handleOnClickPreset(presetName){
     SetActivePreset(presetName)
   }
-  console.log(activePreset)
-
 
   return (
     <div className="music-icon">
@@ -47,7 +45,7 @@ export default function MusicIcon() {
             handleOnSubmitIcon("https://youtu.be/UgHKb_7884o");
           }}
         >
-          FIRE PLACE{" "}
+          FIREPLACE{" "}
         </button>
         <button
           className={(activePreset == "waves") ? "btnplay-current": "btnplay"}
@@ -78,7 +76,7 @@ export default function MusicIcon() {
             handleOnSubmitIcon("https://youtu.be/rYoZgpAEkFs");
           }}
         >
-          BIRD{" "}
+          BIRDS{" "}
         </button>
       </div>
     </div>
