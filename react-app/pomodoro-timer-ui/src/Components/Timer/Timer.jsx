@@ -160,7 +160,7 @@ export default function Timer() {
         if (!isRunning && seconds==0 && minutes==0) {    
             toggleMedia(false);
         }
-        // else toggleMedia(true)
+        else toggleMedia(true)
     },[isRunning])
     
 
@@ -220,16 +220,7 @@ export default function Timer() {
                   ? `${settingsStates.session}-dark-mode`
                   : `${settingsStates.session}-${settingsStates.theme}`
               }`}
-              onClick={(event)=>{
-                if (isRunning){ 
-                    pause()
-                    toggleMedia(false)
-                } 
-                else {
-                    resume()
-                    toggleMedia(true)
-                }
-            }}
+              onClick={isRunning ? pause : resume}
             >
               <img
                 src={isRunning ? pauseIcon : startIcon}
