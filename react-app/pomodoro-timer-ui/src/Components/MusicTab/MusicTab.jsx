@@ -3,11 +3,11 @@ import "./MusicTab.css"
 import ReactPlayer from 'react-player/youtube'
 import {useMusicContext} from "../../contexts/MusicContext"
 import MusicForm from "./MusicForm";
-import MusicIcon from "./MusicIcon";
-
+import MusicIcon from "./MusicIcon"; 
 export default function MusicTab({displayType}){
   const { MusicContextVariables } = useMusicContext();
   const urlForm  = MusicContextVariables.urlForm;
+
   
     return (
       <div className="music-tab" style={{display:displayType}}>
@@ -20,14 +20,18 @@ export default function MusicTab({displayType}){
 }
 
 export function VideoPlayer({ displayType, urlForm }) {
+  const { MusicContextVariables } = useMusicContext();
+  const shouldPlay = MusicContextVariables.shouldPlay;
+  console.log("should play",shouldPlay)
 
   return (
     <div className="video" style={{ display: displayType }}>
       <ReactPlayer
+      className="video-player"
         width="410px"
         url={urlForm}
         controls
-        playing={true}
+        playing={shouldPlay}
       />
     </div>
   );
