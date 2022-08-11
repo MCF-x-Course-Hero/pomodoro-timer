@@ -5,8 +5,9 @@ import apiClient from "./../../Services/apiClient"
 import "./RegisterForm.css";
 
 const MIN_USERNAME_LENGTH = 6
-const MAX_USRENAME_LENGTH = 15
+const MAX_USERNAME_LENGTH = 20
 const MIN_PASSWORD_LENGTH = 8
+
 
 export default function RegisterForm() {
   const [isLoading, setIsLoading] = React.useState(false);
@@ -66,8 +67,8 @@ export default function RegisterForm() {
       setIsLoading(false);
       return;
     }
-    if (form.username.length > MAX_USRENAME_LENGTH){
-      setError((e) => ({ ...e, username: "Username must have less than 15 characters" }));
+    if (form.username.length > MAX_USERNAME_LENGTH){
+      setError((e) => ({ ...e, username: "Username must have at most 20 characters" }));
       setIsLoading(false);
       return;
     }
