@@ -190,6 +190,7 @@ export default function SettingsTab() {
                 <div className="notif-names">
                     <p>Toggle Notifications:</p>
                     <p>Choose Notification Sound:</p>
+                    <p>Toggle Confetti:</p>
                 </div>
                 <div className="notifs">
                     <label>
@@ -209,6 +210,13 @@ export default function SettingsTab() {
                         </select>
                         <i className="fa-solid fa-volume-high" onClick={playSound}></i>
                     </div>
+                    <label>
+                        <Toggle
+                            checked={settingsStates.confetti}
+                            onChange={() => {settingsSetStates.setConfetti(!settingsStates.confetti)}}
+                            icons={false}
+                        />
+                    </label>
                 </div>
             </div>
             { authStates.loggedIn ? 
@@ -216,8 +224,7 @@ export default function SettingsTab() {
                     <button onClick={settingsFunctions.updateDefaultSettings} disabled={settingsStates.loading}>Revert to Default</button>
                     <button onClick={settingsFunctions.updateUserSettings} disabled={settingsStates.loading}>Apply Changes</button>
                 </div>) : (null)}
-                <p className={settingsStates.fadeProp.fade}>Your settings have been saved</p>
-                <p className={settingsStates.fadeProp.fadeError}>Oh no! Something went wrong</p>
+                <p className={settingsStates.fadeProp.fadeError === "fade-in" ? settingsStates.fadeProp.fadeError : settingsStates.fadeProp.fade}>{settingsStates.fadeProp.fadeError === "fade-in" ? "Oh no! Something went wrong" : "Your settings have been saved"}</p>
         </div>
     )
 }

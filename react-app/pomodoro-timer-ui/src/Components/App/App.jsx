@@ -7,6 +7,7 @@ import DeleteModal from "../../Components/DeleteModal/DeleteModal";
 import SidebarExpanded from "../SidebarExpanded/SidebarExpanded";
 import useWindowSize from "react-use/lib/useWindowSize";
 import Sidebar from "../Sidebar/Sidebar"; //new sidebar
+import PinnedTodo from "../PinnedTodo/PinnedTodo";
 import Confetti from "react-confetti";
 import Timer from "../Timer/Timer";
 import './App.css'
@@ -40,6 +41,7 @@ function App() {
         <Sidebar />
         <SidebarExpanded />
         <Timer />
+        <PinnedTodo />
         {authStates.deleteUser ? <DeleteModal /> : null }
       </div>
   )

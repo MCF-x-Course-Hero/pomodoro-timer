@@ -42,7 +42,7 @@ export default function TodoForm() {
           value={todo.task}
           onChange={handleTaskInputChange}
           className="todo-form-input"
-          style={{width:"315px"}}
+          style={{width:"300px"}}
           inputProps={{ maxLength: 65 }}
         ></TextField>
         <Button
