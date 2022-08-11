@@ -22,7 +22,6 @@ export default function MusicTab({displayType}){
 export function VideoPlayer({ displayType, urlForm }) {
   const { MusicContextVariables } = useMusicContext();
   const shouldPlay = MusicContextVariables.shouldPlay;
-  console.log("should play",shouldPlay)
 
   return (
     <div className="video" style={{ display: displayType }}>
