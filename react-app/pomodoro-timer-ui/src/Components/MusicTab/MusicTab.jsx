@@ -3,6 +3,7 @@ import "./MusicTab.css";
 import ReactPlayer from "react-player/youtube";
 import { useMusicContext } from "../../contexts/MusicContext";
 import MusicForm from "./MusicForm";
+import MusicIcon from "./MusicIcon";
 
 export default function MusicTab({displayType}){
   const { MusicContextVariables } = useMusicContext();
