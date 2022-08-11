@@ -2,6 +2,7 @@ import * as React from "react";
 import { useTimer } from "react-timer-hook";
 import typewriter from "../../assets/typewriter.mp3";
 import dingdong from "../../assets/dingdong.mp3";
+import PinnedTodo from "../PinnedTodo/PinnedTodo";
 import bikebell from "../../assets/bike-notif.mp3";
 import standard from "../../assets/attention.mp3";
 import achievement from "../../assets/achievement.mp3";
@@ -138,6 +139,7 @@ export default function Timer() {
 
     return (
         <div className="timer">
+                    <PinnedTodo />
             <div className="content">
                 <div className="timer-area">
                     <div className={`time-${settingsStates.darkToggle ? "dark" : "reg"}`}>
