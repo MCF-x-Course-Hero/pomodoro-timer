@@ -12,7 +12,6 @@ export default function MusicTab({ displayType }) {
   return (
     <div className="music-tab" style={{ display: displayType }}>
       <h3>Music </h3>
-      <p>To help improve your mood and increase productivity!</p>
       <MusicForm />
       <VideoPlayer
         key={String(urlForm)}
