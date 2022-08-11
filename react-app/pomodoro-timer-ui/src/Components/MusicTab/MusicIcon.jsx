@@ -11,8 +11,8 @@ export default function MusicIcon() {
 
   return (
     <div className="music-icon">
+      <div className="button1">
       <button
-        className="btn"
         id="btnplay"
         onClick={() => {
           handleOnSubmitIcon("https://youtu.be/jfKfPfyJRdk");
@@ -21,7 +21,6 @@ export default function MusicIcon() {
         LOFI
       </button>
       <button
-        className="btn"
         id="btnplay"
         onClick={() => {
           handleOnSubmitIcon("https://youtu.be/neV3EPgvZ3g");
@@ -29,8 +28,9 @@ export default function MusicIcon() {
       >
         JAZZ
       </button>
+      </div>
+      <div className="button2">
       <button
-        className="btn"
         id="btnplay"
         onClick={() => {
           handleOnSubmitIcon("https://youtu.be/UgHKb_7884o");
@@ -39,7 +39,6 @@ export default function MusicIcon() {
         FIRE PLACE
       </button>
       <button
-        className="btn"
         id="btnplay"
         onClick={() => {
           handleOnSubmitIcon("https://youtu.be/WHPEKLQID4U");
@@ -47,8 +46,9 @@ export default function MusicIcon() {
       >
         OCEAN WAVES
       </button>
+      </div>
+      <div className="button3">
       <button
-        className="btn"
         id="btnplay"
         onClick={() => {
           handleOnSubmitIcon("https://youtu.be/8plwv25NYRo");
@@ -57,7 +57,6 @@ export default function MusicIcon() {
         RAIN
       </button>
       <button
-        className="btn"
         id="btnplay"
         onClick={() => {
           handleOnSubmitIcon("https://youtu.be/rYoZgpAEkFs");
@@ -65,6 +64,7 @@ export default function MusicIcon() {
       >
         BIRD
       </button>
+      </div>
     </div>
   );
 }
