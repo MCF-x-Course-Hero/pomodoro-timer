@@ -12,7 +12,7 @@ export const MusicContextProvider = ({ children }) => {
   const defaultUrl = "https://www.youtube.com/watch?v=jfKfPfyJRdk"
   const [urlForm, setUrlForm] = React.useState("");
   const [url, setUrl] = useState("");
-
+  const [shouldPlay, setShouldPlay] = React.useState(true)
   function handleUrlInputChange(event) {
     setUrl(event.target.value);
   }
@@ -22,21 +22,28 @@ export const MusicContextProvider = ({ children }) => {
     if (!url) return
     setUrlForm(url);
     setUrl("")
-  
   }
 
   function handleOnSubmitIcon(url) {
     setUrlForm(url);
   }
 
+  function toggleMedia(shouldPlay="true"){
+    setShouldPlay(shouldPlay)
+  }
+
+
   const MusicContextVariables = {
     urlForm,
     url,
+    shouldPlay,
     setUrlForm,
     setUrl,
     handleUrlInputChange,
     handleOnSubmitUrl,
     handleOnSubmitIcon,
+    setShouldPlay,
+    toggleMedia,
 };
 
     return (
