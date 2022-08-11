@@ -1,12 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Kalam&display=swap');
 
 .pinned-task-content {
-  width: 250px;
-  height: 200px;
+  text-decoration: none;
+  box-shadow: 3px 3px 5px 1px var(--sidebar-timer-btn-bg-primary);
+  width: 15em;
+  height: 15em;
   position: absolute;
   color: white;
   right: 5%;
   top: 10%;
+  cursor: pointer;
   overflow-y: auto;
   border-radius: 5px;
   background: var(--expanded-sidebar-hover-primary);
@@ -15,10 +18,21 @@
 
 .pinned-task-content .sticky {
   cursor: pointer;
-  height: 50px;
+  height: 40px;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
+  flex-direction: row-reverse;
+  padding-left: 10px;
+  border-bottom: 1px var(--sidebar-timer-btn-bg-primary) solid;
+}
+
+.pinned-task-content .sticky p {
+  font-family: 'Kalam', cursive;
+  margin-top: 28px;
+  margin-right: auto;
+  margin-left: 15px;
+  font-size: 21px;
 }
 
 .pinned-task-content .sticky .pin {
@@ -36,8 +50,7 @@
   font-size: 18px;
   margin-left: 10px;
   margin-right: 10px;
-  font-family: 'kalam', cursive;
   margin-bottom: 5px;
   word-wrap: break-word;
-  margin-top: 0px;
+  margin-top: 5px;
 }

@@ -1,9 +1,8 @@
 .timer {
     display: flex;
-    align-items: center; 
-    margin: auto;
-    overflow: visible;
-    flex-direction: column;
+    flex: 2;
+    align-self: center;
+    justify-content: center;
 }
 
 .timer .content {

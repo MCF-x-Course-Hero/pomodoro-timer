@@ -1,4 +1,5 @@
 import * as React from "react";
+import { IconButton } from "@mui/material";
 import "./PinnedTodo.css";
 import Draggable from "react-draggable";
 import { useTodoContext } from "../../contexts/TodoContext";
@@ -13,8 +14,7 @@ export default function PinnedTodo() {
 
   function handlePinButton(){
     if ("todo" == authStates.componentName)
-      document.getElementById(`${pinnedTodo.id}`).style.fill = "none";
-
+      document.getElementById(`${pinnedTodo.id}`).style.fill = "";
     setPinnedTodo({
       id: "",
       task: "",
@@ -24,31 +24,37 @@ export default function PinnedTodo() {
   }
 
   return (
-    <Draggable>
-      <div className={pinnedTodo.task ? "pinned-task-content" : ""}>
-        <div className="sticky">
-          {pinnedTodo.task ? <div className="pin"> <svg
-            onClick={handlePinButton}
-            xmlns="http://www.w3.org/2000/svg"
-            width="32"
-            height="32"
-            viewBox="0 0 24 24"
-            strokeWidth="1.75"
-            stroke="white"
-            fill="none"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-            <path d="M15 4.5l-4 4l-4 1.5l-1.5 1.5l7 7l1.5 -1.5l1.5 -4l4 -4" />
-            <line x1="9" y1="15" x2="4.5" y2="19.5" />
-            <line x1="14.5" y1="4" x2="20" y2="9.5" />
-          </svg> </div> : ""}
+    <div style={{transform: "rotate(-5deg)", width: "15em", height: "15em", position: "absolute", right: "50px", zIndex: "3"}}>
+      <Draggable offsetParent={document.querySelector(".timer")}>
+        <div className={pinnedTodo.task ? "pinned-task-content" : ""}>
+          <div className="sticky">
+            {pinnedTodo.task ? <div className="pin" onClick={handlePinButton}>
+              <IconButton>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="icon icon-tabler icon-tabler-x"
+                  width="25"
+                  height="25"
+                  viewBox="0 0 24 24"
+                  strokeWidth="2"
+                  stroke="#ffffff"
+                  fill="none"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+              </IconButton>
+            </div> : ""}
+            {pinnedTodo.task ? (<p>Currently...</p>) : ""}
+          </div>
+          <div className="note">
+          <p className="pinned-task">{pinnedTodo.task ? pinnedTodo.task : ""}</p>
+          </div>
         </div>
-        <div className="note">
-        <p className="pinned-task">{pinnedTodo.task ? pinnedTodo.task : ""}</p>
-        </div>
+      </Draggable>
     </div>
-    </Draggable>
   );
 }
