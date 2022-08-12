@@ -25,13 +25,15 @@ export default function MusicTab({displayType}){
 export function VideoPlayer({ displayType, urlForm }) {
   const { MusicContextVariables } = useMusicContext();
   const shouldPlay = MusicContextVariables.shouldPlay;
+  //to play lofi 
+  const defaultUrl = "https://www.youtube.com/watch?v=jfKfPfyJRdk"
 
   return (
     <div className="video" style={{ display: displayType }}>
       <ReactPlayer
       className="video-player"
         width="410px"
-        url={urlForm}
+        url={urlForm ? urlForm : defaultUrl}
         controls
         playing={shouldPlay}
       />
