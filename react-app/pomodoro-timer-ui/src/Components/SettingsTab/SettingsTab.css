@@ -255,7 +255,7 @@
     border-radius: 5px;
     width: 90%;
     align-self: center;
-    height: 135px;
+    height: 160px;
 }
 
 .settings-tab .notif-area .notifs {
@@ -264,12 +264,13 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  margin-top: 5px;
+  margin-top: 7px;
   margin-bottom: 5px;
 }
 
 .settings-tab .notif-area .notifs label {
   padding-left: 60px;
+  margin-top: 2px;
 }
 
 .settings-tab .notif-area .notifs .ding {
