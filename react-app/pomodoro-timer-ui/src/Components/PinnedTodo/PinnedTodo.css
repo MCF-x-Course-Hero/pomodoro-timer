@@ -9,7 +9,7 @@
   color: white;
   right: 5%;
   top: 10%;
-  cursor: pointer;
+  cursor: grab;
   overflow-y: auto;
   border-radius: 5px;
   background: var(--expanded-sidebar-hover-primary);
@@ -17,7 +17,7 @@
 }
 
 .pinned-task-content .sticky {
-  cursor: pointer;
+  cursor: grab;
   height: 40px;
   display: flex;
   align-items: center;
