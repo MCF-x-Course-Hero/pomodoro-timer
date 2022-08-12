@@ -60,7 +60,7 @@ export default function Sidebar() {
           <li
             className={classnames(
               "list-item",
-              `${settingsStates.session}-${settingsStates.theme}`,
+              `${settingsStates.darkToggle ? `${settingsStates.session}-dark-mode` : `${settingsStates.session}-${settingsStates.theme}`}`,
               { active: authStates.active === "music" }
             )}
             id="music"
@@ -73,7 +73,6 @@ export default function Sidebar() {
           <li
             className={classnames(
               "list-item",
-              `${settingsStates.session}-${settingsStates.theme}`,
               `${settingsStates.darkToggle ? `${settingsStates.session}-dark-mode` : `${settingsStates.session}-${settingsStates.theme}`}`,
               { active: authStates.active === "settings" }
             )}
