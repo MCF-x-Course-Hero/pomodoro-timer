@@ -190,7 +190,7 @@ export default function SettingsTab() {
                 <div className="notif-names">
                     <p>Toggle Notifications:</p>
                     <p>Choose Notification Sound:</p>
-                    <p>Pause Music Between Sessions:</p>
+                    <p>Toggle Player Between Sessions:</p>
                     <p>Toggle Confetti:</p>
                     <p>Inspirational Quotes:</p>
                 </div>
