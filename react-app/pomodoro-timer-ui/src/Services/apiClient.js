@@ -11,7 +11,7 @@ class ApiClient {
         this.token = token;
         localStorage.setItem(this.tokenName, token);
     }
-
+    
     async request({ endpoint, method = "GET", data = {} }) {
         const url = `${this.remoteHostUrl}/${endpoint}`;
 
@@ -105,6 +105,7 @@ class ApiClient {
         // http request to get user settings from /settings/ endpoint
         return await this.request({ endpoint: 'settings/update/', method: 'POST', data: newSettings});
     }
+
 }
 
-export default new ApiClient("https://pomozone.herokuapp.com");
+export default new ApiClient("http://localhost:3001");

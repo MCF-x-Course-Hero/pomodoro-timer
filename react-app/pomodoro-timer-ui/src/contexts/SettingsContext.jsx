@@ -18,6 +18,7 @@ export const SettingsContextProvider = ({children}) => {
     const [numSessions, setNumSessions] = React.useState(4);
     const [loading, setLoading] = React.useState(false);
     const [confetti, setConfetti] = React.useState(true);
+    const [inspiration, setInspiration] = React.useState(true);
     const [notifSound, setNotifSound] = React.useState("standard");
     const [notifWord, setNotifWord] = React.useState("standard");
     const [notifToggle, setNotifToggle] = React.useState(false);
@@ -27,8 +28,8 @@ export const SettingsContextProvider = ({children}) => {
     const [error, setError] = React.useState({});
     const [isExploding, setIsExploding] = React.useState(false);
     const [timeForm, setTimeForm] = React.useState({ focusTime: 25, shortBreakTime: 5, longBreakTime: 15 })
-    const settingsStates = { session, theme, pomozoneTheme, shortBreakTheme, longBreakTheme, notifToggle, darkToggle, isExploding, timeForm, loading, fadeProp, userSettings, automaticTimer, numSessions, notifSound, notifWord, confetti, pauseMusic };
-    const settingsSetStates = { setSession, setTheme, setPomozoneTheme, setShortBreakTheme, setLongBreakTheme, setNotifToggle, setDarkToggle, setIsExploding, setTimeForm, setLoading, setUserSettings, setAutomaticTimer, setNumSessions, setNotifSound, setNotifWord, setConfetti, setPauseMusic };
+    const settingsStates = { session, theme, pomozoneTheme, shortBreakTheme, longBreakTheme, notifToggle, darkToggle, isExploding, timeForm, loading, fadeProp, userSettings, automaticTimer, numSessions, notifSound, notifWord, confetti, pauseMusic, inspiration };
+    const settingsSetStates = { setSession, setTheme, setPomozoneTheme, setShortBreakTheme, setLongBreakTheme, setNotifToggle, setDarkToggle, setIsExploding, setTimeForm, setLoading, setUserSettings, setAutomaticTimer, setNumSessions, setNotifSound, setNotifWord, setConfetti, setPauseMusic, setInspiration };
     const settingsFunctions = { darkModeToggle, updateUserSettings, getUserSettings, addUserSettings, updateDefaultSettings }
 
     function darkModeToggle() {
@@ -69,6 +70,7 @@ export const SettingsContextProvider = ({children}) => {
             setAutomaticTimer(data.settings.auto_toggle);
             setNumSessions(data.settings.num_sessions);
             setConfetti(data.settings.confetti);
+            setInspiration(data.settings.inspiration);
             setPauseMusic(data.settings.pause_music);
         }
         if (error) setError(error);
@@ -91,6 +93,7 @@ export const SettingsContextProvider = ({children}) => {
             sound_choice: notifSound,
             confetti: confetti,
             pause_music: pauseMusic,
+            inspiration: inspiration,
         }
         const { data, error } = await apiClient.updateSettings(allSettings);
         if (data) {
@@ -131,6 +134,7 @@ export const SettingsContextProvider = ({children}) => {
         setAutomaticTimer(false);
         setNotifSound("standard");
         setConfetti(true);
+        setInspiration(true);
         setPauseMusic(false);
         const allSettings = {
             pTime: 25,
@@ -146,6 +150,7 @@ export const SettingsContextProvider = ({children}) => {
             sound_choice: "standard",
             confetti: true,
             pause_music: false,
+            inspiration: true,
         }
         const { data, error } = await apiClient.updateSettings(allSettings);
         if (data) {
@@ -183,6 +188,7 @@ export const SettingsContextProvider = ({children}) => {
             sound_choice: notifSound,
             confetti: confetti,
             pause_music: pauseMusic,
+            inspiration: inspiration,
         }
         const { data, error } = await apiClient.addSettings(allSettings);
         if(data) {

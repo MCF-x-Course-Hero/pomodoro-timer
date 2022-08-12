@@ -40,6 +40,7 @@ CREATE TABLE userSettings (
     sound_choice    TEXT NOT NULL,
     confetti        BOOLEAN NOT NULL,
     pause_music     BOOLEAN NOT NULL,
+    inspiration     BOOLEAN NOT NULL,
     user_id         INT NOT NULL,
     FOREIGN KEY     (user_id) REFERENCES users(id) ON DELETE CASCADE
 );

@@ -192,6 +192,7 @@ export default function SettingsTab() {
                     <p>Choose Notification Sound:</p>
                     <p>Pause Music Between Sessions:</p>
                     <p>Toggle Confetti:</p>
+                    <p>Inspirational Quotes:</p>
                 </div>
                 <div className="notifs">
                     <label>
@@ -222,6 +223,13 @@ export default function SettingsTab() {
                         <Toggle
                             checked={settingsStates.confetti}
                             onChange={() => {settingsSetStates.setConfetti(!settingsStates.confetti)}}
+                            icons={false}
+                        />
+                    </label>
+                    <label>
+                        <Toggle
+                            checked={settingsStates.inspiration}
+                            onChange={() => {settingsSetStates.setInspiration(!settingsStates.inspiration)}}
                             icons={false}
                         />
                     </label>

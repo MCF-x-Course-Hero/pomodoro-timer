@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Kalam&display=swap');
+
+.inspiration-box {
+    position: absolute;
+    bottom: 10%;
+    margin-bottom: 5px;
+    width: 300px;
+    right: 5%;
+    height: 100px;
+}
+
+.fade-out {
+    color: white;
+    text-align: center;
+    font-size: 15px;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.fade-in {
+    color: white;
+    text-align: center;
+    font-size: 15px;
+    transition: opacity 1s ease;
+}
+
+#author {
+    font-family: 'kalam', cursive;
+}

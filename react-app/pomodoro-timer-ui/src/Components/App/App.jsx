@@ -4,6 +4,7 @@ import { AuthContextProvider, useAuthContext } from "../../contexts/AuthContext"
 import { TodoContextProvider } from "../../contexts/TodoContext";
 import { MusicContextProvider } from "../../contexts/MusicContext";
 import DeleteModal from "../../Components/DeleteModal/DeleteModal";
+import Inspiration from "../Inspiration/Inspiration";
 import PinnedTodo from "../PinnedTodo/PinnedTodo";
 import SidebarExpanded from "../SidebarExpanded/SidebarExpanded";
 import useWindowSize from "react-use/lib/useWindowSize";
@@ -30,7 +31,7 @@ function App() {
   const {width, height} = useWindowSize();
   const { settingsStates } = useSettingsContext();
   const { authStates } = useAuthContext();
-  
+
   return (
       <div className={`app ${settingsStates.darkToggle ? `${settingsStates.session}-dark-mode` : `${settingsStates.session}-${settingsStates.theme}`}`}>
         {settingsStates.isExploding ? <Confetti
@@ -42,6 +43,7 @@ function App() {
         <SidebarExpanded />
         <Timer />
         <PinnedTodo />
+        <Inspiration />
         {authStates.deleteUser ? <DeleteModal /> : null }
       </div>
   )
