@@ -157,7 +157,6 @@ export default function Timer() {
           toggleMedia(false);
       }
       else if (settingsStates.pauseMusic) toggleMedia(true)
-      // else toggleMedia(true)
   },[isRunning])
     
   //move the timer forward a session. sets the new session, and resets the timer and expiryTimestamp
