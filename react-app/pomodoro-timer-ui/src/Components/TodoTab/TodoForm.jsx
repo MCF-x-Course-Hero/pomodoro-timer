@@ -34,7 +34,7 @@ export default function TodoForm() {
       <form onSubmit={handleOnSubmitTask}>
         <TextField
           variant="filled"
-          label="Todo"
+          label="To-Do"
           size="medium"
           fullWidth
           name="task"

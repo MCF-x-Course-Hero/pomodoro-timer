@@ -22,12 +22,14 @@ export const MusicContextProvider = ({ children }) => {
     
     if (!url) return
     setUrlForm(url);
+    setShouldPlay(true)
     setUrl("")
     SetActivePreset("")
   }
 
   function handleOnSubmitIcon(url) {
     setUrlForm(url);
+    setShouldPlay(true)
   }
 
   function toggleMedia(shouldPlay="true"){
