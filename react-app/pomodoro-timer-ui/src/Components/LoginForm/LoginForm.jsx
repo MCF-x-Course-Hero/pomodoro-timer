@@ -11,6 +11,11 @@ export default function LoginForm() {
     username: "",
     password: "",
   });
+  const [passwordShown, setPasswordShown] = React.useState(false);
+
+  const togglePasswordVisiblity = () => {
+    setPasswordShown(passwordShown ? false : true);
+  };
 
   const handleOnInputChange = (event) => {
     if (event.target.name === "username" && event.target.value !== "") {
@@ -76,12 +81,14 @@ export default function LoginForm() {
           <i className="material-symbols-outlined">lock</i>
           <input
             className="form-input"
-            type="password"
+            type={passwordShown ? "text" : "password"}
             name="password"
             placeholder="Password"
             onChange={handleOnInputChange}
             value={form.password}
           />
+           <i onClick={togglePasswordVisiblity} className="material-symbols-outlined">visibility</i>
+
         </div>
       </div>
       <button className="btn" disabled={isLoading} onClick={handleOnSubmit} >
