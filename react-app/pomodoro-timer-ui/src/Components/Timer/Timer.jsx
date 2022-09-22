@@ -162,18 +162,25 @@ export default function Timer() {
   //move the timer forward a session. sets the new session, and resets the timer and expiryTimestamp
   function updateTimer(reset) {
     settingsSetStates.setIsExploding(false);
-    if (settingsStates.session === pomozone) {
+    if(settingsStates.session == pomozone && loops == settingsStates.numSessions) {
+      console.log("entering here");
+      reset ? null : settingsSetStates.setSession(longBreak);
+      reset ? null : settingsSetStates.setTheme(settingsStates.longBreakTheme);
+      expiryTimestamp = reset ? setTime(pomozone) : setTime(longBreak);
+    } else if (settingsStates.session === pomozone) {
       reset ? null : settingsSetStates.setSession(shortBreak);
       expiryTimestamp = reset ? setTime(pomozone) : setTime(shortBreak);
       reset ? null : settingsSetStates.setTheme(settingsStates.shortBreakTheme);
     } else if (settingsStates.session === shortBreak) {
-      reset ? null : settingsSetStates.setSession(longBreak);
-      expiryTimestamp = reset ? setTime(shortBreak) : setTime(longBreak);
-      reset ? null : settingsSetStates.setTheme(settingsStates.longBreakTheme);
+      reset ? null : settingsSetStates.setSession(pomozone);
+      expiryTimestamp = reset ? setTime(shortBreak) : setTime(pomozone);
+      reset ? null : settingsSetStates.setTheme(settingsStates.pomozoneTheme);
+      setLoops(loops + 1);
     } else {
       reset ? null : settingsSetStates.setSession(pomozone);
       expiryTimestamp = reset ? setTime(longBreak) : setTime(pomozone);
       reset ? null : settingsSetStates.setTheme(settingsStates.pomozoneTheme);
+      setLoops(1);
     }
     restart(expiryTimestamp, false);
   }
