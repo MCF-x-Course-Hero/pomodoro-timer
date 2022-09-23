@@ -17,14 +17,20 @@ export const AuthContextProvider = ({ children }) => {
   const [historyOpen, setHistoryOpen] = React.useState(false);
   const [listOpen, setListOpen] = React.useState(false);
   const [aboutOpen, setAboutOpen] = React.useState(false);
-  const [musicOpen, setMusicOpen] = React.useState(false)
+  const [musicOpen, setMusicOpen] = React.useState(false);
   const [deleteUser, setDeleteUser] = React.useState(false);
   const [sessionsList, setSessionsList] = React.useState({});
+
+  // checks if user is logged in or not
   const [loggedIn, setLoggedIn] = React.useState(false);
+  // whether or not show the login form or register form when clicking profile tab
   const [login, setLogin] = React.useState(true);
+  // whether or not show the login form or register form when clicking profile tab
   const [register, setRegister] = React.useState(false);
   const [error, setError] = React.useState({});
+  // it seems a flag for which tab is currently active
   const [active, setActive] = React.useState("");
+
   const [componentName, setComponentName] = React.useState("");
   const { settingsFunctions, settingsStates, settingsSetStates } =
     useSettingsContext();
@@ -45,7 +51,7 @@ export const AuthContextProvider = ({ children }) => {
     aboutOpen,
     componentName,
     active,
-    musicOpen
+    musicOpen,
   };
   const authSetStates = {
     setUser,
@@ -104,23 +110,47 @@ export const AuthContextProvider = ({ children }) => {
   }
 
   function darkModeButton(mode) {
-    if(mode == "default") {
-        settingsSetStates.setDarkToggle(false);
-        if (loggedIn) {
-          settingsSetStates.setPomozoneTheme(settingsStates.userSettings.settings.pcolor);
-          settingsSetStates.setShortBreakTheme(settingsStates.userSettings.settings.sbcolor);
-          settingsSetStates.setLongBreakTheme(settingsStates.userSettings.settings.lbcolor);
-          settingsStates.session === "pomozone" ? settingsSetStates.setTheme(settingsStates.userSettings.settings.pcolor) : null;
-          settingsStates.session === "short-break" ? settingsSetStates.setTheme(settingsStates.userSettings.settings.sbcolor) : null;
-          settingsStates.session === "long-break" ? settingsSetStates.setTheme(settingsStates.userSettings.settings.lbcolor) : null;
-        } else {
-          settingsStates.session === "pomozone" ? settingsSetStates.setTheme(settingsStates.pomozoneTheme) : null;
-          settingsStates.session === "short-break" ? settingsSetStates.setTheme(settingsStates.shortBreakTheme) : null;
-          settingsStates.session === "long-break" ? settingsSetStates.setTheme(settingsStates.longBreakTheme) : null;
-        }
+    if (mode == "default") {
+      settingsSetStates.setDarkToggle(false);
+      if (loggedIn) {
+        settingsSetStates.setPomozoneTheme(
+          settingsStates.userSettings.settings.pcolor
+        );
+        settingsSetStates.setShortBreakTheme(
+          settingsStates.userSettings.settings.sbcolor
+        );
+        settingsSetStates.setLongBreakTheme(
+          settingsStates.userSettings.settings.lbcolor
+        );
+        settingsStates.session === "pomozone"
+          ? settingsSetStates.setTheme(
+              settingsStates.userSettings.settings.pcolor
+            )
+          : null;
+        settingsStates.session === "short-break"
+          ? settingsSetStates.setTheme(
+              settingsStates.userSettings.settings.sbcolor
+            )
+          : null;
+        settingsStates.session === "long-break"
+          ? settingsSetStates.setTheme(
+              settingsStates.userSettings.settings.lbcolor
+            )
+          : null;
+      } else {
+        settingsStates.session === "pomozone"
+          ? settingsSetStates.setTheme(settingsStates.pomozoneTheme)
+          : null;
+        settingsStates.session === "short-break"
+          ? settingsSetStates.setTheme(settingsStates.shortBreakTheme)
+          : null;
+        settingsStates.session === "long-break"
+          ? settingsSetStates.setTheme(settingsStates.longBreakTheme)
+          : null;
+      }
     } else {
-        settingsSetStates.setDarkToggle(true);
-        settingsSetStates.setTheme("dark-mode");
+      settingsSetStates.setDarkToggle(true);
+      settingsSetStates.setTheme("dark-mode");
     }
   }
 
@@ -131,18 +161,16 @@ export const AuthContextProvider = ({ children }) => {
       setListOpen(false);
       setSettingsOpen(false);
       // setMusicOpen(false)
-      
     } else if (tabName == "profile" && profileOpen) {
       setProfileOpen(false);
     }
-    
+
     if (tabName == "settings" && !settingsOpen) {
       setProfileOpen(false);
       setHistoryOpen(false);
       setAboutOpen(false);
       setListOpen(false);
       setSettingsOpen(true);
-      // setMusicOpen(false)
     } else if (tabName == "settings" && settingsOpen) {
       setSettingsOpen(false);
       document.getElementById("settings").classList.remove("active");
@@ -154,8 +182,6 @@ export const AuthContextProvider = ({ children }) => {
       setHistoryOpen(true);
       setListOpen(false);
       setSettingsOpen(false);
-      // setMusicOpen(false)
-
     } else if (tabName == "history" && historyOpen) {
       setHistoryOpen(false);
     }
@@ -166,8 +192,6 @@ export const AuthContextProvider = ({ children }) => {
       setAboutOpen(false);
       setListOpen(true);
       setSettingsOpen(false);
-      // setMusicOpen(false)
-
     } else if (tabName == "todo" && listOpen) {
       setListOpen(false);
     }
@@ -178,13 +202,11 @@ export const AuthContextProvider = ({ children }) => {
       setSettingsOpen(false);
       setListOpen(false);
       setAboutOpen(true);
-      // setMusicOpen(false)
-
     } else if (tabName == "about" && aboutOpen) {
       setAboutOpen(false);
     }
     if (!musicOpen) {
-      setMusicOpen(true)
+      setMusicOpen(true);
       setProfileOpen(false);
       setHistoryOpen(false);
       setSettingsOpen(false);
@@ -195,19 +217,58 @@ export const AuthContextProvider = ({ children }) => {
     /* setting the componentName to the name tabName that was clicked. 
     This way we can conditionally render the appropraite tab based on whats clicked */
     setComponentName(tabName);
-    setActive((active)=>active === tabName ? "" : tabName);
+    setActive((active) => (active === tabName ? "" : tabName));
   }
 
   React.useEffect(() => {
+    // checks if there's a token in local storage
     const token = localStorage.getItem("pomozone_token");
+
+    async function fetchUserWithToken() {
+      const { data, error } = await apiClient.fetchUserFromToken();
+      if (data) {
+        setUser({ ...data.user });
+        settingsFunctions.getUserSettings();
+        console.log("logged in");
+        setLoggedIn(true);
+        setLogin(false);
+        setRegister(false);
+      }
+      if (error) {
+        setError(error);
+        console.log("not logged in");
+        logoutUser();
+      }
+    }
+
     if (token !== "null" && token !== null) {
       apiClient.setToken(token);
-      fetchUserFromToken();
-      setLoggedIn(true);
-      setLogin(false);
-      setRegister(false);
+      fetchUserWithToken();
     }
   }, []);
+
+  React.useEffect(() => {
+    // checks if we got a user from the token
+    // if (!JSON.stringify(user) === '{}'){
+    //   console.log("logged in")
+    //   setLoggedIn(true);
+    //   setLogin(false);
+    //   setRegister(false);
+    // }
+    // else {
+    //   console.log("not logged in")
+    //   setLoggedIn(false)
+    //   setLogin(true);
+    //   setRegister(false);
+    // }
+    // if (JSON.stringify(user) === '{}'){
+    //   console.log("not logged in")
+    //   // setLoggedIn(false)
+    //   // setLogin(true);
+    //   // setRegister(false);
+    //   logoutUser();
+    // }
+  }, [user]);
 
   return (
     <AuthContext.Provider value={{ authStates, authSetStates, authFunctions }}>
