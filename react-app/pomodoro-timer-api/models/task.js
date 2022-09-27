@@ -28,7 +28,7 @@ class Task {
     static async listPendingTask(userInfo){
     /* gets list of tasks that the user has not completed */
         const user = await User.fetchUserByUsername(userInfo.username)
-        const query = `SELECT * FROM userTasks WHERE is_completed = false AND user_id=${user.id};`
+        const query = `SELECT * FROM userTasks WHERE is_completed = false AND user_id=${user.id} ORDER BY created_at DESC;`
         const result = await db.query(query)
         return result.rows
     }
@@ -43,7 +43,13 @@ class Task {
                throw new BadRequestError(`Missing ${field} in request body.`)
            }
        })
-       const query = `UPDATE userTasks SET is_completed = ${!taskInfo.is_completed} WHERE id = ${taskInfo.id} AND user_id = ${userInfo.id};`
+       let query;
+       if(taskInfo.is_completed) {
+            query = `UPDATE userTasks SET is_completed = ${!taskInfo.is_completed} WHERE id = ${taskInfo.id} AND user_id = ${userInfo.id};`
+       } else {
+            query = `UPDATE userTasks SET is_completed = ${!taskInfo.is_completed}, created_at = NOW() WHERE id = ${taskInfo.id} AND user_id = ${userInfo.id};`
+       }
+       
        const result = await db.query(query)
        return result.rows[0];
     }
