@@ -15,6 +15,8 @@ export default function ProfileTab() {
         };
         fetchTotal();
     }, []);
+
+    
     return(
         <div className="profile-tab">
             <h1>Welcome,  {authStates.user.username}!</h1>
