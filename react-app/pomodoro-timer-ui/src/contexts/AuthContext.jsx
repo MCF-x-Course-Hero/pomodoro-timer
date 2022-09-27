@@ -229,14 +229,12 @@ export const AuthContextProvider = ({ children }) => {
       if (data) {
         setUser({ ...data.user });
         settingsFunctions.getUserSettings();
-        console.log("logged in");
         setLoggedIn(true);
         setLogin(false);
         setRegister(false);
       }
       if (error) {
         setError(error);
-        console.log("not logged in");
         logoutUser();
       }
     }
@@ -246,29 +244,6 @@ export const AuthContextProvider = ({ children }) => {
       fetchUserWithToken();
     }
   }, []);
-
-  React.useEffect(() => {
-    // checks if we got a user from the token
-    // if (!JSON.stringify(user) === '{}'){
-    //   console.log("logged in")
-    //   setLoggedIn(true);
-    //   setLogin(false);
-    //   setRegister(false);
-    // }
-    // else {
-    //   console.log("not logged in")
-    //   setLoggedIn(false)
-    //   setLogin(true);
-    //   setRegister(false);
-    // }
-    // if (JSON.stringify(user) === '{}'){
-    //   console.log("not logged in")
-    //   // setLoggedIn(false)
-    //   // setLogin(true);
-    //   // setRegister(false);
-    //   logoutUser();
-    // }
-  }, [user]);
 
   return (
     <AuthContext.Provider value={{ authStates, authSetStates, authFunctions }}>
