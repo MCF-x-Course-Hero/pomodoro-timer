@@ -163,7 +163,6 @@ export default function Timer() {
   function updateTimer(reset) {
     settingsSetStates.setIsExploding(false);
     if(settingsStates.session == pomozone && loops == settingsStates.numSessions) {
-      console.log("entering here");
       reset ? null : settingsSetStates.setSession(longBreak);
       reset ? null : settingsSetStates.setTheme(settingsStates.longBreakTheme);
       expiryTimestamp = reset ? setTime(pomozone) : setTime(longBreak);
