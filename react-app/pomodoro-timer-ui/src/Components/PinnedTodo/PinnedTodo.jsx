@@ -24,9 +24,9 @@ export default function PinnedTodo() {
   }
 
   return (
-    <div style={{transform: "rotate(-5deg)", width: "15em", height: "15em", position: "absolute", right: "50px", zIndex: "3"}}>
+    <div>
       <Draggable offsetParent={document.querySelector(".timer")}>
-        <div className={pinnedTodo.task ? "pinned-task-content" : ""}>
+        <div className={pinnedTodo.task ? "pinned-task-content" : "none"}>
           <div className="sticky">
             {pinnedTodo.task ? <div className="pin" onClick={handlePinButton}>
               <IconButton>
