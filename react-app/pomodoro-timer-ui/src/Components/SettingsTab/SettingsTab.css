@@ -491,3 +491,68 @@
   text-align: center;
   transition: opacity 1s ease;
 }
+
+@media screen and (max-width: 431px) {
+
+  .settings-tab .set-time .time-forms .inputs {
+    height: 256px;
+  }
+
+  .settings-tab .set-time .time-forms .inputs .input-field {
+    padding-left: 0px;
+    margin: 14px 0px 14px 0px;
+  }
+
+  .settings-tab .set-time .time-forms .inputs .time-toggle {
+    padding-left: 15px;
+    margin: 10px 0px 10px 0px;
+  }
+
+  .settings-tab .set-time .time-forms .input-names li{
+    width: 68%;
+  }
+
+  .settings-tab .color-themes .color-palette {
+    height: 95px;
+  }
+
+  .settings-tab .color-themes .color-palette .dot {
+    margin: 5px 15px 5px 15px;
+  }
+
+  .settings-tab .color-themes .content .dark-area p {
+    margin-right: 85px;
+  }
+
+  .settings-tab .notif-area {
+    height: 220px;
+  }
+
+  .settings-tab .notif-area .notif-names p {
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
+
+  .settings-tab .notif-area .notifs label {
+    padding-left: 35px;
+  }
+
+  .settings-tab .notif-area .notifs .ding {
+    flex-direction: column;
+    margin-right: 5px;
+  }
+
+  .settings-tab .update-settings {
+    width: 100%;
+    justify-content: center;
+    align-content: center;
+  }
+
+  .settings-tab .update-settings button {
+    height: 40px;
+    width: 8rem;
+    padding: 6px;
+    font-size: 14px;
+    margin: 0px 8px 0px 8px;
+  }
+}
