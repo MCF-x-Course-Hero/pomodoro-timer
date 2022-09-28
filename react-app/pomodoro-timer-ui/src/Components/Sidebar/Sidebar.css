@@ -27,6 +27,7 @@
 .logo {
     font-size: 24px;
     margin-right: 10px;
+    padding-bottom: 5px;
     margin: 0px;
 }
 
@@ -123,5 +124,11 @@
     }
     .brand, .list-item-text {
         display: none;
+    }
+    .list-item-icon {
+        padding-left: 8px;
+    }
+    .sidebar-bottom .button {
+        margin: 5px 5px 5px 0px;
     }
 }

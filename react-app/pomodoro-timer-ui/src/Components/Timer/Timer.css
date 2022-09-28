@@ -87,3 +87,29 @@
 .timer .content .buttons button:hover {
     background: var(--expanded-sidebar-hover-primary);
 }
+
+@media screen and (max-width: 431px) {
+    .timer .content .timer-area {
+        width: 300px;
+        height: 300px;
+        margin-left: 40px;
+    }
+
+    .timer .content .timer-area .time-reg {
+        font-size: 85px;
+    }
+
+    .timer .content .timer-area .buttons {
+        width: 300px;
+    }
+
+    .timer .content .timer-area .buttons button {
+        height: 50px;
+        width: 80px;
+    }
+
+    .timer .content .timer-area .buttons button img {
+        height: 45px;
+        width: 45px;
+    }
+}
