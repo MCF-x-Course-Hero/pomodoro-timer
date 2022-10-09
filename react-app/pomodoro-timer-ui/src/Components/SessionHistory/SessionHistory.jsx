@@ -1,5 +1,5 @@
 import * as React from "react";
-import apiClient from "../../Services/ApiClient.js";
+import apiClient from "../../Services/ApiClient";
 import { useAuthContext } from "../../contexts/AuthContext";
 import "./SessionHistory.css";
 
