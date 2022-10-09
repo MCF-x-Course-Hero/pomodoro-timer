@@ -1,6 +1,6 @@
 import * as React from "react";
-import { useAuthContext } from "./../../contexts/AuthContext";
-import apiClient from "./../../services/apiClient.js"
+import { useAuthContext } from "../../contexts/AuthContext";
+import apiClient from "../../services/apiClient"
 import "./LoginForm.css";
 
 export default function LoginForm() {
