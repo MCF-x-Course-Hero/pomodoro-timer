@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useAuthContext } from "../../contexts/AuthContext";
 import { useSettingsContext } from "../../contexts/SettingsContext";
-import apiClient from "./../../Services/apiClient"
+import apiClient from "./../../Services/apiClient.js";
 import "./RegisterForm.css";
 
 const MIN_USERNAME_LENGTH = 6
