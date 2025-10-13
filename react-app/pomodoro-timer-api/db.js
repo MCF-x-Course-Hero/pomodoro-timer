@@ -1,15 +1,20 @@
-const { Client } = require("pg")
-const { getDatabaseUri } = require("./config")
-require("colors")
+const { Client } = require("pg");
+const { getDatabaseUri } = require("./config");
+require("colors");
 
-const db = new Client({ connectionString:getDatabaseUri() })
+const db = new Client({
+  connectionString: getDatabaseUri(),
+  ssl: {
+    rejectUnauthorized: false,
+  },
+});
 
 db.connect((err) => {
-    if (err) {
-        console.error("connection error", err.stack)
-    } else {
-        console.log("successfully connected to postgres db!".blue)
-    }
-})
+  if (err) {
+    console.error("connection error", err.stack);
+  } else {
+    console.log("successfully connected to postgres db!".blue);
+  }
+});
 
-module.exports = db
+module.exports = db;
