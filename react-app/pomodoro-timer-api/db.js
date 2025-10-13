@@ -7,6 +7,7 @@ const db = new Client({
   ssl: {
     rejectUnauthorized: false,
   },
+  family: 4,
 });
 
 db.connect((err) => {
