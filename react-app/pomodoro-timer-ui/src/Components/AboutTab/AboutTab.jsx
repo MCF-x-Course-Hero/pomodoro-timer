@@ -1,6 +1,5 @@
 import * as React from "react";
 import "./AboutTab.css";
-import ReactPlayer from "react-player"; 
 
 export default function AboutTab() {
   return (
@@ -26,13 +25,13 @@ export default function AboutTab() {
         </p>
       </div>
       <div className="about-video">
-          <ReactPlayer
+        {/* <ReactPlayer
             width="320"
             url="https://www.youtube.com/embed/ppnPGk36mMY"
             title="YouTube video"
             frameBorder="0"
             allowFullScreen
-          ></ReactPlayer>
+          ></ReactPlayer> */}
       </div>
       <div className="footer">
         <p>
